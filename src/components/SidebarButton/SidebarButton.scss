@@ -1,0 +1,63 @@
+@use '../../global-styles/' as *;
+
+.SidebarButton {
+    padding: 0;
+    margin: 0;
+
+    height: 2.5rem;
+    align-self: stretch;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background-color: $color-gray-700;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.25s;
+
+    &.active,
+    &:hover {
+        background: $color-gray-600;
+    }
+
+    &__content {
+        height: 24px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 12px;
+        padding: 0;
+
+        &__icon {
+            height: 1.5rem;
+            width: 1.5rem;
+            flex-grow: 0;
+            object-fit: contain;
+            color: $color-gray-300;
+        }
+
+        &__label {
+            flex-grow: 0;
+            text-align: left;
+            color: $color-gray-100;
+            @include Text-mdRegular;
+            transition: all 0.5s;
+
+            &.collapsed {
+                margin-left: -25px;
+                opacity: 0;
+            }
+
+            &.expanded {
+                opacity: 1;
+            }
+        }
+    }
+}

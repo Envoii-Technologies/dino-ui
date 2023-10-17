@@ -1,0 +1,14 @@
+@use '../../global-styles/' as *;
+
+.Grid {
+    margin: 0 auto;
+
+    width: 100%;
+
+    padding: $container-padding-mobile;
+    
+    @media only screen and (min-width: $breakpoint-large) {
+        max-width: $container-max-width-desktop;
+        padding: $container-padding-desktop;
+    }
+}

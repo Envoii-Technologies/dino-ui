@@ -1,0 +1,72 @@
+@use '../../global-styles/' as *;
+
+.SidebarInfoBox
+{
+    transition: all 0.5s;
+	background: $color-gray-600;
+    border-radius: 0.5rem;
+    width: 100%;
+    padding: 0.825rem;
+    color: $color-gray-200;
+    @include Text-mdRegular;
+    position: relative;
+    // min-height: 5rem;
+    // aspect-ratio: 1/1;
+
+    &.expanded
+    {
+        min-height: 5rem;
+        width: 100%;
+
+        .SidebarInfoBox__close
+        {
+            transition: all 0.5s 0.5s;
+            opacity: 1;
+        }
+
+        .SidebarInfoBox__info
+        {
+            transition: all 0.5s;
+            opacity: 0;
+        }
+    }
+
+    &.collapsed
+    {
+        width: 2.75rem;
+        min-height: 2.75rem;
+        display: flex;
+        justify-content: center;
+
+        .SidebarInfoBox__close
+        {
+            transition: all 0.25s;
+            opacity: 0;
+        }
+
+        .SidebarInfoBox__info
+        {
+            transition: all 0.5s 0.5s;
+            opacity: 1;
+            color: $color-brand-500;
+            font-size: 1.25rem;
+        }
+    }
+
+    &__close
+    {
+        background: transparent;
+        outline: none;
+        border: none;
+        color: $color-gray-400;
+        position: absolute;
+        top: 1rem;
+        right: 0.75rem;
+        cursor: pointer;
+
+        &:hover
+        {
+            color: $color-gray-200;
+        }
+    }
+}

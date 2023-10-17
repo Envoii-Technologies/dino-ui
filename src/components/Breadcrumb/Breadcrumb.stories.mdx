@@ -1,0 +1,33 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { Breadcrumb } from './Breadcrumb';
+
+export const Template = (args) => (
+	<Breadcrumb { ...args } />
+);
+
+<Meta title='Components/Breadcrumb' component={ Breadcrumb } />
+
+# Breadcrumb
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ Breadcrumb } />

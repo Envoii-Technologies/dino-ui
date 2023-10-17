@@ -1,0 +1,33 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { Sidebar } from './Sidebar';
+
+export const Template = (args) => (
+	<Sidebar { ...args } />
+);
+
+<Meta title='Components/Sidebar' component={ Sidebar } />
+
+# Sidebar
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ Sidebar } />

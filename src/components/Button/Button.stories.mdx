@@ -1,0 +1,227 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { Button } from './Button';
+
+import {
+    faCircle,
+} from '@fortawesome/free-solid-svg-icons';
+
+export const Template = (args) => (
+	<Button { ...args } />
+);
+
+<Meta title='Components/Button' component={ Button } />
+
+# Button
+
+...
+
+## Examples
+
+### Types
+
+<Canvas>
+	<Story
+		name="Primary Button"
+		args={{
+			label: "Example Button",
+			type: "primary",
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story
+		name="Secondary Button"
+		args={{
+			label: "Example Button",
+			type: "secondary",
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story
+		name="Link Button"
+		args={{
+			label: "Example Button",
+			type: "link",
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### States
+
+...
+
+<Canvas>
+	<Story
+		name="Default state"
+		args={{
+			label: "Example Button"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+
+	<Story
+		name="Disabled state"
+		args={{
+			label: "Example Button",
+			disabled: true,
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Sizes
+
+...
+
+<Canvas>
+	<Story
+		name="Medium Size"
+		args={{
+			label: "Example Button",
+			size: "md"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+
+	<Story
+		name="Large Size"
+		args={{
+			label: "Example Button",
+			size: "lg"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Label
+
+...
+
+<Canvas>
+	<Story
+		name="Custom Label"
+		args={{
+			label: "I am a Button!"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Icon
+
+...
+
+<Canvas>
+	<Story
+		name="Custom Left Icon"
+		args={{
+			label: "Example Button",
+			iconLeft: faCircle
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+
+	<Story
+		name="Custom Right Icon"
+		args={{
+			label: "Example Button",
+			iconRight: faCircle
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+
+	<Story
+		name="Custom Icons"
+		args={{
+			label: "Example Button",
+			iconLeft: faCircle,
+			iconRight: faCircle
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+
+	<Story
+		name="Only Icon Button"
+		args={{
+			iconLeft: faCircle,
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Status indication dot
+
+...
+
+<Canvas>
+	<Story
+		name="Status none"
+		args={{
+			label: "Status Example"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+
+	<Story
+		name="Status idle"
+		args={{
+			label: "Status Example",
+			status: "idle"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+
+	<Story
+		name="Status success"
+		args={{
+			label: "Status Example",
+			status: "success"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+
+	<Story
+		name="Status warning"
+		args={{
+			label: "Status Example",
+			status: "warning"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+
+	<Story
+		name="Status error"
+		args={{
+			label: "Status Example",
+			status: "error"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ Button } />

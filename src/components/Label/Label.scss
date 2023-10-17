@@ -1,0 +1,9 @@
+@use '../../global-styles/' as *;
+
+.Label
+{
+	@include Text-smRegular;
+    border-radius: 0.5rem;
+    background: red;
+    padding: 0.375rem;
+}

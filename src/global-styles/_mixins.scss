@@ -1,0 +1,420 @@
+@mixin Display-2xlBold {
+    font-family: DMSans;
+    font-size: 72px;
+    font-weight: bold;
+    line-height: 1.25;
+    letter-spacing: -1.44px;
+}
+@mixin Display-2xlSemibold {
+    font-family: DMSans;
+    font-size: 72px;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -1.44px;
+}
+@mixin Display-2xlMedium {
+    font-family: DMSans;
+    font-size: 72px;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -1.44px;
+}
+@mixin Display-2xlRegular {
+    font-family: DMSans;
+    font-size: 72px;
+    line-height: 1.25;
+    letter-spacing: -1.44px;
+}
+@mixin Display-xlBold {
+    font-family: DMSans;
+    font-size: 60px;
+    font-weight: bold;
+    line-height: 1.2;
+    letter-spacing: -1.2px;
+}
+@mixin Display-xlSemibold {
+    font-family: DMSans;
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -1.2px;
+}
+@mixin Display-xlMedium {
+    font-family: DMSans;
+    font-size: 60px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -1.2px;
+}
+@mixin Display-xlRegular {
+    font-family: DMSans;
+    font-size: 60px;
+    line-height: 1.2;
+    letter-spacing: -1.2px;
+}
+@mixin Display-lgBold {
+    font-family: DMSans;
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 1.25;
+    letter-spacing: -0.96px;
+}
+@mixin Display-lgSemibold {
+    font-family: DMSans;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.96px;
+}
+@mixin Display-lgMedium {
+    font-family: DMSans;
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.96px;
+}
+@mixin Display-lgRegular {
+    font-family: DMSans;
+    font-size: 48px;
+    line-height: 1.25;
+    letter-spacing: -0.96px;
+}
+@mixin Display-mdBold {
+    font-family: DMSans;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1.22;
+    letter-spacing: -0.72px;
+}
+@mixin Display-mdSemibold {
+    font-family: DMSans;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 1.22;
+    letter-spacing: -0.72px;
+}
+@mixin Display-mdMedium {
+    font-family: DMSans;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1.22;
+    letter-spacing: -0.72px;
+}
+@mixin Display-mdRegular {
+    font-family: DMSans;
+    font-size: 36px;
+    line-height: 1.22;
+    letter-spacing: -0.72px;
+}
+@mixin Display-smBold {
+    font-family: DMSans;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 1.27;
+}
+@mixin Display-smSemibold {
+    font-family: DMSans;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1.27;
+}
+@mixin Display-smMedium {
+    font-family: DMSans;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.27;
+}
+@mixin Display-sm-Medium-italic {
+    font-family: DMSans;
+    font-size: 30px;
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.47;
+}
+@mixin Display-smRegular {
+    font-family: DMSans;
+    font-size: 30px;
+    line-height: 1.27;
+}
+@mixin Display-xsBold {
+    font-family: DMSans;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.33;
+}
+@mixin Display-xsSemibold {
+    font-family: DMSans;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.33;
+}
+@mixin Display-xsMedium {
+    font-family: DMSans;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.33;
+}
+@mixin Display-xsMedium-italic {
+    font-family: DMSans;
+    font-size: 24px;
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.5;
+}
+@mixin Display-xsRegular {
+    font-family: DMSans;
+    font-size: 24px;
+    line-height: 1.33;
+}
+@mixin Text-xlBold {
+    font-family: DMSans;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+@mixin Text-xlBold-italic {
+    font-family: DMSans;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 1.5;
+}
+@mixin Text-xlSemibold {
+    font-family: DMSans;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+@mixin Text-xlSemibold-italic {
+    font-family: DMSans;
+    font-size: 20px;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1.5;
+}
+@mixin Text-xlMedium {
+    font-family: DMSans;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+@mixin Text-xlMedium-italic {
+    font-family: DMSans;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.5;
+}
+@mixin Text-xlRegular-italic {
+    font-family: DMSans;
+    font-size: 20px;
+    font-style: italic;
+    line-height: 1.5;
+}
+@mixin Text-xlRegular-underlined {
+    font-family: DMSans;
+    font-size: 20px;
+    line-height: 1.5;
+}
+@mixin Text-xlRegular {
+    font-family: DMSans;
+    font-size: 20px;
+    line-height: 1.5;
+}
+@mixin Text-lgBold {
+    font-family: DMSans;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.56;
+}
+@mixin Text-lgBold-italic {
+    font-family: DMSans;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 1.56;
+}
+@mixin Text-lgSemibold-underlined {
+    font-family: DMSans;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.56;
+}
+@mixin Text-lgSemibold {
+    font-family: DMSans;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.56;
+}
+@mixin Text-lgSemibold-italic {
+    font-family: DMSans;
+    font-size: 18px;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1.56;
+}
+@mixin Text-lgMedium {
+    font-family: DMSans;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.56;
+}
+@mixin Text-lg-Medium-underlined {
+    font-family: DMSans;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.56;
+}
+@mixin Text-lgMedium-italic {
+    font-family: DMSans;
+    font-size: 18px;
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.56;
+}
+@mixin Text-lgRegular-italic {
+    font-family: DMSans;
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.56;
+}
+@mixin Text-lgRegular-underlined {
+    font-family: DMSans;
+    font-size: 18px;
+    line-height: 1.56;
+}
+@mixin Text-lgRegular {
+    font-family: DMSans;
+    font-size: 18px;
+    line-height: 1.56;
+}
+@mixin Text-mdBold {
+    font-family: DMSans;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+@mixin Text-mdBold-italic {
+    font-family: DMSans;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: italic;
+    line-height: 1.5;
+}
+@mixin Text-mdSemibold-underlined {
+    font-family: DMSans;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+@mixin Text-mdSemibold {
+    font-family: DMSans;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+@mixin Text-mdSemibold-italic {
+    font-family: DMSans;
+    font-size: 16px;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1.5;
+}
+@mixin Text-mdMedium {
+    font-family: DMSans;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+@mixin Text-md-Medium-underlined {
+    font-family: DMSans;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+@mixin Text-mdMedium-italic {
+    font-family: DMSans;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.5;
+}
+@mixin Text-mdRegular-italic {
+    font-family: DMSans;
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1.5;
+}
+@mixin Text-mdRegular-underlined {
+    font-family: DMSans;
+    font-size: 16px;
+    line-height: 1.5;
+}
+@mixin Text-mdRegular {
+    font-family: DMSans;
+    font-size: 16px;
+    line-height: 1.5;
+}
+@mixin Text-sm-Bold {
+    font-family: DMSans;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.43;
+}
+@mixin Text-smSemibold-underlined {
+    font-family: DMSans;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.43;
+}
+@mixin Text-smSemibold {
+    font-family: DMSans;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.43;
+}
+@mixin Text-smMedium {
+    font-family: DMSans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.43;
+}
+@mixin Text-sm-Medium-underlined {
+    font-family: DMSans;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.43;
+}
+@mixin Text-smRegular-underlined {
+    font-family: DMSans;
+    font-size: 14px;
+    line-height: 1.43;
+}
+@mixin Text-smRegular {
+    font-family: DMSans;
+    font-size: 14px;
+    line-height: 1.43;
+}
+@mixin Text-xs-Bold {
+    font-family: DMSans;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.5;
+}
+@mixin Text-xsSemibold {
+    font-family: DMSans;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+@mixin Text-xsMedium {
+    font-family: DMSans;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+@mixin Text-xsRegular {
+    font-family: DMSans;
+    font-size: 12px;
+    line-height: 1.5;
+}

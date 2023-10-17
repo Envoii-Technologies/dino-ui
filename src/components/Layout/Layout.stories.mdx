@@ -1,0 +1,33 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { Layout } from './Layout';
+
+export const Template = (args) => (
+	<Layout { ...args } />
+);
+
+<Meta title='Components/Layout' component={ Layout } parameters={{ layout: 'fullscreen' }}/>
+
+# Layout
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ Layout } />

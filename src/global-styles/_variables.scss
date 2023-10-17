@@ -1,0 +1,7 @@
+@import './colors';
+
+$box-shadow-default: 0 1px 2px 0 rgba($color-gray-900, 0.05);
+$box-shadow-focus: 0 0 0 4px rgba($color-gray-500, 0.24);
+$box-shadow-focus-secondary: 0 0 0 4px rgba($color-gray-300, 0.24);
+
+$page-wrapper-line: 0.75rem;

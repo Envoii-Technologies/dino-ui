@@ -1,0 +1,197 @@
+@use '../../global-styles/' as *;
+
+.Button {
+    border-radius: $radius-md;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.625rem 0.875rem;
+    box-shadow: $box-shadow-default;
+    border: 1px solid transparent;
+    cursor: pointer;
+
+    &.md
+    {
+        height: 2.5rem;    
+        
+        &.icon {
+            width: 2.5rem;
+        }
+    }
+
+    &.lg
+    {
+        height: 2.75rem;
+
+        &.icon {
+            width: 2.75rem;
+        }
+    }
+
+
+
+    &__status {
+        display: block;
+        width: 0.5rem;
+        height: 0.5rem;
+        margin-right: 0.25rem;
+        border-radius: 50%;
+        
+        &.idle
+        {
+            background: $color-base-white;
+        }
+        
+        &.success
+        {
+            background: $color-success-500;
+        }
+
+        &.warning
+        {
+            background: $color-warning-500;
+        }
+
+        &.error
+        {
+            background: $color-error-500;
+        }
+    }
+
+    &__icon {
+        &--left,
+        &--right {
+            width: 1rem;
+            height: 1rem;
+        }
+    }
+
+    &__label {
+        flex-grow: 0;
+        text-align: left;
+        @include Text-smSemibold;
+    }
+
+    &.primary
+    {
+        background: $color-gray-600;
+        border-color: $color-gray-600;
+
+        .Button__label
+        {
+            color: $color-base-white;
+        }
+
+        .Button__icon {
+            &--left,
+            &--right {
+                color: $color-base-white;
+            }
+        }
+
+        &:hover {
+            background: $color-gray-700;
+            border-color: $color-gray-700;
+        }
+    
+        &:focus {
+            box-shadow: $box-shadow-focus, $box-shadow-default;
+            outline: none;
+        }
+
+        &:disabled {
+            background: $color-gray-100;
+            border-color: $color-gray-200;
+    
+            .Button__status {
+                &.idle
+                {
+                    background: $color-gray-300;
+                }
+            }
+    
+            .Button__icon {
+                &--left,
+                &--right {
+                    color: $color-gray-400;
+                }
+            }
+    
+            .Button__label {
+                color: $color-gray-400 !important;
+            }
+        }
+    }
+
+    &.secondary
+    {
+        background: $color-base-white;
+        border-color: $color-gray-300;
+
+        .Button__label
+        {
+            color: $color-gray-700;
+        }
+
+        .Button__icon {
+            &--left,
+            &--right {
+                color: $color-gray-700;
+            }
+        }
+
+        &:hover {
+            background: $color-gray-50;
+            border-color: $color-gray-300;
+        }
+    
+        &:focus {
+            box-shadow: $box-shadow-focus-secondary, $box-shadow-default;
+            outline: none;
+        }
+
+        &:disabled {
+            background: $color-base-white;
+            border-color: $color-gray-200;
+    
+            .Button__status {
+                &.idle
+                {
+                    background: $color-gray-300;
+                }
+            }
+    
+            .Button__icon {
+                &--left,
+                &--right {
+                    color: $color-gray-400;
+                }
+            }
+    
+            .Button__label {
+                color: $color-gray-400 !important;
+            }
+        }
+    }
+
+    &.link
+    {
+        box-shadow: inherit;
+        background: transparent;
+        padding: inherit;
+        height: inherit;
+
+        & > *
+        {
+            color: $color-gray-700;
+        }
+
+        &:hover > *
+        {
+            color: $color-gray-800;
+        }
+    }
+}

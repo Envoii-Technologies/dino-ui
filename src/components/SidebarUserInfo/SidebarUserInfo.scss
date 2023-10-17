@@ -1,0 +1,72 @@
+@use '../../global-styles/' as *;
+
+.SidebarUserInfo {
+
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+    position: relative;
+    padding: 24px 0 0 0.25rem;
+    border-top: solid 1px $color-gray-600;
+
+    .Avatar
+    {
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+
+    &.collapsed
+    {
+        .SidebarUserInfo__wrapper
+        {transition: all 0.5s;
+            margin-left: -100px;
+            opacity: 0;
+        }
+    }
+
+    &.expanded
+    {
+        .SidebarUserInfo__wrapper
+        {transition: all 0.5s;
+            margin-left: 0;
+            opacity: 1;
+        }
+    }
+
+    &__wrapper
+    {    display: flex;
+        position: relative;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 16px;
+        
+        &__user {
+            height: 40px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0;
+    
+            &__username {
+                height: 20px;
+                flex-grow: 0;
+                @include Text-smSemibold;
+                color: $color-base-white;
+            }
+    
+            &__email {
+                height: 20px;
+                flex-grow: 0;
+                @include Text-smRegular;
+                color: $color-gray-200;
+            }
+        }
+    }   
+
+    
+}

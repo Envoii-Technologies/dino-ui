@@ -1,0 +1,92 @@
+@use '../../global-styles/' as *;
+
+.Breadcrumb {
+    height: 28px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    &__item {
+        height: 100%;
+        align-items: center;
+
+        &__wrapper {
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+
+            &__text,
+            &__text__link {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                padding: 0 8px;
+            }
+
+            &__text
+            {
+                color: $color-gray-700;
+                @include Text-smSemibold;
+            }
+
+            &__text__link {
+                color: $color-gray-600;
+                @include Text-smMedium;
+                text-decoration: none;
+                cursor: pointer;
+
+                &:hover
+                {
+                    background: $color-gray-50;
+                    border-radius: $radius-sm;
+                }
+            }
+
+            &__chevron {
+                width: 0.5rem;
+                padding: 0 8px 0 16px;
+                color: $color-gray-300;
+            }
+
+            &__home {
+                color: $color-gray-600;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+// &__item
+// {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     background: yellow;
+
+//     &__first
+//     {
+//         color: $color-gray-500;
+//     }
+
+//     &__title
+//     {
+//         &--last
+//         {
+//             text-align: left;
+//             color: $color-gray-700;
+//             @include Text-smSemibold;
+//         }
+
+//         &__link
+//         {
+//             text-align: left;
+//             color: $color-gray-600;
+//             @include Text-smMedium;
+//             text-decoration: none;
+//         }
+//     }
+// }

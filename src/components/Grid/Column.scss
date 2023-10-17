@@ -1,0 +1,29 @@
+@use '../../global-styles/' as *;
+
+.Column {
+    background-color: lightblue;
+    padding: 1rem;
+    flex-grow: 1;
+
+    &.span2 {
+        grid-column: span 2;
+    }
+
+    &.span3 {
+        grid-column: span 3;
+    }
+
+    &.span4 {
+        grid-column: span 4;
+    }
+
+    &.span6 {
+        grid-column: span 6;
+    }
+
+    &.span12 {
+        grid-column: span 12;
+    }
+
+    
+}

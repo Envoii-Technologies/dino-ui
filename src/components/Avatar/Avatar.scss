@@ -1,0 +1,45 @@
+@use '../../global-styles/' as *;
+
+.Avatar {
+    background: #bcbcbc;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: $radius-full;
+    overflow: hidden;
+
+    &.with-image {
+        align-items: flex-start;
+    }
+
+    &__name {
+        color: white;
+        // font-family: $font-family;
+    }
+
+    &__image {
+        width: 100%;
+    }
+
+    &.small {
+        @include Text-xsRegular;
+        // border-radius: 8px;
+        width: 2rem;
+        height: 2rem;
+    }
+
+    &.medium {
+        @include Text-xsRegular;
+        // border-radius: 4px;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    &.large {
+        @include Text-xsRegular;
+        // border-radius: 8px;
+        width: 5rem;
+        height: 5rem;
+    }
+}
