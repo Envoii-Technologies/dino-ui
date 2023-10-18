@@ -1,33 +1,187 @@
-import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import { Badge } from './Badge';
+import { faClose } from '@fortawesome/free-solid-svg-icons';
 
 export const Template = (args) => (
-	<Badge { ...args } />
+  <Badge {...args} />
 );
 
-<Meta title='Components/Badge' component={ Badge } />
+<Meta title='Components/Badge' component={Badge} />
 
 # Badge
 
-...
+The `Badge` component is a versatile element used for displaying labels, statuses, and other information in your application. It can be customized with different colors, sizes, and styles.
 
 ## Examples
 
 ### Default
 
-...
+The "Default" example showcases a basic badge with default settings. It displays a small, gray badge with the label "Default Badge." This is a straightforward way to use the `Badge` component when no specific customizations are needed.
 
 <Canvas>
-	<Story
-		name="Default"
-		args={{
-			
-		}}
-	>
-		{ Template.bind({}) }
-	</Story>
+  <Story
+    name="Default"
+    args={{
+      label: 'Default Badge',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Custom Badge
+
+The "Custom Badge" example demonstrates how you can customize the appearance of the badge. In this case, we have a larger badge with a green "success" color. The pill style is turned off, and the badge has an outline. A "warning" status dot is also displayed.
+
+<Canvas>
+  <Story
+    name="Custom Badge"
+    args={{
+      label: 'Custom Badge',
+      size: 'lg',
+      color: 'success',
+      pill: false,
+      outline: true,
+      status: 'warning',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Color
+
+You can change the color of the badge to match your application's theme. In this example, we've set the color to "brand".
+
+<Canvas>
+  <Story
+    name="Custom Color"
+    args={{
+      label: 'Brand Badge',
+      color: 'brand',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Status Badge
+
+The "Status Badge" example demonstrates how you can use the `status` prop to indicate different statuses. Here, we've set the status to "warning" to display a yellow status dot.
+
+<Canvas>
+  <Story
+    name="Status Badge"
+    args={{
+      label: 'Status Badge',
+      status: 'warning',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Outline Badge
+
+To create an outlined badge, you can set the `outline` prop to `true`. This example showcases an outlined badge.
+
+<Canvas>
+  <Story
+    name="Outline Badge"
+    args={{
+      label: 'Outline Badge',
+      outline: true,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Badge sizes
+
+You can adjust the size of the badge to make it larger if needed. In this example, we've set the size to "lg" to create a larger badge.
+
+<Canvas>
+  <Story
+    name="Small Badge"
+    args={{
+      label: 'Small Badge',
+      size: 'sm',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Medium Badge"
+    args={{
+      label: 'Medium Badge',
+      size: 'md',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Large Badge"
+    args={{
+      label: 'Large Badge',
+      size: 'lg',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Badge with Close Button
+
+In the "Badge with Close Button" example, we've added a close button to the badge, enabling users to dismiss it. When the close button is clicked, an alert is triggered to indicate that the badge has been closed.
+
+<Canvas>
+  <Story
+    name="Badge with Close Button"
+    args={{
+      label: 'Badge with Close',
+	  closable: true,
+      onClose: () => alert('Badge closed'),
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Badge with Custom Class
+
+This example showcases how you can apply a custom class name to the badge to apply additional styling or to integrate it seamlessly with your application's design. Here, we've applied the class "custom-badge" to the badge.
+
+<Canvas>
+  <Story
+    name="Badge with Custom Class"
+    args={{
+      label: 'Custom Class Badge',
+      className: 'custom-badge',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Large Pill Badge
+
+The "Large Pill Badge" example demonstrates the creation of a large, pill-shaped badge with a distinct brand color. This type of badge can be useful for highlighting important information or actions in your application.
+
+<Canvas>
+  <Story
+    name="Large Pill Badge"
+    args={{
+      label: 'Large Pill Badge',
+      size: 'lg',
+      pill: true,
+      color: 'brand',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
 </Canvas>
 
 ## API
 
-<ArgsTable of={ Badge } />
+<ArgsTable of={Badge} />
