@@ -1,0 +1,41 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { ButtonGroup } from './ButtonGroup';
+import { Button } from './../Button'
+import { faGear } from '@fortawesome/free-solid-svg-icons';
+
+export const Template = (args) => (
+	<div style={{ width: "500px", display: "flex"}}>
+	<ButtonGroup { ...args }>
+		<Button label="Example Button 1"/>
+		<Button label="Example Button 2"/>
+		<Button type="secondary" iconLeft={faGear}/>
+	</ButtonGroup>
+	</div>
+);
+
+<Meta title='Components/ButtonGroup' component={ ButtonGroup } />
+
+# ButtonGroup
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ ButtonGroup } />
