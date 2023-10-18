@@ -56,8 +56,8 @@ export const Sidebar = ({ className, isExpanded : propIsExpanded, ...props }) =>
                     </div>
 
                     <Button
-                        className="Sidebar__wrapper__primary__collapse"
-                        iconLeft={isExpanded ? faArrowLeft : faArrowRight}
+                        className={`Sidebar__wrapper__primary__collapse ${isExpanded ? 'expanded' : 'collapsed'}`}
+                        iconLeft={faArrowRight}
                         onClick={toggleExpansion}
                     />
                     <nav className="Sidebar__wrapper__primary__menu">
