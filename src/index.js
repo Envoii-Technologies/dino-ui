@@ -12,3 +12,4 @@ export { Breadcrumb } from './components/Breadcrumb/index.js';
 export { ModalInfoWindow } from './components/ModalInfoWindow/index.js';
 export { ButtonGroup } from './components/ButtonGroup/index.js';
 export { Toggle } from './components/Toggle/index.js';
+export { Checkbox } from './components/Checkbox/index.js';
