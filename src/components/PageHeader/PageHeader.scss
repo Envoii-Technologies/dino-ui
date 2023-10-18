@@ -1,0 +1,40 @@
+@use '../../global-styles/' as *;
+
+.PageHeader
+{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    &__left
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        &__title
+        {
+            align-self: stretch;
+            flex-grow: 0;
+            text-align: left;
+            color: $color-gray-900;
+            @include Display-smSemibold;
+        }
+    
+        &__subtitle
+        {
+            align-self: stretch;
+            flex-grow: 0;
+            text-align: left;
+            color: $color-gray-600;
+            @include Text-mdRegular;
+        }
+    }
+}
+
+
+/*
+ 
+*/
