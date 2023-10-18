@@ -69,7 +69,7 @@ export const ModalInfoWindow = ({
                     </div>
 
                     <div className="ModalInfoWindow__footer">
-                        <ButtonGroup>
+                        <ButtonGroup fluid={true}>
                             <Button
                                 type="secondary"
                                 size="lg"
