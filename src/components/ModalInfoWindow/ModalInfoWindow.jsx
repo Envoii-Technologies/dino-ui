@@ -48,27 +48,27 @@ export const ModalInfoWindow = ({
     return (
         <>
             <div className="modalWrapper">
-                <div className="ModalWindow">
-                    <div className="ModalWindow__header">
+                <div className="ModalInfoWindow">
+                    <div className="ModalInfoWindow__header">
                         <Button
-                            className="ModalWindow__header__close"
+                            className="ModalInfoWindow__header__close"
                             type="tertiary"
                             size="lg"
                             iconLeft={faXmark}
                             onClick={onCancel}
                         />
 
-                        <div className={`ModalWindow__header__icon ${type}`}>
+                        <div className={`ModalInfoWindow__header__icon ${type}`}>
                             <FontAwesomeIcon icon={icon}/>
                         </div>
 
-                        <div className='ModalWindow__header__title'>{title}</div>
+                        <div className='ModalInfoWindow__header__title'>{title}</div>
 
-                        <div className='ModalWindow__header__body'>{body}</div>
+                        <div className='ModalInfoWindow__header__body'>{body}</div>
 
                     </div>
 
-                    <div className="ModalWindow__footer">
+                    <div className="ModalInfoWindow__footer">
                         <ButtonGroup>
                             <Button
                                 type="secondary"
