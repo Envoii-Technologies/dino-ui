@@ -18,6 +18,9 @@ export const SidebarButton = ({
         <Link
             className={`SidebarButton ${isActive ? 'active' : ''}  ${
                 className !== undefined ? className : ''
+            }
+            ${
+                isExpanded ? 'expanded' : 'collapsed'
             }`}
             to={to}
         >
