@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 // import smallLogo from './../../assets/logos/Logo.png';
@@ -9,6 +9,7 @@ import './Sidebar.scss';
 import { SidebarButton } from '../SidebarButton/SidebarButton';
 import { SidebarInfoBox } from '../SidebarInfoBox/SidebarInfoBox';
 import { SidebarUserInfo } from '../SidebarUserInfo/SidebarUserInfo';
+import { Button } from '../Button/Button';
 import { Badge } from './../Badge/Badge';
 import {
     faHouse,
@@ -16,9 +17,21 @@ import {
     faLayerGroup,
     faLifeRing,
     faGear,
+    faArrowLeft,
+    faArrowRight,
 } from '@fortawesome/free-solid-svg-icons';
 
-export const Sidebar = ({ className, isExpanded, ...props }) => {
+export const Sidebar = ({ className, isExpanded : propIsExpanded, ...props }) => {
+    const [isExpanded, setIsExpanded] = useState(propIsExpanded);
+
+    useEffect(() => {
+        setIsExpanded(propIsExpanded);
+    }, [propIsExpanded]);
+
+    const toggleExpansion = () => {
+        setIsExpanded(!isExpanded);
+    };
+
     return (
         <div className={`Sidebar ${className !== undefined ? className : ''}`}>
             <div
@@ -41,6 +54,12 @@ export const Sidebar = ({ className, isExpanded, ...props }) => {
                         )}
                         <Badge className={isExpanded ? 'expanded' : 'collapsed'} label="Editor" size="sm" color="purple" pill={false}/>
                     </div>
+
+                    <Button
+                        className="Sidebar__wrapper__primary__collapse"
+                        iconLeft={isExpanded ? faArrowLeft : faArrowRight}
+                        onClick={toggleExpansion}
+                    />
                     <nav className="Sidebar__wrapper__primary__menu">
                         <SidebarButton
                             isExpanded={isExpanded}
