@@ -1,0 +1,59 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { Divider } from './Divider';
+import { Button } from './../Button';
+
+export const Template = (args) => (
+	<div style={{ width: "500px", display: 'flex' }}>
+		<Divider { ...args }>
+		</Divider>
+	</div>
+);
+
+export const Template2 = (args) => (
+	<div style={{ width: "500px", display: 'flex' }}>
+		<Divider { ...args }>
+			<Button label="Example Button" type="secondary" />
+		</Divider>
+	</div>
+);
+
+<Meta title='Components/Divider' component={ Divider } />
+
+# Divider
+
+The Divider component is a versatile and customizable tool designed to enhance the visual separation of content within your React applications. It serves as a horizontal line that can be easily integrated into your user interfaces to create clear visual distinctions between sections of content.
+
+## Examples
+
+### Default
+
+By default, the Divider will show a single, fixed line between content. 
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Children
+
+When content is provided as children to the component, the divider will appear on both the left and right sides of the component, rather than being a fixed, permanent line.
+<Canvas>
+	<Story
+		name="Children"
+		args={{
+			
+		}}
+	>
+		{ Template2.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ Divider } />
