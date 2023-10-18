@@ -23,6 +23,7 @@ export const Button = ({
 			${size}
 			${type === "primary" ? 'primary' : ''}
 			${type === "secondary" ? 'secondary' : ''}
+			${type === "tertiary" ? 'tertiary' : ''}
 			${type === "link" ? 'link' : ''}
 			${!label ? 'icon' : ''}
 			`}
@@ -76,7 +77,7 @@ Button.propTypes = {
      * status Dot
      */
     status: PropTypes.oneOf(['none', 'idle', 'success', 'warning', 'error']),
-	type: PropTypes.oneOf(['primary', 'secondary', 'link']),
+	type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'link']),
 	size: PropTypes.oneOf(['md', 'lg']),
 };
 

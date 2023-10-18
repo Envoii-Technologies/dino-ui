@@ -177,6 +177,58 @@
         }
     }
 
+    &.tertiary
+    {
+        background: $color-base-white;
+        border-color: transparent;
+        box-shadow: none;
+        border-radius: 0;
+
+        .Button__label
+        {
+            color: $color-gray-700;
+        }
+
+        .Button__icon {
+            &--left,
+            &--right {
+                color: $color-gray-700;
+            }
+        }
+
+        &:hover {
+            background: $color-gray-50;
+            border-color: transparent;
+        }
+    
+        &:focus {
+            outline: none;
+        }
+
+        &:disabled {
+            background: $color-base-white;
+            border-color: transparent;
+    
+            .Button__status {
+                &.idle
+                {
+                    background: $color-gray-300;
+                }
+            }
+    
+            .Button__icon {
+                &--left,
+                &--right {
+                    color: $color-gray-400;
+                }
+            }
+    
+            .Button__label {
+                color: $color-gray-400 !important;
+            }
+        }
+    }
+
     &.link
     {
         box-shadow: inherit;
