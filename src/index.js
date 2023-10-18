@@ -14,3 +14,4 @@ export { ButtonGroup } from './components/ButtonGroup/index.js';
 export { Toggle } from './components/Toggle/index.js';
 export { Checkbox } from './components/Checkbox/index.js';
 export { Divider } from './components/Divider/index.js';
+export { PageHeader } from './components/PageHeader/index.js';

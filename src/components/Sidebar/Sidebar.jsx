@@ -39,7 +39,7 @@ export const Sidebar = ({ className, isExpanded, ...props }) => {
                                 className="Sidebar__wrapper__primary__brand--logo"
                             />
                         )}
-                        <Badge className={isExpanded ? 'expanded' : 'collapsed'} label="Editor" />
+                        <Badge className={isExpanded ? 'expanded' : 'collapsed'} label="Editor" size="sm" color="purple" pill={false}/>
                     </div>
                     <nav className="Sidebar__wrapper__primary__menu">
                         <SidebarButton

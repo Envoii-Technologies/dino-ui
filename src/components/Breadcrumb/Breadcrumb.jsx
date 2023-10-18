@@ -34,12 +34,12 @@ export const Breadcrumb = ({ className, location, ...props }) => {
                             </Link>
                         )}
                         {last && (
-                            <div className="Breadcrumb__item__wrapper">
+                            <div className="Breadcrumb__item__wrapper ">
 								 <FontAwesomeIcon
                                     className="Breadcrumb__item__wrapper__chevron"
                                     icon={faChevronRight}
                                 />
-								<div className='Breadcrumb__item__wrapper__text'>
+								<div className='Breadcrumb__item__wrapper__text last'>
 									{ path }
 								</div>
 							</div>
