@@ -8,10 +8,21 @@
     bottom: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     z-index: 10000;
     background: rgba($color-gray-950, 0.7);
     backdrop-filter: blur(5px);
+    
+    
+    &.fadeIn
+    {
+        @include Animation-FadeIn;
+    }
+
+    &.fadeOut
+    {
+        @include Animation-FadeOut;
+    }
 }
 
 .ModalInfoWindow {
@@ -29,6 +40,17 @@
     z-index: 20000;
     position: relative;
     box-shadow: $box-shadow-modal;
+    margin: 0 1rem 5rem 1rem;
+    
+    &.fadeIn
+    {
+        @include Animation-SlideIn;
+    }
+
+    &.fadeOut
+    {
+        @include Animation-SlideOut;
+    }
 
     &__header {
         flex-grow: 1;
@@ -96,3 +118,4 @@
         align-items: flex-end;
     }
 }
+

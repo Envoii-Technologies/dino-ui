@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { faRocket, faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -22,11 +22,23 @@ export const ModalInfoWindow = ({
     cancelText,
     ...props
 }) => {
+    const [fadeOut, setFadeOut ] = useState(false);
+
+    const handleShowDelay = () => 
+    {
+        setFadeOut(true);
+
+        setTimeout(() => {
+            onCancel();
+            setFadeOut(false);
+        }, 500); 
+    }
+
     useEffect(() => {
         const handleKeyEvent = (e) => {
             if (show) {
                 if (e.keyCode === 27) {
-                    onCancel();
+                    handleShowDelay();
                 }
                 if (e.keyCode === 13) {
                     onAction();
@@ -47,25 +59,30 @@ export const ModalInfoWindow = ({
 
     return (
         <>
-            <div className="modalWrapper">
-                <div className="ModalInfoWindow">
+            <div className={`modalWrapper ${fadeOut ? 'fadeOut' : 'fadeIn'}`}>
+                <div className={`ModalInfoWindow ${fadeOut ? 'fadeOut' : 'fadeIn'}`}>
                     <div className="ModalInfoWindow__header">
                         <Button
                             className="ModalInfoWindow__header__close"
                             type="tertiary"
                             size="lg"
                             iconLeft={faXmark}
-                            onClick={onCancel}
+                            onClick={handleShowDelay}
                         />
 
-                        <div className={`ModalInfoWindow__header__icon ${type}`}>
-                            <FontAwesomeIcon icon={icon}/>
+                        <div
+                            className={`ModalInfoWindow__header__icon ${type}`}
+                        >
+                            <FontAwesomeIcon icon={icon} />
                         </div>
 
-                        <div className='ModalInfoWindow__header__title'>{title}</div>
+                        <div className="ModalInfoWindow__header__title">
+                            {title}
+                        </div>
 
-                        <div className='ModalInfoWindow__header__body'>{body}</div>
-
+                        <div className="ModalInfoWindow__header__body">
+                            {body}
+                        </div>
                     </div>
 
                     <div className="ModalInfoWindow__footer">
@@ -74,7 +91,7 @@ export const ModalInfoWindow = ({
                                 type="secondary"
                                 size="lg"
                                 label={cancelText}
-                                onClick={onCancel}
+                                onClick={handleShowDelay}
                             />
                             {onAction && (
                                 <Button
@@ -99,7 +116,7 @@ ModalInfoWindow.propTypes = {
     className: PropTypes.string,
     show: PropTypes.bool,
     title: PropTypes.string,
-    type: PropTypes.oneOf(["success", "warning", "error"]),
+    type: PropTypes.oneOf(['success', 'warning', 'error']),
     icon: PropTypes.any,
     body: PropTypes.string,
     onCancel: PropTypes.func,
@@ -109,7 +126,7 @@ ModalInfoWindow.defaultProps = {
     className: undefined,
     show: false,
     title: 'Default Title',
-    type: "warning",
+    type: 'warning',
     icon: faRocket,
     body: 'Example text...',
     onAction: undefined,
