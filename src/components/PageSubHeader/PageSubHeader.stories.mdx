@@ -1,0 +1,33 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { PageSubHeader } from './PageSubHeader';
+
+export const Template = (args) => (
+	<PageSubHeader { ...args } />
+);
+
+<Meta title='Components/PageSubHeader' component={ PageSubHeader } />
+
+# PageSubHeader
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ PageSubHeader } />
