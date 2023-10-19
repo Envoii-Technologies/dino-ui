@@ -71,49 +71,5 @@ Breadcrumb.propTypes = {
 
 Breadcrumb.defaultProps = {
     className: undefined,
-    location: '/wkw/Karten/Hydraulikpresse',
+    location: '/acme/Karten/Hydraulikpresse',
 };
-
-/**
- <div key={i} className="Breadcrumb__item">
-                        {last ? (
-                            <span
-                                className="Breadcrumb__item__title--last"
-                                key={to}
-                            >
-                                <FontAwesomeIcon
-                                    className="Breadcrumb__item__title--last--chevron"
-                                    icon={faChevronRight}
-                                />
-                                {path}
-                            </span>
-                        ) :
-						first ? (
-							<span className="Breadcrumb__item__title" key={to}>
-                                <a
-                                    className="Breadcrumb__item__first"
-                                    href={to}
-                                >
-									<FontAwesomeIcon
-                                    className="Breadcrumb__item__first--icon"
-                                    icon={faHouse}
-                                />
-                                </a>
-                            </span>
-						) :
-						 (
-                            <span className="Breadcrumb__item__title" key={to}>
-                                <FontAwesomeIcon
-                                    className="Breadcrumb__item__title--chevron"
-                                    icon={faChevronRight}
-                                />
-                                <a
-                                    className="Breadcrumb__item__title__link"
-                                    href={to}
-                                >
-                                    {path}
-                                </a>
-                            </span>
-                        )}
-                    </div>
- */
