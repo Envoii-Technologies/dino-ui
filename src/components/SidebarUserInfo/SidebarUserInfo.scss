@@ -37,7 +37,7 @@
     }
 
     &__wrapper
-    {    display: flex;
+    {   display: flex;
         position: relative;
         flex-direction: row;
         justify-content: flex-start;
@@ -62,7 +62,16 @@
             &__email {
                 height: 20px;
                 flex-grow: 0;
-                max-width: 8.5rem;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+
+                max-width: 7rem;
+
+                @media only screen and (min-width: $breakpoint-medium) {
+                    max-width: 8.5rem;
+                }
+                
                 @include Text-smRegular;
                 color: $color-gray-200;
             }

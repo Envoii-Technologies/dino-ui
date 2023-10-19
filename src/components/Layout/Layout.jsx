@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { PageHeader, PageWrapper, Sidebar } from './../../';
+import { Button, PageWrapper, Sidebar } from './../../';
+
+import logoFullLight from './../../assets/logos/Logo_Full-light.svg';
 
 import './Layout.scss';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 export const Layout = ({
     className,
@@ -13,15 +16,33 @@ export const Layout = ({
     onLogoutAction,
     ...props
 }) => {
-	const handleLogoutAction = () => {
-		onLogoutAction();
-	}
+    const [openMobileMenu, setOpenMobileMenu] = useState(false);
+
+    const handleLogoutAction = () => {
+        onLogoutAction();
+    };
+
+    const handleOpenMenu = () => {
+        setOpenMobileMenu(!openMobileMenu);
+    }
+
+
     return (
         <>
             <div
                 className={`Layout ${className !== undefined ? className : ''}`}
             >
-                <Sidebar isExpanded={isExpanded} userData={userData} onLogoutAction={handleLogoutAction} />
+                <div className="Layout__mobile__header">
+                    <img
+                        src={logoFullLight}
+                        className="Layout__mobile__header__brand"
+                    />
+                    <Button size="sm" iconLeft={faBars} onClick={handleOpenMenu}/>
+                </div>
+                {
+                    
+                }
+                <Sidebar isExpanded={isExpanded} userData={userData} onLogoutAction={handleLogoutAction} handleMobileOpen={openMobileMenu} mobileCloseAction={() => setOpenMobileMenu(false)}/>
                 <PageWrapper>{children}</PageWrapper>
             </div>
         </>

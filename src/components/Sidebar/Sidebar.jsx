@@ -17,9 +17,18 @@ import {
     faLifeRing,
     faGear,
     faArrowRight,
+    faClose,
 } from '@fortawesome/free-solid-svg-icons';
 
-export const Sidebar = ({ className, isExpanded : propIsExpanded, userData, onLogoutAction, ...props }) => {
+export const Sidebar = ({
+    className,
+    isExpanded: propIsExpanded,
+    userData,
+    onLogoutAction,
+    handleMobileOpen,
+    mobileCloseAction,
+    ...props
+}) => {
     const [isExpanded, setIsExpanded] = useState(propIsExpanded);
 
     useEffect(() => {
@@ -32,10 +41,14 @@ export const Sidebar = ({ className, isExpanded : propIsExpanded, userData, onLo
 
     const handleLogoutAction = () => {
         onLogoutAction();
+    };
+
+    const handleMobileClose = () => {
+        mobileCloseAction();
     }
 
     return (
-        <div className={`Sidebar ${className !== undefined ? className : ''}`}>
+        <div className={`Sidebar ${className !== undefined ? className : ''} ${handleMobileOpen ? 'mobileOpen' : 'mobileClosed'}`}>
             <div
                 className={`Sidebar__wrapper ${
                     isExpanded ? 'expanded' : 'collapsed'
@@ -54,11 +67,19 @@ export const Sidebar = ({ className, isExpanded : propIsExpanded, userData, onLo
                                 className="Sidebar__wrapper__primary__brand--logo"
                             />
                         )}
-                        <Badge className={isExpanded ? 'expanded' : 'collapsed'} label="Editor" size="sm" color="purple" pill={false}/>
+                        <Badge
+                            className={isExpanded ? 'expanded' : 'collapsed'}
+                            label="Editor"
+                            size="sm"
+                            color="purple"
+                            pill={false}
+                        />
                     </div>
 
                     <Button
-                        className={`Sidebar__wrapper__primary__collapse ${isExpanded ? 'expanded' : 'collapsed'}`}
+                        className={`Sidebar__wrapper__primary__collapse ${
+                            isExpanded ? 'expanded' : 'collapsed'
+                        }`}
                         iconLeft={faArrowRight}
                         onClick={toggleExpansion}
                     />
@@ -99,11 +120,17 @@ export const Sidebar = ({ className, isExpanded : propIsExpanded, userData, onLo
                             to="/acme/settings"
                         />
                     </nav>
-                    {
-                        userData && <SidebarUserInfo isExpanded={isExpanded} userData={userData} onLogoutAction={handleLogoutAction} />
-                    }
-                    
+                    {userData && (
+                        <SidebarUserInfo
+                            isExpanded={isExpanded}
+                            userData={userData}
+                            onLogoutAction={handleLogoutAction}
+                        />
+                    )}
                 </div>
+            </div>
+            <div className="Sidebar__mobile__close">
+                <Button iconLeft={faClose} onClick={() => handleMobileClose()} />
             </div>
         </div>
     );
