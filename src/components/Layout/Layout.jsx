@@ -21,16 +21,21 @@ export const Layout = ({
 
     const handleOpenMenu = () => {
         setOpenMobileMenu(!openMobileMenu);
-    }
-
+    };
 
     return (
         <>
             <div
                 className={`Layout ${className !== undefined ? className : ''}`}
             >
-                <MobilePageHeader onOpenMenu={handleOpenMenu}/>
-                <Sidebar isExpanded={isExpanded} userData={userData} onLogoutAction={handleLogoutAction} handleMobileOpen={openMobileMenu} mobileCloseAction={() => setOpenMobileMenu(false)}/>
+                <MobilePageHeader onOpenMenu={handleOpenMenu} />
+                <Sidebar
+                    isExpanded={isExpanded}
+                    userData={userData}
+                    onLogoutAction={handleLogoutAction}
+                    handleMobileOpen={openMobileMenu}
+                    mobileCloseAction={() => setOpenMobileMenu(false)}
+                />
                 <PageWrapper>{children}</PageWrapper>
             </div>
         </>
