@@ -10,7 +10,7 @@ import placeholderAvatar from './../../assets/images/testuser.png'
 
 import './SidebarUserInfo.scss';
 
-export const SidebarUserInfo = ({ className, isExpanded, ...props }) => {
+export const SidebarUserInfo = ({ className, isExpanded, userData, onLogoutAction, ...props }) => {
     return (
         <div
             className={`SidebarUserInfo ${
@@ -21,16 +21,17 @@ export const SidebarUserInfo = ({ className, isExpanded, ...props }) => {
             <div className="SidebarUserInfo__wrapper">
                 <div className="SidebarUserInfo__wrapper__user">
                     <span className="SidebarUserInfo__wrapper__user__username">
-                        Max Mustermann
+                        { userData.firstname } { userData.lastname }
                     </span>
                     <span className="SidebarUserInfo__wrapper__user__email">
-                        max@example.com
+                        { userData.email }
                     </span>
                 </div>
                 <Button
                     className="SidebarUserInfo__wrapper__signOut"
                     type="primary"
                     iconLeft={faSignOut}
+                    onClick={onLogoutAction}
                 />
             </div>
         </div>

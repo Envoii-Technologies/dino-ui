@@ -7,7 +7,6 @@ import logoFullLight from './../../assets/logos/Logo_Full-light.svg';
 
 import './Sidebar.scss';
 import { SidebarButton } from '../SidebarButton/SidebarButton';
-import { SidebarInfoBox } from '../SidebarInfoBox/SidebarInfoBox';
 import { SidebarUserInfo } from '../SidebarUserInfo/SidebarUserInfo';
 import { Button } from '../Button/Button';
 import { Badge } from './../Badge/Badge';
@@ -17,11 +16,10 @@ import {
     faLayerGroup,
     faLifeRing,
     faGear,
-    faArrowLeft,
     faArrowRight,
 } from '@fortawesome/free-solid-svg-icons';
 
-export const Sidebar = ({ className, isExpanded : propIsExpanded, ...props }) => {
+export const Sidebar = ({ className, isExpanded : propIsExpanded, userData, onLogoutAction, ...props }) => {
     const [isExpanded, setIsExpanded] = useState(propIsExpanded);
 
     useEffect(() => {
@@ -31,6 +29,10 @@ export const Sidebar = ({ className, isExpanded : propIsExpanded, ...props }) =>
     const toggleExpansion = () => {
         setIsExpanded(!isExpanded);
     };
+
+    const handleLogoutAction = () => {
+        onLogoutAction();
+    }
 
     return (
         <div className={`Sidebar ${className !== undefined ? className : ''}`}>
@@ -66,16 +68,19 @@ export const Sidebar = ({ className, isExpanded : propIsExpanded, ...props }) =>
                             label="Dashboard"
                             isActive={true}
                             icon={faHouse}
+                            to="/acme/"
                         />
                         <SidebarButton
                             isExpanded={isExpanded}
                             label="Karten"
                             icon={faLayerGroup}
+                            to="/acme/cards"
                         />
                         <SidebarButton
                             isExpanded={isExpanded}
                             label="Medien"
                             icon={faImage}
+                            to="/acme/media"
                         />
                     </nav>
                 </div>
@@ -85,15 +90,19 @@ export const Sidebar = ({ className, isExpanded : propIsExpanded, ...props }) =>
                             isExpanded={isExpanded}
                             label="Hilfe"
                             icon={faLifeRing}
+                            to="/acme/docs"
                         />
                         <SidebarButton
                             isExpanded={isExpanded}
                             label="Einstellungen"
                             icon={faGear}
+                            to="/acme/settings"
                         />
                     </nav>
-                    {/* <SidebarInfoBox isExpanded={isExpanded} /> */}
-                    <SidebarUserInfo isExpanded={isExpanded} />
+                    {
+                        userData && <SidebarUserInfo isExpanded={isExpanded} userData={userData} onLogoutAction={handleLogoutAction} />
+                    }
+                    
                 </div>
             </div>
         </div>
