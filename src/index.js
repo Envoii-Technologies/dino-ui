@@ -17,3 +17,4 @@ export { Divider } from './components/Divider/index.js';
 export { PageHeader } from './components/PageHeader/index.js';
 export { PageSubHeader } from './components/PageSubHeader/index.js';
 export { Icon } from './components/Icon/index.js';
+export { MobilePageHeader } from './components/MobilePageHeader/index.js';
