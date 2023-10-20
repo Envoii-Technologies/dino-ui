@@ -21,3 +21,4 @@ export { PageSubHeader } from './components/PageSubHeader/index.js';
 export { Icon } from './components/Icon/index.js';
 export { MobilePageHeader } from './components/MobilePageHeader/index.js';
 export { Input } from './components/Input/index.js';
+export { PopOver } from './components/PopOver/PopOver.jsx';
