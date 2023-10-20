@@ -15,6 +15,7 @@ export const Input = ({
     type,
     metaLabel,
     metaPosition,
+    autoFocus,
     ...props
 }) => {
     return (
@@ -48,6 +49,8 @@ export const Input = ({
                         className="Input__wrapper__input"
                         placeholder={placeholder}
                         disabled={disabled}
+                        autoFocus={autoFocus}
+                        {...props}
                     />
 					{metaLabel && metaPosition === "right" && (
                         <div className="Input__wrapper__input__metaLabel right">
