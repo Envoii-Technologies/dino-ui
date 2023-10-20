@@ -12,14 +12,14 @@ export const Template = (args) => {
     		<Button label="Show ModalInfoWindow" onClick={() => setShowWindow(true)} />
 		  	<ModalInfoWindow 
 				{ ...args }
-				show={showWindow} 
+				show={showWindow}
 				onCancel={() => setShowWindow(false)} 
 			/>
         </>
     );
 };
 
-<Meta title='Components/ModalInfoWindow' component={ ModalInfoWindow } />
+<Meta title='Components/ModalInfoWindow' component={ ModalInfoWindow }  parameters={{ layout: 'fullscreen' }}/>
 
 # ModalInfoWindow
 

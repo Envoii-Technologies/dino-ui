@@ -6,9 +6,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 export const Template = (args) => (
-	<div style={{ width: "500px", display: "flex" }}>
 		<Input { ...args } />
-	</div>
 );
 
 <Meta title='Components/Input' component={ Input } />
@@ -141,6 +139,24 @@ export const Template = (args) => (
 			icon: faEnvelope,
 			label: "Email",
 			placeholder: "Geben Sie ihre Email Adresse ein"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Tooltip
+
+...
+
+<Canvas>
+	<Story
+		name="Tooltip"
+		args={{
+			icon: faEnvelope,
+			label: "Email",
+			placeholder: "Geben Sie ihre Email Adresse ein",
+			tooltipText: "Help is on the way!"
 		}}
 	>
 		{ Template.bind({}) }

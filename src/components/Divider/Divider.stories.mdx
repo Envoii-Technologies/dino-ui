@@ -3,18 +3,14 @@ import { Divider } from './Divider';
 import { Button } from './../Button';
 
 export const Template = (args) => (
-	<div style={{ width: "500px", display: 'flex' }}>
 		<Divider { ...args }>
 		</Divider>
-	</div>
 );
 
 export const Template2 = (args) => (
-	<div style={{ width: "500px", display: 'flex' }}>
 		<Divider { ...args }>
 			<Button label="Example Button" type="secondary" />
 		</Divider>
-	</div>
 );
 
 <Meta title='Components/Divider' component={ Divider } />

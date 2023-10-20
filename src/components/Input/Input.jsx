@@ -2,12 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Input.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleQuestion } from '@fortawesome/free-regular-svg-icons';
+import { PopOver } from '../PopOver/PopOver';
 
 export const Input = ({
     className,
     name,
     label,
     hint,
+    tooltipText,
     placeholder,
     disabled,
     error,
@@ -33,7 +36,7 @@ export const Input = ({
                         error ? 'error' : ''
                     }`}
                 >
-					{metaLabel && metaPosition === "left" && (
+                    {metaLabel && metaPosition === 'left' && (
                         <div className="Input__wrapper__input__metaLabel left">
                             <span>{metaLabel}</span>
                         </div>
@@ -44,15 +47,28 @@ export const Input = ({
                             icon={icon}
                         />
                     )}
-                    <input
-                        type={ type === "text" && "text" || type === "password" && "password"}
-                        className="Input__wrapper__input"
-                        placeholder={placeholder}
-                        disabled={disabled}
-                        autoFocus={autoFocus}
-                        {...props}
-                    />
-					{metaLabel && metaPosition === "right" && (
+                    <div className='Input__wrapper__input'>
+                        <input
+                            type={
+                                (type === 'text' && 'text') ||
+                                (type === 'password' && 'password')
+                            }
+                            className="Input__wrapper__input__main"
+                            placeholder={placeholder}
+                            disabled={disabled}
+                            autoFocus={autoFocus}
+                            {...props}
+                        />
+                        {
+                            tooltipText && (
+                               <PopOver className='Input__wrapper__input__help' content={tooltipText} position="bottom-center">
+                                    <FontAwesomeIcon icon={faCircleQuestion} />
+                                </PopOver>
+                            )
+                        }
+                        
+                    </div>
+                    {metaLabel && metaPosition === 'right' && (
                         <div className="Input__wrapper__input__metaLabel right">
                             <span>{metaLabel}</span>
                         </div>

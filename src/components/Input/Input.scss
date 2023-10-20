@@ -24,12 +24,10 @@
         border-radius: $radius-md;
         // gap: 8px;
 
-        &__icon
-        {
+        &__icon {
             padding-left: $spacing-lg;
             color: $color-gray-500;
         }
-
 
         &.error {
             border-color: $color-error-300;
@@ -50,31 +48,46 @@
         }
 
         &__input {
-            padding: $spacing-md $spacing-lg;
-            background: transparent;
+            display: flex;
+            align-items: center;
             flex-grow: 1;
-            text-align: left;
-            border: none;
+            justify-content: space-between;
 
-            color: $color-gray-900;
-            @include Text-mdRegular;
+            &__main {
+                padding: $spacing-md $spacing-lg;
+                background: transparent;
+                flex-grow: 1;
+                text-align: left;
+                border: none;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
 
-            &:focus {
-                outline: none;
-            }
-
-            &::placeholder {
-                color: $color-gray-500;
+                color: $color-gray-900;
                 @include Text-mdRegular;
+
+                &:focus {
+                    outline: none;
+                }
+
+                &::placeholder {
+                    color: $color-gray-500;
+                    @include Text-mdRegular;
+                }
+
+                &:disabled {
+                    background: $color-gray-50;
+                    color: $color-gray-500;
+                }
             }
 
-            &:disabled {
-                background: $color-gray-50;
-                color: $color-gray-500;
-            }
-
-            &__metaLabel
+            &__help
             {
+                color: $color-gray-300;
+                margin-right: 0.75rem;
+            }
+
+            &__metaLabel {
                 height: 100%;
                 flex-grow: 0;
                 display: flex;
@@ -87,13 +100,11 @@
                 color: $color-gray-700;
                 @include Text-smSemibold;
 
-                &.left
-                {
+                &.left {
                     border-right: solid 1px $color-gray-300;
                 }
 
-                &.right
-                {
+                &.right {
                     border-left: solid 1px $color-gray-300;
                 }
             }
