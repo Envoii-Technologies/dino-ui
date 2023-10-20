@@ -1,14 +1,6 @@
 @use '../../global-styles/' as *;
 
 .TenantLogin {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding-left: $spacing-xl;
-    padding-right: $spacing-xl;
-
     &__content {
         margin-top: $spacing-6xl;
 

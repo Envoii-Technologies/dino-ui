@@ -1,15 +1,9 @@
 @use '../../global-styles/' as *;
 
-.UserLogin {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding-left: $spacing-xl;
-    padding-right: $spacing-xl;
-
-    &__content {
+.UserLogin
+{
+    &__content
+    {
         margin-top: $spacing-6xl;
 
         @media only screen and (min-width: $breakpoint-medium) {

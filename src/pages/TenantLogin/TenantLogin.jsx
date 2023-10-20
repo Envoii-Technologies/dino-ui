@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import {
     Button,
     Input,
+    Grid,
+    Row,
+    Column,
 } from './../../';
 
 import LogoIcon from './../../assets/logos/Logo_Icon-dark.svg';
@@ -46,7 +49,10 @@ export const TenantLogin = ({ error, eventLink, action, isInFocus, ...props }) =
     };
 
     return (
-        <div className="TenantLogin">
+        <>
+        <Grid withPadding={false}>
+        <Row>
+        <Column span={4} spacing={5}>
             <div className="TenantLogin__content">
                 <div className="TenantLogin__content__header">
                     <img
@@ -81,7 +87,10 @@ export const TenantLogin = ({ error, eventLink, action, isInFocus, ...props }) =
                     </p>
                 </div>
             </div>
-        </div>
+            </Column>
+            </Row>
+        </Grid>
+        </>
     );
 };
 
