@@ -2,9 +2,7 @@
 
 .Row {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
     gap: $container-padding-desktop;
-    background: red;
 
     @media only screen and (min-width: $breakpoint-medium) {
         grid-template-columns: repeat(6, 1fr);

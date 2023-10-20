@@ -1,28 +1,93 @@
 @use '../../global-styles/' as *;
 
 .Column {
-    background-color: lightblue;
     padding: 1rem;
     flex-grow: 1;
 
-    &.span2 {
-        grid-column: span 2;
-    }
+    width: 100%;
 
-    &.span3 {
-        grid-column: span 3;
-    }
+   
 
-    &.span4 {
-        grid-column: span 4;
-    }
-
-    &.span6 {
-        grid-column: span 6;
-    }
-
-    &.span12 {
-        grid-column: span 12;
+    @media only screen and (min-width: $breakpoint-large) {
+        &.span-2 {
+            grid-column-end: span 2;
+        }
+    
+        &.span-3 {
+            grid-column-end: span 3;
+        }
+    
+        &.span-4 {
+            grid-column-end: span 4;
+        }
+    
+        &.span-6 {
+            grid-column-end: span 6;
+        }
+    
+        &.span-12 {
+            grid-column-end: span 12;
+        }
+    
+        &.spacing-1
+        {
+            grid-column-start: 1;
+        }
+    
+        &.spacing-2
+        {
+            grid-column-start: 2;
+        }
+    
+        &.spacing-3
+        {
+            grid-column-start: 3;
+        }
+    
+        &.spacing-4
+        {
+            grid-column-start: 4;
+        }
+    
+        &.spacing-5
+        {
+            grid-column-start: 5;
+        }
+    
+        &.spacing-6
+        {
+            grid-column-start: 6;
+        }
+    
+        &.spacing-7
+        {
+            grid-column-start: 7;
+        }
+    
+        &.spacing-8
+        {
+            grid-column-start: 8;
+        }
+    
+        &.spacing-9
+        {
+            grid-column-start: 9;
+        }
+    
+        &.spacing-10
+        {
+            grid-column-start: 10;
+        }
+    
+        &.spacing-11
+        {
+            grid-column-start: 11;
+        }
+    
+        &.spacing-12
+        {
+            grid-column-start: 12;
+        }
     }
 
     

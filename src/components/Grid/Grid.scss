@@ -3,12 +3,27 @@
 .Grid {
     margin: 0 auto;
 
-    width: 100%;
+    @media only screen and (max-width: $breakpoint-medium) {
+        width: 100%;
+    }
 
-    padding: $container-padding-mobile;
-    
+    @media only screen and (min-width: $breakpoint-medium) {
+        max-width: $paragraph-max-width;
+    }
+
     @media only screen and (min-width: $breakpoint-large) {
         max-width: $container-max-width-desktop;
-        padding: $container-padding-desktop;
     }
+    
+    &.padded
+    {
+        padding: $container-padding-mobile;
+    
+        @media only screen and (min-width: $breakpoint-large) {
+            max-width: $container-max-width-desktop;
+            padding: $container-padding-desktop;
+        }
+    }
+
+    
 }

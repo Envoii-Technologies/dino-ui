@@ -92,7 +92,8 @@ export const DefaultTemplate1 = (args) => (
 	>
 		{ DefaultTemplate12.bind({}) }
 	</Story>
-
+</Canvas>
+<Canvas>
 	<Story
 		name="Default 6 Columns"
 		args={{
@@ -101,7 +102,8 @@ export const DefaultTemplate1 = (args) => (
 	>
 		{ DefaultTemplate6.bind({}) }
 	</Story>
-
+</Canvas>
+<Canvas>
 	<Story
 		name="Default 4 Columns"
 		args={{
@@ -110,7 +112,8 @@ export const DefaultTemplate1 = (args) => (
 	>
 		{ DefaultTemplate4.bind({}) }
 	</Story>
-
+</Canvas>
+<Canvas>
 	<Story
 		name="Default 3 Columns"
 		args={{
@@ -119,7 +122,8 @@ export const DefaultTemplate1 = (args) => (
 	>
 		{ DefaultTemplate3.bind({}) }
 	</Story>
-
+</Canvas>
+<Canvas>
 	<Story
 		name="Default 2 Columns"
 		args={{
@@ -128,7 +132,8 @@ export const DefaultTemplate1 = (args) => (
 	>
 		{ DefaultTemplate2.bind({}) }
 	</Story>
-
+</Canvas>
+<Canvas>
 	<Story
 		name="Default 1 Columns"
 		args={{
@@ -137,7 +142,133 @@ export const DefaultTemplate1 = (args) => (
 	>
 		{ DefaultTemplate1.bind({}) }
 	</Story>
+</Canvas>
 
+### Column Width
+
+...
+
+export const DefaultTemplate2ColumnsStart = (args) => (
+	<Grid { ...args } >
+		<Row>
+			<Column span={2}>1</Column>
+		</Row>
+	</Grid>
+);
+
+<Canvas>
+	<Story
+		name="2 colums start"
+		args={{
+			
+		}}
+	>
+		{ DefaultTemplate2ColumnsStart.bind({}) }
+	</Story>
+</Canvas>
+
+export const DefaultTemplate2ColumnsSpacing = (args) => (
+	<Grid { ...args } >
+		<Row>
+			<Column span={2} spacing={1} spacingMD={1}>1</Column>
+		</Row>
+		<br/>
+		<Row>
+			<Column span={2} spacing={2} spacingMD={1}>1</Column>
+		</Row>
+		<br/>
+		<Row>
+			<Column span={2} spacing={3} spacingMD={2}>1</Column>
+		</Row>
+		<br/>
+		<Row>
+			<Column span={2} spacing={4} spacingMD={2}>1</Column>
+		</Row>
+		<br/>
+		<Row>
+			<Column span={2} spacing={5} spacingMD={3}>1</Column>
+		</Row>
+		<br/>
+		<Row>
+			<Column span={2} spacing={6} spacingMD={3}>1</Column>
+		</Row>
+		<br/>
+		<Row>
+			<Column span={2} spacing={7} spacingMD={4}>1</Column>
+		</Row>
+		<br/>
+		<Row>
+			<Column span={2} spacing={8} spacingMD={4}>1</Column>
+		</Row>
+		<br/>
+		<Row>
+			<Column span={2} spacing={9} spacingMD={5}>1</Column>
+		</Row>
+		<br/>
+		<Row>
+			<Column span={2} spacing={10} spacingMD={5}>1</Column>
+		</Row>
+		<br/>
+		<Row>
+			<Column span={2} spacing={11} spacingMD={6}>1</Column>
+		</Row>
+		<br/>
+		<Row>
+			<Column span={2} spacing={12} spacingMD={6}>1</Column>
+		</Row>
+	</Grid>
+);
+
+<Canvas>
+	<Story
+		name="2 colums spacing 1-12"
+		args={{
+			
+		}}
+	>
+		{ DefaultTemplate2ColumnsSpacing.bind({}) }
+	</Story>
+</Canvas>
+
+export const DefaultTemplateRamdom = (args) => (
+	<Grid { ...args } >
+		<Row>
+			<Column span={2}>1</Column>
+			<Column span={4}>2</Column>
+			<Column span={3} spacing={9}>5</Column>
+			<Column span={1} spacing={12}>6</Column>
+		</Row>
+	</Grid>
+);
+
+<Canvas>
+	<Story
+		name="Random examples"
+		args={{
+			
+		}}
+	>
+		{ DefaultTemplateRamdom.bind({}) }
+	</Story>
+</Canvas>
+
+export const DefaultTemplateCenter = (args) => (
+	<Grid { ...args } >
+		<Row>
+			<Column span={4} spacing={5}>1</Column>
+		</Row>
+	</Grid>
+);
+
+<Canvas>
+	<Story
+		name="Centered example"
+		args={{
+			
+		}}
+	>
+		{ DefaultTemplateCenter.bind({}) }
+	</Story>
 </Canvas>
 
 ## API

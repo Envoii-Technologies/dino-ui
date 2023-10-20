@@ -2,13 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Column.scss';
 
-export const Column = ({ className, span, children, ...props }) => {
+export const Column = ({ className, span, spacing, spacingMD, children, ...props }) => {
     return (
         <>
             <div className={`
                 Column
                 ${className !== undefined ? className : ''}
-                span${span}
+                span-${span}
+                spacing-${spacing}
+                spacing-md-${spacingMD}
+
             `}>
                 { children }
             </div>
