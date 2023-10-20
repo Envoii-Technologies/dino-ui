@@ -1,0 +1,90 @@
+@use '../../global-styles/' as *;
+
+.UserLogin {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: $spacing-xl;
+    padding-right: $spacing-xl;
+
+    &__content {
+        margin-top: $spacing-6xl;
+
+        @media only screen and (min-width: $breakpoint-medium) {
+            margin-top: $spacing-9xl;
+        }
+
+        flex-grow: 1;
+        max-width: 360px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: stretch;
+
+        &__header {
+            display: flex;
+            flex-grow: 1;
+            flex-direction: column;
+            align-items: center;
+
+            &__icon {
+                aspect-ratio: 1/1;
+                height: 2.375rem;
+                margin-bottom: $spacing-3xl;
+            }
+
+            &__title {
+                margin-bottom: $spacing-lg;
+                color: $color-gray-900;
+                @include Display-smSemibold;
+            }
+
+            &__subtitle {
+                color: $color-gray-600;
+                @include Text-mdRegular;
+            }
+        }
+
+        &__form {
+            padding-top: $spacing-4xl;
+            padding-bottom: $spacing-4xl;
+            
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+
+
+            &__meta {
+                margin-left: -$spacing-sm;
+
+                flex-grow: 1;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        &__footer
+        {
+            display: flex;
+            justify-content: center;
+            
+            p
+            {
+                padding: 0;
+                margin: 0;
+
+                color: $color-gray-600;
+                @include Text-smRegular;
+
+                a
+                {
+                    color: $color-gray-700;
+                    @include Text-smSemibold;
+                }
+            }
+        }
+    }
+}
