@@ -52,7 +52,7 @@ export const UserLogin = ({ eventLink }) => {
                                     label="Passwort vergessen"
                                 />
                             </div>
-                            <Button label="Anmelden" />
+                            <Button label="Anmelden" size="lg" />
                         </div>
                         <div className="UserLogin__content__footer">
                             <p>

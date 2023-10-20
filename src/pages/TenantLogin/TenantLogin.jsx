@@ -76,7 +76,7 @@ export const TenantLogin = ({ error, eventLink, action, isInFocus, ...props }) =
                         onKeyDown={(e) => handleKeyDown(e)}
                         error={errorMessage}
                     />
-                    <Button label="Anmelden" onClick={() => handleSendData()}/>
+                    <Button label="Anmelden" onClick={() => handleSendData()} size="lg" />
                 </div>
                 <div className="TenantLogin__content__footer">
                     <p>
