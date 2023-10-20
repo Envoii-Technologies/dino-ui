@@ -8,6 +8,8 @@ export { Label } from './components/Label/index.js';
 export { Button } from './components/Button/index.js';
 export { Badge } from './components/Badge/index.js';
 export { Grid } from './components/Grid/index.js';
+export { Row } from './components/Grid/index.js';
+export { Column } from './components/Grid/index.js';
 export { Breadcrumb } from './components/Breadcrumb/index.js';
 export { ModalInfoWindow } from './components/ModalInfoWindow/index.js';
 export { ButtonGroup } from './components/ButtonGroup/index.js';
