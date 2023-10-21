@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import { MobilePageHeader, PageWrapper, Sidebar } from './../../';
 
+import { useLayout } from './useLayout';
+
 import './Layout.scss';
 
 export const Layout = ({
@@ -13,14 +15,10 @@ export const Layout = ({
     onLogoutAction,
     ...props
 }) => {
-    const [openMobileMenu, setOpenMobileMenu] = useState(false);
+    const { isMobileMenuOpen, toggleMobileMenu, closeMobileMenu } = useLayout();
 
     const handleLogoutAction = () => {
         onLogoutAction();
-    };
-
-    const handleOpenMenu = () => {
-        setOpenMobileMenu(!openMobileMenu);
     };
 
     return (
@@ -28,13 +26,13 @@ export const Layout = ({
             <div
                 className={`Layout ${className !== undefined ? className : ''}`}
             >
-                <MobilePageHeader onOpenMenu={handleOpenMenu} />
+                <MobilePageHeader onOpenMenu={toggleMobileMenu} />
                 <Sidebar
                     isExpanded={isExpanded}
                     userData={userData}
                     onLogoutAction={handleLogoutAction}
-                    handleMobileOpen={openMobileMenu}
-                    mobileCloseAction={() => setOpenMobileMenu(false)}
+                    handleMobileOpen={isMobileMenuOpen}
+                    mobileCloseAction={closeMobileMenu}
                 />
                 <PageWrapper>{children}</PageWrapper>
             </div>

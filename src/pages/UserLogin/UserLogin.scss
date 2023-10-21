@@ -1,13 +1,14 @@
 @use '../../global-styles/' as *;
 
-.UserLogin
-{
-    &__content
-    {
-        margin-top: $spacing-6xl;
+.UserLogin {
+    &__content {
+        padding: $container-padding-mobile;
+        padding-top: $spacing-6xl;
+        margin: 0 auto;
 
         @media only screen and (min-width: $breakpoint-medium) {
-            margin-top: $spacing-9xl;
+            padding: 0;
+            padding-top: $spacing-9xl;
         }
 
         flex-grow: 1;

@@ -6,8 +6,12 @@ import { faRocket, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { Button } from './../Button';
 import { ButtonGroup } from './../ButtonGroup';
 
-import './ModalInfoWindow.scss';
+import { useModalInfoWindow } from './useModalInfoWindow';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import './ModalInfoWindow.scss';
+
 
 export const ModalInfoWindow = ({
     className,
@@ -22,36 +26,7 @@ export const ModalInfoWindow = ({
     cancelText,
     ...props
 }) => {
-    const [fadeOut, setFadeOut ] = useState(false);
-
-    const handleShowDelay = () => 
-    {
-        setFadeOut(true);
-
-        setTimeout(() => {
-            onCancel();
-            setFadeOut(false);
-        }, 500); 
-    }
-
-    useEffect(() => {
-        const handleKeyEvent = (e) => {
-            if (show) {
-                if (e.keyCode === 27) {
-                    handleShowDelay();
-                }
-                if (e.keyCode === 13) {
-                    onAction();
-                }
-            }
-        };
-
-        window.document.addEventListener('keydown', handleKeyEvent);
-
-        return () => {
-            window.document.removeEventListener('keydown', handleKeyEvent);
-        };
-    }, [show]);
+    const { fadeOut, handleShowDelay } = useModalInfoWindow({ show, onAction, onCancel });
 
     if (!show) {
         return null;
@@ -59,7 +34,7 @@ export const ModalInfoWindow = ({
 
     return (
         <>
-            <div className={`modalWrapper ${fadeOut ? 'fadeOut' : 'fadeIn'}`}>
+            <div className={`modalWrapper ${fadeOut ? 'fadeOut' : 'fadeIn'}`} {...props}>
                 <div className={`ModalInfoWindow ${fadeOut ? 'fadeOut' : 'fadeIn'}`}>
                     <div className="ModalInfoWindow__header">
                         <Button

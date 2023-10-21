@@ -5,5 +5,8 @@ $box-shadow-focus: 0 0 0 4px rgba($color-gray-500, 0.24);
 $box-shadow-focus-secondary: 0 0 0 4px rgba($color-gray-300, 0.24);
 $box-shadow-modal: 0 8px 8px -4px rgba(16, 24, 40, 0.03), 0 20px 24px -4px rgba(16, 24, 40, 0.08);
 
-
 $page-wrapper-line: 0.75rem;
+
+$breakpoint-small: 23.5rem;
+$breakpoint-medium: 48em;
+$breakpoint-large: 80em;

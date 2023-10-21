@@ -2,8 +2,6 @@ import React from 'react';
 
 import { TenantLogin } from './TenantLogin';
 
-import mockUser from './../../data/mockUser';
-
 export default {
     title: 'Pages/TenantLogin',
     component: TenantLogin,
