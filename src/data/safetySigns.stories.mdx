@@ -1,0 +1,48 @@
+import { Meta } from '@storybook/addon-docs';
+
+import safetySigns from './safetySigns.js';
+
+import { Divider, Grid, Row, Column } from './../'
+
+<Meta title="Data/Safefy Signs" />
+
+# SafetySigns
+
+The following is a set of Safety Signs according to ISO 7010
+
+<div className="safetySignContainer">
+{
+    safetySigns.map((sign, i) => (
+        <div key={ i } className="safetySignItem">
+            <Divider>{sign.id}</Divider>
+            
+            <Grid>
+                <Row>
+                    <Column 
+                        smSpan={1}
+                        mdSpan={3}
+                        xlSpan={2}
+                    >
+                        <img src={`${sign.filename}`} />
+                    </Column>
+                    <Column
+                        smSpan={3}
+                        mdSpan={3}
+                        xlSpan={10}
+                    >
+                        <div>
+                            <div><b>id:</b> { sign.id} </div>
+                            <div><b>path:</b> { sign.filename} </div>
+                            <div><b>category:</b> { sign.category }</div>
+                            <div><b>description:</b><br/>
+                                <div><b>(de):</b> {sign.description.de}</div>
+                            </div>
+                        </div>
+                    </Column>
+                </Row>
+            </Grid>
+            <br/>
+        </div>
+    ))
+}
+</div>
