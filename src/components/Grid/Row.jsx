@@ -2,15 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Row.scss';
 
-export const Row = ({ className, children, ...props }) => {
+export const Row = ({ className, children }) => {
     return (
-        <>
-            <div className={`Row ${className !== undefined ? className : ''}`}>
-                { children }
-            </div>
-        </>
+      <div className={`Row ${className !== undefined ? className : ''}`}>
+        {children}
+      </div>
     );
-};
+  };
 
 Row.propTypes = {
     /**

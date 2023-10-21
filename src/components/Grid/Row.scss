@@ -1,14 +1,23 @@
 @use '../../global-styles/' as *;
 
+$xl-breakpoint: 1280px;
+$md-breakpoint: 768px;
+$sm-breakpoint: 375px;
+
 .Row {
     display: grid;
-    gap: $container-padding-desktop;
+    width: 100%;
+    gap: 1rem;
 
-    @media only screen and (min-width: $breakpoint-medium) {
+    @media (min-width: #{$sm-breakpoint}) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (min-width: #{$md-breakpoint}) {
         grid-template-columns: repeat(6, 1fr);
     }
 
-    @media only screen and (min-width: $breakpoint-large) {
+    @media (min-width: #{$xl-breakpoint}) {
         grid-template-columns: repeat(12, 1fr);
     }
 }
