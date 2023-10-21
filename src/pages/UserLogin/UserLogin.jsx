@@ -1,14 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {
-    Button,
-    Checkbox,
-    Input,
-    Grid,
-    Row,
-    Column,
-} from './../../';
+import { Button, Checkbox, Input, Grid, Row, Column } from './../../';
 
 import LogoIcon from './../../assets/logos/Logo_Icon-dark.svg';
 
@@ -17,9 +10,9 @@ import './UserLogin.scss';
 export const UserLogin = ({ eventLink }) => {
     return (
         <>
-            <Grid withPadding={false}>
+            <Grid fluid={true}>
                 <Row>
-                    <Column span={4} spacing={5}>
+                    <Column mdSpan={2} mdStart={3} xlSpan={4} xlStart={5}>
                         <div className="UserLogin__content">
                             <div className="UserLogin__content__header">
                                 <img
@@ -34,8 +27,7 @@ export const UserLogin = ({ eventLink }) => {
                                     Willkommen zurück! Melden Sie sich hier an.
                                 </div>
                             </div>
-                        </div>
-                        <div className="UserLogin__content__form">
+                            <div className="UserLogin__content__form">
                             <Input
                                 label="E-Mail"
                                 placeholder="E-Mail eingeben"
@@ -65,6 +57,7 @@ export const UserLogin = ({ eventLink }) => {
                                     Jetzt Termin vereinbaren
                                 </a>
                             </p>
+                        </div>
                         </div>
                     </Column>
                 </Row>

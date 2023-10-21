@@ -81,7 +81,7 @@ export const PopOver = ({
 
     return (
         <div
-            className={`PopOver ${position} ${
+            className={`PopOver ${adjustedPosition} ${
                 openOnHover ? 'hoverable' : ''
             } ${className}`}
             onMouseEnter={handleMouseEnter}

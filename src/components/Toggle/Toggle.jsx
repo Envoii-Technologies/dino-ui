@@ -2,58 +2,39 @@ import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import './Toggle.scss';
 
-export const Toggle = ({
-  className,
-  onChange,
-  value,
-  name,
-  title,
-  subtitle,
-  checked: controlledChecked,
-  disabled,
-  ...props
-}) => {
-  const toggle = useRef();
-  const checkbox = useRef();
+import { useToggle } from './useToggle';
 
-  // Use local state for checked
-  const [localChecked, setLocalChecked] = useState(controlledChecked || false);
+export const Toggle = ({ className, checked: controlledChecked, ...props }) => {
 
-  // Update the local state when controlledChecked prop changes
-  useEffect(() => {
-    setLocalChecked(controlledChecked || false);
-  }, [controlledChecked]);
-
-  function handleToggle() {
-    if (props.onChange) props.onChange();
-    toggle.current.classList.toggle('toggled');
-    checkbox.current.checked = !localChecked;
-
-    // Update the local state
-    setLocalChecked(!localChecked);
-  }
+  const {
+    toggleRef,
+    checkboxRef,
+    checked,
+    handleToggle,
+    name,
+    title,
+    subtitle,
+    disabled,
+    value,
+  } = useToggle({ ...props, controlledChecked });
 
   return (
     <div className="Toggle">
       <input
-        ref={checkbox}
-        name={props.name}
+        ref={checkboxRef}
+        name={name}
         className="Toggle__checkbox"
         type="checkbox"
-        defaultChecked={props.value}
-        checked={controlledChecked !== undefined ? controlledChecked : localChecked}
+        defaultChecked={value}
+        checked={checked}
         disabled={disabled}
-        value={props.value || false}
+        value={value}
         {...props}
       />
       <span
-        ref={toggle}
-        onClick={handleToggle}
-        className={
-          (controlledChecked !== undefined ? controlledChecked : localChecked)
-            ? 'Toggle__switch toggled'
-            : 'Toggle__switch'
-        }
+       ref={toggleRef}
+       onClick={handleToggle}
+       className={checked ? 'Toggle__switch toggled' : 'Toggle__switch'}
       >
         <span className="Toggle__switch__toggler"></span>
       </span>

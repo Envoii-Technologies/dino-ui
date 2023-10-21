@@ -11,6 +11,12 @@ import placeholderAvatar from './../../assets/images/testuser.png'
 import './SidebarUserInfo.scss';
 
 export const SidebarUserInfo = ({ className, isExpanded, userData, onLogoutAction, ...props }) => {
+
+    if(!userData)
+    {
+        return null;
+    }
+    
     return (
         <div
             className={`SidebarUserInfo ${

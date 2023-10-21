@@ -1,95 +1,79 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-import {
-    Button,
-    Input,
-    Grid,
-    Row,
-    Column,
-} from './../../';
+import { Button, Input, Grid, Row, Column } from './../../';
+
+import { useTenantLogin } from './useTenantLogin';
 
 import LogoIcon from './../../assets/logos/Logo_Icon-dark.svg';
 
 import './TenantLogin.scss';
 
-export const TenantLogin = ({ error, eventLink, action, isInFocus, ...props }) => {
-    const [tenant, setTenant] = useState('');
-    const [errorMessage, setErrorMessage] = useState(!error ? '' : error);
+export const TenantLogin = ({ error, eventLink, action, isInFocus }) => {
+    const {
+        errorMessage,
+        handleTenantChange,
+        handleTenantFocus,
+        handleSendData,
+        handleKeyDown,
+    } = useTenantLogin({ error, eventLink, action, isInFocus });
 
-    const resetErrorMessage = () => {
-        setErrorMessage('');
-    };
-
-    const handleTenantFocus = () => {
-        resetErrorMessage();
-        setTenant('');
-    };
-
-    const handleTenantChange = (e) => {
-        resetErrorMessage();
-        setTenant(e.target.value);
-    };
-
-    const handleSendData = () =>
-    {
-        if(tenant === "") 
-        {
-            setErrorMessage('Bitte gültiges Unternehmen eingeben.');
-        }
-        else{
-            action(tenant);
-        }
-    }
-
-    const handleKeyDown = (e) => {
-        if (e.keyCode === 13) {
-            handleSendData();
-        }
-    };
+    console.log(error);
 
     return (
         <>
-        <Grid withPadding={false}>
-        <Row>
-        <Column span={4} spacing={5}>
-            <div className="TenantLogin__content">
-                <div className="TenantLogin__content__header">
-                    <img
-                        src={LogoIcon}
-                        alt=""
-                        className="TenantLogin__content__header__icon"
-                    />
-                    <div className="TenantLogin__content__header__title">
-                        Mitarbeiter Login
-                    </div>
-                </div>
-                <div className="TenantLogin__content__form">
-                    <Input
-                        label="Unternehmensdomain"
-                        placeholder="Unternehmensdomain"
-                        metaLabel=".envoii.de"
-                        metaPosition="right"
-                        autoFocus={isInFocus}
-                        onFocus={isInFocus ? () => handleTenantFocus() : undefined}
-                        onChange={(e) => handleTenantChange(e)}
-                        onKeyDown={(e) => handleKeyDown(e)}
-                        error={errorMessage}
-                    />
-                    <Button label="Anmelden" onClick={() => handleSendData()} size="lg" />
-                </div>
-                <div className="TenantLogin__content__footer">
-                    <p>
-                        Noch kein Account?{' '}
-                        <a href={eventLink} target="_blank" rel="noreferrer">
-                            Jetzt Termin vereinbaren
-                        </a>
-                    </p>
-                </div>
-            </div>
-            </Column>
-            </Row>
-        </Grid>
+            <Grid fluid={true}>
+                <Row>
+                    <Column mdSpan={2} mdStart={3} xlSpan={4} xlStart={5}>
+                        <div className="TenantLogin__content">
+                            <div className="TenantLogin__content__header">
+                                <img
+                                    src={LogoIcon}
+                                    alt=""
+                                    className="TenantLogin__content__header__icon"
+                                />
+                                <div className="TenantLogin__content__header__title">
+                                    Mitarbeiter Login
+                                </div>
+                            </div>
+                            <div className="TenantLogin__content__form">
+                                <Input
+                                    label="Unternehmensdomain"
+                                    placeholder="Unternehmensdomain"
+                                    metaLabel=".envoii.de"
+                                    metaPosition="right"
+                                    autoFocus={isInFocus}
+                                    onFocus={
+                                        isInFocus
+                                            ? () => handleTenantFocus()
+                                            : undefined
+                                    }
+                                    onChange={(e) => handleTenantChange(e)}
+                                    onKeyDown={(e) => handleKeyDown(e)}
+                                    error={errorMessage}
+                                />
+                                <Button
+                                    label="Anmelden"
+                                    onClick={() => handleSendData()}
+                                    size="lg"
+                                />
+                            </div>
+                            <div className="TenantLogin__content__footer">
+                                <p>
+                                    Noch kein Account?{' '}
+                                    <a
+                                        href={eventLink}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        Jetzt Termin vereinbaren
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </Column>
+                </Row>
+            </Grid>
         </>
     );
 };
