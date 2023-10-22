@@ -5,6 +5,21 @@
     width: 100%;
     gap: 1rem;
 
+    &.top
+    {
+        align-items: flex-start;
+    }
+
+    &.top
+    {
+        align-items: center;
+    }
+
+    &.bottom
+    {
+        align-items: flex-end;
+    }
+
     @media (min-width: #{$sm-breakpoint}) {
         grid-template-columns: repeat(4, 1fr);
     }
