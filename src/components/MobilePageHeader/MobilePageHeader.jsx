@@ -18,10 +18,10 @@ export const MobilePageHeader = ({ className, onOpenMenu, ...props }) =>
 	return (
 		<div className={`MobilePageHeader ${ className !== undefined ? className : "" }`}>
 			<img
-                        src={logoFullLight}
-                        className="MobilePageHeader__brand"
-                    />
-					<Button size="sm" iconLeft={faBars} onClick={openMenuHandler}/>
+                src={logoFullLight}
+                className="MobilePageHeader__brand"
+            />
+			<Button size="sm" iconLeft={faBars} onClick={openMenuHandler}/>
 		</div>
 	)
 }

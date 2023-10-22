@@ -1,6 +1,6 @@
 @use '../../global-styles/' as *;
 
-.modalWrapper {
+.modalContentWrapper {
     position: fixed;
     left: 0;
     top: 0;
@@ -8,29 +8,81 @@
     bottom: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
+
+    @media (min-width: $md-breakpoint) {
+        align-items: center;
+    }
+
     z-index: 10000;
     background: rgba($color-gray-950, 0.7);
     backdrop-filter: blur(5px);
+
+    &.fadeIn
+    {
+        @include Animation-FadeIn;
+    }
+
+    &.fadeOut
+    {
+        @include Animation-FadeOut;
+    }
 }
 
-.ModalWindow {
+.ModalContentWindow {
     border-radius: $radius-md;
     background: $color-base-white;
-    width: $width-lg;
-    min-height: $width-xxs;
+    width: 35rem;
+    min-height: $spacing-11xl;
     flex-grow: 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
-    padding: 0;
+    align-items: stretch;
+    padding-bottom: 1rem;
     backdrop-filter: blur(10px);
     z-index: 20000;
     position: relative;
     box-shadow: $box-shadow-modal;
+    margin: 0 1rem 5rem 1rem;
 
-    &__header {
+    @media (min-width: $md-breakpoint) {
+        margin: 1rem;
+        padding-bottom: 3.5rem;
+    }
+
+    &.fadeIn
+    {
+        @include Animation-SlideIn;
+    }
+
+    &.fadeOut
+    {
+        @include Animation-SlideOut;
+    }
+
+    &__header
+    {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.25rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+
+        &__brand
+        {
+            height: 2rem;
+        }
+
+        &__title
+        {
+            text-align: center;
+            color: $color-gray-900;
+            @include Text-xlSemibold;
+        }
+
         &__close
         {
             position: absolute;
@@ -38,7 +90,47 @@
             right: $spacing-xl;
         }
     }
+
+    &__wrapper
+    {
+        display: flex;
+        margin-left: 1rem;
+        margin-right: 1rem;
+
+        @media (min-width: $md-breakpoint) {
+            margin-left: 1.5rem;
+            margin-right: 1.5rem;
+        }
+
+        // overflow-x: auto;
+        // overflow-y: scroll;
+        justify-content: stretch;
+
+        &__content
+        {
+            flex-grow: 1;
+            display: flex;
+            justify-content: stretch;
+            flex-direction: column;
+            max-height: 60vh;
+        }
+    }
 }
+
+// &__header {
+//     flex-grow: 1;
+//     display: flex;
+//     flex-direction: column;
+
+//     padding: $spacing-3xl $spacing-3xl 0;
+
+//     &__close
+//     {
+//         position: absolute;
+//         top: $spacing-xl;
+//         right: $spacing-xl;
+//     }
+// }
 
 // .modalWrapper {
 //     position: fixed;
