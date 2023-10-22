@@ -31,7 +31,10 @@
         }
     }
 
-
+    &.fluid
+    {
+        flex-grow: 1;
+    }
 
     &__status {
         display: block;

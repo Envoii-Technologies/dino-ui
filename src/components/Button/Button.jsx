@@ -12,6 +12,7 @@ export const Button = ({
     label,
     status,
 	type,
+    fluid,
 	size,
 	onClick,
     ...props
@@ -25,9 +26,10 @@ export const Button = ({
 			${type === "secondary" ? 'secondary' : ''}
 			${type === "tertiary" ? 'tertiary' : ''}
 			${type === "link" ? 'link' : ''}
+            ${fluid ? 'fluid': ''}
 			${!label ? 'icon' : ''}
 			`}
-            disabled={isDisabled}
+            disabled={isDisabled ? 'disabled' : false}
 			onClick={onClick}
             {...props}
         >
@@ -79,6 +81,7 @@ Button.propTypes = {
     status: PropTypes.oneOf(['none', 'idle', 'success', 'warning', 'error']),
 	type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'link']),
 	size: PropTypes.oneOf(['md', 'lg']),
+    fluid: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -90,4 +93,5 @@ Button.defaultProps = {
     status: 'none',
     type: "primary",
 	size: "md",
+    fluid: false,
 };
