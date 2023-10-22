@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export const useTenantLogin = ({ error, eventLink, action, isInFocus }) => {
+export const useTenantLoginPage = ({ error, eventLink, action, isInFocus }) => {
     const [tenant, setTenant] = useState('');
     const [errorMessage, setErrorMessage] = useState(!error ? '' : error);
 

@@ -1,16 +1,15 @@
 import React from 'react';
 
-import { Dashboard } from './Dashboard';
+import { CardsPage } from './CardsPage';
 import { Layout } from '../../components/Layout';
-
 import { ModalInfoWindow } from '../../components/ModalInfoWindow';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 
 import mockUser from './../../data/mockUser';
 
 export default {
-    title: 'Pages/Dashboard',
-    component: Dashboard,
+    title: 'Pages/Cards',
+    component: CardsPage,
     parameters: {
         layout: 'fullscreen',
     },
@@ -34,7 +33,7 @@ const Template = (args) => {
                 actionText={"Ausloggen"}
             />
             <Layout userData={mockUser} onLogoutAction={() => setShowWindow(true)}>
-                <Dashboard {...args} userData={mockUser} isLoading={false} />
+                <CardsPage {...args} userData={mockUser} isLoading={false} />
             </Layout>
         </>
     );

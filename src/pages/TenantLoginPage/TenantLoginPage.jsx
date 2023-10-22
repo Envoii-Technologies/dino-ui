@@ -3,20 +3,20 @@ import PropTypes from 'prop-types';
 
 import { Button, Input, Grid, Row, Column } from './../../';
 
-import { useTenantLogin } from './useTenantLogin';
+import { useTenantLoginPage } from './useTenantLoginPage';
 
 import LogoIcon from './../../assets/logos/Logo_Icon-dark.svg';
 
-import './TenantLogin.scss';
+import './TenantLoginPage.scss';
 
-export const TenantLogin = ({ error, eventLink, action, isInFocus }) => {
+export const TenantLoginPage = ({ error, eventLink, action, isInFocus }) => {
     const {
         errorMessage,
         handleTenantChange,
         handleTenantFocus,
         handleSendData,
         handleKeyDown,
-    } = useTenantLogin({ error, eventLink, action, isInFocus });
+    } = useTenantLoginPage({ error, eventLink, action, isInFocus });
 
     console.log(error);
 
@@ -25,18 +25,18 @@ export const TenantLogin = ({ error, eventLink, action, isInFocus }) => {
             <Grid fluid={true}>
                 <Row>
                     <Column mdSpan={2} mdStart={3} xlSpan={4} xlStart={5}>
-                        <div className="TenantLogin__content">
-                            <div className="TenantLogin__content__header">
+                        <div className="TenantLoginPage__content">
+                            <div className="TenantLoginPage__content__header">
                                 <img
                                     src={LogoIcon}
                                     alt=""
-                                    className="TenantLogin__content__header__icon"
+                                    className="TenantLoginPage__content__header__icon"
                                 />
-                                <div className="TenantLogin__content__header__title">
+                                <div className="TenantLoginPage__content__header__title">
                                     Mitarbeiter Login
                                 </div>
                             </div>
-                            <div className="TenantLogin__content__form">
+                            <div className="TenantLoginPage__content__form">
                                 <Input
                                     label="Unternehmensdomain"
                                     placeholder="Unternehmensdomain"
@@ -58,7 +58,7 @@ export const TenantLogin = ({ error, eventLink, action, isInFocus }) => {
                                     size="lg"
                                 />
                             </div>
-                            <div className="TenantLogin__content__footer">
+                            <div className="TenantLoginPage__content__footer">
                                 <p>
                                     Noch kein Account?{' '}
                                     <a
@@ -78,13 +78,13 @@ export const TenantLogin = ({ error, eventLink, action, isInFocus }) => {
     );
 };
 
-TenantLogin.propTypes = {
+TenantLoginPage.propTypes = {
     error: PropTypes.string,
     eventLink: PropTypes.string,
     isInFocus: PropTypes.bool,
     action: PropTypes.func,
 };
-TenantLogin.defaultProps = {
+TenantLoginPage.defaultProps = {
     error: undefined,
     eventLink: '/',
     isInFocus: true,

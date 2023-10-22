@@ -8,7 +8,7 @@ import {
     faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 
-export const Cards = ({ isLoading, userData }) => {
+export const CardsPage = ({ isLoading, userData }) => {
 
     return (
         <>

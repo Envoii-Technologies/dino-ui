@@ -1,6 +1,6 @@
 @use '../../global-styles/' as *;
 
-.UserLogin {
+.TenantLoginPage {
     &__content {
         padding: $container-padding-mobile;
         padding-top: $spacing-6xl;
@@ -30,14 +30,8 @@
             }
 
             &__title {
-                margin-bottom: $spacing-lg;
                 color: $color-gray-900;
                 @include Display-smSemibold;
-            }
-
-            &__subtitle {
-                color: $color-gray-600;
-                @include Text-mdRegular;
             }
         }
 

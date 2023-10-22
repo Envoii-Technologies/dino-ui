@@ -1,10 +1,12 @@
 import React from 'react';
 
-import { TenantLogin } from './TenantLogin';
+import { UserLoginPage } from './UserLoginPage';
+
+import mockUser from './../../data/mockUser';
 
 export default {
-    title: 'Pages/TenantLogin',
-    component: TenantLogin,
+    title: 'Pages/UserLogin',
+    component: UserLoginPage,
     parameters: {
         layout: 'fullscreen',
     },
@@ -13,7 +15,7 @@ export default {
 const Template = (args) => {
     return (
         <>
-            <TenantLogin action={(data) => alert("[NOT IMPLEMENTED]")} isInFocus={true}/>
+            <UserLoginPage/>
         </>
     );
 };

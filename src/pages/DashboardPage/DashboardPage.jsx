@@ -2,7 +2,7 @@ import React from 'react';
 
 import { PageHeader } from './../../components/PageHeader';
 
-export const Dashboard = ({ isLoading, userData }) => {
+export const DashboardPage = ({ isLoading, userData }) => {
     return (
         <>
             {isLoading ? (
