@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { PageHeader, ButtonGroup, Button, PageSubHeader, Input } from './../../';
+import { PageHeader, ButtonGroup, Button, PageSubHeader, Input, PopOver, Badge } from './../../';
+
+import { NewCardWindow } from './NewCardWindow';
+
 import {
     faChevronDown,
     faEllipsisV,
@@ -8,7 +11,10 @@ import {
     faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 
+import './CardsPage.scss';
+
 export const CardsPage = ({ isLoading, userData }) => {
+    const [ showCreateCardWindow, setShowCreateCardWindow ] = useState(false);
 
     return (
         <>
@@ -16,14 +22,15 @@ export const CardsPage = ({ isLoading, userData }) => {
                 <>Loading...</>
             ) : (
                 <>
+                    <NewCardWindow showWindow={showCreateCardWindow} onCancel={() => setShowCreateCardWindow(false)}/>
                     <PageHeader title={`Karten`}>
                         <ButtonGroup>
-                            <Button label="Neue Karte" iconLeft={faPlus} />
+                            <Button label="Neue Karte" iconLeft={faPlus} onClick={() => setShowCreateCardWindow(true)}/>
                             <Button iconLeft={faEllipsisV} type="secondary" />
                         </ButtonGroup>
                     </PageHeader>
                     <PageSubHeader>
-                        <ButtonGroup>
+                        <ButtonGroup smFluid={true}>
                             <Button
                                 label="Status"
                                 iconRight={faChevronDown}
