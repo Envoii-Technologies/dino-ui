@@ -1,9 +1,5 @@
 @use '../../global-styles/' as *;
 
-$xl-breakpoint: 1280px;
-$md-breakpoint: 768px;
-$sm-breakpoint: 375px;
-
 .Row {
     display: grid;
     width: 100%;

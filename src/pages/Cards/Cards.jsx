@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { PageHeader, ButtonGroup, Button, PageSubHeader } from './../../';
+import { PageHeader, ButtonGroup, Button, PageSubHeader, Input } from './../../';
 import {
     faChevronDown,
     faEllipsisV,
@@ -36,7 +36,7 @@ export const Cards = ({ isLoading, userData }) => {
                             />
                             <Button label="Filter zurücksetzen" type="link" />
                         </ButtonGroup>
-                        <p>SEARCHFIELD</p>
+                        <Input/>
                     </PageSubHeader>
                 </>
             )}
