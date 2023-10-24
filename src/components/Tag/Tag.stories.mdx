@@ -1,0 +1,150 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { Tag } from './Tag';
+
+export const Template = (args) => (
+	<Tag { ...args } />
+);
+
+<Meta title='Components/Tag' component={ Tag } />
+
+# Tag
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Counter
+
+...
+
+<Canvas>
+	<Story
+		name="Counter"
+		args={{
+			count: 10
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### onClose Event
+
+...
+
+<Canvas>
+	<Story
+		name="onClose Event"
+		args={{
+			onClose: () => alert("[NOT IMPLEMENTED]"),
+			count: 0,
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### onCheck Event
+
+...
+
+<Canvas>
+	<Story
+		name="onCheck Event"
+		args={{
+			onCheck: (checked) => alert(`[NOT IMPLEMENTED] ${checked === true ? "true" : "false"}`),
+			count: 0,
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Size
+
+...
+
+<Canvas>
+	<Story
+		name="Size Small"
+		args={{
+			size: "sm",
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+	<Story
+		name="Size Medium"
+		args={{
+			size: "md",
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+	<Story
+		name="Size Large"
+		args={{
+			size: "lg",
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Status
+
+...
+
+<Canvas>
+	<Story
+		name="Status None"
+		args={{
+			status: "none",
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+	<Story
+		name="Status Success"
+		args={{
+			status: "success",
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+	<Story
+		name="Status Warning"
+		args={{
+			status: "warning",
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+	<Story
+		name="Status Error"
+		args={{
+			status: "error",
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ Tag } />

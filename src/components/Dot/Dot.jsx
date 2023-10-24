@@ -5,7 +5,7 @@ import './Dot.scss';
 export const Dot = ({ className, state, size, outline, ...props }) => {
     return (
         <div
-            className={`Dot ${className !== undefined ? className : ''} state-${state} size-${size} ${outline ? `outline-${size}` : ''}`}
+            className={`Dot ${className !== undefined ? className : ''} state-${state} size-${size} ${outline ? `outline-${size}` : ''}`} {...props}
         ></div>
     );
 };

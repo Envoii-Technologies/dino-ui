@@ -29,7 +29,7 @@ export const Checkbox = ({
     }, [controlledChecked]);
 
     function handleToggle() {
-        if (props.onChange) props.onChange();
+        if (onChange) onChange(localChecked);
         toggle.current.classList.toggle('toggled');
         checkbox.current.checked = !localChecked;
 
