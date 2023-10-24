@@ -1,7 +1,6 @@
 export { Sidebar } from './components/Sidebar/index.js';
 export { PageWrapper } from './components/PageWrapper/index.js';
 export { Layout } from './components/Layout/index.js';
-export { Label } from './components/Label/index.js';
 export { Button } from './components/Button/index.js';
 export { Badge } from './components/Badge/index.js';
 export { Breadcrumb } from './components/Breadcrumb/index.js';
