@@ -29,7 +29,7 @@
 
             text-align: center;
             color: $color-base-white;
-            @include Text-xsSemibold;
+            @include Text-xsRegular;
         }
 
         /* Emulate arrow using before and after pseudo-elements */

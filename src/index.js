@@ -23,3 +23,4 @@ export { Column } from './components/Grid/index.js';export { OverflowMenu } from
 export { ProgressBar } from './components/ProgressBar/index.js';
 export { LoadingIndicator } from './components/LoadingIndicator/index.js';
 export { IsoIcon } from './components/IsoIcon/index.js';
+export { HelpIcon } from './components/HelpIcon/index.js';

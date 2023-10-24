@@ -1,0 +1,15 @@
+@use '../../global-styles/' as *;
+
+.HelpIcon
+{
+	&__icon
+    {
+        color: $color-gray-400;
+        cursor: pointer;
+
+        &:hover
+        {
+            color: $color-gray-500;
+        }
+    }
+}
