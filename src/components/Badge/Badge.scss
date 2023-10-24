@@ -97,6 +97,21 @@
         }
     }
 
+    &__icon
+    {
+        &--left
+        {
+            padding-right: 4px;
+            height: 10px;
+        }
+
+        &--right
+        {
+            padding-left: 4px;
+            height: 10px;
+        }
+    }
+    
     &.outline
     {
         background: transparent !important;
@@ -139,6 +154,8 @@
             border-color: $color-gray-600;
         }
 
+        .Badge__icon--left,
+        .Badge__icon-right,
         .Badge__text
         {
             color: $color-gray-700;
@@ -155,6 +172,8 @@
             border-color: $color-brand-600;
         }
 
+        .Badge__icon--left,
+        .Badge__icon-right,
         .Badge__text
         {
             color: $color-brand-700;
@@ -171,6 +190,8 @@
             border-color: $color-error-600;
         }
 
+        .Badge__icon--left,
+        .Badge__icon-right,
         .Badge__text
         {
             color: $color-error-700;
@@ -187,6 +208,8 @@
             border-color: $color-warning-600;
         }
 
+        .Badge__icon--left,
+        .Badge__icon-right,
         .Badge__text
         {
             color: $color-warning-700;
@@ -203,6 +226,8 @@
             border-color: $color-success-600;
         }
 
+        .Badge__icon--left,
+        .Badge__icon-right,
         .Badge__text
         {
             color: $color-success-700;
@@ -219,6 +244,8 @@
             border-color: $color-grayblue-600;
         }
 
+        .Badge__icon--left,
+        .Badge__icon-right,
         .Badge__text
         {
             color: $color-grayblue-700;
@@ -235,6 +262,8 @@
             border-color: $color-lightblue-600;
         }
 
+        .Badge__icon--left,
+        .Badge__icon-right,
         .Badge__text
         {
             color: $color-lightblue-700;
@@ -251,6 +280,8 @@
             border-color: $color-blue-600;
         }
 
+        .Badge__icon--left,
+        .Badge__icon-right,
         .Badge__text
         {
             color: $color-blue-700;
@@ -267,6 +298,8 @@
             border-color: $color-indigo-600;
         }
 
+        .Badge__icon--left,
+        .Badge__icon-right,
         .Badge__text
         {
             color: $color-indigo-700;
@@ -283,6 +316,8 @@
             border-color: $color-purple-600;
         }
 
+        .Badge__icon--left,
+        .Badge__icon-right,
         .Badge__text
         {
             color: $color-purple-700;
@@ -299,6 +334,8 @@
             border-color: $color-pink-600;
         }
 
+        .Badge__icon--left,
+        .Badge__icon-right,
         .Badge__text
         {
             color: $color-pink-700;
@@ -315,6 +352,8 @@
             border-color: $color-orange-600;
         }
 
+        .Badge__icon--left,
+        .Badge__icon-right,
         .Badge__text
         {
             color: $color-orange-700;

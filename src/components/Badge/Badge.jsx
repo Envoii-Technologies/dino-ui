@@ -12,6 +12,8 @@ export const Badge = ({
     closable,
     pill,
     outline,
+    icon,
+    iconPosition,
     status,
 	onClose,
     ...props
@@ -26,10 +28,16 @@ export const Badge = ({
 			`}
             {...props}
         >
+            {
+                icon && iconPosition === "left" && <FontAwesomeIcon className={`Badge__icon--left`} icon={icon}/>
+            }
             {status !== 'none' && (
                 <div className={`Badge__status ${status}`}></div>
             )}
             <div className="Badge__text">{label}</div>
+            {
+                icon && iconPosition === "right" && <FontAwesomeIcon className={`Badge__icon--right`} icon={icon}/>
+            }
             {
                 closable && <FontAwesomeIcon className="Badge__close" icon={faClose} onClick={onClose}/>
             }
@@ -76,6 +84,7 @@ Badge.propTypes = {
         'orange',
     ]),
 	onClose: PropTypes.func,
+    iconPosition: PropTypes.oneOf(['left', 'right']),
     closable: PropTypes.bool,
 };
 
@@ -87,6 +96,8 @@ Badge.defaultProps = {
     pill: true,
     outline: false,
     status: 'none',
+    icon: undefined,
 	onClose: undefined,
     closable: false,
+    iconPosition: 'left',
 };
