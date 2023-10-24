@@ -1,0 +1,39 @@
+@mixin Background-blur-sm-light {
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+}
+
+@mixin Background-blur-md-light {
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(16px);
+}
+
+@mixin Background-blur-lg-light {
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(24px);
+}
+
+@mixin Background-blur-xl-light {
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(40px);
+}
+
+@mixin Background-blur-sm-dark {
+    background-color: rgba(0, 9, 9, 0.6);
+    backdrop-filter: blur(8px);
+}
+
+@mixin Background-blur-md-dark {
+    background-color: rgba(0, 9, 9, 0.6);
+    backdrop-filter: blur(16px);
+}
+
+@mixin Background-blur-lg-dark {
+    background-color: rgba(0, 9, 9, 0.6);
+    backdrop-filter: blur(254px);
+}
+
+@mixin Background-blur-xl-dark {
+    background-color: rgba(0, 9, 9, 0.6);
+    backdrop-filter: blur(40px);
+}

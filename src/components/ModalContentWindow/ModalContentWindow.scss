@@ -15,8 +15,7 @@
     }
 
     z-index: 10000;
-    background: rgba($color-gray-950, 0.7);
-    backdrop-filter: blur(5px);
+    @include Background-blur-md-dark;
 
     &.fadeIn
     {
