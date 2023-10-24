@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Input.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleQuestion } from '@fortawesome/free-regular-svg-icons';
-import { PopOver } from '../PopOver/PopOver';
+import { HelpIcon } from '../HelpIcon';
 
 export const Input = ({
     className,
@@ -61,9 +60,7 @@ export const Input = ({
                         />
                         {
                             tooltipText && (
-                               <PopOver className='Input__wrapper__input__help' content={tooltipText} position="bottom-center">
-                                    <FontAwesomeIcon icon={faCircleQuestion} />
-                                </PopOver>
+                                <HelpIcon helpText={tooltipText}/>
                             )
                         }
                         
