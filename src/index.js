@@ -19,4 +19,5 @@ export { Input } from './components/Input/index.js';
 export { PopOver } from './components/PopOver/PopOver.jsx';
 export { Grid } from './components/Grid/index.js';
 export { Row } from './components/Grid/index.js';
-export { Column } from './components/Grid/index.js';
+export { Column } from './components/Grid/index.js';export { OverflowMenu } from './components/OverflowMenu/index.js';
+export { ProgressBar } from './components/ProgressBar/index.js';

@@ -1,0 +1,77 @@
+@use '../../global-styles/' as *;
+
+.ProgressBar {
+    width: 320px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+
+    &.fluid {
+        width: 100%;
+        flex-grow: 1;
+    }
+
+    &__wrapper {
+        height: 0.5rem;
+        flex-grow: 1;
+        border-radius: 4px;
+        background: $color-gray-200;
+
+        &__indicator {
+            height: 0.5rem;
+            border-radius: 4px;
+            background-color: $color-brand-400;
+            transition: all 0.5s;
+        }
+    }
+
+    &__label {
+        padding-left: 0.75rem;
+        color: $color-gray-700;
+        @include Text-smMedium;
+    }
+
+    &.label-bottom {
+        flex-direction: column;
+        align-items: stretch;
+
+        .ProgressBar__label {
+            padding-top: 0.5rem;
+            color: $color-gray-700;
+            @include Text-smMedium;
+            text-align: right;
+        }
+    }
+
+    &.label-floating-top,
+    &.label-floating-bottom {
+        .ProgressBar__label {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            border: solid 1px $color-gray-200;
+            background-color: $color-base-white;
+        }
+    }
+
+    &.label-floating-top {
+        .ProgressBar__label {
+            transition: all 0.5s;
+            bottom: 1rem;
+            margin-left: -1.75rem;
+        }
+    }
+
+    &.label-floating-bottom {
+        .ProgressBar__label {
+            transition: all 0.5s;
+            top: 1rem;
+            margin-left: -1.75rem;
+        }
+    }
+}
