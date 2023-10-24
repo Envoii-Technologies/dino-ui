@@ -47,6 +47,7 @@
     &.label-floating-top,
     &.label-floating-bottom {
         .ProgressBar__label {
+            @include Shadow-lg;
             position: absolute;
             display: flex;
             flex-direction: column;
