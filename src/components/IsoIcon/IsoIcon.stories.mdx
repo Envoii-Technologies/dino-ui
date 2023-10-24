@@ -1,0 +1,33 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { IsoIcon } from './IsoIcon';
+
+export const Template = (args) => (
+	<IsoIcon { ...args } />
+);
+
+<Meta title='Components/IsoIcon' component={ IsoIcon } />
+
+# IsoIcon
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ IsoIcon } />
