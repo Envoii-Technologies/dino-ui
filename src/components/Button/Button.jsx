@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './Button.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-regular-svg-icons';
+import { Dot } from '../Dot';
 
 export const Button = ({
     className,
@@ -40,7 +41,7 @@ export const Button = ({
                 />
             )}
             {status !== 'none' && (
-                <div className={`Button__status ${status}`}></div>
+                <Dot state={status}/>
             )}
             {label && <div className="Button__label">{label}</div>}
 
@@ -78,7 +79,7 @@ Button.propTypes = {
     /**
      * status Dot
      */
-    status: PropTypes.oneOf(['none', 'idle', 'success', 'warning', 'error']),
+    status: PropTypes.oneOf(['none', 'success', 'warning', 'error']),
 	type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'link']),
 	size: PropTypes.oneOf(['md', 'lg']),
     fluid: PropTypes.bool,

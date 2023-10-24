@@ -36,32 +36,9 @@
         flex-grow: 1;
     }
 
-    &__status {
-        display: block;
-        width: 0.5rem;
-        height: 0.5rem;
+    .Dot
+    {
         margin-right: 0.25rem;
-        border-radius: 50%;
-        
-        &.idle
-        {
-            background: $color-base-white;
-        }
-        
-        &.success
-        {
-            background: $color-success-500;
-        }
-
-        &.warning
-        {
-            background: $color-warning-500;
-        }
-
-        &.error
-        {
-            background: $color-error-500;
-        }
     }
 
     &__icon {
