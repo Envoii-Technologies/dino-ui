@@ -1,0 +1,130 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { Dot } from './Dot';
+
+export const Template = (args) => (
+	<Dot { ...args } />
+);
+
+<Meta title='Components/Dot' component={ Dot } />
+
+# Dot
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### State
+
+...
+
+<Canvas>
+	<Story
+		name="State Success"
+		args={{
+			state: "success",
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+		<Story
+		name="State Warning"
+		args={{
+			state: "warning",
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+		<Story
+		name="State Error"
+		args={{
+			state: "error",
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Size
+
+...
+
+<Canvas>
+	<Story
+		name="Size Small"
+		args={{
+			size: "sm",
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+	<Story
+		name="Size Medium"
+		args={{
+			size: "md",	
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+	<Story
+		name="Size Large"
+		args={{
+			size: "lg",
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+
+</Canvas>
+
+### Outline
+
+...
+
+<Canvas>
+	<Story
+		name="Outline Small"
+		args={{
+			outline: true,
+			size: "sm",
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+	<Story
+		name="Outline Medium"
+		args={{
+			outline: true,
+			size: "md",
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+	<Story
+		name="Outline Large"
+		args={{
+			outline: true,
+			size: "lg",
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ Dot } />
