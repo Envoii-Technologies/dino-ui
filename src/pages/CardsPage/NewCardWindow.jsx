@@ -11,6 +11,7 @@ import {
     Badge,
     PopOver,
 } from '../../';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 export const NewCardWindow = ({
     className,
@@ -68,7 +69,7 @@ export const NewCardWindow = ({
                     position="bottom-center"
                     openOnHover={true}
                 >
-                    <Badge label="Detals hinzufügen"/>
+                    <Badge label="Detals hinzufügen" icon={faPlus} iconPosition="left"/>
                 </PopOver>
             </div>
             <Button
