@@ -30,19 +30,25 @@ export const PopOver = ({
     const [adjustedPosition, setAdjustedPosition] = useState(position);
     const popoverRef = useRef(null);
 
-    const handleMouseEnter = () => {
+    const handleMouseEnter = (e) => {
+        e.stopPropagation();
+
         if (openOnHover) {
             setIsVisible(true);
         }
     };
 
-    const handleMouseLeave = () => {
+    const handleMouseLeave = (e) => {
+        e.stopPropagation();
+
         if (openOnHover) {
             setIsVisible(false);
         }
     };
 
-    const handleClick = () => {
+    const handleClick = (e) => {
+        e.stopPropagation();
+        
         if (!openOnHover) {
             setIsVisible(!isVisible);
         }
@@ -61,13 +67,19 @@ export const PopOver = ({
 
             // Überprüfe, ob der Tooltip außerhalb des sichtbaren Bereichs liegt
             const rect = popoverRef.current.getBoundingClientRect();
-            const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
-            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+            const viewportWidth =
+                window.innerWidth || document.documentElement.clientWidth;
+            const viewportHeight =
+                window.innerHeight || document.documentElement.clientHeight;
 
             if (rect.right > viewportWidth) {
                 // Der Tooltip geht rechts über den Bildschirmrand hinaus
                 setAdjustedPosition(PopOverPosition.LEFT_TOP); // Passe die Position an
             }
+
+            setTimeout(() => {
+                setIsVisible(false);
+            }, 2500);
         } else {
             // Remove the click event listener when the popover is not visible
             document.removeEventListener('click', handleClickOutside);
@@ -84,12 +96,17 @@ export const PopOver = ({
             className={`PopOver ${adjustedPosition} ${
                 openOnHover ? 'hoverable' : ''
             } ${className !== undefined ? className : ''}`}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            onClick={handleClick}
             ref={popoverRef} // Ref to the popover div
         >
-            <div className="PopOver__trigger">{children}</div>
+            <div className="PopOver__trigger">
+                <div
+                    onMouseEnter={(e) => handleMouseEnter(e)}
+                    onMouseLeave={(e) => handleMouseLeave(e)}
+                    onClick={(e) => handleClick(e)}
+                >
+                    {children}
+                </div>
+            </div>
             {isVisible && (
                 <div className="PopOver__content">
                     <div className="PopOver__content--inner">{content}</div>
