@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 
-import { PageHeader, ButtonGroup, Button, PageSubHeader, Input, PopOver, Badge } from './../../';
+import {
+    PageHeader,
+    ButtonGroup,
+    Button,
+    PageSubHeader,
+    Input,
+    LoadingIndicator,
+} from './../../';
 
 import { NewCardWindow } from './NewCardWindow';
 
@@ -13,19 +20,27 @@ import {
 
 import './CardsPage.scss';
 
-export const CardsPage = ({ isLoading, userData }) => {
-    const [ showCreateCardWindow, setShowCreateCardWindow ] = useState(false);
+export const CardsPage = ({ isLoading, userData, onSaveNewCard }) => {
+    const [showCreateCardWindow, setShowCreateCardWindow] = useState(false);
 
     return (
         <>
             {isLoading ? (
-                <>Loading...</>
+                <LoadingIndicator showLabel={true}/>
             ) : (
                 <>
-                    <NewCardWindow showWindow={showCreateCardWindow} onCancel={() => setShowCreateCardWindow(false)}/>
+                    <NewCardWindow
+                        showWindow={showCreateCardWindow}
+                        onCancel={() => setShowCreateCardWindow(false)}
+                        onSave={(data) => onSaveNewCard(data)}
+                    />
                     <PageHeader title={`Karten`}>
                         <ButtonGroup>
-                            <Button label="Neue Karte" iconLeft={faPlus} onClick={() => setShowCreateCardWindow(true)}/>
+                            <Button
+                                label="Neue Karte"
+                                iconLeft={faPlus}
+                                onClick={() => setShowCreateCardWindow(true)}
+                            />
                             <Button iconLeft={faEllipsisV} type="secondary" />
                         </ButtonGroup>
                     </PageHeader>
@@ -43,7 +58,7 @@ export const CardsPage = ({ isLoading, userData }) => {
                             />
                             <Button label="Filter zurücksetzen" type="link" />
                         </ButtonGroup>
-                        <Input/>
+                        <Input />
                     </PageSubHeader>
                 </>
             )}

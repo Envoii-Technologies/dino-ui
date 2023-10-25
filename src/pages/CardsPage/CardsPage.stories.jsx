@@ -26,14 +26,22 @@ const Template = (args) => {
                 show={showWindow}
                 type="error"
                 onCancel={() => setShowWindow(false)}
-                onAction={() => alert("[NOT IMPLEMENTED]")}
+                onAction={() => alert('[NOT IMPLEMENTED]')}
                 title="Wollen sie sich wirklich ausloggen?"
                 body=""
-                cancelText={"Abbrechen"}
-                actionText={"Ausloggen"}
+                cancelText={'Abbrechen'}
+                actionText={'Ausloggen'}
             />
-            <Layout userData={mockUser} onLogoutAction={() => setShowWindow(true)}>
-                <CardsPage {...args} userData={mockUser} isLoading={false} />
+            <Layout
+                userData={mockUser}
+                onLogoutAction={() => setShowWindow(true)}
+            >
+                <CardsPage
+                    {...args}
+                    userData={mockUser}
+                    isLoading={false}
+                    onSaveNewCard={(data) => console.log(data)}
+                />
             </Layout>
         </>
     );
