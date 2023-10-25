@@ -12,6 +12,7 @@ import {
     PopOver,
     OverflowDatePicker,
     Badge,
+    SelectBox,
 } from '../../';
 import {
     faPlus,
@@ -24,19 +25,16 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Moment from 'react-moment';
 
-export const NewCardWindow = ({
-    showWindow,
-    onCancel,
-    onSave,
-    ...props
-}) => {
+export const NewCardWindow = ({ showWindow, onCancel, onSave, tagData, ...props }) => {
     const [showDatePickerWindow, setShowDatePickerWindow] = useState(false);
+    const [showTagSelector, setShowTagSelector] = useState(false);
 
     const [canSaveCard, setCanSaveCard] = useState(false);
 
     const [cardData, setCardData] = useState({
         title: '',
         deadline: undefined,
+        tags: []
     });
 
     const MenuItems = [
@@ -44,12 +42,12 @@ export const NewCardWindow = ({
             {
                 title: 'Tags',
                 icon: faTag,
-                onClick: () => alert('Tags'),
+                onClick: () => setShowTagSelector(true),
             },
             {
                 title: 'Klassifizierung',
                 icon: faFlag,
-                onClick: () => alert('Tags'),
+                onClick: () => alert('Klassifizierung'),
             },
             {
                 title: 'Deadline',
@@ -61,18 +59,18 @@ export const NewCardWindow = ({
             {
                 title: 'Beschreibung',
                 icon: faAlignLeft,
-                onClick: () => alert('Tags'),
+                onClick: () => alert('Beschreibung'),
             },
             {
                 title: 'QR Code',
                 icon: faQrcode,
-                onClick: () => alert('Tags'),
+                onClick: () => alert('QR Code'),
                 disabled: true,
             },
             {
                 title: 'Sprache',
                 icon: faGlobe,
-                onClick: () => alert('Tags'),
+                onClick: () => alert('Sprache'),
             },
         ],
     ];
@@ -101,10 +99,14 @@ export const NewCardWindow = ({
         setShowDatePickerWindow(false);
     };
 
-    const handleSaveCard = () =>
+    const handleChangeTags = (tags) =>
     {
-        onSave(cardData);
+        setCardData((data) => ({ ...data, tags: tags }));
     }
+
+    const handleSaveCard = () => {
+        onSave(cardData);
+    };
 
     return (
         <>
@@ -178,10 +180,13 @@ export const NewCardWindow = ({
                         </Row>
                         <Row>
                             {cardData?.deadline && (
-                                <Column smSpan={4} mdSpan={6} xlSpan={12}>
+                                <Column className="deadline__container" smSpan={4} mdSpan={6} xlSpan={12}>
+                                    <div className='deadline__container__header'>Deadline</div>
                                     <Badge
                                         closable={true}
-                                        onClick={() => setShowDatePickerWindow(true)}
+                                        onClick={() =>
+                                            setShowDatePickerWindow(true)
+                                        }
                                         label={
                                             <Moment format="DD.MM.YYYY">
                                                 {cardData?.deadline}
@@ -194,6 +199,15 @@ export const NewCardWindow = ({
                                             }))
                                         }
                                     />
+                                </Column>
+                            )}
+                            {showTagSelector && (
+                                <Column
+                                    smSpan={4}
+                                    mdSpan={6}
+                                    xlSpan={12}
+                                >
+                                    <SelectBox label="Tags" multi={true} options={tagData} onSelect={(tags) => handleChangeTags(tags)}/>
                                 </Column>
                             )}
                         </Row>
@@ -210,4 +224,3 @@ export const NewCardWindow = ({
         </>
     );
 };
-

@@ -20,7 +20,7 @@ import {
 
 import './CardsPage.scss';
 
-export const CardsPage = ({ isLoading, userData, onSaveNewCard }) => {
+export const CardsPage = ({ isLoading, userData, tagData, onSaveNewCard }) => {
     const [showCreateCardWindow, setShowCreateCardWindow] = useState(false);
 
     return (
@@ -33,6 +33,7 @@ export const CardsPage = ({ isLoading, userData, onSaveNewCard }) => {
                         showWindow={showCreateCardWindow}
                         onCancel={() => setShowCreateCardWindow(false)}
                         onSave={(data) => onSaveNewCard(data)}
+                        tagData={tagData}
                     />
                     <PageHeader title={`Karten`}>
                         <ButtonGroup>

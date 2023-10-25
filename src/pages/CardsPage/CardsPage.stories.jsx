@@ -15,6 +15,14 @@ export default {
     },
 };
 
+const taglist = [
+    { value: 'document', label: 'document' },
+    { value: 'produktion', label: 'produktion' },
+    { value: 'externer request', label: 'externer request' },
+    { value: 'wartung', label: 'wartung' },
+    { value: 'montageanleitung', label: 'montageanleitung' },
+]
+
 const Template = (args) => {
     const [showWindow, setShowWindow] = React.useState(false);
 
@@ -39,6 +47,7 @@ const Template = (args) => {
                 <CardsPage
                     {...args}
                     userData={mockUser}
+                    tagData={taglist}
                     isLoading={false}
                     onSaveNewCard={(data) => console.log(data)}
                 />

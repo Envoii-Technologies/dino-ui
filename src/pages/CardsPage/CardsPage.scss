@@ -41,3 +41,17 @@
         }
     }
 }
+
+.deadline__container
+{
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    &__header
+    {
+        padding-bottom: 4px;
+        color: $color-gray-500;
+        @include Text-xsRegular;
+    }
+}
