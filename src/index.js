@@ -25,3 +25,4 @@ export { IsoIcon } from './components/IsoIcon/index.js';
 export { HelpIcon } from './components/HelpIcon/index.js';
 export { Dot } from './components/Dot/index.js';
 export { Tag } from './components/Tag/index.js';
+export { DatePicker } from './components/DatePicker/index.js';
