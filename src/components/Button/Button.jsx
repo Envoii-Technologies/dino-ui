@@ -81,7 +81,7 @@ Button.propTypes = {
      */
     status: PropTypes.oneOf(['none', 'success', 'warning', 'error']),
 	type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'link']),
-	size: PropTypes.oneOf(['md', 'lg']),
+	size: PropTypes.oneOf(['sm', 'md', 'lg']),
     fluid: PropTypes.bool,
 };
 

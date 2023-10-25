@@ -18,6 +18,13 @@ export const Badge = ({
 	onClose,
     ...props
 }) => {
+
+    const handleClose = (e) =>
+    {
+        e.stopPropagation();
+        onClose();
+    }
+
     return (
         <div
             className={`Badge ${className !== undefined ? className : ''}
@@ -39,7 +46,7 @@ export const Badge = ({
                 icon && iconPosition === "right" && <FontAwesomeIcon className={`Badge__icon--right`} icon={icon}/>
             }
             {
-                closable && <FontAwesomeIcon className="Badge__close" icon={faClose} onClick={onClose}/>
+                closable && <FontAwesomeIcon className="Badge__close" icon={faClose} onClick={(e) => handleClose(e)}/>
             }
         </div>
     );
@@ -50,7 +57,7 @@ Badge.propTypes = {
      * Custom class name of Component
      */
     className: PropTypes.string,
-    label: PropTypes.string,
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     size: PropTypes.oneOf(['sm', 'md', 'lg']),
     color: PropTypes.oneOf([
         'gray',

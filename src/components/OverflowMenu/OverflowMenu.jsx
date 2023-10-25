@@ -76,9 +76,10 @@ export const OverflowMenu = ({
                             </div>
                         )}
                         {content.map((menu, i) => (
-                            <nav className="OverflowMenu__content--inner__items">
+                            <nav key={i} className="OverflowMenu__content--inner__items">
                                 {menu.map((item, j) => (
                                     <OverflowMenuButton
+                                        key={j}
                                         label={item.title}
                                         icon={item.icon}
                                         onClick={item.onClick}

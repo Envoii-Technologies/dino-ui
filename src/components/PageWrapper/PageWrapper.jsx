@@ -7,10 +7,7 @@ export const PageWrapper = ({ className, children, ...props }) =>
 	return (
 		<div className={`PageWrapper ${ className !== undefined ? className : "" }`}>
 			<div className="PageWrapper__content">
-				<section>
-
 				{ children }
-				</section>
 			</div>
 		</div>
 	)

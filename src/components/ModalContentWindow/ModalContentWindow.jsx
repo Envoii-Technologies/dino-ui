@@ -19,8 +19,6 @@ export const ModalContentWindow = ({
     children,
     onAction,
     onCancel,
-    actionText,
-    cancelText,
     ...props
 }) => {
     const { fadeOut, handleShowDelay } = useModalContentWindow({
@@ -87,40 +85,6 @@ ModalContentWindow.defaultProps = {
     className: undefined,
     show: false,
     title: 'Default Title',
-    onAccept: undefined,
+    onAction: undefined,
     onCancel: undefined,
-    acceptText: 'Akzeptieren',
-    cancelText: 'Abbrechen',
 };
-
-/**
- * <div className={`ModalContentWindow ${fadeOut ? 'fadeOut' : 'fadeIn'}`}>
-                    <div className="ModalContentWindow__header">
-                        <h4 className="ModalContentWindow__header__title">
-                            {title ? title : 'Default Message'}
-                        </h4>
-                        <Button
-                            className="ModalContentWindow__header__close"
-                            type="tertiary"
-                            iconLeft={faXmark}
-                            onClick={handleShowDelay}
-                        />
-                    </div>
-                    {body && <div className="ModalContentWindow__body">{body}</div>}
-
-                    <div className="ModalContentWindow__footer">
-                        <Button
-                            type="secondary"
-                            label={cancelText}
-                            onClick={handleShowDelay}
-                        />
-                        {onAction && (
-                            <Button
-                                type="success"
-                                label={actionText}
-                                onClick={onAction}
-                            />
-                        )}
-                    </div>
-                </div>
- */

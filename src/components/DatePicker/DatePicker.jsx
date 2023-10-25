@@ -18,6 +18,10 @@ export const DatePicker = ({ className, onAction, onCancel, startDate, ...props 
     const [value, onChange] = useState(startDate || new Date());
 
 	useEffect(() => {
+		onChange(startDate);
+	}, [startDate]);
+
+	useEffect(() => {
 		
 	}, [value])
 

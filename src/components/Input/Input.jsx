@@ -55,6 +55,7 @@ export const Input = ({
                             className="Input__wrapper__input__main"
                             placeholder={placeholder}
                             disabled={disabled}
+                            name={name}
                             autoFocus={autoFocus}
                             {...props}
                         />
