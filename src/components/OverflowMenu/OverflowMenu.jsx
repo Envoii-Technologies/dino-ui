@@ -1,32 +1,93 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import './OverflowMenu.scss';
+import { Button } from '../Button';
+import {
+    faChevronUp,
+    faMinus,
+    faP,
+    faPlus,
+} from '@fortawesome/free-solid-svg-icons';
+import { OverflowMenuButton } from './OverflowMenuButton';
 
 export const OverflowMenu = ({
     className,
-    children,
     content,
+    header,
+    small,
+    shortcuts,
     anchor,
+    label,
+    buttonType,
     ...props
 }) => {
     const [isVisible, setIsVisible] = useState(false);
+    const [fadeOut, setFadeOut] = useState(false);
 
     const handleClick = () => {
-            setIsVisible(!isVisible);
+        if (isVisible === true) {
+            handleShowDelay();
+        } else {
+            setIsVisible(true);
+        }
+    };
+
+    const handleShowDelay = () => {
+        setFadeOut(true);
+
+        setTimeout(() => {
+            setIsVisible(false);
+            setFadeOut(false);
+        }, 500);
     };
 
     return (
         <div
-            className={`OverflowMenu ${
-                className !== undefined ? className : ''
-            }`}
+            className={`OverflowMenu 
+                ${className !== undefined ? className : ''}
+                ${small ? 'small' : ''}
+            `}
             onClick={() => handleClick()}
         >
-            <div className="OverflowMenu__trigger">{children}</div>
+            <div
+                className={`OverflowMenu__trigger ${
+                    isVisible ? 'open' : 'closed'
+                }`}
+            >
+                <Button
+                    label={label}
+                    type={buttonType}
+                    iconRight={isVisible ? faMinus : faPlus}
+                    isDisabled={content.length < 1 ? true : false}
+                />
+            </div>
             {isVisible && (
-                <div className={`OverflowMenu__content anchor__${anchor}`}>
+                <div
+                    className={`OverflowMenu__content ${
+                        shortcuts ? 'shortcuts' : ''
+                    } anchor__${anchor} ${isVisible ? 'open' : ''} ${
+                        fadeOut ? 'closed' : ''
+                    }`}
+                >
                     <div className="OverflowMenu__content--inner">
-                        {content}
+                        {header && (
+                            <div className="OverflowMenu__content--inner__header">
+                                {header}
+                            </div>
+                        )}
+                        {content.map((menu, i) => (
+                            <nav className="OverflowMenu__content--inner__items">
+                                {menu.map((item, j) => (
+                                    <OverflowMenuButton
+                                        label={item.title}
+                                        icon={item.icon}
+                                        onClick={item.onClick}
+                                        isDisabled={item.disabled}
+                                        showShortcut={shortcuts}
+                                    />
+                                ))}
+                            </nav>
+                        ))}
                     </div>
                 </div>
             )}
@@ -40,22 +101,22 @@ OverflowMenu.propTypes = {
      */
     className: PropTypes.string,
     anchor: PropTypes.oneOf([
-        'left-top',
-        'left-center',
-        'left-bottom',
-        'left-top-inner',
-        'left-center-inner',
-        'left-bottom-inner',
-        'right-top',
-        'right-center',
-        'right-bottom',
-        'right-top-inner',
-        'right-center-inner',
-        'right-bottom-inner',
+        'above-left',
+        'above-right',
+        'below-left',
+        'below-right',
     ]),
+    label: PropTypes.string,
+    shortcuts: PropTypes.bool,
+    content: PropTypes.array,
+    buttonType: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'link']),
 };
 
 OverflowMenu.defaultProps = {
     className: undefined,
-    anchor: 'left-top-inner',
+    anchor: 'below-left',
+    label: 'Button',
+    shortcuts: true,
+    content: [],
+    buttonType: 'tertiary',
 };
