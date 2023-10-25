@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import './OverflowContent.scss'
+import './OverflowContent.scss';
 
 export const OverflowContent = ({ className, children, show, ...props }) =>
 {

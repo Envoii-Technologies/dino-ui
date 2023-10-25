@@ -28,3 +28,4 @@ export { Tag } from './components/Tag/index.js';
 export { DatePicker } from './components/DatePicker/index.js';
 export { OverflowContent } from './components/OverflowContent/index.js';
 export { OverflowDatePicker } from './components/OverflowDatePicker/index.js';
+export { SelectBox } from './components/SelectBox/index.js';
