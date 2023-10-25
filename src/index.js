@@ -26,3 +26,5 @@ export { HelpIcon } from './components/HelpIcon/index.js';
 export { Dot } from './components/Dot/index.js';
 export { Tag } from './components/Tag/index.js';
 export { DatePicker } from './components/DatePicker/index.js';
+export { OverflowContent } from './components/OverflowContent/index.js';
+export { OverflowDatePicker } from './components/OverflowDatePicker/index.js';
