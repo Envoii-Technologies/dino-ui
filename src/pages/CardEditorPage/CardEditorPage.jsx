@@ -10,10 +10,6 @@ import {
     TabItem,
     Container,
     Input,
-    Grid,
-    Row,
-    Column,
-    Divider,
     ContentRow,
     Checkbox,
     SelectBox,
@@ -27,7 +23,7 @@ import {
     faQrcode,
 } from '@fortawesome/free-solid-svg-icons';
 
-export const CardEditorPage = ({ isLoading, tagData }) => {
+export const CardEditorPage = ({ isLoading, tagData, currentTab }) => {
     return (
         <>
             {isLoading ? (
@@ -52,7 +48,7 @@ export const CardEditorPage = ({ isLoading, tagData }) => {
                             </ButtonGroup>
                         </PageHeader>
                     </header>
-                    <Tabs>
+                    <Tabs currentSelected={currentTab || 0}>
                         <TabItem title="Schritte">
                             <Container>
                                 Lorem ipsum dolor sit amet consectetur
@@ -236,6 +232,7 @@ export const CardEditorPage = ({ isLoading, tagData }) => {
                                 <ContentRow>
                                     <Button
                                         label="QR-Code hinzufügen"
+                                        isDisabled={true}
                                         type="secondary"
                                         iconLeft={faPlus}
                                         iconRight={faQrcode}
