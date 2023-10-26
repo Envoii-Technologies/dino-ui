@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Input.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { HelpIcon } from '../HelpIcon';
+
+import './Input.scss';
 
 export const Input = ({
     className,

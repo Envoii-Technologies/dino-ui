@@ -33,3 +33,4 @@ export { SelectBox } from './components/SelectBox/index.js';
 export { Tabs, TabItem } from './components/Tabs/index.js';
 export { Container } from './components/Container/index.js';
 export { ContentRow } from './components/ContentRow/index.js';
+export { TextArea } from './components/TextArea/index.js';
