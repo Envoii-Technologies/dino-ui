@@ -4,7 +4,7 @@ import './Grid.scss';
 
 export const Grid = ({ className, fluid, children, ...props }) => {
     return (
-		<div className={`Grid ${className !== undefined ? className : ''} ${fluid ? 'fluid' : ''}`}>
+		<div className={`Grid ${className !== undefined ? className : ''} ${fluid ? 'fluid' : ''}`} {...props}>
 		{children}
 	  </div>
     );

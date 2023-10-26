@@ -78,6 +78,7 @@
                 &:disabled {
                     background: $color-gray-50;
                     color: $color-gray-500;
+                    border-radius: $radius-md;
                 }
             }
 

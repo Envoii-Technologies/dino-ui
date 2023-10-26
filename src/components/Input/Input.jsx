@@ -14,6 +14,7 @@ export const Input = ({
     disabled,
     error,
     icon,
+    value,
     type,
     metaLabel,
     metaPosition,
@@ -56,6 +57,7 @@ export const Input = ({
                             placeholder={placeholder}
                             disabled={disabled}
                             name={name}
+                            value={value}
                             autoFocus={autoFocus}
                             {...props}
                         />

@@ -2,11 +2,21 @@
 
 .PageHeader {
 
+    padding-bottom: 28px;
+
     &__wrapper {
         display: flex;
         flex-direction: column;
         flex-grow: 1;
         gap: 20px;
+
+        padding: $spacing-2xl;
+
+                @media only screen and (min-width: $breakpoint-medium) {
+                    padding: $spacing-4xl;
+                }
+
+        padding-bottom: 0 !important;
 
         &__breadcrumb
         {

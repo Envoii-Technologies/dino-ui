@@ -11,6 +11,7 @@ export const Column = ({
     mdStart,
     xlStart,
     children,
+    ...props
 }) => {
     return (
         <div
@@ -22,6 +23,7 @@ export const Column = ({
                 ${smStart ? `Column__start--sm--${smStart}` : ''} 
                 ${mdStart ? `Column__start--md--${mdStart}` : ''} 
                 ${xlStart ? `Column__start--xl--${xlStart}` : ''}`}
+                {...props}
         >
             {children}
         </div>

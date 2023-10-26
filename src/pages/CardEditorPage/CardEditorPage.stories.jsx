@@ -6,6 +6,7 @@ import { ModalInfoWindow } from '../../components/ModalInfoWindow';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 
 import mockUser from './../../data/mockUser';
+import tagList from './../../data/tags';
 
 export default {
     title: 'Pages/Cards/Editor',
@@ -40,6 +41,7 @@ const Template = (args) => {
                 <CardEditorPage
                     {...args}
                     isLoading={false}
+                    tagData={tagList}
                 />
             </Layout>
         </>

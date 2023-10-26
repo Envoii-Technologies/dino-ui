@@ -1,0 +1,36 @@
+@use '../../global-styles/' as *;
+
+.Container {
+
+    height: calc(100vh - 20.6rem);
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    
+    @media only screen and (min-width: $breakpoint-medium) {
+        height: calc(100vh - 12.9rem);
+    }
+
+    &__wrapper {
+        display: flex;
+        flex: 1;
+        min-height: 0px;
+
+        &__container {
+            flex: 1;
+            overflow: auto;
+
+            &__content {
+                color: black;
+                padding: $spacing-2xl;
+
+                @media only screen and (min-width: $breakpoint-medium) {
+                    padding: $spacing-4xl;
+                }
+
+                padding-top: 48px;
+            }
+        }
+    }
+}
