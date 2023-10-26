@@ -94,12 +94,12 @@ TextArea.propTypes = {
 
 TextArea.defaultProps = {
     className: undefined,
-    label: 'test',
+    label: undefined,
     disabled: false,
-    hint: 'test',
+    hint: undefined,
     error: undefined,
     placeholder: undefined,
-    tooltipText: <p>ok</p>,
-    metaLabel: 'test',
+    tooltipText: undefined,
+    metaLabel: undefined,
     metaPosition: 'left',
 };
