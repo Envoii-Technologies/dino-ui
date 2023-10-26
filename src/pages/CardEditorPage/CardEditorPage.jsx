@@ -210,7 +210,7 @@ export const CardEditorPage = ({ isLoading, tagData, currentTab }) => {
                         <TabItem title="Informationen">
                             <Container>
                                 <ContentRow>
-                                    <Input label="Erstellt von" disabled={true} value="ok"/>
+                                    <Input label="Erstellt von" disabled={true} value="Benutzer ID"/>
                                 </ContentRow>
 
                                 <ContentRow>
@@ -218,7 +218,7 @@ export const CardEditorPage = ({ isLoading, tagData, currentTab }) => {
                                 </ContentRow>
 
                                 <ContentRow>
-                                    <Input label="Klassifizierung" />
+                                    <Input label="Klassifizierung" disabled={true}/>
                                 </ContentRow>
 
                                 <ContentRow>
