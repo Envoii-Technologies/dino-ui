@@ -7,6 +7,7 @@ import {
     PageSubHeader,
     Input,
     LoadingIndicator,
+    Container,
 } from './../../';
 
 import { NewCardWindow } from './NewCardWindow';
@@ -61,6 +62,9 @@ export const CardsPage = ({ isLoading, userData, tagData, onSaveNewCard }) => {
                         </ButtonGroup>
                         <Input />
                     </PageSubHeader>
+                    <Container>
+                        
+                    </Container>
                 </>
             )}
         </>

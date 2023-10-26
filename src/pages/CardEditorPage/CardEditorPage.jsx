@@ -13,6 +13,7 @@ import {
     ContentRow,
     Checkbox,
     SelectBox,
+    TextArea,
 } from './../../';
 
 import './CardEditorPage.scss';
@@ -226,7 +227,7 @@ export const CardEditorPage = ({ isLoading, tagData, currentTab }) => {
                                 </ContentRow>
 
                                 <ContentRow>
-                                    <Input label="Notizen" />
+                                    <TextArea label="Notizen"/>
                                 </ContentRow>
 
                                 <ContentRow>

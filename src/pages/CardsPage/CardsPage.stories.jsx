@@ -36,6 +36,7 @@ const Template = (args) => {
             <Layout
                 userData={mockUser}
                 onLogoutAction={() => setShowWindow(true)}
+                type="secondary"
             >
                 <CardsPage
                     {...args}

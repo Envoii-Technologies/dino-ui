@@ -55,7 +55,8 @@
 
             &__main {
                 padding: $spacing-md $spacing-lg;
-                background: transparent;
+                background: $color-base-white;
+                border-radius: $radius-md;
                 flex-grow: 1;
                 text-align: left;
                 border: none;

@@ -13,6 +13,7 @@ export const Layout = ({
     userData,
     children,
     onLogoutAction,
+    type,
     ...props
 }) => {
     const { isMobileMenuOpen, toggleMobileMenu, closeMobileMenu } = useLayout();
@@ -34,7 +35,7 @@ export const Layout = ({
                     handleMobileOpen={isMobileMenuOpen}
                     mobileCloseAction={closeMobileMenu}
                 />
-                <PageWrapper>{children}</PageWrapper>
+                <PageWrapper type={type}>{children}</PageWrapper>
             </div>
         </>
     );
@@ -46,9 +47,11 @@ Layout.propTypes = {
      */
     className: PropTypes.string,
     isExpanded: PropTypes.bool,
+    type: PropTypes.oneOf(["primary", "secondary"]),
 };
 
 Layout.defaultProps = {
     className: undefined,
     isExpanded: true,
+    type: "primary",
 };
