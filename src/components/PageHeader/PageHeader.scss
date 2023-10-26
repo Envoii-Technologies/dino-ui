@@ -1,35 +1,45 @@
 @use '../../global-styles/' as *;
 
-.PageHeader
-{
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 0.5rem;
+.PageHeader {
 
-    @media (min-width: $md-breakpoint) {
-        flex-direction: row;
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        gap: 20px;
+
+        &__breadcrumb
+        {
+            display: flex;
+        }
+
+        &__main {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow:1;
+            gap: 0.5rem;
+
+            @media (min-width: $md-breakpoint) {
+                flex-direction: row;
+            }
+        }
     }
 
-    &__left
-    {
+    &__left {
         display: flex;
         flex-direction: column;
         gap: 4px;
 
-        &__title
-        {
+        &__title {
             align-self: stretch;
             flex-grow: 0;
             text-align: left;
             color: $color-gray-900;
             @include Display-smSemibold;
         }
-    
-        &__subtitle
-        {
+
+        &__subtitle {
             align-self: stretch;
             flex-grow: 0;
             text-align: left;
@@ -39,7 +49,6 @@
     }
 }
 
-
 /*
- 
+
 */

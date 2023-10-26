@@ -178,6 +178,7 @@ export const NewCardWindow = ({ showWindow, onCancel, onSave, tagData, ...props 
                                 </PopOver>
                             </Column>
                         </Row>
+                        <br />
                         <Row>
                             {cardData?.deadline && (
                                 <Column className="deadline__container" smSpan={4} mdSpan={6} xlSpan={12}>
@@ -207,7 +208,7 @@ export const NewCardWindow = ({ showWindow, onCancel, onSave, tagData, ...props 
                                     mdSpan={6}
                                     xlSpan={12}
                                 >
-                                    <SelectBox label="Tags" multi={true} options={tagData} onSelect={(tags) => handleChangeTags(tags)}/>
+                                    <SelectBox label="Tags" searchable={true} multi={true} options={tagData} onSelect={(tags) => handleChangeTags(tags)}/>
                                 </Column>
                             )}
                         </Row>
