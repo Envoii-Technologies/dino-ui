@@ -18,9 +18,12 @@
 
     &.collapsed {
         .SidebarUserInfo__wrapper {
-            transition: all 0.5s;
-            margin-left: -100px;
-            opacity: 0;
+            @media only screen and (min-width: $breakpoint-medium) {
+                transition: all 0.5s;
+                margin-left: -100px;
+                opacity: 0;
+            }
+           
         }
     }
 

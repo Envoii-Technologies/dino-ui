@@ -17,12 +17,15 @@
     cursor: pointer;
     text-decoration: none;
     transition: all 0.25s;
-
+    
     &.collapsed {
-        height: 2.5rem;
-        width: 2.5rem;
+        
         padding: 8px 8px;
-        margin-left: 0.25rem;
+        
+        @media only screen and (min-width: $breakpoint-medium) {
+            width: 2.5rem;
+            margin-left: 0.25rem;
+        }
     }
 
     &.expanded {
@@ -62,8 +65,12 @@
             transition: all 0.5s;
 
             &.collapsed {
-                margin-left: -25px;
-                opacity: 0;
+                
+                
+                @media only screen and (min-width: $breakpoint-medium) {
+                    margin-left: -25px;
+                    opacity: 0;
+                }
             }
 
             &.expanded {
