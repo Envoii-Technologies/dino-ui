@@ -23,7 +23,9 @@ export const SidebarUserInfo = ({ className, isExpanded, userData, onLogoutActio
                 className !== undefined ? className : ''
             } ${isExpanded ? 'expanded' : 'collapsed'}`}
         >
-            <Avatar image={placeholderAvatar} />
+            {
+                userData.avatar ? (<Avatar image={userData.avatar} />) : (<Avatar name={`${userData.firstname} ${userData.lastname}`} />)
+            }
             <div className="SidebarUserInfo__wrapper">
                 <div className="SidebarUserInfo__wrapper__user">
                     <span className="SidebarUserInfo__wrapper__user__username">

@@ -1,14 +1,23 @@
 import React, { useState } from 'react';
+
 import PropTypes from 'prop-types';
+
+import { Dot } from './../../';
+
+import placeholderImage from './../../assets/images/userPlaceholder.svg';
+
 import './Avatar.scss';
 
 export const AvatarSizes = {
-    small: 'small',
-    medium: 'medium',
-    large: 'large',
+    xs: 'xs',
+    sm: 'sm',
+    md: 'md',
+    lg: 'lg',
+    xl: 'xl',
+    xxl: 'xxl',
 };
 
-export const Avatar = ({ className, name, image, size, ...props }) => {
+export const Avatar = ({ className, name, size, type, status, ...props }) => {
     const getFirstLetters = (str) => {
         const firstLetters = str
             .split(' ')
@@ -22,23 +31,28 @@ export const Avatar = ({ className, name, image, size, ...props }) => {
         <div
             className={`
 			Avatar ${className !== undefined ? className : ''}
-			${size ===  AvatarSizes.small ? 'small' : size === AvatarSizes.medium ? 'medium' : 'large'}
-			${image !== undefined ? 'with-image' : ''}
+			size-${size}
 			`}
             {...props}
         >
-            {image ? (
+            {type === 'placeholder' ? (
                 <>
                     <img
                         className="Avatar__image"
-                        src={image}
+                        src={placeholderImage}
                         alt="user-image"
                         style={{ display: 'flex' }}
                     />
                 </>
             ) : (
-                <h1 className="Avatar__name">{getFirstLetters(name)}</h1>
+                <div className="Avatar__name">{getFirstLetters(name)}</div>
             )}
+
+            {status !== 'none' && (
+                    <div className="Avatar__status">
+                        <Dot size={size} state={status} />
+                    </div>
+                )}
         </div>
     );
 };
@@ -49,22 +63,21 @@ Avatar.propTypes = {
      */
     className: PropTypes.string,
     /**
-     * Size of avatar image
+     * Size of avatar
      */
     size: PropTypes.oneOf(Object.keys(AvatarSizes)),
+    type: PropTypes.oneOf(['placeholder', 'text']),
+    status: PropTypes.oneOf(['none', 'success', 'warning', 'error']),
     /**
      * Initials shown in Avatar
      */
     name: PropTypes.string,
-    /**
-     * Path to image file
-     */
-    image: PropTypes.string,
 };
 
 Avatar.defaultProps = {
     className: undefined,
-    size: AvatarSizes.medium,
+    size: AvatarSizes.md,
+    type: 'text',
+    status: 'none',
     name: 'Jane Doe',
-    image: undefined,
 };
