@@ -12,5 +12,5 @@ export default {
     "emailVerified": true,
     "firstname": "Admin",
     "lastname": "User",
-    "roles": ["app_admin"]
+    "roles": ["admin"]
 };

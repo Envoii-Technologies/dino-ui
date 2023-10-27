@@ -1,4 +1,6 @@
 export { Sidebar } from './components/Sidebar/index.js';
+export { SidebarButton } from './components/SidebarButton/index.js';
+export { SidebarUserInfo } from './components/SidebarUserInfo/index.js';
 export { PageWrapper } from './components/PageWrapper/index.js';
 export { Layout } from './components/Layout/index.js';
 export { Button } from './components/Button/index.js';

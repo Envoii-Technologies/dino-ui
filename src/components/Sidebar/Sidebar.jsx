@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-// import smallLogo from './../../assets/logos/Logo.png';
-import logoIconLight from './../../assets/logos/Logo_Icon-light.svg';
-import logoFullLight from './../../assets/logos/Logo_Full-light.svg';
+import { SidebarButton, SidebarUserInfo, Button, Badge} from './../../';
 
-import './Sidebar.scss';
-import { SidebarButton } from '../SidebarButton/SidebarButton';
-import { SidebarUserInfo } from '../SidebarUserInfo/SidebarUserInfo';
-import { Button } from '../Button/Button';
-import { Badge } from './../Badge/Badge';
+import { capitalizeFirstLetter } from './../../utils';
+
 import {
     faHouse,
     faImage,
@@ -19,6 +14,11 @@ import {
     faArrowRight,
     faClose,
 } from '@fortawesome/free-solid-svg-icons';
+
+import logoIconLight from './../../assets/logos/Logo_Icon-light.svg';
+import logoFullLight from './../../assets/logos/Logo_Full-light.svg';
+
+import './Sidebar.scss';
 
 export const Sidebar = ({
     className,
@@ -69,7 +69,7 @@ export const Sidebar = ({
                         )}
                         <Badge
                             className={isExpanded ? 'expanded' : 'collapsed'}
-                            label="Editor"
+                            label={capitalizeFirstLetter(userData.roles[0])}
                             size="sm"
                             color="purple"
                             pill={false}
