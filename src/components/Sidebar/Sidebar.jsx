@@ -97,12 +97,6 @@ export const Sidebar = ({
                             icon={faLayerGroup}
                             to="/acme/cards"
                         />
-                        <SidebarButton
-                            isExpanded={isExpanded}
-                            label="Medien"
-                            icon={faImage}
-                            to="/acme/media"
-                        />
                     </nav>
                 </div>
                 <div className="Sidebar__wrapper__secondary">

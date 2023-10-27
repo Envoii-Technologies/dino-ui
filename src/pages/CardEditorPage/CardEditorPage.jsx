@@ -16,7 +16,6 @@ import {
     TextArea,
 } from './../../';
 
-import './CardEditorPage.scss';
 import {
     faEllipsisVertical,
     faRocket,
@@ -24,7 +23,9 @@ import {
     faQrcode,
 } from '@fortawesome/free-solid-svg-icons';
 
-export const CardEditorPage = ({ isLoading, tagData, currentTab }) => {
+import './CardEditorPage.scss';
+
+export const CardEditorPage = ({ isLoading, tagData, currentTab, onSave, }) => {
     return (
         <>
             {isLoading ? (
@@ -37,7 +38,7 @@ export const CardEditorPage = ({ isLoading, tagData, currentTab }) => {
                             location="/acme/Karten/Hydraulikpresse"
                         >
                             <ButtonGroup>
-                                <Button label="Schliessen" type="secondary" />
+                                <Button label="Speichern" type="secondary" onClick={onSave} />
                                 <Button
                                     label="Veröffentlichen"
                                     iconRight={faRocket}
@@ -223,7 +224,7 @@ export const CardEditorPage = ({ isLoading, tagData, currentTab }) => {
                                 </ContentRow>
 
                                 <ContentRow>
-                                    <Input label="Deadline" />
+                                    <Input label="Fälligkeit" />
                                 </ContentRow>
 
                                 <ContentRow>
@@ -245,7 +246,6 @@ export const CardEditorPage = ({ isLoading, tagData, currentTab }) => {
                                 </ContentRow>
                             </Container>
                         </TabItem>
-                        <TabItem title="Medien">Medien INHALT</TabItem>
                     </Tabs>
                 </>
             )}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { CardsPage } from './CardsPage';
+import { CardsOverviewPage } from './CardsOverviewPage';
 import { Layout } from '../../components/Layout';
 import { ModalInfoWindow } from '../../components/ModalInfoWindow';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
@@ -10,7 +10,7 @@ import tagList from './../../data/tags';
 
 export default {
     title: 'Pages/Cards/Overview',
-    component: CardsPage,
+    component: CardsOverviewPage,
     parameters: {
         layout: 'fullscreen',
     },
@@ -38,7 +38,7 @@ const Template = (args) => {
                 onLogoutAction={() => setShowWindow(true)}
                 type="secondary"
             >
-                <CardsPage
+                <CardsOverviewPage
                     {...args}
                     userData={mockUser}
                     tagData={tagList}

@@ -36,3 +36,9 @@ export { Tabs, TabItem } from './components/Tabs/index.js';
 export { Container } from './components/Container/index.js';
 export { ContentRow } from './components/ContentRow/index.js';
 export { TextArea } from './components/TextArea/index.js';
+
+export { CardEditorPage } from './pages/CardEditorPage/CardEditorPage.jsx';
+export { CardsOverviewPage } from './pages/CardsOverviewPage/CardsOverviewPage.jsx';
+export { DashboardPage } from './pages/DashboardPage/DashboardPage.jsx';
+export { UserLoginPage } from './pages/UserLoginPage/UserLoginPage.jsx';
+export { TenantLoginPage } from './pages/TenantLoginPage/TenantLoginPage.jsx';

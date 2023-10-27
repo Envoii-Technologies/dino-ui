@@ -19,9 +19,9 @@ import {
     faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 
-import './CardsPage.scss';
+import './CardsOverviewPage.scss';
 
-export const CardsPage = ({ isLoading, userData, tagData, onSaveNewCard }) => {
+export const CardsOverviewPage = ({ isLoading, userData, tagData, onSaveNewCard }) => {
     const [showCreateCardWindow, setShowCreateCardWindow] = useState(false);
 
     return (
