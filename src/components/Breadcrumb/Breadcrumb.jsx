@@ -12,7 +12,6 @@ import { Link } from 'react-router-dom';
 
 export const Breadcrumb = ({ className, location, ...props }) => {
     const pathnames = location.split('/').filter((x) => x);
-    console.log(pathnames);
 
     return (
         <div

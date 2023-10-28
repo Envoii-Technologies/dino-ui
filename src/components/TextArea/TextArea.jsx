@@ -30,6 +30,10 @@ export const TextArea = ({
             textAreaRef.current.scrollHeight + 'px';
     }, [value]);
 
+    useEffect(()=> {
+        setValue(defaultValue);
+    }, [defaultValue])
+
     const handleChange = (e) => {
         setValue(e.target.value);
 		onChange(e);

@@ -6,53 +6,60 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const StepList = ({
     className,
-    steps,
+    stepsData,
     onChangeActiveStep,
     initialActiveStep,
     onAddStep,
     ...props
 }) => {
     const [currentStep, setCurrentStep] = useState(initialActiveStep);
+    const [stepList, setStepList] = useState(stepsData);
 
-    useEffect(() => {}, [currentStep]);
+    useEffect(() => {
+        setStepList(stepsData);
+    }, [stepsData]);
+
+    useEffect(() => {
+        setCurrentStep(initialActiveStep);
+    }, [initialActiveStep])
 
     const handleAddStep = () => {
         onAddStep();
     };
 
-    const handleChangeActiveStep = (i) =>
+    const handleChangeActiveStep = (selection) =>
     {
-        setCurrentStep(i);
-        onChangeActiveStep(i)
+        setCurrentStep(selection);
+        onChangeActiveStep(selection);
     }
 
     return (
         <div className={`StepList ${className !== undefined ? className : ''}`}>
             <ul className="StepList__items">
-                {[1, 2].map((items, i) => (
-                    <>
+                {stepList.map((step, i) => (
+                    <React.Fragment key={step._id}>
                         <li className="StepList__items__item">
-                            <button className="StepList__items__item__wrapper" onClick={() => handleChangeActiveStep(i)}>
+                            <button className="StepList__items__item__wrapper" onClick={() => handleChangeActiveStep(step._id)}>
                                 <div
                                     className={`StepList__items__item__wrapper__icon ${
-                                        currentStep === i ? 'active' : ''
+                                        currentStep === step._id ? 'active' : ''
                                     }`}
                                 >
                                     <FontAwesomeIcon icon={faDisplay} />
                                 </div>
                                 <div
                                     className={`StepList__items__item__wrapper__title ${
-                                        currentStep === i ? 'active' : ''
+                                        currentStep === step._id ? 'active' : ''
                                     }`}
                                 >
-                                    Kupplungskorb und Federn
+                                    {step.name}
                                 </div>
                             </button>
                         </li>
                         <li className="StepList__items__divider">
                             <div className="StepList__items__divider__line"></div>
                         </li>
-                    </>
+                        </React.Fragment>
                 ))}
 
                 <li className="StepList__items__create">
@@ -73,14 +80,14 @@ StepList.propTypes = {
      * Custom class name of Component
      */
     className: PropTypes.string,
-    initialActiveStep: PropTypes.number,
+    initialActiveStep: PropTypes.string,
     onAddStep: PropTypes.func,
     onChangeActiveStep: PropTypes.func,
 };
 
 StepList.defaultProps = {
     className: undefined,
-    initialActiveStep: 0,
+    initialActiveStep: undefined,
     onAddStep: undefined,
     onChangeActiveStep: undefined,
 };

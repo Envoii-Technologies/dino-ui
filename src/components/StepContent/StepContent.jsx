@@ -13,7 +13,7 @@ import './StepContent.scss';
 import {
     faCopy,
     faEllipsisV,
-    faPlus,
+    faPlus, 
     faTrash,
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -22,14 +22,20 @@ export const StepContent = ({
     stepData,
     onAddStep,
     onStepChange,
+    onDuplicateStep,
+    onDeleteStep,
     ...props
 }) => {
-    const [stepSettings, setStepSettings] = useState({
-        title: 'Kupplung mit Senf einreiben',
-        position: 2,
-        description: 'Positionieren Sie die Tube oberhalb der Kupplung',
+    const stepDataObject =
+    {
+        name: stepData.name,
+        position: stepData.pos,
+        description: stepData.description,
         media: [],
-    });
+        _id: stepData._id,
+    }
+
+    const [stepSettings, setStepSettings] = useState(stepDataObject);
 
     const handleChangeText = (e) => {
         const value = e.target.value;
@@ -52,6 +58,10 @@ export const StepContent = ({
     };
 
     useEffect(() => {
+        setStepSettings(stepDataObject)
+    }, [stepData]);
+
+    useEffect(() => {
         onStepChange(stepSettings);
     }, [stepSettings]);
 
@@ -67,7 +77,7 @@ export const StepContent = ({
                         Schritt {stepSettings.position}
                     </div>
                     <StepTitleInput
-                        title={stepSettings.title}
+                        title={stepSettings.name}
                         onChangeTitle={(e) => handleChangeText(e)}
                     />
                 </div>
@@ -80,13 +90,13 @@ export const StepContent = ({
                             {
                                 title: 'Duplizieren',
                                 icon: faCopy,
-                                onClick: () => alert('[NOT IMPLEMENTED]'),
+                                onClick: () => onDuplicateStep(stepDataObject._id),
                             },
                             {
                                 title: 'Löschen',
                                 icon: faTrash,
                                 dangerous: true,
-                                onClick: () => alert('[NOT IMPLEMENTED]'),
+                                onClick: () => onDeleteStep(stepDataObject._id),
                             },
                         ],
                     ]}

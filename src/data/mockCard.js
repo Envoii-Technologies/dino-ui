@@ -37,7 +37,8 @@ export default {
             "updated_at": "2023-10-27T12:25:06.782Z"
         },
         {
-            "name": "DEFAULT",
+            "name": "Irgendwas cooles",
+            "description": "Wuhuu",
             "pos": 2,
             "type": "slide",
             "media": [
@@ -53,8 +54,9 @@ export default {
             "updated_at": "2023-10-27T12:25:06.782Z"
         },
         {
-            "name": "DEFAULT",
+            "name": "Noch ein schritt!",
             "pos": 3,
+            "description": "yoooo",
             "type": "slide",
             "media": [],
             "_id": "653bac22e74c50385bcc03eb",
@@ -62,8 +64,9 @@ export default {
             "updated_at": "2023-10-27T12:25:06.782Z"
         },
         {
-            "name": "DEFAULT",
+            "name": "Schrittiger Schritt yo!",
             "pos": 4,
+            "description": "HALLLOO",
             "type": "slide",
             "media": [],
             "_id": "653bdd0e9e9e3102b045d46b",

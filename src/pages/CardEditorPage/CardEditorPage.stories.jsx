@@ -6,6 +6,7 @@ import { ModalInfoWindow } from '../../components/ModalInfoWindow';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 
 import mockUser from './../../data/mockUser';
+import mockCard from './../../data/mockCard';
 import tagList from './../../data/tags';
 
 export default {
@@ -42,9 +43,11 @@ const Template = (args) => {
             >
                 <CardEditorPage
                     {...args}
+                    cardData={mockCard}
                     currentTab={0}
                     isLoading={false}
                     tagData={tagList}
+                    onSave={(data) => console.log(data)}
                 />
             </Layout>
         </>

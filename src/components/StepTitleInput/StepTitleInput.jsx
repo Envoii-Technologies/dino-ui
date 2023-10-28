@@ -12,6 +12,10 @@ export const StepTitleInput = ({ className, title, onChangeTitle, ...props }) =>
     const span = useRef();
 
     useEffect(() => {
+        setContent(title)
+    }, [title])
+
+    useEffect(() => {
         if (span?.current)
 		{
             setWidth(span.current.offsetWidth * 1.7);
@@ -39,7 +43,7 @@ export const StepTitleInput = ({ className, title, onChangeTitle, ...props }) =>
                             <input
                                 type="text"
 								className="StepTitleInput__editor__wrapper__input" 
-                                name="title"
+                                name="name"
                                 style={{ width }}
 								value={content}
                                 onChange={(e) => changeHandler(e)}
