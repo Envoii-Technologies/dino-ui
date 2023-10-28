@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Button.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircle } from '@fortawesome/free-regular-svg-icons';
 import { Dot } from '../Dot';
+
+import './Button.scss';
 
 export const Button = ({
     className,

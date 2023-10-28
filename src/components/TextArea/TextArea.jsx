@@ -58,6 +58,7 @@ export const TextArea = ({
                         ref={textAreaRef}
                         placeholder={placeholder}
                         disabled={disabled}
+                        rows="1"
                         name={name}
                         value={value}
 						onChange={handleChange}
@@ -89,6 +90,7 @@ TextArea.propTypes = {
     placeholder: PropTypes.string,
     tooltipText: PropTypes.node,
     metaLabel: PropTypes.string,
+    defaultValue: PropTypes.string,
     metaPosition: PropTypes.oneOf(['left', 'right']),
 };
 
@@ -100,6 +102,7 @@ TextArea.defaultProps = {
     error: undefined,
     placeholder: undefined,
     tooltipText: undefined,
+    defaultValue: undefined,
     metaLabel: undefined,
     metaPosition: 'left',
 };

@@ -23,7 +23,7 @@
         border: solid 1px $color-gray-300;
         box-shadow: $box-shadow-default;
         border-radius: $radius-md;
-        min-height: 44px;
+        // min-height: 44px !important;
 
         &.error {
             border-color: $color-error-300;
@@ -55,7 +55,7 @@
                 resize: none !important;
                 height: 100%;
                 padding: $spacing-md $spacing-lg;
-                min-height: 120px;
+                // min-height: 120px;
                 background: transparent;
                 flex-grow: 1;
                 text-align: left;

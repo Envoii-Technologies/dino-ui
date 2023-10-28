@@ -4,6 +4,7 @@ import './OverflowMenu.scss';
 import { Button } from '../Button';
 import {
     faChevronUp,
+    faEllipsisV,
     faMinus,
     faP,
     faPlus,
@@ -16,6 +17,7 @@ export const OverflowMenu = ({
     header,
     small,
     shortcuts,
+    ellipsis,
     anchor,
     label,
     buttonType,
@@ -54,12 +56,20 @@ export const OverflowMenu = ({
                     isVisible ? 'open' : 'closed'
                 }`}
             >
-                <Button
+                {ellipsis ? (
+                    <Button
+                    type="secondary"
+                    iconLeft={faEllipsisV}
+                    isDisabled={content.length < 1 ? true : false}
+                />
+                ) : (
+                    <Button
                     label={label}
                     type={buttonType}
                     iconRight={isVisible ? faMinus : faPlus}
                     isDisabled={content.length < 1 ? true : false}
                 />
+                )}
             </div>
             {isVisible && (
                 <div
@@ -84,7 +94,8 @@ export const OverflowMenu = ({
                                         icon={item.icon}
                                         onClick={item.onClick}
                                         isDisabled={item.disabled}
-                                        showShortcut={shortcuts}
+                                        isDangerous={item.dangerous}
+                                        shortcut={item.shortcut}
                                     />
                                 ))}
                             </nav>
@@ -108,6 +119,7 @@ OverflowMenu.propTypes = {
         'below-right',
     ]),
     label: PropTypes.string,
+    ellipsis: PropTypes.bool,
     shortcuts: PropTypes.bool,
     content: PropTypes.array,
     buttonType: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'link']),
@@ -118,6 +130,7 @@ OverflowMenu.defaultProps = {
     anchor: 'below-left',
     label: 'Button',
     shortcuts: true,
+    ellipsis: false,
     content: [],
     buttonType: 'tertiary',
 };

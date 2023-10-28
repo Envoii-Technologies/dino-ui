@@ -41,6 +41,11 @@
         color: $color-gray-500;
         flex-grow: 0;
         padding-right: 8px;
+
+        &.dangerous
+        {
+            color: $color-error-500;
+        }
     }
 
     &__label
@@ -49,6 +54,11 @@
         text-align: left;
         color: $color-gray-700;
         @include Text-smSemibold;
+
+        &.dangerous
+        {
+            color: $color-error-500;
+        }
     }
 
     &__shortcut

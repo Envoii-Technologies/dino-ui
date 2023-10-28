@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './OverflowMenuButton.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export const OverflowMenuButton = ({ isDisabled, showShortcut, label,icon, className, onClick, ...props }) =>
+export const OverflowMenuButton = ({ isDisabled, isDangerous, shortcut, label,icon, className, onClick, ...props }) =>
 {
 
     return(
@@ -14,11 +14,11 @@ export const OverflowMenuButton = ({ isDisabled, showShortcut, label,icon, class
         onClick={onClick}
     >
         {
-            icon && <FontAwesomeIcon className='OverflowMenuButton__icon' icon={icon}/>
+            icon && <FontAwesomeIcon className={`OverflowMenuButton__icon ${isDangerous ? 'dangerous' : ''}`} icon={icon}/>
         }
-        <div className="OverflowMenuButton__label">{label}</div>
+        <div className={`OverflowMenuButton__label ${isDangerous ? 'dangerous' : ''}`}>{label}</div>
         {
-            showShortcut && <div className="OverflowMenuButton__shortcut">⌘P</div>
+            shortcut && <div className="OverflowMenuButton__shortcut">${shortcut}</div>
         }
     </button>
     )
