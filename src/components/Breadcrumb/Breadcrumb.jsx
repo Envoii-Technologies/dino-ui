@@ -18,13 +18,13 @@ export const Breadcrumb = ({ className, location, ...props }) => {
             className={`Breadcrumb ${className !== undefined ? className : ''}`}
         >
             {pathnames.map((path, i) => {
-                const first = i === 0;
-                const last = i === pathnames.length - 1;
+                const isFirst = i === 0;
+                const isLast = i === pathnames.length - 1;
                 const to = `/${pathnames.slice(0, i + 1).join('/')}`;
 
                 return (
                     <div key={i} className="Breadcrumb__item">
-                        {first && (
+                        {isFirst && (
                             <Link className="Breadcrumb__item__wrapper" to={to}>
                                 <FontAwesomeIcon
                                     className="Breadcrumb__item__wrapper__home"
@@ -32,7 +32,7 @@ export const Breadcrumb = ({ className, location, ...props }) => {
                                 />
                             </Link>
                         )}
-                        {last && (
+                        {isLast && (
                             <div className="Breadcrumb__item__wrapper ">
 								 <FontAwesomeIcon
                                     className="Breadcrumb__item__wrapper__chevron"
@@ -43,7 +43,7 @@ export const Breadcrumb = ({ className, location, ...props }) => {
 								</div>
 							</div>
                         )}
-                        {!first && !last && (
+                        {!isFirst && !isLast && (
                             <div className="Breadcrumb__item__wrapper">
 								 <FontAwesomeIcon
                                     className="Breadcrumb__item__wrapper__chevron"

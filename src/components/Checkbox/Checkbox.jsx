@@ -18,40 +18,37 @@ export const Checkbox = ({
     const toggle = useRef();
     const checkbox = useRef();
 
-    // Use local state for checked
     const [localChecked, setLocalChecked] = useState(
         controlledChecked || false
     );
 
-    // Update the local state when controlledChecked prop changes
     useEffect(() => {
         setLocalChecked(controlledChecked || false);
     }, [controlledChecked]);
 
-    function handleToggle() {
+    const handleToggle = () => {
         if (onChange) onChange(localChecked);
         toggle.current.classList.toggle('toggled');
         checkbox.current.checked = !localChecked;
 
-        // Update the local state
         setLocalChecked(!localChecked);
     }
 
     return (
-        <div className="Checkbox">
+        <div className={`Checkbox ${className || ''}`}>
             <input
                 ref={checkbox}
-                name={props.name}
+                name={name}
                 className="Checkbox__checkbox"
                 type="checkbox"
-                defaultChecked={props.value}
+                defaultChecked={value}
                 checked={
                     controlledChecked !== undefined
                         ? controlledChecked
                         : localChecked
                 }
                 disabled={disabled}
-                value={props.value || false}
+                value={value || false}
                 {...props}
             />
             <span

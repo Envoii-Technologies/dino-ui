@@ -10,18 +10,17 @@ export const ButtonGroup = ({
     smFluid,
     ...props
 }) => {
-    return (
-        <div
-            className={`ButtonGroup ${
-                className !== undefined ? className : ''
-            } ${compact ? 'compact' : ''}
-			${fluid ? 'fluid' : ''}
-			${smFluid ? 'smFluid' : ''}
-			`}
-        >
-            {children}
-        </div>
-    );
+    const classes = [
+        'ButtonGroup',
+        className || '',
+        compact && 'compact',
+        fluid && 'fluid',
+        smFluid && 'smFluid',
+    ]
+        .filter(Boolean)
+        .join(' ');
+
+    return <div className={classes} {...props}>{children}</div>;
 };
 
 ButtonGroup.propTypes = {
@@ -31,12 +30,12 @@ ButtonGroup.propTypes = {
     className: PropTypes.string,
     compact: PropTypes.bool,
     fluid: PropTypes.bool,
-	smFluid: PropTypes.bool,
+    smFluid: PropTypes.bool,
 };
 
 ButtonGroup.defaultProps = {
     className: undefined,
     compact: false,
     fluid: false,
-	smFluid: false,
+    smFluid: false,
 };
