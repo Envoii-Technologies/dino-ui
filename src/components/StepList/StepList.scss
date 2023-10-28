@@ -1,0 +1,98 @@
+@use '../../global-styles/' as *;
+
+.StepList {
+    &__items {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        &__item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            &:not(&:first-of-type) {
+                padding-top: 0.25rem;
+            }
+
+            padding-bottom: 0.25rem;
+
+            &__wrapper {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                border: none;
+                background: transparent;
+                cursor: pointer;
+                padding: 0;
+                margin: 0;
+
+                &__icon {
+                    height: 3rem;
+                    width: 3rem;
+                    border-radius: 50%;
+                    background: $color-gray-100;
+                    color: $color-gray-400;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 1.25rem;
+                    
+                    &.active
+                    {
+                        color: $color-gray-500;
+                    }
+
+                }
+
+                &__title {
+                    padding-left: 1rem;
+                    color: $color-gray-400;
+                    @include Text-mdRegular;
+
+                    &.active
+                    {
+                        color: $color-gray-700;
+                    }
+                }
+            }
+        }
+
+        &__divider {
+            height: 3.5rem;
+            width: 3rem;
+            display: flex;
+            justify-content: center;
+
+            &__line {
+                background: $color-gray-200;
+                border-radius: 0.125rem;
+                height: 100%;
+                width: 0.125rem;
+            }
+        }
+
+        &__create {
+            padding-top: 0.25rem;
+            width: 3rem;
+
+            &__button {
+                height: 3rem;
+                width: 3rem;
+                border-radius: 50%;
+                background: $color-gray-100;
+                color: $color-gray-400;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.25rem;
+                border: none;
+                cursor: pointer;
+
+                &:hover {
+                    color: $color-gray-500;
+                }
+            }
+        }
+    }
+}
