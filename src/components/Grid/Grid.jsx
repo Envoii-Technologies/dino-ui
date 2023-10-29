@@ -1,14 +1,12 @@
-import React from 'react';
+import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import './Grid.scss';
 
-export const Grid = ({ className, children, ...props }) => {
+export const Grid = ({ className, fluid, children, ...props }) => {
     return (
-        <>
-            <div className={`Grid ${className !== undefined ? className : ''}`}>
-                { children }
-            </div>
-        </>
+		<div className={`Grid ${className !== undefined ? className : ''} ${fluid ? 'fluid' : ''}`} {...props}>
+		{children}
+	  </div>
     );
 };
 

@@ -1,0 +1,36 @@
+@mixin Ring-brand-shadow-xs {
+    box-shadow: 0 0 0 4px rgba(102, 112, 133, 0.24), 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+}
+
+@mixin Ring-brand-shadow-sm {
+    box-shadow: 0 0 0 4px rgba(102, 112, 133, 0.24), 0 1px 2px 0 rgba(16, 24, 40, 0.06), 0 1px 3px 0 rgba(16, 24, 40, 0.1);
+}
+
+@mixin Ring-gray-shadow-xs {
+    box-shadow: 0 0 0 4px rgba(152, 162, 179, 0.14), 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+}
+
+@mixin Ring-gray-shadow-sm {
+    box-shadow: 0 0 0 4px rgba(152, 162, 179, 0.14), 0 1px 2px 0 rgba(16, 24, 40, 0.06), 0 1px 3px 0 rgba(16, 24, 40, 0.1);
+}
+
+@mixin Ring-error-shadow-xs {
+    box-shadow: 0 0 0 4px rgba(240, 68, 56, 0.24), 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+}
+
+
+@mixin Ring-brand {
+    box-shadow: 0 0 0 4px rgba(102, 112, 133, 0.24);
+}
+
+@mixin Ring-gray {
+    box-shadow: 0 0 0 4px rgba(102, 112, 133, 0.24);
+}
+
+@mixin Ring-gray-secondary {
+    box-shadow: 0 0 0 4px rgba(152, 162, 179, 0.2);
+}
+
+@mixin Ring-error {
+    box-shadow: 0 0 0 4px rgba(240, 68, 56, 0.24);
+}

@@ -1,70 +1,72 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { Dot } from './../../';
+import placeholderImage from './../../assets/images/userPlaceholder.svg';
 import './Avatar.scss';
 
-export const AvatarSizes = {
-    small: 'small',
-    medium: 'medium',
-    large: 'large',
+const AvatarSizes = {
+  xs: 'xs',
+  sm: 'sm',
+  md: 'md',
+  lg: 'lg',
+  xl: 'xl',
+  xxl: 'xxl',
 };
 
-export const Avatar = ({ className, name, image, size, ...props }) => {
-    const getFirstLetters = (str) => {
-        const firstLetters = str
-            .split(' ')
-            .map((word) => word[0])
-            .join('');
+export const Avatar = ({ className, name, size, type, status, ...props }) => {
+  const getFirstLetters = (str) => {
+    const firstLetters = str
+      .split(' ')
+      .map((word) => word[0])
+      .join('');
+    return firstLetters.toUpperCase();
+  };
 
-        return firstLetters.toUpperCase();
-    };
+  const renderContent = () => {
+    if (type === 'placeholder') {
+      return (
+        <img
+          className="Avatar__image"
+          src={placeholderImage}
+          alt="user-image"
+          style={{ display: 'flex' }}
+        />
+      );
+    } else {
+      return <div className="Avatar__name">{getFirstLetters(name)}</div>;
+    }
+  };
 
-    return (
-        <div
-            className={`
-			Avatar ${className !== undefined ? className : ''}
-			${size ===  AvatarSizes.small ? 'small' : size === AvatarSizes.medium ? 'medium' : 'large'}
-			${image !== undefined ? 'with-image' : ''}
-			`}
-            {...props}
-        >
-            {image ? (
-                <>
-                    <img
-                        className="Avatar__image"
-                        src={image}
-                        alt="user-image"
-                        style={{ display: 'flex' }}
-                    />
-                </>
-            ) : (
-                <h1 className="Avatar__name">{getFirstLetters(name)}</h1>
-            )}
+  return (
+    <div
+      className={`
+        Avatar ${className ? className : ''}
+        size-${size}
+      `}
+      {...props}
+    >
+      {renderContent()}
+      {status !== 'none' && (
+        <div className="Avatar__status">
+          <Dot size={size} state={status} />
         </div>
-    );
+      )}
+    </div>
+  );
 };
 
 Avatar.propTypes = {
-    /**
-     * Custom class name of Component
-     */
-    className: PropTypes.string,
-    /**
-     * Size of avatar image
-     */
-    size: PropTypes.oneOf(Object.keys(AvatarSizes)),
-    /**
-     * Initials shown in Avatar
-     */
-    name: PropTypes.string,
-    /**
-     * Path to image file
-     */
-    image: PropTypes.string,
+  className: PropTypes.string,
+  size: PropTypes.oneOf(Object.keys(AvatarSizes)),
+  type: PropTypes.oneOf(['placeholder', 'text']),
+  status: PropTypes.oneOf(['none', 'success', 'warning', 'error']),
+  name: PropTypes.string,
 };
 
 Avatar.defaultProps = {
-    className: undefined,
-    size: AvatarSizes.medium,
-    name: 'Jane Doe',
-    image: undefined,
+  className: undefined,
+  size: AvatarSizes.md,
+  type: 'text',
+  status: 'none',
+  name: 'Jane Doe',
 };

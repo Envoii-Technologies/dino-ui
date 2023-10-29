@@ -1,0 +1,192 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { ModalInfoWindow } from './ModalInfoWindow';
+import { Button } from './../../';
+import { faHeart } from '@fortawesome/free-solid-svg-icons'; // Import the custom icon here
+
+
+export const Template = (args) => {
+    const [showWindow, setShowWindow] = React.useState(false);
+
+    return (
+        <>
+    		<Button label="Show ModalInfoWindow" onClick={() => setShowWindow(true)} />
+		  	<ModalInfoWindow 
+				{ ...args }
+				show={showWindow}
+				onCancel={() => setShowWindow(false)} 
+			/>
+        </>
+    );
+};
+
+<Meta title='Components/ModalInfoWindow' component={ ModalInfoWindow }  parameters={{ layout: 'fullscreen' }}/>
+
+# ModalInfoWindow
+
+The `ModalInfoWindow` component is a versatile and customizable modal window designed to display informative messages, alerts, or warnings to users in your web application. It is a part of your application's user interface that can be easily incorporated to enhance user interaction and provide important information when needed.
+
+	<Story
+		name="Example"
+		args={{
+				title: "Modal Window",
+				body: "This is a modal Window.",
+				cancelText: "Cancel",
+				onAction: () => alert("[NOT IMPLEMENTED]")
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+  <br/>
+
+## Key Features
+
+- **Customization:** The `ModalInfoWindow` component offers various customization options, including setting the title, type (success, warning, error), icon, and body text to tailor the modal's appearance and content to your specific needs.
+- **Action Button:** You can optionally include an action button with custom text and a callback function to allow users to perform actions or take next steps directly from the modal.
+- **Accessibility:** It includes keyboard accessibility features, making it easy for users to dismiss the modal by pressing the escape key.
+
+## Examples
+
+Explore various examples of the `ModalInfoWindow` component, including default usage and customizations, to see how it can be integrated into your application:
+
+- [Default](#default): A basic example with default settings.
+- [Custom Title](#custom-title): Customize the title of the modal.
+- [Custom Body Text](#custom-body-text): Customize the content of the modal.
+- [Custom Icon](#custom-icon): Use a custom icon in the modal.
+- [Type Prop: Success](#type-prop-success): Set the type of the modal to success.
+- [Type Prop: Warning](#type-prop-warning): Set the type of the modal to warning.
+- [Type Prop: Error](#type-prop-error): Set the type of the modal to error.
+- [Action Prop Example](#action-prop-example): Showcase an action button with custom text and functionality.
+
+
+## Examples
+
+### Default
+
+The "Default" example showcases the basic usage of the `ModalInfoWindow` component. It demonstrates a modal window with a default title, warning type, and a rocket icon. The body of the modal contains placeholder example text.
+
+This default configuration is useful for quickly rendering a basic modal window when no specific customization is required. Developers can easily include this component with minimal properties to create a simple informational or warning modal.
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Custom Icon
+
+You can use a custom icon in the `ModalInfoWindow` component
+
+<Canvas>
+  <Story
+    name="Custom Icon"
+    args={{
+      title: 'Custom Icon Title',
+      type: 'success',
+      icon: faHeart,
+      body: 'Custom icon example text...',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Custom Title
+
+You can use a custom title in the `ModalInfoWindow` component:
+
+<Canvas>
+  <Story
+    name="Custom Title"
+    args={{
+      title: 'Custom Title',
+      onCancel: () => {},
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Custom Body Text
+
+You can use custom body text in the `ModalInfoWindow` component:
+
+<Canvas>
+  <Story
+    name="Custom Body Text"
+    args={{
+      title: 'Custom Body Text Title',
+      type: 'success',
+      body: 'This is a custom body text example.', 
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Types
+
+You can set the `type` prop to 'success', 'warning' or 'error' for a different type of variation:
+
+<Canvas>
+  <Story
+    name="Type Success"
+    args={{
+      title: 'Success Title',
+      type: 'success',
+      body: 'Success type example text...',
+      onCancel: () => {},
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+    <Story
+    name="Type Warning"
+    args={{
+      title: 'Warning Title',
+      type: 'warning',
+      body: 'Warning type example text...',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+    <Story
+    name="Type Error"
+    args={{
+      title: 'Error Title',
+      type: 'error',
+      body: 'Error type example text...',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Action Prop Example
+
+You can add an action button with custom text in the `actionText` prop and an `onAction` callback:
+
+<Canvas>
+  <Story
+    name="Action"
+    args={{
+      show: true,
+      title: 'Action Example Title',
+      type: 'success',
+      body: 'Click the action button below:',
+      onAction: () => alert('Action button clicked!'), // Set your action function here
+      actionText: 'Custom Action', // Set your custom action text here
+      onCancel: () => {},
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ ModalInfoWindow } />

@@ -1,0 +1,58 @@
+@use '../../global-styles/' as *;
+
+.PageHeader {
+    padding-bottom: 28px;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        gap: 20px;
+
+        padding: $spacing-2xl;
+
+        @media only screen and (min-width: $breakpoint-medium) {
+            padding: $spacing-4xl;
+        }
+
+        padding-bottom: 0 !important;
+
+        &__breadcrumb {
+            display: flex;
+        }
+
+        &__main {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+            gap: 0.5rem;
+
+            @media (min-width: $md-breakpoint) {
+                flex-direction: row;
+            }
+        }
+    }
+
+    &__left {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        &__title {
+            align-self: stretch;
+            flex-grow: 0;
+            text-align: left;
+            color: $color-gray-900;
+            @include Display-smSemibold;
+        }
+
+        &__subtitle {
+            align-self: stretch;
+            flex-grow: 0;
+            text-align: left;
+            color: $color-gray-600;
+            @include Text-mdRegular;
+        }
+    }
+}

@@ -1,0 +1,9 @@
+@use '../../global-styles/' as *;
+
+.ContentRow
+{
+	&__wrapper
+    {
+        padding: 20px 0;
+    }
+}

@@ -1,0 +1,49 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { DatePicker } from './DatePicker';
+
+export const Template = (args) => (
+	<DatePicker { ...args } />
+);
+
+<Meta title='Components/DatePicker' component={ DatePicker } />
+
+# DatePicker
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			onAction: (value) => alert(value),
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Custom Start Date
+
+using the `startDate` prop, a timestamp can be set to show as selected starting date.
+
+<Canvas>
+	<Story
+		name="Custom start date"
+		args={{
+			startDate: new Date(new Date().getTime() - 86400000 * 2),
+			onAction: (value) => alert(value),
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ DatePicker } />

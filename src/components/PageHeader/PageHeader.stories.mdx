@@ -1,0 +1,92 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { PageHeader } from './PageHeader';
+import { ButtonGroup } from './../ButtonGroup';
+import { Button } from './../Button'
+import {
+    faEllipsisVertical
+} from '@fortawesome/free-solid-svg-icons';
+
+export const Template1 = (args) => (
+	<div style={{ width: "1000px", display: "flex" }}>
+		<PageHeader { ...args }/>
+	</div>
+);
+
+export const Template2 = (args) => (
+	<div style={{ width: "1000px", display: "flex" }}>
+		<PageHeader { ...args }>
+			<ButtonGroup>
+				<Button label="Example Button"/>
+				<Button type="secondary" iconLeft={faEllipsisVertical}/>
+			</ButtonGroup>			
+		</PageHeader>
+	</div>
+);
+
+<Meta title='Components/PageHeader' component={ PageHeader } />
+
+# PageHeader
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			title: "Example Title",
+			subtitle: "Example Subtitle"
+		}}
+	>
+		{ Template1.bind({}) }
+	</Story>
+</Canvas>
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="No Subtitle"
+		args={{
+			title: "Example Title"
+		}}
+	>
+		{ Template1.bind({}) }
+	</Story>
+</Canvas>
+
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="with children"
+		args={{
+			title: "Example Title"
+		}}
+	>
+		{ Template2.bind({}) }
+	</Story>
+	<Story
+		name="with children and Subtitle"
+		args={{
+			title: "Example Title",
+			subtitle: "Example Subtitle"
+		}}
+	>
+		{ Template2.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ PageHeader } />

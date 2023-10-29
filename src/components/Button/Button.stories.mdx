@@ -25,6 +25,7 @@ export const Template = (args) => (
 		args={{
 			label: "Example Button",
 			type: "primary",
+			onClick: () => alert("ok")
 		}}
 	>
 		{ Template.bind({}) }
@@ -37,6 +38,18 @@ export const Template = (args) => (
 		args={{
 			label: "Example Button",
 			type: "secondary",
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story
+		name="Tertiary Button"
+		args={{
+			label: "Example Button",
+			type: "tertiary",
 		}}
 	>
 		{ Template.bind({}) }
@@ -176,16 +189,6 @@ export const Template = (args) => (
 		name="Status none"
 		args={{
 			label: "Status Example"
-		}}
-	>
-		{ Template.bind({}) }
-	</Story>
-
-	<Story
-		name="Status idle"
-		args={{
-			label: "Status Example",
-			status: "idle"
 		}}
 	>
 		{ Template.bind({}) }

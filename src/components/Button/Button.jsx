@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Button.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircle } from '@fortawesome/free-regular-svg-icons';
+import { Dot } from '../Dot';
+
+import './Button.scss';
 
 export const Button = ({
     className,
@@ -12,6 +13,7 @@ export const Button = ({
     label,
     status,
 	type,
+    fluid,
 	size,
 	onClick,
     ...props
@@ -23,10 +25,12 @@ export const Button = ({
 			${size}
 			${type === "primary" ? 'primary' : ''}
 			${type === "secondary" ? 'secondary' : ''}
+			${type === "tertiary" ? 'tertiary' : ''}
 			${type === "link" ? 'link' : ''}
+            ${fluid ? 'fluid': ''}
 			${!label ? 'icon' : ''}
 			`}
-            disabled={isDisabled}
+            disabled={isDisabled ? 'disabled' : false}
 			onClick={onClick}
             {...props}
         >
@@ -37,7 +41,7 @@ export const Button = ({
                 />
             )}
             {status !== 'none' && (
-                <div className={`Button__status ${status}`}></div>
+                <Dot state={status}/>
             )}
             {label && <div className="Button__label">{label}</div>}
 
@@ -75,9 +79,10 @@ Button.propTypes = {
     /**
      * status Dot
      */
-    status: PropTypes.oneOf(['none', 'idle', 'success', 'warning', 'error']),
-	type: PropTypes.oneOf(['primary', 'secondary', 'link']),
-	size: PropTypes.oneOf(['md', 'lg']),
+    status: PropTypes.oneOf(['none', 'success', 'warning', 'error']),
+	type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'link']),
+	size: PropTypes.oneOf(['sm', 'md', 'lg']),
+    fluid: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -89,4 +94,5 @@ Button.defaultProps = {
     status: 'none',
     type: "primary",
 	size: "md",
+    fluid: false,
 };

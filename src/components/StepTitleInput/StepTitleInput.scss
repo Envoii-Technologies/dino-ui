@@ -1,0 +1,56 @@
+@use '../../global-styles/' as *;
+
+.StepTitleInput
+{
+    &__editor
+    {
+
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        &__wrapper
+        {
+
+            &__hide
+            {
+                position: absolute;
+                opacity: 0;
+                z-index: -100;
+                white-space: pre;
+            }
+
+            &__input
+            {
+                border: none;
+                color: $color-gray-900;
+                @include Display-xsRegular;
+                outline: none;
+                padding: 0;
+                margin: 0;
+            }
+        }
+
+        &__button
+        {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+    }
+
+	&__text
+    {
+        color: $color-gray-900;
+        @include Display-xsRegular;
+
+        &__button
+        {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 20px;
+        }
+    }
+}

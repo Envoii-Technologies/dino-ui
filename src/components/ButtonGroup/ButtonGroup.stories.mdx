@@ -1,0 +1,108 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { ButtonGroup } from './ButtonGroup';
+import { Button } from './../Button'
+import { faGear } from '@fortawesome/free-solid-svg-icons';
+
+export const Template = (args) => (
+	<ButtonGroup { ...args }>
+		<Button type="secondary" label="Button 1"/>
+		<Button type="secondary" label="Button 2"/>
+		<Button type="secondary" iconLeft={faGear}/>
+	</ButtonGroup>
+);
+
+<Meta title='Components/ButtonGroup' component={ ButtonGroup } />
+
+# ButtonGroup
+
+The ButtonGroup component is a versatile tool for organizing and displaying groups of buttons in web applications. It offers features for custom styling, compact mode to save space, and fluid mode for dynamic resizing.
+
+## Key Features
+
+- **Button Organization:** Easily group and organize buttons for a cohesive user interface.
+- **Custom Styling:** Apply custom CSS class names to style the ButtonGroup according to your design needs.
+- **Compact Mode:** Save screen space by enabling the compact mode.
+- **Fluid Mode:** Allow the ButtonGroup to expand and fill available space with the fluid mode.
+
+## Examples
+
+Explore various examples of the `ButtonGroup` component, including default usage and customizations, to see how it can be integrated into your application:
+
+- [Default](#default): A basic example with default settings.
+- [Compact Mode](#compact-mode): Compact, less space consuming group.
+- [Fluid Mode](#fluid-mode): Button Group takes up horizontal parents space.
+- [Custom Class Name](#custom-class-name): A custom class name can be applied.
+
+### Default
+
+The ButtonGroup component, is a versatile tool for organizing and displaying buttons in web applications. This component provides a seamless way to group and style buttons for a unified user experience.
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Compact Mode
+
+The compact prop is useful when you need to conserve space in your web interface. Setting compact to true will make the ButtonGroup reduce its size, ensuring efficient use of screen real estate.
+
+<Canvas>
+	<Story
+		name="Compact Group"
+		args={{
+			compact: true
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Fluid
+
+On the other hand, if you want the ButtonGroup to expand and occupy all available space, you can use the fluid prop:
+
+<Canvas>
+	<Story
+		name="Fluid"
+		args={{
+			fluid: true
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+	<Story
+		name="Fluid Compact"
+		args={{
+			compact: true,
+			fluid: true
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Custom Class Name
+
+The className prop allows you to apply a custom CSS class to the ButtonGroup component, making it easy to style it according to your specific requirements.
+
+<Canvas>
+  <Story
+    name="Custom Class Name"
+    args={{
+      children: "Label Text",
+      className: "special-button-group",
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ ButtonGroup } />

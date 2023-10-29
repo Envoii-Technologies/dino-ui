@@ -1,45 +1,126 @@
 @use '../../global-styles/' as *;
 
 .Avatar {
-    background: #bcbcbc;
     aspect-ratio: 1/1;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: $radius-full;
-    overflow: hidden;
+    // overflow: hidden;
+    background-color: $color-gray-100;
+    border: solid 1px $color-gray-300;
+    color: $color-gray-600;
+    position: relative;
 
-    &.with-image {
-        align-items: flex-start;
+    &:focus
+    {
+        outline: 4px solid $color-gray-100;
     }
 
     &__name {
-        color: white;
-        // font-family: $font-family;
+        color: $color-gray-600;
     }
 
     &__image {
         width: 100%;
     }
 
-    &.small {
-        @include Text-xsRegular;
-        // border-radius: 8px;
+    &__status
+    {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        border-radius: 50%;
+        border: 1.5px solid $color-base-white;
+    }
+
+    &.size-xs {
+        width: 1.5rem;
+        height: 1.5rem;
+
+        .Avatar__name {
+            @include Text-xsSemibold;
+            line-height: 1.5rem;
+        }
+
+        .Avatar__image
+        {
+            width: 1rem;
+        }
+    }
+    
+    &.size-sm {
         width: 2rem;
         height: 2rem;
+
+        .Avatar__name {
+            @include Text-smSemibold;
+            line-height: 2rem;
+        }
+
+        .Avatar__image
+        {
+            width: 1.25rem;
+        }
     }
 
-    &.medium {
-        @include Text-xsRegular;
-        // border-radius: 4px;
+    &.size-md {
         width: 2.5rem;
         height: 2.5rem;
+
+        .Avatar__name {
+            @include Text-mdSemibold;
+            line-height: 2.5rem;
+        }
+
+        .Avatar__image
+        {
+            width: 1.5rem;
+        }
     }
 
-    &.large {
-        @include Text-xsRegular;
-        // border-radius: 8px;
-        width: 5rem;
-        height: 5rem;
+    &.size-lg {
+        width: 3rem;
+        height: 3rem;
+
+        .Avatar__name {
+            @include Text-lgSemibold;
+            line-height: 3rem;
+        }
+
+        .Avatar__image
+        {
+            width: 1.75rem;
+        }
+    }
+
+    &.size-xl {
+        width: 3.5rem;
+        height: 3.5rem;
+
+        .Avatar__name {
+            @include Text-xlSemibold;
+            line-height: 3.5rem;
+        }
+
+        .Avatar__image
+        {
+            width: 2rem;
+        }
+    }
+
+    &.size-xxl {
+        width: 4rem;
+        height: 4rem;
+
+        .Avatar__name {
+            @include Display-xsSemibold;
+            line-height: 4rem;
+        }
+
+        .Avatar__image
+        {
+            width: 2rem;
+        }
     }
 }

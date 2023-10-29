@@ -31,34 +31,14 @@
         }
     }
 
+    &.fluid
+    {
+        flex-grow: 1;
+    }
 
-
-    &__status {
-        display: block;
-        width: 0.5rem;
-        height: 0.5rem;
+    .Dot
+    {
         margin-right: 0.25rem;
-        border-radius: 50%;
-        
-        &.idle
-        {
-            background: $color-base-white;
-        }
-        
-        &.success
-        {
-            background: $color-success-500;
-        }
-
-        &.warning
-        {
-            background: $color-warning-500;
-        }
-
-        &.error
-        {
-            background: $color-error-500;
-        }
     }
 
     &__icon {
@@ -156,6 +136,58 @@
         &:disabled {
             background: $color-base-white;
             border-color: $color-gray-200;
+    
+            .Button__status {
+                &.idle
+                {
+                    background: $color-gray-300;
+                }
+            }
+    
+            .Button__icon {
+                &--left,
+                &--right {
+                    color: $color-gray-400;
+                }
+            }
+    
+            .Button__label {
+                color: $color-gray-400 !important;
+            }
+        }
+    }
+
+    &.tertiary
+    {
+        background: $color-base-white;
+        border-color: transparent;
+        box-shadow: none;
+        border-radius: 0;
+
+        .Button__label
+        {
+            color: $color-gray-700;
+        }
+
+        .Button__icon {
+            &--left,
+            &--right {
+                color: $color-gray-700;
+            }
+        }
+
+        &:hover {
+            background: $color-gray-50;
+            border-color: transparent;
+        }
+    
+        &:focus {
+            outline: none;
+        }
+
+        &:disabled {
+            background: $color-base-white;
+            border-color: transparent;
     
             .Button__status {
                 &.idle

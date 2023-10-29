@@ -1,0 +1,95 @@
+@use '../../global-styles/' as *;
+
+.Toggle {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: $spacing-md;
+
+    &__checkbox {
+        height: 0px;
+        width: 0px;
+        opacity: 0;
+
+        &:focus + .Toggle__switch
+        {
+            box-shadow: $box-shadow-focus, $box-shadow-default;
+            outline: none;
+        }
+
+        &:disabled + .Toggle__switch
+        {
+            .Toggle__switch__toggler
+            {
+                background: $color-gray-50 !important;
+            }
+        }
+
+        &:disabled + .Toggle__switch.toggled
+        {
+            background: $color-gray-100;
+            .Toggle__switch__toggler
+            {
+                background: $color-gray-50 !important;
+            }
+        }
+    }
+
+    &__switch {
+        cursor: pointer;
+        border: solid 2px transparent;
+        background: $color-gray-100;
+        position: relative;
+        display: inline-block;
+        border-radius: $radius-3xl;
+        width: 2.25rem;
+        height: 1.25rem;
+        transition: all 0.3s;
+
+        &__toggler
+        {
+            height: $spacing-xl;
+            width: $spacing-xl;
+            position: absolute;
+            border-radius: $radius-lg;
+            background: $color-base-white;
+            box-shadow: 0px 1px 2px 0px rgba($color-gray-900, 0.06), 0px 1px 3px 0px rgba($color-gray-900, 0.10);
+
+            right: 50%;
+            transition: all 0.25s;
+        }
+
+        &.toggled
+        {
+            background: $color-gray-600;
+
+            &:hover
+            {
+                background: $color-gray-700;
+            }
+
+            .Toggle__switch__toggler
+            {
+                right: 0;
+            }
+        }
+    }
+
+    &__text
+    {
+        display: flex;
+        flex-direction: column;
+
+        &__title
+        {
+            color: $color-gray-700;
+            @include Text-smMedium;
+        }
+
+        &__info
+        {
+            color: $color-gray-600;
+            @include Text-smRegular;
+        }
+    }
+}

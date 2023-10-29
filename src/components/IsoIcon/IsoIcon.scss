@@ -1,0 +1,16 @@
+@use '../../global-styles/' as *;
+
+.IsoIcon
+{
+	height: 48px;
+    aspect-ratio: 1/1;
+    padding: 0.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img
+    {
+        width: 100%;
+    }
+}

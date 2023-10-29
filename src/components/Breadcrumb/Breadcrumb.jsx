@@ -12,20 +12,19 @@ import { Link } from 'react-router-dom';
 
 export const Breadcrumb = ({ className, location, ...props }) => {
     const pathnames = location.split('/').filter((x) => x);
-    console.log(pathnames);
 
     return (
         <div
             className={`Breadcrumb ${className !== undefined ? className : ''}`}
         >
             {pathnames.map((path, i) => {
-                const first = i === 0;
-                const last = i === pathnames.length - 1;
+                const isFirst = i === 0;
+                const isLast = i === pathnames.length - 1;
                 const to = `/${pathnames.slice(0, i + 1).join('/')}`;
 
                 return (
                     <div key={i} className="Breadcrumb__item">
-                        {first && (
+                        {isFirst && (
                             <Link className="Breadcrumb__item__wrapper" to={to}>
                                 <FontAwesomeIcon
                                     className="Breadcrumb__item__wrapper__home"
@@ -33,18 +32,18 @@ export const Breadcrumb = ({ className, location, ...props }) => {
                                 />
                             </Link>
                         )}
-                        {last && (
-                            <div className="Breadcrumb__item__wrapper">
+                        {isLast && (
+                            <div className="Breadcrumb__item__wrapper ">
 								 <FontAwesomeIcon
                                     className="Breadcrumb__item__wrapper__chevron"
                                     icon={faChevronRight}
                                 />
-								<div className='Breadcrumb__item__wrapper__text'>
+								<div className='Breadcrumb__item__wrapper__text last'>
 									{ path }
 								</div>
 							</div>
                         )}
-                        {!first && !last && (
+                        {!isFirst && !isLast && (
                             <div className="Breadcrumb__item__wrapper">
 								 <FontAwesomeIcon
                                     className="Breadcrumb__item__wrapper__chevron"
@@ -71,49 +70,5 @@ Breadcrumb.propTypes = {
 
 Breadcrumb.defaultProps = {
     className: undefined,
-    location: '/wkw/Karten/Hydraulikpresse',
+    location: '/acme/Karten/Hydraulikpresse',
 };
-
-/**
- <div key={i} className="Breadcrumb__item">
-                        {last ? (
-                            <span
-                                className="Breadcrumb__item__title--last"
-                                key={to}
-                            >
-                                <FontAwesomeIcon
-                                    className="Breadcrumb__item__title--last--chevron"
-                                    icon={faChevronRight}
-                                />
-                                {path}
-                            </span>
-                        ) :
-						first ? (
-							<span className="Breadcrumb__item__title" key={to}>
-                                <a
-                                    className="Breadcrumb__item__first"
-                                    href={to}
-                                >
-									<FontAwesomeIcon
-                                    className="Breadcrumb__item__first--icon"
-                                    icon={faHouse}
-                                />
-                                </a>
-                            </span>
-						) :
-						 (
-                            <span className="Breadcrumb__item__title" key={to}>
-                                <FontAwesomeIcon
-                                    className="Breadcrumb__item__title--chevron"
-                                    icon={faChevronRight}
-                                />
-                                <a
-                                    className="Breadcrumb__item__title__link"
-                                    href={to}
-                                >
-                                    {path}
-                                </a>
-                            </span>
-                        )}
-                    </div>
- */

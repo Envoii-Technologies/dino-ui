@@ -1,14 +1,32 @@
 @use '../../global-styles/' as *;
 
 .PageWrapper {
-    height: calc(100vh);
+    height: 100vh;
     width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+
     background: $color-gray-700;
-    padding-top: $page-wrapper-line;
+
+    @media only screen and (min-width: $breakpoint-medium) {
+        padding-top: $page-wrapper-line;
+    }
 
     &__content {
-        border-top-left-radius: $radius-2xl;
-        background: $color-gray-50;
-        height: 100%;
+        
+        &.primary
+        {
+            background: $color-base-white;
+        }
+        &.secondary
+        {
+            background: $color-gray-50;
+        }
+        flex-grow: 1;
+
+        @media only screen and (min-width: $breakpoint-medium) {
+            border-top-left-radius: $radius-2xl;
+        }
     }
 }

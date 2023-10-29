@@ -1,0 +1,46 @@
+@use '../../global-styles/' as *;
+
+.ButtonGroup {
+    flex-grow: 0;
+    display: flex;
+    gap: $spacing-lg;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+    &.smFluid {
+        @media (max-width: #{$sm-breakpoint}) {
+            flex-direction: column;
+            justify-content: stretch;
+            align-items: stretch;
+        }
+    }
+
+    .Button:not(.Button.icon) {
+        flex-grow: 1;
+    }
+
+    &.fluid {
+        flex-grow: 1;
+    }
+
+    &.compact {
+        gap: 0;
+
+        .Button {
+            &:first-child {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+                border-right: 0;
+            }
+            &:not(:first-child, :last-child) {
+                border-radius: 0;
+            }
+            &:last-child {
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+                border-left: 0;
+            }
+        }
+    }
+}

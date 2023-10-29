@@ -1,0 +1,43 @@
+import { useState } from 'react';
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { StepList } from './StepList';
+
+export const Template = (args) => {
+	const [activeStep, setActiveStep] = useState(0);
+	
+	return(
+		<>
+			<StepList { ...args } onChangeActiveStep={(step) => setActiveStep(step)}/>
+		<code>
+			active step: { activeStep }
+		</code>
+		</>
+	)
+};
+
+<Meta title='Components/StepList' component={ StepList } />
+
+# StepList
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			onAddStep: () => alert("[NOT IMPLEMENTED]")
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ StepList } />

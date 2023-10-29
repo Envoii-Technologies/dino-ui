@@ -1,0 +1,119 @@
+@use '../../global-styles/' as *;
+
+.modalInfoWrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 10000;
+    @include Background-blur-md-dark;
+    
+    &.fadeIn
+    {
+        @include Animation-FadeIn;
+    }
+
+    &.fadeOut
+    {
+        @include Animation-FadeOut;
+    }
+}
+
+.ModalInfoWindow {
+    border-radius: $radius-md;
+    background: $color-base-white;
+    width: 25rem;
+    min-height: $spacing-11xl;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    padding: 0;
+    backdrop-filter: blur(10px);
+    z-index: 20000;
+    position: relative;
+    box-shadow: $box-shadow-modal;
+    margin: 0 1rem 5rem 1rem;
+    
+    &.fadeIn
+    {
+        @include Animation-SlideIn;
+    }
+
+    &.fadeOut
+    {
+        @include Animation-SlideOut;
+    }
+
+    &__header {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+
+        padding: $spacing-3xl $spacing-3xl 0;
+
+        &__close
+        {
+            position: absolute;
+            top: $spacing-xl;
+            right: $spacing-xl;
+        }
+
+        &__icon
+        {
+            flex-grow: 0;
+            width: $spacing-6xl;
+            aspect-ratio: 1/1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100%;
+            color: white;
+            margin-bottom: $spacing-xl;
+
+            &.success
+            {
+                background: $color-success-400;
+            }
+
+            &.warning
+            {
+                background: $color-warning-400;
+            }
+
+            &.error
+            {
+                background: $color-error-400;
+            }
+        }
+
+        &__title
+        {
+            @include Text-lgSemibold;
+            color: $color-gray-900;
+        }
+
+        &__body
+        {
+            margin-top: $spacing-xs;
+            @include Text-smRegular;
+            color: $color-gray-600;
+        }
+    }
+
+    &__footer
+    {
+        flex-basis: 100px;
+        padding: $spacing-3xl;
+        flex-direction: row;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+}
+

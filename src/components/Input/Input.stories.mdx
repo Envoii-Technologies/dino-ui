@@ -1,0 +1,196 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { Input } from './Input';
+
+import {
+    faEnvelope
+} from '@fortawesome/free-solid-svg-icons';
+
+export const Template = (args) => (
+		<Input { ...args } />
+);
+
+<Meta title='Components/Input' component={ Input } />
+
+# Input
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			label: "Email",
+			hint: "Dies ist ein Hinweistext",
+			placeholder: "Input text"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Label
+
+...
+
+<Canvas>
+	<Story
+		name="Label"
+		args={{
+			label: "Email",
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Hint
+
+...
+
+<Canvas>
+	<Story
+		name="Hint"
+		args={{
+			hint: "Dies ist ein Hinweistext",
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Label and Hint
+
+...
+
+
+<Canvas>
+	<Story
+		name="Label and Hint"
+		args={{
+			label: "Email",
+			hint: "Dies ist ein Hinweistext",
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Placeholder
+
+...
+
+<Canvas>
+	<Story
+		name="Placeholder"
+		args={{
+			placeholder: "Input text"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Disabled
+
+...
+
+<Canvas>
+	<Story
+		name="Disabled"
+		args={{
+			disabled: true,
+			placeholder: "Input text"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Error
+
+...
+
+<Canvas>
+	<Story
+		name="Error"
+		args={{
+			placeholder: "Input text",
+			error: "Dies ist eine Fehlermeldung"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Icon
+
+...
+
+<Canvas>
+	<Story
+		name="Icon"
+		args={{
+			icon: faEnvelope,
+			label: "Email",
+			placeholder: "Geben Sie ihre Email Adresse ein"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Tooltip
+
+...
+
+<Canvas>
+	<Story
+		name="Tooltip"
+		args={{
+			icon: faEnvelope,
+			label: "Email",
+			placeholder: "Geben Sie ihre Email Adresse ein",
+			tooltipText: "Help is on the way!"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Meta label
+
+...
+
+<Canvas>
+	<Story
+		name="Meta Label left"
+		args={{
+			placeholder: "Placeholder text",
+			metaLabel: "http://",
+			metaPosition: "left"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+
+	<Story
+		name="Meta Label right"
+		args={{
+			placeholder: "Placeholder text",
+			metaLabel: ".envoii.de",
+			metaPosition: "right"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ Input } />

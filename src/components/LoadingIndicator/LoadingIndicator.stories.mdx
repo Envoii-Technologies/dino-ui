@@ -1,0 +1,89 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { LoadingIndicator } from './LoadingIndicator';
+
+export const Template = (args) => (
+	<div style={{ display: "flex", width: "100px", height: "100px"}}>
+		<LoadingIndicator { ...args } />
+	</div>
+);
+
+<Meta title='Components/LoadingIndicator' component={ LoadingIndicator } />
+
+# LoadingIndicator
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Size
+
+...
+
+<Canvas>
+	<Story
+		name="Small Indicator"
+		args={{
+			size: "sm"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+	<Story
+		name="Medium Indicator"
+		args={{
+			size: "md"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+	<Story
+		name="Large Indicator"
+		args={{
+			size: "lg"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+	<Story
+		name="Xtra Large Indicator"
+		args={{
+			size: "xl"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Show Label
+
+...
+
+<Canvas>
+	<Story
+		name="Label"
+		args={{
+			showLabel: true
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ LoadingIndicator } />

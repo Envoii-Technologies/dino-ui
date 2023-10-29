@@ -4,7 +4,6 @@
     padding: 0;
     margin: 0;
 
-    height: 2.5rem;
     align-self: stretch;
     flex-grow: 0;
     display: flex;
@@ -12,13 +11,28 @@
     justify-content: flex-start;
     align-items: center;
     gap: 0.5rem;
-    padding: 8px 12px;
     border-radius: 6px;
-    background-color: $color-gray-700;
+    background: $color-gray-700;
     border: none;
     cursor: pointer;
     text-decoration: none;
     transition: all 0.25s;
+    
+    &.collapsed {
+        
+        padding: 8px 8px;
+        
+        @media only screen and (min-width: $breakpoint-medium) {
+            width: 2.5rem;
+            margin-left: 0.25rem;
+        }
+    }
+
+    &.expanded {
+        height: 2.5rem;
+        width: 100%;
+        padding: 8px 12px;
+    }
 
     &.active,
     &:hover {
@@ -51,8 +65,12 @@
             transition: all 0.5s;
 
             &.collapsed {
-                margin-left: -25px;
-                opacity: 0;
+                
+                
+                @media only screen and (min-width: $breakpoint-medium) {
+                    margin-left: -25px;
+                    opacity: 0;
+                }
             }
 
             &.expanded {

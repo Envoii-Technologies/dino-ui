@@ -1,0 +1,108 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { Checkbox } from './Checkbox';
+
+export const Template = (args) => (
+	<Checkbox { ...args } />
+);
+
+<Meta title='Components/Checkbox' component={ Checkbox } parameters={{ layout: 'fullscreen' }}/>
+
+# Toggle
+
+The Toggle component provides a customizable toggle switch that can be used in your web applications. It allows users to switch between two states and can be configured with various props to suit your needs.
+
+## Examples
+
+### Default
+
+The default Toggle component without any customizations.
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			onChange: (checked) => alert(`[NOT IMPLEMENTED] ${checked === true ? "true" : "false"}`)
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Custom Class Name
+
+A Toggle component with a custom CSS class applied for styling.
+
+<Canvas>
+  <Story
+    name="Custom Class Name"
+    args={{
+      className: 'custom-toggle',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Title and Subtitle
+
+You can add title and subtitle props to add a toggle description on the right side of the component.
+
+<Canvas>
+	<Story
+		name="Title and Subtitle"
+		args={{
+			title: 'Toggle Label',
+			subtitle: 'Additional information about the toggle.',
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Checked
+
+A Toggle component in the checked (on) state.
+
+<Canvas>
+  <Story
+    name="Checked"
+    args={{
+      className: 'checked-toggle',
+      value: 'checked-value',
+      name: 'checked-toggle-input',
+      title: 'Checked Toggle',
+      subtitle: 'This toggle is checked.',
+      checked: true,
+      disabled: false,
+      onChange: () => {},
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Disabled
+
+A disabled Toggle component.
+
+<Canvas>
+  <Story
+    name="Disabled"
+    args={{
+      className: 'disabled-toggle',
+      value: 'disabled-value',
+      name: 'disabled-toggle-input',
+      title: 'Disabled Toggle',
+      subtitle: 'This toggle is disabled.',
+      checked: false,
+      disabled: true,
+      onChange: () => {},
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ Checkbox } />

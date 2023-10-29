@@ -8,11 +8,12 @@ import resolvePng from '@rollup/plugin-image';
 import json from '@rollup/plugin-json';
 import svg from 'rollup-plugin-svg';
 import svgr from '@svgr/rollup';
+import copy from 'rollup-plugin-copy'
 
 export default [
   {
     input: './src/index.js',
-    output: [
+    output: [ 
       {
         file: 'dist/index.es.js',
         format: 'es',
@@ -20,8 +21,16 @@ export default [
       }
     ],
     plugins: [
+      copy({
+        targets: [
+          { src: 'src/assets/fonts/*.ttf', dest: 'dist/public/fonts' },
+        ],
+        verbose: true
+      }),
       postcss({
-        plugins: [],
+        plugins: [
+          
+        ],
       }),
       babel({
         exclude: 'node_modules/**',

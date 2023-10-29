@@ -1,0 +1,94 @@
+@use '../../global-styles/' as *;
+
+.DatePicker {
+    &__calendar {
+        border: none;
+
+        .react-calendar__navigation
+        {
+            &__prev2-button,
+            &__next2-button
+            {
+                display: none;
+            }
+    
+            &__prev-button,
+            &__next-button
+            {
+                color: $color-gray-500;
+            }
+    
+            &__label
+            {
+                color: $color-gray-700;
+                @include Text-mdSemibold;
+            }
+        }
+
+        
+        .react-calendar__month-view
+        {  
+            &__weekdays
+            {
+                &__weekday
+                {
+                        color: $color-gray-700;
+                        @include Text-smMedium;
+
+                        > * 
+                        {
+                            text-decoration: none !important;
+                        }
+                }
+            }
+
+            &__days
+            {
+                aspect-ratio: 7/6.25;
+
+                &__day--neighboringMonth
+                {
+                    color: $color-gray-500 !important;
+                }
+            }
+        }
+
+        .react-calendar__tile {
+            margin: 2px 0;
+            outline: none;
+            border: none;
+            border-radius: 50%;
+            color: $color-gray-700;
+            @include Text-smMedium;
+
+            &:hover
+            {
+                background: $color-gray-100;
+                cursor: pointer;
+            }
+
+
+            &--active
+            {
+                background: $color-brand-400 !important;
+            }
+
+            &--now
+            {
+                background: $color-gray-100;
+            }
+
+            &--rangeStart,
+            &--rangeEnd
+            {
+                background: $color-brand-400;
+            }
+
+            &--range:not(.react-calendar__tile--rangeStart, .react-calendar__tile--rangeEnd)
+            {
+                background: $color-gray-50;
+                border-radius: 0;
+            }
+        }
+    }
+}

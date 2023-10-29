@@ -1,0 +1,71 @@
+@use '../../global-styles/' as *;
+
+.OverflowMenuButton {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 9px 10px;
+
+    background: transparent;
+    border: none;
+    flex-grow: 1;
+    width: 100%;
+    cursor: pointer;
+
+    &:disabled
+    {
+        .OverflowMenuButton__icon
+        {
+            color: $color-gray-400;
+        }
+
+        .OverflowMenuButton__label,
+        .OverflowMenuButton__shortcut
+        {
+            color: $color-gray-400;
+        }
+    }
+
+    &:hover:not(:disabled)
+    {
+        border-radius: 6px;
+        background: $color-gray-100;
+    }
+
+    &__icon
+    {
+        width: 12px;
+        aspect-ratio: 1/1;
+        color: $color-gray-500;
+        flex-grow: 0;
+        padding-right: 8px;
+
+        &.dangerous
+        {
+            color: $color-error-500;
+        }
+    }
+
+    &__label
+    {
+        flex-grow: 1;
+        text-align: left;
+        color: $color-gray-700;
+        @include Text-smSemibold;
+
+        &.dangerous
+        {
+            color: $color-error-500;
+        }
+    }
+
+    &__shortcut
+    {
+        flex-grow: 0;
+        color: $color-gray-500;
+        @include Text-xsRegular;
+    }
+}
+

@@ -1,145 +1,94 @@
-import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
-import { Grid, Row, Column } from './';
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { Grid } from './Grid';
+import { Row } from './Row';
+import { Column } from './Column';
 
-export const DefaultTemplate12 = (args) => (
-	<Grid { ...args } >
-		<Row>
-			<Column>1</Column>
-			<Column>2</Column>
-			<Column>3</Column>
-			<Column>4</Column>
-			<Column>5</Column>
-			<Column>6</Column>
-			<Column>7</Column>
-			<Column>8</Column>
-			<Column>9</Column>
-			<Column>10</Column>
-			<Column>11</Column>
-			<Column>12</Column>
-		</Row>
-	</Grid>
+export const Template = (args) => (
+    <div style={{ width: '100%' }}>
+        <Grid fluid={true}>
+            <Row>
+                <Column smSpan={4} mdSpan={1} xlSpan={4}>
+                    Content 1
+                </Column>
+                <Column smSpan={2} mdSpan={2} xlSpan={2}>
+                    Content 2
+                </Column>
+                <Column smSpan={1} mdSpan={2} xlSpan={3}>
+                    Content 3
+                </Column>
+                <Column smSpan={1} mdSpan={1} xlSpan={3}>
+                    Content 4
+                </Column>
+            </Row>
+            <br />
+            <br />
+            <Row>
+                <Column
+                    smSpan={2}
+                    mdSpan={3}
+                    xlSpan={2}
+                    smStart={3}
+                    mdStart={3}
+                    xlStart={7}
+                >
+                    Content 1
+                </Column>
+            </Row>
+        </Grid>
+    </div>
 );
 
-export const DefaultTemplate6 = (args) => (
-	<Grid { ...args } >
-		<Row>
-			<Column span={2}>1</Column>
-			<Column span={2}>2</Column>
-			<Column span={2}>3</Column>
-			<Column span={2}>4</Column>
-			<Column span={2}>5</Column>
-			<Column span={2}>6</Column>
-		</Row>
-	</Grid>
-);
-
-export const DefaultTemplate4 = (args) => (
-	<Grid { ...args } >
-		<Row>
-			<Column span={3}>1</Column>
-			<Column span={3}>2</Column>
-			<Column span={3}>3</Column>
-			<Column span={3}>4</Column>
-		</Row>
-	</Grid>
-);
-
-export const DefaultTemplate3 = (args) => (
-	<Grid { ...args } >
-		<Row>
-			<Column span={4}>1</Column>
-			<Column span={4}>2</Column>
-			<Column span={4}>3</Column>
-		</Row>
-	</Grid>
-);
-
-export const DefaultTemplate2 = (args) => (
-	<Grid { ...args } >
-		<Row>
-			<Column span={6}>1</Column>
-			<Column span={6}>2</Column>
-		</Row>
-	</Grid>
-);
-
-export const DefaultTemplate1 = (args) => (
-	<Grid { ...args } >
-		<Row>
-			<Column span={12}>1</Column>
-		</Row>
-	</Grid>
-);
-
-<Meta title='Components/Grid' component={ Grid } parameters={{ layout: 'fullscreen' }}/>
+<Meta
+    title="Components/Grid"
+    component={Grid}
+    parameters={{ layout: 'fullscreen' }}
+/>
 
 # Grid
 
-...
+The Grid component provides a flexible and responsive grid layout system for structuring content in your React applications. It supports different column layouts and spacing options for various screen sizes.
 
 ## Examples
 
 ### Default
 
-...
+By default, the Grid component creates a mobile-first layout with 4 columns stacked on top of each other.
 
 <Canvas>
-	<Story
-		name="Default 12 Columns"
-		args={{
-			
-		}}
-	>
-		{ DefaultTemplate12.bind({}) }
-	</Story>
+    <Story name="Default" args={{}}>
+        {Template.bind({})}
+    </Story>
+</Canvas>
 
-	<Story
-		name="Default 6 Columns"
-		args={{
-			
-		}}
-	>
-		{ DefaultTemplate6.bind({}) }
-	</Story>
+### Custom Layout
 
-	<Story
-		name="Default 4 Columns"
-		args={{
-			
-		}}
-	>
-		{ DefaultTemplate4.bind({}) }
-	</Story>
+You can customize the column layout and spacing for different screen sizes.
 
-	<Story
-		name="Default 3 Columns"
-		args={{
-			
-		}}
-	>
-		{ DefaultTemplate3.bind({}) }
-	</Story>
-
-	<Story
-		name="Default 2 Columns"
-		args={{
-			
-		}}
-	>
-		{ DefaultTemplate2.bind({}) }
-	</Story>
-
-	<Story
-		name="Default 1 Columns"
-		args={{
-			
-		}}
-	>
-		{ DefaultTemplate1.bind({}) }
-	</Story>
-
+<Canvas>
+    <Story name="Custom Layout" args={{}}>
+        {Template.bind({})}
+    </Story>
 </Canvas>
 
 ## API
 
-<ArgsTable of={ Grid } />
+### Grid
+
+Die `Grid`-Komponente ist der Container für das Rastersystem.
+
+-   `fluid` (optional): Ein boolscher Wert, der angibt, ob das Grid flüssig (maximale Breite) sein soll.
+
+### Row
+
+Die `Row`-Komponente definiert die Anzahl der Spalten für verschiedene Breakpoints.
+
+-   `columns`: Ein Objekt, das die Anzahl der Spalten für `sm`, `md` und `xl` Breakpoints angibt.
+
+### Column
+
+Die `Column`-Komponente ermöglicht die Einstellung von `span` und `spacing` für eine Spalte.
+
+-   `span` (optional): Die Anzahl der Spalten, die diese Spalte einnehmen soll.
+-   `spacing` (optional): Der Abstand (Spacing) zwischen dieser Spalte und ihren Nachbarn.
+
+<ArgsTable of={Column} />

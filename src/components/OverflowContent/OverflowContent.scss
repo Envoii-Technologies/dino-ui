@@ -1,0 +1,30 @@
+@use '../../global-styles/' as *;
+
+.OverflowContent
+{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+	background: $color-base-white;
+    border: solid 1px $color-gray-200;
+    @include Shadow-lg;
+    border-radius: 8px;
+    padding: 16px;
+    z-index: 50000;
+    bottom: 5rem;
+    width: 380px;
+    left: calc(50% - 190px);
+
+    &.fadeIn
+    {
+        @include Animation-SlideIn;
+    }
+
+    &.fadeOut
+    {
+        @include Animation-SlideOut;
+    }
+}

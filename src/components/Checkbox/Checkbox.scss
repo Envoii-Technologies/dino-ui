@@ -1,0 +1,94 @@
+@use '../../global-styles/' as *;
+
+.Checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    // gap: $spacing-md;
+
+    &__checkbox {
+        display: none;
+        height: 0px;
+        width: 0px;
+        border: none;
+        outline: none;
+        opacity: 0;
+
+        &:focus + .Checkbox__switch {
+            box-shadow: $box-shadow-focus, $box-shadow-default;
+            outline: none;
+        }
+
+        &:disabled + .Checkbox__switch {
+            border-color: $color-gray-300;
+            background: $color-gray-100;
+
+            .Checkbox__switch__toggler {
+                background: transparent;
+                color: transparent;
+            }
+        }
+
+        &:disabled + .Checkbox__switch.toggled {
+            background: $color-gray-100;
+
+            .Checkbox__switch__toggler {
+                background: transparent;
+                color: $color-gray-300;
+            }
+        }
+    }
+
+    &__switch {
+        cursor: pointer;
+        border: solid 1px $color-gray-300;
+        background: $color-base-white;
+        position: relative;
+        display: inline-block;
+        border-radius: $radius-xs;
+        width: 1rem;
+        height: 1rem;
+        transition: all 0.3s;
+        margin-right: $spacing-md;
+
+        &__toggler {
+            height: 0.85rem;
+            width: 0.85rem;
+            position: absolute;
+            color: white;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            // right: 50%;
+            transition: all 0.25s;
+        }
+
+        &.toggled {
+            background: $color-gray-600;
+            border: solid 1px $color-gray-600;
+
+            &:hover {
+                background: $color-gray-700;
+                border: solid 1px $color-gray-700;
+            }
+        }
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+        margin-top: -1px;
+
+        &__title {
+            color: $color-gray-700;
+            @include Text-smMedium;
+        }
+
+        &__info {
+            color: $color-gray-600;
+            @include Text-smRegular;
+        }
+    }
+}

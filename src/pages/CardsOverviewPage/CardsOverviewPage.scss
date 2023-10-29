@@ -1,0 +1,57 @@
+@use '../../global-styles/' as *;
+
+.NewCardWindow__main {
+    &__saveButton {
+        display: none;
+        @media only screen and (min-width: $breakpoint-medium) {
+            display: flex;
+        }
+    }
+}
+
+.NewCardWindow__content {
+    padding-top: 0;
+    padding-bottom: 1.5rem;
+    display: flex;
+
+    @media only screen and (min-width: $breakpoint-medium) {
+        padding-top: 1.25rem; 
+        padding-bottom: 0;
+    }
+
+    &__PopOver__content__title
+    {
+        @include Text-xsSemibold;
+        padding-bottom: 0.25rem;
+    }
+
+    &__PopOver__content__body
+    {
+        @include Text-xsRegular;
+        font-weight: normal !important;
+    }
+}
+
+.NewCardWindow__footer
+{
+    &__saveButton {
+        display: flex;
+        @media only screen and (min-width: $breakpoint-medium) {
+            display: none;
+        }
+    }
+}
+
+.deadline__container
+{
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    &__header
+    {
+        padding-bottom: 4px;
+        color: $color-gray-700;
+        @include Text-smMedium;
+    }
+}

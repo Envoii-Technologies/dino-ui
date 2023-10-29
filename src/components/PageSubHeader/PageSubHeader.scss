@@ -1,0 +1,27 @@
+@use '../../global-styles/' as *;
+
+.PageSubHeader
+{
+	display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: space-between;
+
+    padding: 0 $spacing-2xl 0;
+    
+    @media (min-width: #{$md-breakpoint}) {
+        padding: 0 $spacing-4xl 0;
+        flex-direction: row;
+    }
+
+    .Input
+    {
+        @media (min-width: #{$md-breakpoint}) {
+            flex-grow: 0.25;
+        }
+    
+        @media (min-width: #{$xl-breakpoint}) {
+            flex-grow: 0.25;
+        }
+    }
+}

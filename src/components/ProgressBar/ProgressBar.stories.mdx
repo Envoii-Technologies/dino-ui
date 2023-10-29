@@ -1,0 +1,126 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { ProgressBar } from './ProgressBar';
+
+export const Template1 = (args) => (
+	<ProgressBar { ...args } />
+);
+
+export const Template2 = (args) => (
+	<div style={{ height: "2s0px", minWidth: "500px" }}>
+		<ProgressBar { ...args } />
+	</div>
+);
+
+<Meta title='Components/ProgressBar' component={ ProgressBar } />
+
+# ProgressBar
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			progress: 25
+		}}
+	>
+		{ Template1.bind({}) }
+	</Story>
+</Canvas>
+
+### Fluid
+
+...
+
+<Canvas>
+	<Story
+		name="Fluid"
+		args={{
+			fluid: true,
+			progress: 25
+		}}
+	>
+		{ Template2.bind({}) }
+	</Story>
+</Canvas>
+
+### Progress
+
+...
+
+<Canvas>
+	<Story
+		name="Set Progress"
+		args={{
+			progress: 65
+		}}
+	>
+		{ Template1.bind({}) }
+	</Story>
+</Canvas>
+
+### Show Progress Label
+
+...
+
+<Canvas>
+	<Story
+		name="Show Progress Label right"
+		args={{
+			progress: 25,
+			showLabel: true,
+			labelPosition: "right",
+		}}
+	>
+		{ Template1.bind({}) }
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story
+		name="Show Progress Label bottom"
+		args={{
+			progress: 25,
+			showLabel: true,
+			labelPosition: "bottom",
+		}}
+	>
+		{ Template1.bind({}) }
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story
+		name="Show Progress Label floating-top"
+		args={{
+			progress: 25,
+			showLabel: true,
+			labelPosition: "floating-top",
+		}}
+	>
+		{ Template1.bind({}) }
+	</Story>
+</Canvas>
+
+<Canvas>
+	<Story
+		name="Show Progress Label floating-bottom"
+		args={{
+			progress: 25,
+			showLabel: true,
+			labelPosition: "floating-bottom",
+		}}
+	>
+		{ Template1.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ ProgressBar } />

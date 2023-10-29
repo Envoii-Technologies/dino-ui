@@ -1,0 +1,39 @@
+@use '../../global-styles/' as *;
+
+.StepContent
+{
+	display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    flex-grow: 1;
+    width: 100%;
+
+    @media only screen and (min-width: $breakpoint-medium) {
+        min-width: 40rem;
+    }
+
+    gap: 1rem;
+
+    &__header
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        &__info
+        {
+            &__number
+            {
+                color: $color-gray_600;
+                @include Text-smSemibold;
+            }
+    
+            &__title
+            {
+                color: $color-gray-900;
+                @include Display-xsRegular;
+            }
+        }
+    }
+}
