@@ -2195,6 +2195,11 @@
   resolved "https://registry.yarnpkg.com/@floating-ui/utils/-/utils-0.1.6.tgz#22958c042e10b67463997bd6ea7115fe28cbcaf9"
   integrity sha512-OfX7E2oUDYxtBvsuS4e/jSn4Q9Qb6DzgeYtsAdkPZ47znpoNsMgZw0+tVijiv3uGNR6dgNlty6r9rzIzHjtd/A==
 
+"@fontsource/dm-sans@^5.0.17":
+  version "5.0.17"
+  resolved "https://registry.yarnpkg.com/@fontsource/dm-sans/-/dm-sans-5.0.17.tgz#ff9d23cac62c0a49a6b05dafba6049f3153fbe2c"
+  integrity sha512-HQMwUqFdT9RSQ3TNqR6KYjj55QuXIizX1TrHvt1KWQ9nXDCv3BTDQGizV6Ob43PbcLt5Szsy5Z/3RvZc0nufIQ==
+
 "@fortawesome/fontawesome-common-types@6.4.0":
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-6.4.0.tgz#88da2b70d6ca18aaa6ed3687832e11f39e80624b"
@@ -3000,10 +3005,10 @@
     is-reference "1.2.1"
     magic-string "^0.27.0"
 
-"@rollup/plugin-image@^3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@rollup/plugin-image/-/plugin-image-3.0.2.tgz#8a66389510517495c5d10d392140cdefa43b27c2"
-  integrity sha512-eGVrD6lummWH5ENo9LWX3JY62uBb9okUNQ2htXkugrG6WjACrMUVhWvss+0wW3fwJWmFYpoEny3yL4spEdh15g==
+"@rollup/plugin-image@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@rollup/plugin-image/-/plugin-image-3.0.3.tgz#025b557180bae20f2349ff5130ef2114169feaac"
+  integrity sha512-qXWQwsXpvD4trSb8PeFPFajp8JLpRtqqOeNYRUKnEQNHm7e5UP7fuSRcbjQAJ7wDZBbnJvSdY5ujNBQd9B1iFg==
   dependencies:
     "@rollup/pluginutils" "^5.0.1"
     mini-svg-data-uri "^1.4.4"

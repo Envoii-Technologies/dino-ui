@@ -8,7 +8,8 @@ import resolvePng from '@rollup/plugin-image';
 import json from '@rollup/plugin-json';
 import svg from 'rollup-plugin-svg';
 import svgr from '@svgr/rollup';
-import copy from 'rollup-plugin-copy'
+import copy from 'rollup-plugin-copy';
+import image from '@rollup/plugin-image';
 
 export default [
   {
@@ -40,6 +41,7 @@ export default [
       resolve({
         extensions: ['.jsx', '.scss']
       }),
+      image(),
       terser(),
       commonjs(),
       resolvePng(),
