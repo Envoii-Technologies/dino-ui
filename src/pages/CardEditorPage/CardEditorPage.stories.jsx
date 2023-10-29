@@ -47,7 +47,10 @@ const Template = (args) => {
                     currentTab={0}
                     isLoading={false}
                     tagData={tagList}
-                    onSave={(data) => console.log(data)}
+                    onSave={(data) => {console.log(data); alert("[NOT IMPLEMENTED]"); }}
+                    onDelete={(data) => alert("[NOT IMPLEMENTED] - id: " + data)}
+                    onRelease={() => alert("[NOT IMPLEMENTED]")}
+                    onClose={() => alert("[NOT IMPLEMENTED]")}
                 />
             </Layout>
         </>
