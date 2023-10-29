@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/Envoii-Technologies/dino-ui#readme",
   "dependencies": {
+    "@fontsource/dm-sans": "^5.0.17",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-regular-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
