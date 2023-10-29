@@ -1,12 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './OverflowMenu.scss';
 import { Button } from '../Button';
 import {
-    faChevronUp,
     faEllipsisV,
     faMinus,
-    faP,
     faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import { OverflowMenuButton } from './OverflowMenuButton';
@@ -46,7 +44,7 @@ export const OverflowMenu = ({
     return (
         <div
             className={`OverflowMenu 
-                ${className !== undefined ? className : ''}
+                ${className || ''}
                 ${small ? 'small' : ''}
             `}
             onClick={() => handleClick()}
@@ -112,25 +110,50 @@ OverflowMenu.propTypes = {
      * Custom class name of Component
      */
     className: PropTypes.string,
-    anchor: PropTypes.oneOf([
-        'above-left',
-        'above-right',
-        'below-left',
-        'below-right',
-    ]),
+    /**
+     * The label to be displayed on the trigger button.
+     */
     label: PropTypes.string,
+    /**
+     * Whether to use an ellipsis icon as the trigger button.
+     */
     ellipsis: PropTypes.bool,
+    /**
+     * Whether to use a smaller variant of the menu.
+     */
+    small: PropTypes.bool,
+    /**
+     * Whether to display shortcuts in the menu.
+     */
     shortcuts: PropTypes.bool,
-    content: PropTypes.array,
+    /**
+     * The anchor position for the menu.
+     */
+    anchor: PropTypes.oneOf(['above-left', 'above-right', 'below-left', 'below-right']),
+    /**
+     * An array of menu items to be displayed.
+     */
+    content: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        icon: PropTypes.any.isRequired,
+        onClick: PropTypes.func.isRequired,
+        disabled: PropTypes.bool,
+        dangerous: PropTypes.bool,
+        shortcut: PropTypes.string,
+    }))),
+    /**
+     * The type of trigger button.
+     */
     buttonType: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'link']),
 };
 
 OverflowMenu.defaultProps = {
     className: undefined,
-    anchor: 'below-left',
     label: 'Button',
-    shortcuts: true,
     ellipsis: false,
+    small: false,
+    shortcuts: true,
+    anchor: 'below-left',
     content: [],
     buttonType: 'tertiary',
 };

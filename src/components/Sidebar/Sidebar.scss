@@ -29,6 +29,7 @@
         height: 100%;
         width: 100%;
         padding: 0.75rem 1rem;
+        overflow: hidden;
 
         @media only screen and (min-width: $breakpoint-medium) {
             padding: 2rem 1rem;

@@ -4,34 +4,23 @@ import './StepList.scss';
 import { faDisplay, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { useStepList } from './useStepList';
+
 export const StepList = ({
     className,
     stepsData,
-    onChangeActiveStep,
     initialActiveStep,
     onAddStep,
+    onChangeActiveStep,
     ...props
 }) => {
-    const [currentStep, setCurrentStep] = useState(initialActiveStep);
-    const [stepList, setStepList] = useState(stepsData);
-
-    useEffect(() => {
-        setStepList(stepsData);
-    }, [stepsData]);
-
-    useEffect(() => {
-        setCurrentStep(initialActiveStep);
-    }, [initialActiveStep])
-
-    const handleAddStep = () => {
-        onAddStep();
-    };
-
-    const handleChangeActiveStep = (selection) =>
-    {
-        setCurrentStep(selection);
-        onChangeActiveStep(selection);
-    }
+    const { currentStep, stepList, handleAddStep, handleChangeActiveStep } =
+        useStepList(
+            stepsData,
+            initialActiveStep,
+            onAddStep,
+            onChangeActiveStep
+        );
 
     return (
         <div className={`StepList ${className !== undefined ? className : ''}`}>
@@ -39,7 +28,10 @@ export const StepList = ({
                 {stepList.map((step, i) => (
                     <React.Fragment key={step._id}>
                         <li className="StepList__items__item">
-                            <button className="StepList__items__item__wrapper" onClick={() => handleChangeActiveStep(step._id)}>
+                            <button
+                                className="StepList__items__item__wrapper"
+                                onClick={() => handleChangeActiveStep(step._id)}
+                            >
                                 <div
                                     className={`StepList__items__item__wrapper__icon ${
                                         currentStep === step._id ? 'active' : ''
@@ -59,7 +51,7 @@ export const StepList = ({
                         <li className="StepList__items__divider">
                             <div className="StepList__items__divider__line"></div>
                         </li>
-                        </React.Fragment>
+                    </React.Fragment>
                 ))}
 
                 <li className="StepList__items__create">
@@ -80,13 +72,32 @@ StepList.propTypes = {
      * Custom class name of Component
      */
     className: PropTypes.string,
+    /**
+     * Array of step data, each with _id and name properties.
+     */
+    stepsData: PropTypes.arrayOf(
+        PropTypes.shape({
+            _id: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
+        })
+    ),
+    /**
+     * Initial active step _id.
+     */
     initialActiveStep: PropTypes.string,
+    /**
+     * Function called when adding a step.
+     */
     onAddStep: PropTypes.func,
+    /**
+     * Function called when changing the active step.
+     */
     onChangeActiveStep: PropTypes.func,
 };
 
 StepList.defaultProps = {
     className: undefined,
+    stepsData: [],
     initialActiveStep: undefined,
     onAddStep: undefined,
     onChangeActiveStep: undefined,

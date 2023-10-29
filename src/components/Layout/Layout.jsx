@@ -25,7 +25,7 @@ export const Layout = ({
     return (
         <>
             <div
-                className={`Layout ${className !== undefined ? className : ''}`}
+                className={`Layout ${className || ''}`}
             >
                 <MobilePageHeader onOpenMenu={toggleMobileMenu} />
                 <Sidebar
@@ -46,8 +46,22 @@ Layout.propTypes = {
      * Custom class name of Component
      */
     className: PropTypes.string,
+    /**
+     * Whether the sidebar is expanded by default.
+     */
     isExpanded: PropTypes.bool,
-    type: PropTypes.oneOf(["primary", "secondary"]),
+    /**
+     * User data for the sidebar.
+     */
+    userData: PropTypes.object,
+    /**
+     * Callback function for logout action.
+     */
+    onLogoutAction: PropTypes.func,
+    /**
+     * The type of layout ('primary' or 'secondary').
+     */
+    type: PropTypes.oneOf(['primary', 'secondary']),
 };
 
 Layout.defaultProps = {

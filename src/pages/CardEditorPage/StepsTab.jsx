@@ -13,6 +13,12 @@ import { insertIntoArray } from '../../utils';
 export const StepsTab = ({ stepsData, onChangeData }) => {
     const [activeStep, setActiveStep] = useState(stepsData[0]);
     const [stepsDataContent, setStepsDataContent] = useState(stepsData);
+    const [activeStepPosition, setActiveStepPosition ] = useState(0);
+
+    useEffect(() => {
+        const indexPosition = stepsDataContent.findIndex(step => step._id === activeStep._id);
+        setActiveStepPosition(indexPosition)
+    }, [stepsDataContent])
 
     useEffect(() => {
         onChangeData(stepsDataContent);
@@ -20,6 +26,7 @@ export const StepsTab = ({ stepsData, onChangeData }) => {
 
     const handleStepChange = (id) => {
         const selectedStep = stepsDataContent.find((step) => step._id === id);
+
         setActiveStep(selectedStep);
     };
 
@@ -35,6 +42,7 @@ export const StepsTab = ({ stepsData, onChangeData }) => {
             _id: ObjectId(),
             name: `Neuer Schritt ${stepsDataContent.length + 1}`,
             description: "Hello World",
+            pos: stepsDataContent.length + 1
         };
         setStepsDataContent((prev) => [...prev, newStep]);
         setActiveStep(newStep);
@@ -84,6 +92,7 @@ export const StepsTab = ({ stepsData, onChangeData }) => {
                     <Container>
                         <StepContent
                             stepData={activeStep}
+                            stepPosition={activeStepPosition}
                             onStepChange={handleStepContentChange}
                             onAddStep={handleAddStep}
                             onDuplicateStep={handleDuplicateStep}

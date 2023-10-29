@@ -62,10 +62,8 @@ export const PopOver = ({
 
     useEffect(() => {
         if (isVisible) {
-            // Add a click event listener to the document to close the popover when clicked outside
             document.addEventListener('click', handleClickOutside);
 
-            // Überprüfe, ob der Tooltip außerhalb des sichtbaren Bereichs liegt
             const rect = popoverRef.current.getBoundingClientRect();
             const viewportWidth =
                 window.innerWidth || document.documentElement.clientWidth;
@@ -73,20 +71,17 @@ export const PopOver = ({
                 window.innerHeight || document.documentElement.clientHeight;
 
             if (rect.right > viewportWidth) {
-                // Der Tooltip geht rechts über den Bildschirmrand hinaus
-                setAdjustedPosition(PopOverPosition.LEFT_TOP); // Passe die Position an
+                setAdjustedPosition(PopOverPosition.LEFT_TOP);
             }
 
             setTimeout(() => {
                 setIsVisible(false);
             }, 2500);
         } else {
-            // Remove the click event listener when the popover is not visible
             document.removeEventListener('click', handleClickOutside);
         }
 
         return () => {
-            // Clean up the event listener when the component unmounts
             document.removeEventListener('click', handleClickOutside);
         };
     }, [isVisible]);

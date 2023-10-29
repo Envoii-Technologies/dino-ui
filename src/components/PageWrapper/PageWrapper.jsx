@@ -5,7 +5,7 @@ import './PageWrapper.scss'
 export const PageWrapper = ({ className, children, type, ...props }) =>
 {
 	return (
-		<div className={`PageWrapper ${ className !== undefined ? className : "" }`}>
+		<div className={`PageWrapper ${className || ''}`}>
 			<div className={`PageWrapper__content ${type}`}>
 				{ children }
 			</div>
@@ -19,6 +19,9 @@ PageWrapper.propTypes =
 	 * Custom class name of Component
 	 */
 	className: PropTypes.string,
+	/**
+     * Type of the PageWrapper (primary or secondary).
+     */
 	type: PropTypes.oneOf(["primary", "secondary"]),
 };
 

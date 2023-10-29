@@ -25,7 +25,6 @@ export const useToggle = ({
         toggle.current.classList.toggle('toggled');
         checkbox.current.checked = !localChecked;
 
-        // Update the local state
         setLocalChecked(!localChecked);
     }
 

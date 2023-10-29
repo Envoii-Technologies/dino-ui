@@ -8,20 +8,18 @@ import './SelectBox.scss';
 export const SelectBox = ({
     className,
     options,
-	defaultValue,
+    defaultValue,
     value,
     label,
     multi,
     disabled,
     searchable,
-	onSelect,
+    onSelect,
     ...props
 }) => {
-
-	const handleOnChange = (choice) =>
-	{
-		onSelect(choice);
-	}
+    const handleOnChange = (choice) => {
+        onSelect(choice);
+    };
 
     return (
         <div
@@ -37,7 +35,7 @@ export const SelectBox = ({
                     isSearchable={searchable}
                     isClearable={false}
                     blurInputOnSelect={true}
-					onChange={(choice) => handleOnChange(choice)}
+                    onChange={(choice) => handleOnChange(choice)}
                     captureMenuScroll={true}
                     options={options}
                     defaultValue={defaultValue}
@@ -52,15 +50,34 @@ SelectBox.propTypes = {
      * Custom class name of Component
      */
     className: PropTypes.string,
+    /**
+     * Array of options for the select box.
+     */
     options: PropTypes.array,
+    /**
+     * Label for the select box.
+     */
     label: PropTypes.string,
     /**
      * Can select multiple elements?
      */
     multi: PropTypes.bool,
+    /**
+     * Disables the select box when set to true.
+     */
     disabled: PropTypes.bool,
+    /**
+     * Enables searching for options.
+     */
     searchable: PropTypes.bool,
-	defaultValue: PropTypes.any
+    /**
+     * The default value for the select box.
+     */
+    defaultValue: PropTypes.any,
+    /**
+     * Callback function when an option is selected.
+     */
+    onSelect: PropTypes.func,
 };
 
 SelectBox.defaultProps = {
@@ -70,5 +87,6 @@ SelectBox.defaultProps = {
     multi: false,
     disabled: false,
     searchable: false,
-	defaultValue: undefined,
+    defaultValue: undefined,
+    onSelect: () => {},
 };

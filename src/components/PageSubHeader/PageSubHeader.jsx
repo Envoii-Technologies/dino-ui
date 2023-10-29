@@ -5,7 +5,7 @@ import './PageSubHeader.scss'
 export const PageSubHeader = ({ className,  children, ...props }) =>
 {
 	return (
-		<div className={`PageSubHeader ${ className !== undefined ? className : "" }`}>
+		<div className={`PageSubHeader ${className || ''}`}>
 			{ children }
 		</div>
 	)

@@ -15,7 +15,7 @@ export const PageHeader = ({
 }) => {
     return (
         <div
-            className={`PageHeader ${className !== undefined ? className : ''}`}
+            className={`PageHeader ${className || ''}`}
         >
             <div className="PageHeader__wrapper">
                 {location && (
@@ -43,10 +43,27 @@ PageHeader.propTypes = {
      * Custom class name of Component
      */
     className: PropTypes.string,
+    /**
+     * The main title to be displayed in the header.
+     */
+    title: PropTypes.string.isRequired,
+    /**
+     * The subtitle to be displayed below the title.
+     */
+    subtitle: PropTypes.string,
+    /**
+     * The location string for breadcrumb navigation.
+     */
     location: PropTypes.string,
+    /**
+     * Optional children to be rendered in the header.
+     */
+    children: PropTypes.node,
 };
 
 PageHeader.defaultProps = {
     className: undefined,
-    location: undefined
+    subtitle: undefined,
+    location: undefined,
+    children: undefined,
 };

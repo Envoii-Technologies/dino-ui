@@ -14,7 +14,7 @@ export const ProgressBar = ({ className, fluid, progress, showLabel, labelPositi
 
 	return (
 		<div className={`ProgressBar
-		${ className !== undefined ? className : "" }
+		${className || ''} 
 		label-${labelPosition}
 		${ fluid ? 'fluid' : ''}
 		`}>

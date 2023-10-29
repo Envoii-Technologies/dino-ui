@@ -19,6 +19,7 @@ import {
 
 export const StepContent = ({
     className,
+    stepPosition,
     stepData,
     onAddStep,
     onStepChange,
@@ -29,7 +30,7 @@ export const StepContent = ({
     const stepDataObject =
     {
         name: stepData.name,
-        position: stepData.pos,
+        pos: stepData.pos,
         description: stepData.description,
         media: [],
         _id: stepData._id,
@@ -74,7 +75,7 @@ export const StepContent = ({
             <div className="StepContent__header">
                 <div className="StepContent__header__info">
                     <div className="StepContent__header__info__number">
-                        Schritt {stepSettings.position}
+                        Schritt {stepPosition + 1}
                     </div>
                     <StepTitleInput
                         title={stepSettings.name}
@@ -94,6 +95,7 @@ export const StepContent = ({
                             },
                             {
                                 title: 'Löschen',
+                                disabled: stepPosition === 0 ? true : false,
                                 icon: faTrash,
                                 dangerous: true,
                                 onClick: () => onDeleteStep(stepDataObject._id),

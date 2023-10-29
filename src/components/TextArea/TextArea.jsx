@@ -21,18 +21,15 @@ export const TextArea = ({
     ...props
 }) => {
     const [value, setValue] = useState(defaultValue);
-
     const textAreaRef = useRef(null);
 
     useEffect(() => {
         textAreaRef.current.style.height = 'auto';
         textAreaRef.current.style.height =
             textAreaRef.current.scrollHeight + 'px';
-    }, [value]);
-
-    useEffect(()=> {
+            
         setValue(defaultValue);
-    }, [defaultValue])
+    }, [defaultValue, value]);
 
     const handleChange = (e) => {
         setValue(e.target.value);
@@ -42,7 +39,7 @@ export const TextArea = ({
     return (
         <div className={`TextArea ${className !== undefined ? className : ''}`}>
             {label && (
-                <label className="TextArea__label" htmlFor={name}>
+                <label className="TextArea__label" htmlFor={props.name}>
                     {label}
                 </label>
             )}
@@ -63,7 +60,7 @@ export const TextArea = ({
                         placeholder={placeholder}
                         disabled={disabled}
                         rows="1"
-                        name={name}
+                        name={props.name}
                         value={value}
 						onChange={handleChange}
                         {...props}
@@ -96,6 +93,7 @@ TextArea.propTypes = {
     metaLabel: PropTypes.string,
     defaultValue: PropTypes.string,
     metaPosition: PropTypes.oneOf(['left', 'right']),
+    onChange: PropTypes.func,
 };
 
 TextArea.defaultProps = {

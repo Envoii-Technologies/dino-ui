@@ -5,7 +5,7 @@ import './LoadingIndicator.scss'
 export const LoadingIndicator = ({ className, size, showLabel, ...props }) =>
 {
 	return (
-		<div className={`LoadingIndicator ${ className !== undefined ? className : "" }`}>
+		<div className={`LoadingIndicator ${className || ''}`}>
 			<div className="LoadingIndicator__wrapper">
 			<div className={`LoadingIndicator__wrapper__spinner ${size}`}></div>
 			{
@@ -23,8 +23,14 @@ LoadingIndicator.propTypes =
 	 * Custom class name of Component
 	 */
 	className: PropTypes.string,
-	size: PropTypes.oneOf(["sm", "md", "lg", "xl"]),
-	showLabel: PropTypes.bool,
+	/**
+     * Size of the loading spinner ('sm', 'md', 'lg', 'xl').
+     */
+    size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
+    /**
+     * Whether to show the loading label.
+     */
+    showLabel: PropTypes.bool,
 };
 
 LoadingIndicator.defaultProps =

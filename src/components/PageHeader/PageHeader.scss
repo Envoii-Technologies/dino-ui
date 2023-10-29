@@ -1,7 +1,6 @@
 @use '../../global-styles/' as *;
 
 .PageHeader {
-
     padding-bottom: 28px;
 
     &__wrapper {
@@ -12,14 +11,13 @@
 
         padding: $spacing-2xl;
 
-                @media only screen and (min-width: $breakpoint-medium) {
-                    padding: $spacing-4xl;
-                }
+        @media only screen and (min-width: $breakpoint-medium) {
+            padding: $spacing-4xl;
+        }
 
         padding-bottom: 0 !important;
 
-        &__breadcrumb
-        {
+        &__breadcrumb {
             display: flex;
         }
 
@@ -27,7 +25,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            flex-grow:1;
+            flex-grow: 1;
             gap: 0.5rem;
 
             @media (min-width: $md-breakpoint) {
@@ -58,7 +56,3 @@
         }
     }
 }
-
-/*
-
-*/

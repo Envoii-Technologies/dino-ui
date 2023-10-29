@@ -6,33 +6,31 @@ import { Button } from './../Button/Button';
 
 import { faSignOut } from '@fortawesome/free-solid-svg-icons';
 
-import placeholderAvatar from './../../assets/images/testuser.png'
-
 import './SidebarUserInfo.scss';
 
-export const SidebarUserInfo = ({ className, isExpanded, userData, onLogoutAction, ...props }) => {
-
-    if(!userData)
-    {
+export const SidebarUserInfo = ({
+    className,
+    isExpanded,
+    userData,
+    onLogoutAction,
+    ...props
+}) => {
+    if (!userData) {
         return null;
     }
-    
+
     return (
         <div
-            className={`SidebarUserInfo ${
-                className !== undefined ? className : ''
-            } ${isExpanded ? 'expanded' : 'collapsed'}`}
+            className={`SidebarUserInfo  ${className || ''} ${isExpanded ? 'expanded' : 'collapsed'}`}
         >
-            {
-                userData.avatar ? (<Avatar image={userData.avatar} />) : (<Avatar name={`${userData.firstname} ${userData.lastname}`} />)
-            }
+            <Avatar name={`${userData.firstname} ${userData.lastname}`} />
             <div className="SidebarUserInfo__wrapper">
                 <div className="SidebarUserInfo__wrapper__user">
                     <span className="SidebarUserInfo__wrapper__user__username">
-                        { userData.firstname } { userData.lastname }
+                        {userData.firstname} {userData.lastname}
                     </span>
                     <span className="SidebarUserInfo__wrapper__user__email">
-                        { userData.email }
+                        {userData.email}
                     </span>
                 </div>
                 <Button
@@ -51,8 +49,28 @@ SidebarUserInfo.propTypes = {
      * Custom class name of Component
      */
     className: PropTypes.string,
+    /**
+     * Determines if the user info is expanded or collapsed.
+     */
+    isExpanded: PropTypes.bool,
+    /**
+     * User data object containing user information.
+     */
+    userData: PropTypes.shape({
+        avatar: PropTypes.string,
+        firstname: PropTypes.string.isRequired,
+        lastname: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+    }),
+    /**
+     * Function to handle logout action.
+     */
+    onLogoutAction: PropTypes.func,
 };
 
 SidebarUserInfo.defaultProps = {
     className: undefined,
+    isExpanded: false,
+    userData: null,
+    onLogoutAction: () => {},
 };

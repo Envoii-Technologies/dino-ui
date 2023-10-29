@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import './StepTitleInput.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFloppyDisk, faPen } from '@fortawesome/free-solid-svg-icons';
+
+import './StepTitleInput.scss';
 
 export const StepTitleInput = ({ className, title, onChangeTitle, ...props }) => {
     const [editMode, setEditMode] = useState(false);
