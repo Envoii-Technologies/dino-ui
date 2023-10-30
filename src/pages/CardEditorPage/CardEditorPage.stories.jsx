@@ -6,7 +6,7 @@ import { ModalInfoWindow } from '../../components/ModalInfoWindow';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 
 import mockUser from './../../data/mockUser';
-import mockCard from './../../data/mockCard';
+import mockCards from './../../data/mockCards';
 import mockMenu from './../../data/mockMenu';
 import tagList from './../../data/tags';
 
@@ -45,7 +45,7 @@ const Template = (args) => {
             >
                 <CardEditorPage
                     {...args}
-                    cardData={mockCard}
+                    cardData={mockCards[0]}
                     currentTab={0}
                     isLoading={false}
                     tagData={tagList}
@@ -86,7 +86,7 @@ const Template2 = (args) => {
             >
                 <CardEditorPage
                     {...args}
-                    cardData={mockCard}
+                    cardData={mockCards[0]}
                     currentTab={1}
                     isLoading={false}
                     tagData={tagList}
@@ -101,3 +101,46 @@ const Template2 = (args) => {
 };
 
 export const Informationen = Template2.bind();
+
+const Template3 = (args) => {
+    const [showWindow, setShowWindow] = React.useState(false);
+
+    console.log(args);
+
+    return (
+        <>
+            <ModalInfoWindow
+                {...args}
+                icon={faInfo}
+                show={showWindow}
+                type="error"
+                onCancel={() => setShowWindow(false)}
+                onAction={() => alert('[NOT IMPLEMENTED]')}
+                title="Wollen sie sich wirklich ausloggen?"
+                body=""
+                cancelText={'Abbrechen'}
+                actionText={'Ausloggen'}
+            />
+            <Layout
+                userData={mockUser}
+                menuData={mockMenu}
+                onLogoutAction={() => setShowWindow(true)}
+                isExpanded={false}
+            >
+                <CardEditorPage
+                    {...args}
+                    cardData={mockCards[1]}
+                    currentTab={0}
+                    isLoading={false}
+                    tagData={tagList}
+                    onSave={(data) => {console.log(data); alert("[NOT IMPLEMENTED]"); }}
+                    onDelete={(data) => alert("[NOT IMPLEMENTED] - id: " + data)}
+                    onRelease={() => alert("[NOT IMPLEMENTED]")}
+                    onClose={() => alert("[NOT IMPLEMENTED]")}
+                />
+            </Layout>
+        </>
+    );
+};
+
+export const NewCard = Template3.bind();
