@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCancel } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import './SidebarButton.scss';
 
@@ -16,8 +16,9 @@ export const SidebarButton = ({
     ...props
 }) => {
     return (
-        <Link
-            className={`SidebarButton ${isActive ? 'active' : ''}  ${
+        <NavLink
+            className={`SidebarButton
+            ${
                 className || ''
             }
             ${isExpanded ? 'expanded' : 'collapsed'}`}
@@ -36,7 +37,7 @@ export const SidebarButton = ({
                     {label}
                 </span>
             </div>
-        </Link>
+        </NavLink>
     );
 };
 

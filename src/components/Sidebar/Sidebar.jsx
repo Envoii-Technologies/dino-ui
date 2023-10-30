@@ -22,6 +22,7 @@ export const Sidebar = ({
     className,
     isExpanded: propIsExpanded,
     userData,
+    menuData,
     onLogoutAction,
     handleMobileOpen,
     mobileCloseAction,
@@ -90,35 +91,42 @@ export const Sidebar = ({
                         onClick={toggleExpansion}
                     />
                     <nav className="Sidebar__wrapper__primary__menu">
-                        <SidebarButton
-                            isExpanded={isExpanded}
-                            label="Dashboard"
-                            isActive={true}
-                            icon={faHouse}
-                            to="/acme/"
-                        />
-                        <SidebarButton
-                            isExpanded={isExpanded}
-                            label="Karten"
-                            icon={faLayerGroup}
-                            to="/acme/cards"
-                        />
+                        {menuData &&
+                            menuData.top
+                                .filter((item) =>
+                                    item.roles.some((role) =>
+                                        userData.roles.includes(role)
+                                    )
+                                )
+                                .map((item, i) => (
+                                    <SidebarButton
+                                        key={i}
+                                        isExpanded={isExpanded}
+                                        label={item.label}
+                                        icon={item.icon}
+                                        to={item.target}
+                                    />
+                                ))}
                     </nav>
                 </div>
                 <div className="Sidebar__wrapper__secondary">
                     <nav className="Sidebar__wrapper__secondary__menu">
-                        <SidebarButton
-                            isExpanded={isExpanded}
-                            label="Hilfe"
-                            icon={faLifeRing}
-                            to="/acme/docs"
-                        />
-                        <SidebarButton
-                            isExpanded={isExpanded}
-                            label="Einstellungen"
-                            icon={faGear}
-                            to="/acme/settings"
-                        />
+                        {menuData &&
+                            menuData.bottom
+                                .filter((item) =>
+                                    item.roles.some((role) =>
+                                        userData.roles.includes(role)
+                                    )
+                                )
+                                .map((item, i) => (
+                                    <SidebarButton
+                                        key={i}
+                                        isExpanded={isExpanded}
+                                        label={item.label}
+                                        icon={item.icon}
+                                        to={item.target}
+                                    />
+                                ))}
                     </nav>
                     {userData && (
                         <SidebarUserInfo

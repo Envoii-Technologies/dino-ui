@@ -11,6 +11,7 @@ export const Layout = ({
     className,
     isExpanded,
     userData,
+    menuData,
     children,
     onLogoutAction,
     type,
@@ -31,6 +32,7 @@ export const Layout = ({
                 <Sidebar
                     isExpanded={isExpanded}
                     userData={userData}
+                    menuData={menuData}
                     onLogoutAction={handleLogoutAction}
                     handleMobileOpen={isMobileMenuOpen}
                     mobileCloseAction={closeMobileMenu}
