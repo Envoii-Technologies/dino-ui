@@ -6,6 +6,7 @@ import { ModalInfoWindow } from '../../components/ModalInfoWindow';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 
 import mockUser from './../../data/mockUser';
+import mockMenu from './../../data/mockMenu';
 import tagList from './../../data/tags';
 
 export default {
@@ -35,6 +36,7 @@ const Template = (args) => {
             />
             <Layout
                 userData={mockUser}
+                menuData={mockMenu}
                 onLogoutAction={() => setShowWindow(true)}
                 type="secondary"
             >

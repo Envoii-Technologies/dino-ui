@@ -7,6 +7,7 @@ import { faInfo } from '@fortawesome/free-solid-svg-icons';
 
 import mockUser from './../../data/mockUser';
 import mockCard from './../../data/mockCard';
+import mockMenu from './../../data/mockMenu';
 import tagList from './../../data/tags';
 
 export default {
@@ -38,6 +39,7 @@ const Template = (args) => {
             />
             <Layout
                 userData={mockUser}
+                menuData={mockMenu}
                 onLogoutAction={() => setShowWindow(true)}
                 isExpanded={false}
             >
@@ -62,8 +64,6 @@ export const Schritte = Template.bind();
 const Template2 = (args) => {
     const [showWindow, setShowWindow] = React.useState(false);
 
-    console.log(args);
-
     return (
         <>
             <ModalInfoWindow
@@ -80,14 +80,20 @@ const Template2 = (args) => {
             />
             <Layout
                 userData={mockUser}
+                menuData={mockMenu}
                 onLogoutAction={() => setShowWindow(true)}
                 isExpanded={false}
             >
                 <CardEditorPage
                     {...args}
+                    cardData={mockCard}
                     currentTab={1}
                     isLoading={false}
                     tagData={tagList}
+                    onSave={(data) => {console.log(data); alert("[NOT IMPLEMENTED]"); }}
+                    onDelete={(data) => alert("[NOT IMPLEMENTED] - id: " + data)}
+                    onRelease={() => alert("[NOT IMPLEMENTED]")}
+                    onClose={() => alert("[NOT IMPLEMENTED]")}
                 />
             </Layout>
         </>

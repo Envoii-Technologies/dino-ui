@@ -1,0 +1,40 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Data/Menu" />
+
+# Menu
+
+...
+
+```js
+{
+    top: [
+        {
+            "label": 'Dashboard',
+            "icon": faHouse,
+            "target": '/acme/',
+            "roles": ['admin', 'editor'],
+        },
+        {
+            "label": 'Karten',
+            "icon": faLayerGroup,
+            "target": '/acme/cards',
+            "roles": ['admin', 'editor'],
+        },
+    ],
+    bottom: [
+        {
+            "label": 'Hilfe',
+            "icon": faLifeRing,
+            "target": '/docs',
+            "roles": ['admin'],
+        },
+        {
+            "label": 'Einstellungen',
+            "icon": faGear,
+            "target": '/acme/settings',
+            "roles": ['admin']
+        }
+    ],
+}
+```
