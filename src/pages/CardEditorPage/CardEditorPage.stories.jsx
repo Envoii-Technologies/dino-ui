@@ -45,7 +45,7 @@ const Template = (args) => {
             >
                 <CardEditorPage
                     {...args}
-                    cardData={mockCards[0]}
+                    cardData={mockCards[1]}
                     currentTab={0}
                     isLoading={false}
                     tagData={tagList}
