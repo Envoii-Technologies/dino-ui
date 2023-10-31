@@ -1,0 +1,40 @@
+@use '../../../../global-styles/' as *;
+
+.TableBody {
+    &__row {
+        height: 4.5rem;
+
+        border-top: 1px solid $color-gray-200;
+        color: $color-gray-700;
+        @include Text-smMedium;
+
+        &:hover
+        {
+            background: $color-gray-100;
+        }
+
+        &--selected
+        {
+            background: $color-gray-100;
+        }
+
+        &__cell
+        {
+            &:first-child
+            {
+                padding-left: 1.5rem;
+            }
+        }
+    }
+
+    &__checkbox
+    {
+        display: flex;
+        height: 4.5rem;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        padding-left: 1.5rem;
+    }
+}
+
