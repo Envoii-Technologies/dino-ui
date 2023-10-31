@@ -7,10 +7,12 @@ import { Checkbox } from './../../../Checkbox';
 import { Badge } from './../../../Badge';
 import { UserInfo } from './../../../UserInfo';
 import Moment from 'react-moment';
+import { Link } from 'react-router-dom';
 
 export const TableBody = ({
     columns,
     data,
+    tenant,
     paginatedData,
     isRowSelected,
     toggleRowSelection,
@@ -34,8 +36,8 @@ export const TableBody = ({
                             />
                         </td>
                     )}
-
-                    {columns.map((column) => (
+                    {
+                    columns.map((column) => (
                         <td
                             key={`${row.id}-${column.id}`}
                             style={{
@@ -49,9 +51,10 @@ export const TableBody = ({
                             className={`TableBody__row__cell TableBody__row__cell--${column.id}`}
                         >
                             {column.type === 'string' && <>{row[column.id]}</>}
-                            {column.type === 'label' && (
+                            {column.type === 'link' && <Link to={`${tenant}/${row.slug}`}>{row[column.id]}</Link>}
+                            {column.type === 'version' && (
                                 <div style={{ display: 'flex' }}>
-                                    <Badge label={row[column.id]} />
+                                    <Badge label={row[column.id].toFixed(1)} status={row[column.id] < 1 ? 'gray' : 'success'} />
                                 </div>
                             )}
                             {column.type === 'user' && <UserInfo username={row[column.id]}/>}

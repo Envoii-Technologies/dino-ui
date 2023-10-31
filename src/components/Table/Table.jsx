@@ -14,6 +14,7 @@ export function Table({
     onFilterClick,
     pageSize,
     isSelectable,
+    tenant,
     searchValue,
     onRowSelection,
     selectedRows: externalSelectedRows,
@@ -192,7 +193,7 @@ export function Table({
                 </div>
             </div> */}
             {paginatedData.length === 0 ? (
-                <p className="Table__no__rows">No Content found.</p>
+                <p className="Table__no__rows">Keine Karten gefunden.</p>
             ) : (
                 <div className="TableWrapper">
                     <div className="TableRows">
@@ -212,6 +213,7 @@ export function Table({
                             <TableBody
                                 columns={columns}
                                 data={data}
+                                tenant={tenant}
                                 paginatedData={paginatedData}
                                 isRowSelected={isRowSelected}
                                 toggleRowSelection={toggleRowSelection}

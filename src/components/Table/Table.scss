@@ -8,8 +8,8 @@
     border-radius: 0.75rem;
     background: $color-base-white;
     border: solid 1px $color-gray-200;
-    box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
-    height: 600px;
+    box-shadow: 0 1px 2px 0 #1018280d;
+    // height: 600px;
 
     .TableWrapper
     {
@@ -24,7 +24,8 @@
             justify-content: center;
             display: flex;
             font-size: 0.85rem;
-            height: 2.75rem;
+            color: $color-gray-700;
+            @include Text-smMedium;
         }
 
         border-collapse: collapse;

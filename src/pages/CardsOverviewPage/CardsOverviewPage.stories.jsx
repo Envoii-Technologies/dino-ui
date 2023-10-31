@@ -47,6 +47,8 @@ const Template = (args) => {
                     tagData={tagList}
                     isLoading={false}
                     cardsData={mockCards}
+                    tenant={"acme"}
+                    searchValue="Test"
                     onSaveNewCard={(data) => console.log(data)}
                 />
             </Layout>
