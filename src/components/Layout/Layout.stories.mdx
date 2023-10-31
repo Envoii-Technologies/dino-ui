@@ -1,8 +1,15 @@
 import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
 import { Layout } from './Layout';
 
+import mockMenu from './../../data/mockMenu';
+import mockUser from './../../data/mockUser';
+
 export const Template = (args) => (
-	<Layout { ...args }>
+	<Layout
+		{ ...args }
+		userData={mockUser}
+		menuData={mockMenu}
+	>
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, nulla cum a aspernatur accusamus ullam nostrum soluta odit ducimus quam tenetur inventore architecto sed nisi at pariatur itaque! Vel, voluptate?
 Molestias, nostrum! Esse, eligendi totam consequuntur nostrum perspiciatis quis voluptates. Omnis, perspiciatis temporibus sed soluta nostrum velit odio aut delectus molestias blanditiis neque quibusdam culpa eligendi, voluptatem laboriosam architecto iusto!
 Soluta similique nostrum sunt animi maxime, a fuga! Velit dignissimos magnam quaerat doloribus dolores omnis iure. Mollitia tempore magni ea provident beatae repellendus. Maiores repudiandae rem similique maxime ducimus asperiores?

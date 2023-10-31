@@ -12,6 +12,7 @@ export const SidebarButton = ({
     icon,
     isExpanded,
     isActive,
+    end,
     to,
     ...props
 }) => {
@@ -23,6 +24,7 @@ export const SidebarButton = ({
             }
             ${isExpanded ? 'expanded' : 'collapsed'}`}
             to={to}
+            end={end}
         >
             <div className="SidebarButton__content">
                 <FontAwesomeIcon
@@ -62,6 +64,7 @@ SidebarButton.propTypes = {
      * URL to navigate to when the button is clicked.
      */
     to: PropTypes.string,
+    end: PropTypes.bool,
     /**
      * Determines if the button is in an active state.
      */
@@ -75,4 +78,5 @@ SidebarButton.defaultProps = {
     icon: faCancel,
     to: '/',
     isActive: false,
+    end: false,
 };
