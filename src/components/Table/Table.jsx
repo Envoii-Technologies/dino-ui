@@ -14,7 +14,6 @@ export function Table({
     onFilterClick,
     pageSize,
     isSelectable,
-    tenant,
     searchValue,
     onRowSelection,
     selectedRows: externalSelectedRows,
@@ -213,7 +212,6 @@ export function Table({
                             <TableBody
                                 columns={columns}
                                 data={data}
-                                tenant={tenant}
                                 paginatedData={paginatedData}
                                 isRowSelected={isRowSelected}
                                 toggleRowSelection={toggleRowSelection}
