@@ -85,7 +85,6 @@ export const CardsOverviewPage = ({
                                 <Container scrollable={false}>
                                     <Table
                                         searchValue={searchValue}
-                                        tenant={tenant}
                                         isSelectable={true}
                                         columns={[
                                             { id: 'title', size: '400px', title: 'Titel', sortable: true, type: "link" },
