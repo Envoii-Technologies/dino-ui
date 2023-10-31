@@ -51,7 +51,7 @@ export const TableBody = ({
                             className={`TableBody__row__cell TableBody__row__cell--${column.id}`}
                         >
                             {column.type === 'string' && <>{row[column.id]}</>}
-                            {column.type === 'link' && <Link to={`/${row.slug}`}>{row[column.id]}</Link>}
+                            {column.type === 'link' && <Link to={`/edit/${row.slug}`}>{row[column.id]}</Link>}
                             {column.type === 'version' && (
                                 <div style={{ display: 'flex' }}>
                                     <Badge label={row[column.id] === 0 ? "Entwurf" : row[column.id].toFixed(1)} status={row[column.id] < 1 ? 'gray' : 'success'} />
