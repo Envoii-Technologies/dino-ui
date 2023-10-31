@@ -1,105 +1,146 @@
 export default [
     {
-        _id: '653b923912212203d07bbccb',
-        owner: '652eaf862429a2004a321be5',
-        title: 'TestCard',
-        slug_history: ['testcard'],
-        slug: 'testcard',
-        created_at: '2023-10-27T10:34:33.876Z',
-        updated_at: '2023-10-27T16:22:42.571Z',
-        __v: 17,
-        isDeleted: false,
-        isReleased: false,
-        isReviewed: false,
-        steps: [
+        "_id": "654107ea763a853446c8c157",
+        "creator": {
+            "favorites": [],
+            "_id": "652eaf0cd8c9feab844fa289",
+            "username": "admin",
+            "authId": "9f436102-78bc-44be-8c53-71ec2febdfca",
+            "__v": 0
+        },
+        "owner": "6540afd8998864004a89acc7",
+        "version": 0,
+        "title": "Bambus",
+        "description": "",
+        "isReleased": false,
+        "isReviewed": false,
+        "isDeleted": false,
+        "tags": [],
+        "steps": [
             {
-                name: '111DEFa',
-                pos: 1,
-                description: 'ABCCDE',
-                type: 'slide',
-                media: [
-                    {
-                        _id: '653bdfea7108f4695a287392',
-                        filename: 'activity.svg',
-                        contentType: 'image/svg+xml',
-                        __v: 0,
-                    },
-                    {
-                        _id: '653bdfea7108f4695a287393',
-                        filename: 'anchor.svg',
-                        contentType: 'image/svg+xml',
-                        __v: 0,
-                    },
-                ],
-                _id: '653bac22e74c50385bcc03e9',
-                created_at: '2023-10-27T12:25:06.782Z',
-                updated_at: '2023-10-27T12:25:06.782Z',
-            },
-            {
-                name: 'Irgendwas cooles',
-                description: 'Wuhuu',
-                pos: 2,
-                type: 'slide',
-                media: [
-                    {
-                        _id: '653be3a55a787215c132bb87',
-                        filename: 'activity-heart.svg',
-                        contentType: 'image/svg+xml',
-                        __v: 0,
-                    },
-                ],
-                _id: '653bac22e74c50385bcc03ea',
-                created_at: '2023-10-27T12:25:06.782Z',
-                updated_at: '2023-10-27T12:25:06.782Z',
-            },
-            {
-                name: 'Noch ein schritt!',
-                pos: 3,
-                description: 'yoooo',
-                type: 'slide',
-                media: [],
-                _id: '653bac22e74c50385bcc03eb',
-                created_at: '2023-10-27T12:25:06.782Z',
-                updated_at: '2023-10-27T12:25:06.782Z',
-            },
-            {
-                name: 'Schrittiger Schritt yo!',
-                pos: 4,
-                description: 'HALLLOO',
-                type: 'slide',
-                media: [],
-                _id: '653bdd0e9e9e3102b045d46b',
-                created_at: '2023-10-27T15:53:50.040Z',
-                updated_at: '2023-10-27T15:53:50.040Z',
-            },
+                "name": "Neuer Schritt",
+                "pos": 0,
+                "type": "instruction",
+                "media": [],
+                "_id": "654107ea763a853446c8c158",
+                "created_at": "2023-10-31T13:58:02.777Z",
+                "updated_at": "2023-10-31T13:58:02.777Z"
+            }
         ],
-        version: 1,
+        "slug_history": [
+            "bambus"
+        ],
+        "slug": "bambus",
+        "created_at": "2023-10-31T13:58:02.778Z",
+        "updated_at": "2023-10-31T13:58:02.778Z",
+        "__v": 0
     },
     {
-        _id: '653fa658a6f6d7a7f06eae94',
-        creator: '652eaf0cd8c9feab844fa289',
-        owner: '652eaf862429a2004a321be5',
-        version: 0,
-        title: 'Beispiel',
-        isReleased: false,
-        isReviewed: false,
-        isDeleted: false,
-        tags: [],
-        steps: [
+        "_id": "654107f4763a853446c8c164",
+        "creator": {
+            "favorites": [],
+            "_id": "652eaf0cd8c9feab844fa289",
+            "username": "admin",
+            "authId": "9f436102-78bc-44be-8c53-71ec2febdfca",
+            "__v": 0
+        },
+        "owner": "6540afd8998864004a89acc7",
+        "version": 0,
+        "title": "Banane",
+        "description": "",
+        "isReleased": false,
+        "isReviewed": false,
+        "isDeleted": false,
+        "tags": [],
+        "steps": [
             {
-                name: 'Neuer Schritt',
-                pos: 0,
-                type: 'instruction',
-                media: [],
-                _id: '653fa658a6f6d7a7f06eae95',
-                created_at: '2023-10-30T12:49:28.855Z',
-                updated_at: '2023-10-30T12:49:28.855Z',
-            },
+                "name": "Neuer Schritt",
+                "pos": 0,
+                "type": "instruction",
+                "media": [],
+                "_id": "654107f4763a853446c8c165",
+                "created_at": "2023-10-31T13:58:12.876Z",
+                "updated_at": "2023-10-31T13:58:12.876Z"
+            }
         ],
-        slug_history: ['beispiel'],
-        slug: 'beispiel',
-        created_at: '2023-10-30T12:49:28.856Z',
-        updated_at: '2023-10-30T12:49:28.856Z',
-        __v: 0,
+        "slug_history": [
+            "banane"
+        ],
+        "slug": "banane",
+        "created_at": "2023-10-31T13:58:12.877Z",
+        "updated_at": "2023-10-31T13:58:12.877Z",
+        "__v": 0
     },
+    {
+        "_id": "65410808763a853446c8c172",
+        "creator": {
+            "favorites": [],
+            "_id": "652eaf0cd8c9feab844fa289",
+            "username": "admin",
+            "authId": "9f436102-78bc-44be-8c53-71ec2febdfca",
+            "__v": 0
+        },
+        "owner": "6540afd8998864004a89acc7",
+        "version": 0,
+        "title": "Kiwi",
+        "description": "",
+        "isReleased": false,
+        "isReviewed": false,
+        "isDeleted": false,
+        "tags": [],
+        "steps": [
+            {
+                "name": "Neuer Schritt",
+                "pos": 0,
+                "type": "instruction",
+                "media": [],
+                "_id": "65410808763a853446c8c173",
+                "created_at": "2023-10-31T13:58:32.523Z",
+                "updated_at": "2023-10-31T13:58:32.523Z"
+            }
+        ],
+        "slug_history": [
+            "kiwi"
+        ],
+        "slug": "kiwi",
+        "created_at": "2023-10-31T13:58:32.523Z",
+        "updated_at": "2023-10-31T13:58:32.523Z",
+        "__v": 0
+    },
+    {
+        "_id": "6541081f763a853446c8c181",
+        "creator": {
+            "favorites": [],
+            "_id": "652eaf0cd8c9feab844fa289",
+            "username": "admin",
+            "authId": "9f436102-78bc-44be-8c53-71ec2febdfca",
+            "__v": 0
+        },
+        "owner": "6540afd8998864004a89acc7",
+        "version": 0,
+        "title": "Kirsche",
+        "description": "",
+        "isReleased": false,
+        "isReviewed": false,
+        "isDeleted": false,
+        "tags": [],
+        "steps": [
+            {
+                "name": "Neuer Schritt",
+                "pos": 0,
+                "type": "instruction",
+                "media": [],
+                "_id": "6541081f763a853446c8c182",
+                "created_at": "2023-10-31T13:58:55.802Z",
+                "updated_at": "2023-10-31T13:58:55.802Z"
+            }
+        ],
+        "slug_history": [
+            "kirsche"
+        ],
+        "slug": "kirsche",
+        "created_at": "2023-10-31T13:58:55.802Z",
+        "updated_at": "2023-10-31T13:58:55.802Z",
+        "__v": 0
+    }
 ];
