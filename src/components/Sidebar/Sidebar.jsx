@@ -105,6 +105,7 @@ export const Sidebar = ({
                                         label={item.label}
                                         icon={item.icon}
                                         to={item.target}
+                                        end={item.end}
                                     />
                                 ))}
                     </nav>
@@ -125,6 +126,8 @@ export const Sidebar = ({
                                         label={item.label}
                                         icon={item.icon}
                                         to={item.target}
+                                        end={item.end}
+                                        external={item.external}
                                     />
                                 ))}
                     </nav>

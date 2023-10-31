@@ -7,6 +7,7 @@ import { faInfo } from '@fortawesome/free-solid-svg-icons';
 
 import mockUser from './../../data/mockUser';
 import mockMenu from './../../data/mockMenu';
+import mockCards from './../../data/mockCards';
 import tagList from './../../data/tags';
 
 export default {
@@ -45,6 +46,9 @@ const Template = (args) => {
                     userData={mockUser}
                     tagData={tagList}
                     isLoading={false}
+                    cardsData={mockCards}
+                    tenant={"acme"}
+                    searchValue="Test"
                     onSaveNewCard={(data) => console.log(data)}
                 />
             </Layout>

@@ -1,0 +1,28 @@
+@use '../../../../global-styles/' as *;
+
+.TableHeader {
+    &__row {
+        &__cell {
+            height: 2.75rem;
+            text-align: left;
+            color: $color-gray-600;
+            @include Text-xsMedium;
+            
+            &:first-child
+            {
+                padding-left: 1.5rem;
+            }
+        }
+    }
+
+    &__checkbox
+    {
+        padding-left: 1.5rem;
+    }
+
+    .TableHeader__sort-indicator {
+        font-size: 12px;
+        margin-left: 0.25rem;
+        cursor: pointer;
+    }
+}

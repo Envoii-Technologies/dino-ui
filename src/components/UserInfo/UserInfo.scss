@@ -1,15 +1,14 @@
 @use '../../global-styles/' as *;
 
-.SidebarUserInfo {
+.UserInfo
+{
     flex-grow: 1;
+    width: 100%;
     display: flex;
-    flex-direction: row;
     justify-content: flex-start;
-    align-items: flex-start;
-    gap: 16px;
+    align-items: stretch;
+    gap: 10px;
     position: relative;
-    padding: 24px 0 0.5rem 0.25rem;
-    border-top: solid 1px $color-gray-600;
 
     .Avatar {
         flex-grow: 0;
@@ -17,7 +16,7 @@
     }
 
     &.collapsed {
-        .SidebarUserInfo__wrapper {
+        .UserInfo__wrapper {
             @media only screen and (min-width: $breakpoint-medium) {
                 transition: all 0.5s;
                 margin-left: -100px;
@@ -28,35 +27,58 @@
     }
 
     &.expanded {
-        .SidebarUserInfo__wrapper {
+        .UserInfo__wrapper {
             transition: all 0.5s;
             margin-left: 0;
             opacity: 1;
         }
     }
 
-    &__wrapper {
+    &__wrapper
+    {
         display: flex;
-        position: relative;
-        flex-direction: row;
-        justify-content: flex-start;
         align-items: flex-start;
+        flex-grow: 1;
         width: 100%;
-        gap: 16px;
+        gap: 10px;
+
+        &.dark
+        {
+            .UserInfo__wrapper__user__username
+            {
+                color: $color-gray-700;
+            }
+            .UserInfo__wrapper__user__email
+            {
+                color: $color-gray-600;
+            }
+        }
+
+        &.light
+        {
+            .UserInfo__wrapper__user__username
+            {
+                color: $color-base-white;
+            }
+            .UserInfo__wrapper__user__email
+            {
+                color: $color-gray-200;   
+            }
+        }
 
         &__user {
-            height: 40px;
+            height: 100%;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            justify-content: center;
             padding: 0;
 
             &__username {
                 height: 20px;
                 flex-grow: 0;
                 @include Text-smSemibold;
-                color: $color-base-white;
             }
 
             &__email {
@@ -74,7 +96,6 @@
                 }
 
                 @include Text-smRegular;
-                color: $color-gray-200;
             }
         }
     }
