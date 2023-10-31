@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCancel } from '@fortawesome/free-solid-svg-icons';
@@ -14,33 +14,57 @@ export const SidebarButton = ({
     isActive,
     end,
     to,
+    external,
     ...props
 }) => {
-    return (
-        <NavLink
-            className={`SidebarButton
-            ${
-                className || ''
-            }
+    if (!external) {
+        return (
+            <NavLink
+                className={`SidebarButton
+                ${className || ''}
+                ${isExpanded ? 'expanded' : 'collapsed'}`}
+                to={to}
+                end={end}
+            >
+                <div className="SidebarButton__content">
+                    <FontAwesomeIcon
+                        className="SidebarButton__content__icon"
+                        icon={icon}
+                    />
+                    <span
+                        className={`SidebarButton__content__label ${
+                            isExpanded ? 'expanded' : 'collapsed'
+                        }`}
+                    >
+                        {label}
+                    </span>
+                </div>
+            </NavLink>
+        );
+    } else {
+        return (
+            <a
+                href={to}
+                className={`SidebarButton
+            ${className || ''}
             ${isExpanded ? 'expanded' : 'collapsed'}`}
-            to={to}
-            end={end}
-        >
-            <div className="SidebarButton__content">
-                <FontAwesomeIcon
-                    className="SidebarButton__content__icon"
-                    icon={icon}
-                />
-                <span
-                    className={`SidebarButton__content__label ${
-                        isExpanded ? 'expanded' : 'collapsed'
-                    }`}
-                >
-                    {label}
-                </span>
-            </div>
-        </NavLink>
-    );
+            >
+                <div className="SidebarButton__content">
+                    <FontAwesomeIcon
+                        className="SidebarButton__content__icon"
+                        icon={icon}
+                    />
+                    <span
+                        className={`SidebarButton__content__label ${
+                            isExpanded ? 'expanded' : 'collapsed'
+                        }`}
+                    >
+                        {label}
+                    </span>
+                </div>
+            </a>
+        );
+    }
 };
 
 SidebarButton.propTypes = {

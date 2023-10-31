@@ -6,12 +6,14 @@ export default {
             label: 'Dashboard',
             icon: faHouse,
             target: '/acme',
+            end: true,
             roles: ['admin', 'editor'],
         },
         {
             label: 'Karten',
             icon: faLayerGroup,
             target: '/acme/cards',
+            end: true,
             roles: ['admin', 'editor'],
         },
     ],
@@ -20,12 +22,14 @@ export default {
             label: 'Hilfe',
             icon: faLifeRing,
             target: '/docs',
-            roles: ['admin'],
+            external: true,
+            roles: ['admin']
         },
         {
             label: 'Einstellungen',
             icon: faGear,
             target: '/acme/settings',
+            end: true,
             roles: ['admin']
         }
     ],

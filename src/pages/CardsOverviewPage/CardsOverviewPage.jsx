@@ -20,8 +20,9 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import './CardsOverviewPage.scss';
+import { Link } from 'react-router-dom';
 
-export const CardsOverviewPage = ({ isLoading, userData, tagData, onSaveNewCard }) => {
+export const CardsOverviewPage = ({ isLoading, userData, tagData, cardsData, onSaveNewCard }) => {
     const [showCreateCardWindow, setShowCreateCardWindow] = useState(false);
 
     return (
@@ -63,7 +64,16 @@ export const CardsOverviewPage = ({ isLoading, userData, tagData, onSaveNewCard 
                         <Input />
                     </PageSubHeader>
                     <Container>
-                        
+                        <ul>
+
+                    {
+                        cardsData.map((card, i) => (
+                            <li>
+                                <Link to={`/${userData.tenant.short}/cards/edit/${card.slug}`}>{ card.title }</Link>
+                            </li>
+                        ))
+                    }
+                        </ul>
                     </Container>
                 </>
             )}
