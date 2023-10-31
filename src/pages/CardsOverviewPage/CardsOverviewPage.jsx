@@ -5,7 +5,6 @@ import {
     ButtonGroup,
     Button,
     PageSubHeader,
-    cardsData,
     Input,
     LoadingIndicator,
     Container,
@@ -90,7 +89,7 @@ export const CardsOverviewPage = ({
                                         isSelectable={true}
                                         columns={[
                                             { id: 'title', size: '400px', title: 'Titel', sortable: true, type: "link" },
-                                            { id: 'version', size: '200px', title: 'Status', sortable: false, type: "version" },
+                                            { id: 'version', size: '200px', title: 'Status', sortable: true, type: "version" },
                                             { id: 'creator', size: '150px', title: 'Bearbeitet von', sortable: true, type: "user" },
                                             { id: 'updated_at', size: '200px', title: 'Bearbeitet', sortable: true, type: "time" }
                                         ]}
