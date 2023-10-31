@@ -18,27 +18,28 @@ export const TableBody = ({
     isSelectable,
     ...props
 }) => {
+    console.log(paginatedData);
     return (
         <tbody className="TableBody">
             {paginatedData.map((row) => (
                 <tr
-                    key={row.id}
+                    key={row._id}
                     className={`TableBody__row ${
-                        isRowSelected(row.id) ? 'TableBody__row--selected' : ''
+                        isRowSelected(row._id) ? 'TableBody__row--selected' : ''
                     }`}
                 >
                     {isSelectable && (
                         <td className="TableBody__checkbox">
                             <Checkbox
-                                onChange={() => toggleRowSelection(row.id)}
-                                checked={isRowSelected(row.id)}
+                                onChange={() => toggleRowSelection(row._id)}
+                                checked={isRowSelected(row._id)}
                             />
                         </td>
                     )}
                     {
                     columns.map((column) => (
                         <td
-                            key={`${row.id}-${column.id}`}
+                            key={`${row._id}-${column.id}`}
                             style={{
                                 width: !column.size
                                     ? '70%'

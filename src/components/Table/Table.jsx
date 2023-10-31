@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './Table.scss'; // Import your CSS stylesheet
 
 
-import { TableHeader, TableBody, TablePagination } from './components';
+import { TableHeader, TableBody, TablePagination, Button } from './components';
 
 export function Table({
     className,
@@ -105,7 +105,7 @@ export function Table({
         const updatedSelectedRows = {};
         if (!selectAll) {
             data.forEach((row) => {
-                updatedSelectedRows[row.id] = true;
+                updatedSelectedRows[row._id] = true;
             });
         }
         setSelectedRows(updatedSelectedRows);
@@ -175,7 +175,7 @@ export function Table({
             {/* <div className="TableContainer__menu">
                 <div className="TableContainer__menu__left">
                     <Button
-                        icon={faSliders}
+                        // icon={faSliders}
                         // label="Filter"
                         type="primary"
                         onClick={handleFilterClick}
@@ -184,9 +184,9 @@ export function Table({
                 <div className="TableContainer__menu__right">
                     <Button
                         label={`${getAmountOfSelectedRows()} Archivieren`}
-                        icon={faTrashCan}
-                        type={getAmountOfSelectedRows() === '' ? '': 'error'}
-                        disabled={getAmountOfSelectedRows() === '' ? true: false}
+                        // icon={faTrashCan}
+                        // type={getAmountOfSelectedRows() === '' ? '': 'error'}
+                        // disabled={getAmountOfSelectedRows() === '' ? true: false}
                         onClick={() => alert("[NOT IMPLEMENTED]")}
                     />
                 </div>
