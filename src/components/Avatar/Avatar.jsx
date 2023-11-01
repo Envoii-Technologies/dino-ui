@@ -4,6 +4,8 @@ import { Dot } from './../../';
 import placeholderImage from './../../assets/images/userPlaceholder.svg';
 import './Avatar.scss';
 
+import { getFirstLetters } from './../../utils';
+
 const AvatarSizes = {
   xs: 'xs',
   sm: 'sm',
@@ -14,13 +16,6 @@ const AvatarSizes = {
 };
 
 export const Avatar = ({ className, name, size, type, status, ...props }) => {
-  const getFirstLetters = (str) => {
-    const firstLetters = str
-      .split(' ')
-      .map((word) => word[0])
-      .join('');
-    return firstLetters.toUpperCase();
-  };
 
   const renderContent = () => {
     if (type === 'placeholder') {
@@ -59,7 +54,7 @@ Avatar.propTypes = {
   className: PropTypes.string,
   size: PropTypes.oneOf(Object.keys(AvatarSizes)),
   type: PropTypes.oneOf(['placeholder', 'text']),
-  status: PropTypes.oneOf(['none', 'success', 'warning', 'error']),
+  status: PropTypes.oneOf(['none', 'success', 'warning', 'error', 'offline']),
   name: PropTypes.string,
 };
 

@@ -7,13 +7,15 @@ import {
     FileUploader,
     StepTitleInput,
     OverflowMenu,
+    ButtonGroup,
+    FileViewer,
 } from './../../';
 
 import './StepContent.scss';
 import {
     faCopy,
-    faEllipsisV,
-    faPlus, 
+    faPaperclip,
+    faPlus,
     faTrash,
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -24,17 +26,17 @@ export const StepContent = ({
     onAddStep,
     onStepChange,
     onDuplicateStep,
+    uploadParameters,
     onDeleteStep,
     ...props
 }) => {
-    const stepDataObject =
-    {
+    const stepDataObject = {
         name: stepData.name,
         pos: stepData.pos,
         description: stepData.description,
         media: [],
         _id: stepData._id,
-    }
+    };
 
     const [stepSettings, setStepSettings] = useState(stepDataObject);
 
@@ -48,18 +50,8 @@ export const StepContent = ({
         onStepChange(stepSettings);
     };
 
-    const handleAddFile = (file) => {
-        console.log(file);
-
-        const updateMedia = [...stepSettings.media];
-
-        updateMedia.push(file);
-
-        setStepSettings((prev) => ({ ...prev, media: [...updateMedia] }));
-    };
-
     useEffect(() => {
-        setStepSettings(stepDataObject)
+        setStepSettings(stepDataObject);
     }, [stepData]);
 
     useEffect(() => {
@@ -67,62 +59,61 @@ export const StepContent = ({
     }, [stepSettings]);
 
     return (
-        <div
-            className={`StepContent ${
-                className !== undefined ? className : ''
-            }`}
-        >
-            <div className="StepContent__header">
-                <div className="StepContent__header__info">
-                    <div className="StepContent__header__info__number">
-                        Schritt {stepPosition + 1}
+        <>
+            <div
+                className={`StepContent ${
+                    className !== undefined ? className : ''
+                }`}
+            >
+                <div className="StepContent__header">
+                    <div className="StepContent__header__info">
+                        <div className="StepContent__header__info__number">
+                            Schritt {stepPosition + 1}
+                        </div>
+                        <StepTitleInput
+                            title={stepSettings.name}
+                            onChangeTitle={(e) => handleChangeText(e)}
+                        />
                     </div>
-                    <StepTitleInput
-                        title={stepSettings.name}
-                        onChangeTitle={(e) => handleChangeText(e)}
-                    />
+                    <ButtonGroup>
+                        <Button
+                            type="secondary"
+                            iconLeft={faCopy}
+                            onClick={() => onDuplicateStep(stepDataObject._id)}
+                        />
+                        <Button
+                            type="secondary"
+                            className="delete"
+                            iconLeft={faTrash}
+                            onClick={() => onDeleteStep(stepDataObject._id)}
+                            disabled={stepPosition === 0 ? true : false}
+                        />
+                    </ButtonGroup>
                 </div>
-                <OverflowMenu
-                    anchor="below-right"
-                    ellipsis={true}
-                    label="Optionen"
-                    content={[
-                        [
-                            {
-                                title: 'Duplizieren',
-                                icon: faCopy,
-                                onClick: () => onDuplicateStep(stepDataObject._id),
-                            },
-                            {
-                                title: 'Löschen',
-                                disabled: stepPosition === 0 ? true : false,
-                                icon: faTrash,
-                                dangerous: true,
-                                onClick: () => onDeleteStep(stepDataObject._id),
-                            },
-                        ],
-                    ]}
+
+                <TextArea
+                    placeholder="Beschreibung hinzufügen"
+                    name="description"
+                    defaultValue={stepSettings.description}
+                    onChange={(e) => handleChangeText(e)}
+                />
+
+                <FileViewer
+                    uploadUrl="https://httpbin.org/post"
+                    onUpload={(data) => console.log(data)}
+                    onDelete={(data) => console.log(data)}
+                />
+
+                <Button
+                    label="Schritt hinzufügen"
+                    size="lg"
+                    type="secondary"
+                    iconLeft={faPlus}
+                    fluid={true}
+                    onClick={onAddStep}
                 />
             </div>
-
-            <TextArea
-                placeholder="Beschreibung hinzufügen"
-                name="description"
-                defaultValue={stepSettings.description}
-                onChange={(e) => handleChangeText(e)}
-            />
-
-            <FileUploader onUploaded={(file) => handleAddFile(file)} />
-
-            <Button
-                label="Schritt hinzufügen"
-                size="lg"
-                type="secondary"
-                iconLeft={faPlus}
-                fluid={true}
-                onClick={onAddStep}
-            />
-        </div>
+        </>
     );
 };
 
@@ -140,3 +131,20 @@ StepContent.defaultProps = {
     onAddStep: undefined,
     onStepChange: undefined,
 };
+
+{
+    /* <FileUploader
+                onUploaded={(file) => handleAddFile(file)}
+                uploadParameters={uploadParameters}
+            /> */
+}
+
+// const handleAddFile = (file) => {
+//     console.log(file);
+
+//     const updateMedia = [...stepSettings.media];
+
+//     updateMedia.push(file._id);
+
+//     setStepSettings((prev) => ({ ...prev, media: [...updateMedia] }));
+// };

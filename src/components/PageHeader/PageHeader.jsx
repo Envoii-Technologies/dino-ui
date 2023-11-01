@@ -54,7 +54,7 @@ PageHeader.propTypes = {
     /**
      * The location string for breadcrumb navigation.
      */
-    location: PropTypes.string,
+    location: PropTypes.object,
     /**
      * Optional children to be rendered in the header.
      */

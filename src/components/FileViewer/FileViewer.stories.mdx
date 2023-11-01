@@ -1,0 +1,33 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { FileViewer } from './FileViewer';
+
+export const Template = (args) => (
+	<FileViewer { ...args } />
+);
+
+<Meta title='Components/FileViewer' component={ FileViewer } />
+
+# FileViewer
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ FileViewer } />

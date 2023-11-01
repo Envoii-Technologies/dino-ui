@@ -22,10 +22,215 @@
 
                 &__content {
                     color: black;
-                    padding: $spacing-2xl;
 
-                    @media only screen and (min-width: $breakpoint-medium) {
-                        padding: $spacing-4xl;
+                    &.padding-vertical-both-horizontal-both
+                    {
+                        padding-top: $spacing-2xl;
+                        padding-right: $spacing-2xl;
+                        padding-bottom: $spacing-2xl;
+                        padding-left: $spacing-2xl;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: $spacing-4xl;
+                            padding-right: $spacing-4xl;
+                            padding-bottom: $spacing-4xl;
+                            padding-left: $spacing-4xl;
+                        }
+                    }
+
+                    &.padding-vertical-both-horizontal-left 
+                    {
+                        padding-top: $spacing-2xl;
+                        padding-right: 0;
+                        padding-bottom: $spacing-2xl;
+                        padding-left: $spacing-2xl;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: $spacing-4xl;
+                            padding-right: 0;
+                            padding-bottom: $spacing-4xl;
+                            padding-left: $spacing-4xl;
+                        }
+                    }
+
+                    &.padding-vertical-both-horizontal-right   
+                    {
+                        padding-top: $spacing-2xl;
+                        padding-right: $spacing-2xl;
+                        padding-bottom: $spacing-2xl;
+                        padding-left: 0;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: $spacing-4xl;
+                            padding-right: $spacing-4xl;
+                            padding-bottom: $spacing-4xl;
+                            padding-left: 0;
+                        }
+                    }
+
+                    &.padding-vertical-top-horizontal-none  
+                    {
+                        padding-top: $spacing-2xl;
+                        padding-right: 0;
+                        padding-bottom: 0;
+                        padding-left: 0;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: $spacing-4xl;
+                            padding-right: 0;
+                            padding-bottom: 0;
+                            padding-left: 0;
+                        }
+                    }
+
+                    &.padding-vertical-top-horizontal-both  
+                    {
+                        padding-top: $spacing-2xl;
+                        padding-right: $spacing-2xl;
+                        padding-bottom: 0;
+                        padding-left: $spacing-2xl;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: $spacing-4xl;
+                            padding-right: $spacing-4xl;
+                            padding-bottom: 0;
+                            padding-left: $spacing-4xl;
+                        }
+                    }
+
+                    &.padding-vertical-top-horizontal-left  
+                    {
+                        padding-top: $spacing-2xl;
+                        padding-right: 0;
+                        padding-bottom: 0;
+                        padding-left: $spacing-2xl;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: $spacing-4xl;
+                            padding-right: 0;
+                            padding-bottom: 0;
+                            padding-left: $spacing-4xl;
+                        }
+                    }
+
+                    &.padding-vertical-top-horizontal-right  
+                    {
+                        padding-top: $spacing-2xl;
+                        padding-right: $spacing-2xl;
+                        padding-bottom: 0;
+                        padding-left: 0;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: $spacing-4xl;
+                            padding-right: $spacing-4xl;
+                            padding-bottom: 0;
+                            padding-left: 0;
+                        }
+                    }
+
+                    &.padding-vertical-bottom-horizontal-none 
+                    {
+                        padding-top: 0;
+                        padding-right: 0;
+                        padding-bottom: $spacing-2xl;
+                        padding-left: 0;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: 0;
+                            padding-right: 0;
+                            padding-bottom: $spacing-4xl;
+                            padding-left: 0;
+                        }
+                    }
+
+                    &.padding-vertical-bottom-horizontal-both
+                    {
+                        padding-top: 0;
+                        padding-right: $spacing-2xl;
+                        padding-bottom: $spacing-2xl;
+                        padding-left: $spacing-2xl;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: 0;
+                            padding-right: $spacing-4xl;
+                            padding-bottom: $spacing-4xl;
+                            padding-left: $spacing-4xl;
+                        }
+                    }
+
+                    &.padding-vertical-bottom-horizontal-left
+                    {
+                        padding-top: 0;
+                        padding-right: 0;
+                        padding-bottom: $spacing-2xl;
+                        padding-left: $spacing-2xl;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: 0;
+                            padding-right: 0;
+                            padding-bottom: $spacing-4xl;
+                            padding-left: $spacing-4xl;
+                        }
+                    }
+
+                    &.padding-vertical-bottom-horizontal-right 
+                    {
+                        padding-top: 0;
+                        padding-right: $spacing-2xl;
+                        padding-bottom: $spacing-2xl;
+                        padding-left: 0;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: 0;
+                            padding-right: $spacing-4xl;
+                            padding-bottom: $spacing-4xl;
+                            padding-left: 0;
+                        }
+                    }
+
+                    &.padding-vertical-none-horizontal-both   
+                    {
+                        padding-top: 0;
+                        padding-right: $spacing-2xl;
+                        padding-bottom: 0;
+                        padding-left: $spacing-2xl;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: 0;
+                            padding-right: $spacing-4xl;
+                            padding-bottom: 0;
+                            padding-left: $spacing-4xl;
+                        }
+                    }
+
+                    &.padding-vertical-none-horizontal-left   
+                    {
+                        padding-top: 0;
+                        padding-right: 0;
+                        padding-bottom: 0;
+                        padding-left: $spacing-2xl;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: 0;
+                            padding-right: 0;
+                            padding-bottom: 0;
+                            padding-left: $spacing-4xl;
+                        }
+                    }
+
+                    &.padding-vertical-none-horizontal-right 
+                    {
+                        padding-top: 0;
+                        padding-right: 0;
+                        padding-bottom: $spacing-2xl;
+                        padding-left: 0;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: 0;
+                            padding-right: 0;
+                            padding-bottom: $spacing-4xl;
+                            padding-left: 0;
+                        }
                     }
 
                     padding-top: 48px;
@@ -35,7 +240,6 @@
     }
 
     &.static {
-
         position: relative;
 
         .Container__wrapper {
@@ -45,22 +249,233 @@
             position: relative;
 
             &__container {
+                position: relative;
                 flex: 1;
                 height: 100%;
-                position: relative;
+                overflow: auto;
                 display: flex;
+                flex-direction: column;
 
                 &__content {
                     position: relative;
                     color: black;
-                    padding: $spacing-2xl;
-                    flex-grow: 1;
+                    height: 100%;
                     display: flex;
                     flex-direction: column;
 
-                    @media only screen and (min-width: $breakpoint-medium) {
-                        padding: $spacing-4xl;
+                    flex-grow: 1;
+
+                    &.padding-vertical-both-horizontal-both
+                    {
+                        padding-top: $spacing-2xl;
+                        padding-right: $spacing-2xl;
+                        padding-bottom: $spacing-2xl;
+                        padding-left: $spacing-2xl;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: $spacing-4xl;
+                            padding-right: $spacing-4xl;
+                            padding-bottom: $spacing-4xl;
+                            padding-left: $spacing-4xl;
+                        }
                     }
+
+                    &.padding-vertical-both-horizontal-left 
+                    {
+                        padding-top: $spacing-2xl;
+                        padding-right: 0;
+                        padding-bottom: $spacing-2xl;
+                        padding-left: $spacing-2xl;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: $spacing-4xl;
+                            padding-right: 0;
+                            padding-bottom: $spacing-4xl;
+                            padding-left: $spacing-4xl;
+                        }
+                    }
+
+                    &.padding-vertical-both-horizontal-right   
+                    {
+                        padding-top: $spacing-2xl;
+                        padding-right: $spacing-2xl;
+                        padding-bottom: $spacing-2xl;
+                        padding-left: 0;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: $spacing-4xl;
+                            padding-right: $spacing-4xl;
+                            padding-bottom: $spacing-4xl;
+                            padding-left: 0;
+                        }
+                    }
+
+                    &.padding-vertical-top-horizontal-none  
+                    {
+                        padding-top: $spacing-2xl;
+                        padding-right: 0;
+                        padding-bottom: 0;
+                        padding-left: 0;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: $spacing-4xl;
+                            padding-right: 0;
+                            padding-bottom: 0;
+                            padding-left: 0;
+                        }
+                    }
+
+                    &.padding-vertical-top-horizontal-both  
+                    {
+                        padding-top: $spacing-2xl;
+                        padding-right: $spacing-2xl;
+                        padding-bottom: 0;
+                        padding-left: $spacing-2xl;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: $spacing-4xl;
+                            padding-right: $spacing-4xl;
+                            padding-bottom: 0;
+                            padding-left: $spacing-4xl;
+                        }
+                    }
+
+                    &.padding-vertical-top-horizontal-left  
+                    {
+                        padding-top: $spacing-2xl;
+                        padding-right: 0;
+                        padding-bottom: 0;
+                        padding-left: $spacing-2xl;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: $spacing-4xl;
+                            padding-right: 0;
+                            padding-bottom: 0;
+                            padding-left: $spacing-4xl;
+                        }
+                    }
+
+                    &.padding-vertical-top-horizontal-right  
+                    {
+                        padding-top: $spacing-2xl;
+                        padding-right: $spacing-2xl;
+                        padding-bottom: 0;
+                        padding-left: 0;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: $spacing-4xl;
+                            padding-right: $spacing-4xl;
+                            padding-bottom: 0;
+                            padding-left: 0;
+                        }
+                    }
+
+                    &.padding-vertical-bottom-horizontal-none 
+                    {
+                        padding-top: 0;
+                        padding-right: 0;
+                        padding-bottom: $spacing-2xl;
+                        padding-left: 0;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: 0;
+                            padding-right: 0;
+                            padding-bottom: $spacing-4xl;
+                            padding-left: 0;
+                        }
+                    }
+
+                    &.padding-vertical-bottom-horizontal-both
+                    {
+                        padding-top: 0;
+                        padding-right: $spacing-2xl;
+                        padding-bottom: $spacing-2xl;
+                        padding-left: $spacing-2xl;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: 0;
+                            padding-right: $spacing-4xl;
+                            padding-bottom: $spacing-4xl;
+                            padding-left: $spacing-4xl;
+                        }
+                    }
+
+                    &.padding-vertical-bottom-horizontal-left
+                    {
+                        padding-top: 0;
+                        padding-right: 0;
+                        padding-bottom: $spacing-2xl;
+                        padding-left: $spacing-2xl;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: 0;
+                            padding-right: 0;
+                            padding-bottom: $spacing-4xl;
+                            padding-left: $spacing-4xl;
+                        }
+                    }
+
+                    &.padding-vertical-bottom-horizontal-right 
+                    {
+                        padding-top: 0;
+                        padding-right: $spacing-2xl;
+                        padding-bottom: $spacing-2xl;
+                        padding-left: 0;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: 0;
+                            padding-right: $spacing-4xl;
+                            padding-bottom: $spacing-4xl;
+                            padding-left: 0;
+                        }
+                    }
+
+                    &.padding-vertical-none-horizontal-both   
+                    {
+                        padding-top: 0;
+                        padding-right: $spacing-2xl;
+                        padding-bottom: 0;
+                        padding-left: $spacing-2xl;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: 0;
+                            padding-right: $spacing-4xl;
+                            padding-bottom: 0;
+                            padding-left: $spacing-4xl;
+                        }
+                    }
+
+                    &.padding-vertical-none-horizontal-left   
+                    {
+                        padding-top: 0;
+                        padding-right: 0;
+                        padding-bottom: 0;
+                        padding-left: $spacing-2xl;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: 0;
+                            padding-right: 0;
+                            padding-bottom: 0;
+                            padding-left: $spacing-4xl;
+                        }
+                    }
+
+                    &.padding-vertical-none-horizontal-right 
+                    {
+                        padding-top: 0;
+                        padding-right: 0;
+                        padding-bottom: $spacing-2xl;
+                        padding-left: 0;
+
+                        @media only screen and (min-width: $breakpoint-medium) {
+                            padding-top: 0;
+                            padding-right: 0;
+                            padding-bottom: $spacing-4xl;
+                            padding-left: 0;
+                        }
+                    }
+
+                    // padding-top: 48px;
                 }
             }
         }

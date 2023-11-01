@@ -3,22 +3,20 @@ import PropTypes from 'prop-types';
 
 import { Button, Input, Grid, Row, Column } from './../../';
 
-import { useTenantLoginPage } from './useTenantLoginPage';
+import { useTenantLoginContext } from './TenantLoginContext';
 
 import LogoIcon from './../../assets/logos/Logo_Icon-dark.svg';
 
 import './TenantLoginPage.scss';
 
-export const TenantLoginPage = ({ error, eventLink, action, isInFocus }) => {
+export const TenantLoginPage = ({ error, eventLink, onAction, isInFocus }) => {
     const {
         errorMessage,
-        handleTenantChange,
         handleTenantFocus,
+        handleTenantChange,
         handleSendData,
         handleKeyDown,
-    } = useTenantLoginPage({ error, eventLink, action, isInFocus });
-
-    console.log(error);
+    } = useTenantLoginContext({ error, onAction, isInFocus });
 
     return (
         <>
@@ -78,15 +76,3 @@ export const TenantLoginPage = ({ error, eventLink, action, isInFocus }) => {
     );
 };
 
-TenantLoginPage.propTypes = {
-    error: PropTypes.string,
-    eventLink: PropTypes.string,
-    isInFocus: PropTypes.bool,
-    action: PropTypes.func,
-};
-TenantLoginPage.defaultProps = {
-    error: undefined,
-    eventLink: '/',
-    isInFocus: true,
-    action: undefined,
-};

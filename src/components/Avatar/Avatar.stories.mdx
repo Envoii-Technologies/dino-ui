@@ -17,8 +17,7 @@ A component representing a user, by showing the first letter his first and last 
     name="Example"
     args={{
         name: "Koray Uygun",
-        image: userImage,
-        size: "large"
+        size: "md"
     }}
 >
     { Template.bind({}) }
@@ -37,6 +36,60 @@ As default, the avatar components name property is set to Jane Doe, resulting in
 		name="Default"
 		args={{
 			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Placeholder
+
+As default, the avatar components name property is set to Jane Doe, resulting in the shown letters J (fistname) and D (lastname).
+
+<Canvas>
+	<Story
+		name="Placeholder"
+		args={{
+			type: "placeholder",
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### status
+
+As default, the avatar components name property is set to Jane Doe, resulting in the shown letters J (fistname) and D (lastname).
+
+<Canvas>
+	<Story
+		name="Success Status"
+		args={{
+            status: "success"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+    <Story
+		name="Warning Status"
+		args={{
+            status: "warning"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+    <Story
+		name="Error Status"
+		args={{
+            status: "error"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+    <Story
+		name="Offline Status"
+		args={{
+            status: "offline"
 		}}
 	>
 		{ Template.bind({}) }
@@ -79,53 +132,61 @@ If the `name` property only contains a `string` with one word, only one letter i
     </Story>
 </Canvas>
 
-### Image
-
-If the `image` property contains a `string` containing the path to a user image, said imagewill be shown, instead of the above letter examples.
-
-<Canvas>
-    <Story 
-        name="Custom Image"
-        args={{
-            name: "Koray Uygun",
-            image: userImage
-        }}
-    >
-        { Template.bind({}) }
-    </Story>
-</Canvas>
-
 ### Size
 
-The size of the Avatar Component can be changed by passing `small`, `medium` or `large` as `string` to the `size` property, changing the size of the image to 40x40px, 80x80px and 109x109px respectively.
+The size of the Avatar Component can be changed by passing `xs`, `xm`, `md`, `xl` or `xxl` as `string` to the `size` property, changing the size of the image to 40x40px, 80x80px and 109x109px respectively.
 
 <Canvas>
     <Story 
-        name="Small Image Size"
+        name="X Small Size"
         args={{
             name: "Koray Uygun",
-            image: userImage,
-            size: "small"
+            size: "xs"
+        }}
+    >
+        { Template.bind({}) }
+    </Story>
+        <Story 
+        name="Small Size"
+        args={{
+            name: "Koray Uygun",
+            size: "sm"
+        }}
+    >
+        { Template.bind({}) }
+    </Story>
+        <Story 
+        name="Medium Size"
+        args={{
+            name: "Koray Uygun",
+            size: "md"
+        }}
+    >
+        { Template.bind({}) }
+    </Story>
+        <Story 
+        name="Large Size"
+        args={{
+            name: "Koray Uygun",
+            size: "lg"
         }}
     >
         { Template.bind({}) }
     </Story>
     <Story 
-        name="Medium Image Size"
+        name="X Large Size"
         args={{
             name: "Koray Uygun",
-            image: userImage,
-            size: "medium"
+            size: "xl"
         }}
     >
         { Template.bind({}) }
     </Story>
     <Story 
-       name="Large Image Size"
+       name="XX Large Size"
         args={{
             name: "Koray Uygun",
-            image: userImage,
-            size: "large"
+            size: "xxl"
         }}
     >
         { Template.bind({}) }

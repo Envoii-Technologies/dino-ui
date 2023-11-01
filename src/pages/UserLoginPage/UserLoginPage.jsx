@@ -65,10 +65,3 @@ export const UserLoginPage = ({ eventLink }) => {
         </>
     );
 };
-
-UserLoginPage.propTypes = {
-    eventLink: PropTypes.string,
-};
-UserLoginPage.defaultProps = {
-    eventLink: '/',
-};

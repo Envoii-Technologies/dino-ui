@@ -2,18 +2,21 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import Dropzone from 'react-dropzone-uploader';
+import ObjectID from 'bson-objectid';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCloudArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 import './FileUploader.scss';
 
-export const FileUploader = ({ className, onUploaded, ...props }) => {
+export const FileUploader = ({ className, onUploaded, uploadParameters, ...props }) => {
     const getUploadParams = ({ meta }) => {
-        const url = 'https://httpbin.org/post';
+        const url = uploadParameters.url;
         const fileUrl = `${url}/${encodeURIComponent(meta.name)}`;
         return { url, meta: { fileUrl } };
     };
+
+    console.log(uploadParameters)
 
     const handleSubmit = (files) => {
         console.log(files.map((f) => f.meta));
@@ -21,9 +24,11 @@ export const FileUploader = ({ className, onUploaded, ...props }) => {
 
     const handleChangeStatus = async ({ meta, file }, status) => {
 
+        console.log(meta);
         if(await status === "done")
         {
-            onUploaded({ file: file.name, type: file.type, createdAt: file.lastModified });
+            console.log(meta);
+            onUploaded({ file: file.name, type: file.type, createdAt: file.lastModified, _id: new ObjectID().toHexString()});
         }
     };
 

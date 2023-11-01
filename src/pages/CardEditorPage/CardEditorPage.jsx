@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import {
     Button,
@@ -13,7 +14,6 @@ import {
 
 import {
     faClose,
-    faEllipsisVertical,
     faRocket,
     faTrash,
     faWarning,
@@ -31,6 +31,8 @@ export const CardEditorPage = ({
     onSave,
     onDelete,
     onClose,
+    uploadParameters,
+    tenant,
     onRelease,
 }) => {
     const [currentCardData, setCurrentCardData] = useState(cardData);
@@ -77,7 +79,19 @@ export const CardEditorPage = ({
                     <header>
                         <PageHeader
                             title={currentCardData.title}
-                            location="/acme/Karten/Hydraulikpresse"
+                            location={{
+                                home: {
+                                    path: `/${tenant}`
+                                },
+                                prev: {
+                                    title: "Karten",
+                                    path: "/cards"
+                                },
+                                current: {
+                                    title: currentCardData.title,
+                                    path: currentCardData.slug
+                                }  
+                            }}
                         >
                             <ButtonGroup>
                                 <Button
@@ -116,6 +130,7 @@ export const CardEditorPage = ({
                     <Tabs currentSelected={currentTab || 0}>
                         <TabItem title="Schritte">
                             <StepsTab
+                                uploadParameters={uploadParameters}
                                 stepsData={currentCardData.steps}
                                 onChangeData={(data) =>
                                     changeCurrentCardStepsData(data)
@@ -133,4 +148,14 @@ export const CardEditorPage = ({
             )}
         </>
     );
+};
+
+CardEditorPage.propTypes = {
+    uploadParameters: PropTypes.shape({
+        url: PropTypes.string.isRequired,
+    }),
+};
+
+CardEditorPage.defaultProps = {
+    uploadParameters: { url: "" }
 };

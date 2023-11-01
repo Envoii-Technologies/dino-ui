@@ -1,0 +1,55 @@
+@use '../../global-styles/' as *;
+
+.ContentCard {
+    box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+    border: solid 1px $color-gray-200;
+    background-color: $color-base-white;
+    border-radius: 16px;
+    padding: 24px 0 16px;
+    height: 100%;
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    justify-content: flex-start;
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0 16px 24px 16px;
+        gap: 8px;
+        align-items: center;
+
+        &__title {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            &__icon
+            {
+                font-size: 20px;
+                color: $color-gray-300;
+            }
+
+            &__text {
+
+                margin: 0 0 0 16px;
+                text-align: left;
+                color: $color-gray-700;
+                @include Text-lgBold;
+            }
+        }
+    }
+
+    &__body
+    {
+        display: flex;
+        flex-direction: column;
+        // justify-content: flex-start;
+        // align-items: stretch;
+        gap: 16px;
+        padding: 0 16px;
+    }
+}

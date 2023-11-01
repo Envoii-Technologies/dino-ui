@@ -16,7 +16,7 @@ Dot.propTypes = {
      */
     className: PropTypes.string,
 	size: PropTypes.oneOf(["sm", "md", "lg"]),
-	state: PropTypes.oneOf(["success", "warning", "error"]),
+	state: PropTypes.oneOf(["success", "warning", "error", "offline"]),
 	outline: PropTypes.bool,
 };
 

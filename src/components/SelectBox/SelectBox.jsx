@@ -27,12 +27,11 @@ export const SelectBox = ({
         setValue(choice);
     };
 
-    const handleCreateTag = (inputValue) =>
-    {
+    const handleCreateTag = (inputValue) => {
         const newOption = createOption(inputValue);
         setOptions((prev) => [...prev, newOption]);
         setValue(newOption);
-    }
+    };
 
     const createOption = (label) => ({
         label,
@@ -45,38 +44,36 @@ export const SelectBox = ({
         >
             <>
                 <label className="SelectBox__label">{label}</label>
-                {
-                    creatable ? (
-                        <CreatableSelect
-                    className="SelectBox__Selector"
-                    classNamePrefix="SelectBox__Selector"
-                    isDisabled={disabled}
-                    isMulti={multi}
-                    isSearchable={searchable}
-                    isClearable={false}
-                    blurInputOnSelect={true}
-                    onChange={(choice) => handleOnChange(choice)}
-                    onCreateOption={handleCreateTag}
-                    captureMenuScroll={true}
-                    options={options}
-                    value={value}
-                />
-                    ) : (
-                        <Select
-                    className="SelectBox__Selector"
-                    classNamePrefix="SelectBox__Selector"
-                    isDisabled={disabled}
-                    isMulti={multi}
-                    isSearchable={searchable}
-                    isClearable={false}
-                    blurInputOnSelect={true}
-                    onChange={(choice) => handleOnChange(choice)}
-                    captureMenuScroll={true}
-                    options={options}
-                    value={value}
-                />
-                    )
-                }
+                {creatable ? (
+                    <CreatableSelect
+                        className="SelectBox__Selector"
+                        classNamePrefix="SelectBox__Selector"
+                        isDisabled={disabled}
+                        isMulti={multi}
+                        isSearchable={searchable}
+                        isClearable={false}
+                        blurInputOnSelect={true}
+                        onChange={(choice) => handleOnChange(choice)}
+                        onCreateOption={handleCreateTag}
+                        captureMenuScroll={true}
+                        options={options}
+                        value={value}
+                    />
+                ) : (
+                    <Select
+                        className="SelectBox__Selector"
+                        classNamePrefix="SelectBox__Selector"
+                        isDisabled={disabled}
+                        isMulti={multi}
+                        isSearchable={searchable}
+                        isClearable={false}
+                        blurInputOnSelect={true}
+                        onChange={(choice) => handleOnChange(choice)}
+                        captureMenuScroll={true}
+                        options={options}
+                        value={value}
+                    />
+                )}
             </>
         </div>
     );
