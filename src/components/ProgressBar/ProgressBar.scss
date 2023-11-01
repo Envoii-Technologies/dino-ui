@@ -23,6 +23,16 @@
             border-radius: 4px;
             background-color: $color-brand-400;
             transition: all 0.5s;
+
+            &.error
+            {
+                background-color: $color-error-400 !important;
+            }
+
+            &.success
+            {
+                background-color: $color-success-400 !important;
+            }
         }
     }
 

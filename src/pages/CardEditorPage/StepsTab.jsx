@@ -10,7 +10,7 @@ import {
 } from './../../';
 import { insertIntoArray } from '../../utils';
 
-export const StepsTab = ({ stepsData, onChangeData }) => {
+export const StepsTab = ({ stepsData, onChangeData, uploadParameters }) => {
     const [activeStep, setActiveStep] = useState(stepsData[0]);
     const [stepsDataContent, setStepsDataContent] = useState(stepsData);
     const [activeStepPosition, setActiveStepPosition ] = useState(0);
@@ -39,11 +39,12 @@ export const StepsTab = ({ stepsData, onChangeData }) => {
 
     const handleAddStep = () => {
         const newStep = {
-            _id: ObjectId(),
+            _id: new ObjectId().toHexString(),
             name: `Neuer Schritt ${stepsDataContent.length + 1}`,
             description: "Hello World",
             pos: stepsDataContent.length + 1
         };
+        
         setStepsDataContent((prev) => [...prev, newStep]);
         setActiveStep(newStep);
     };
@@ -97,6 +98,7 @@ export const StepsTab = ({ stepsData, onChangeData }) => {
                             onAddStep={handleAddStep}
                             onDuplicateStep={handleDuplicateStep}
                             onDeleteStep={handleDeleteStep}
+                            uploadParameters={uploadParameters}
                         />
                     </Container>
                 </Column>

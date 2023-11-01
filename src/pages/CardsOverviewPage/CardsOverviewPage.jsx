@@ -12,12 +12,15 @@ import {
     Row,
     Column,
     Table,
+    ContentCard,
+    SelectBox,
 } from './../../';
 
 import { NewCardWindow } from './NewCardWindow';
 
 import {
     faChevronDown,
+    faClose,
     faEllipsisV,
     faFilter,
     faPlus,
@@ -35,7 +38,55 @@ export const CardsOverviewPage = ({
     onSaveNewCard,
 }) => {
     const [showCreateCardWindow, setShowCreateCardWindow] = useState(false);
-    const [searchValue, setSearchValue] = useState("");
+    const [searchValue, setSearchValue] = useState('');
+    const [showFilterWindow, setShowFilterWindow] = useState(false);
+    const [filters, setFilters] = useState({});
+
+    const filterOptions = [{ keyName: 'version', label: 'Version' }];
+
+    const handleFilterChange = (content) => {
+        console.log(content);
+        // setFilters((prevFilters) => ({
+        //     ...prevFilters,
+        //     ...content,
+        // }));
+        console.log(filters)
+    };
+
+    function SelectFilter({
+        label,
+        data,
+        keyName,
+        onSelectedValue,
+        selectedValue,
+    }) {
+        const uniqueSet = [...new Set(data.map((item) => item[keyName]))];
+
+        const uniqueValues = uniqueSet.map(item => {
+            return { value: item, label: item };
+        })
+
+        const handleSelectChange = (event) => {
+            const selectedFilter = { [keyName]: event };
+            console.log(event);
+            onSelectedValue(selectedFilter);
+        };
+
+        return (
+            <>
+                {uniqueValues && (
+                    <SelectBox
+                        multi={true}
+                        label={label}
+                        searchable={true}
+                        defaultValue={''}
+                        defaultOptions={uniqueValues}
+                        onSelect={handleSelectChange}
+                    ></SelectBox>
+                )}
+            </>
+        );
+    }
 
     return (
         <>
@@ -70,6 +121,7 @@ export const CardsOverviewPage = ({
                                 label="Filter"
                                 iconLeft={faFilter}
                                 type="secondary"
+                                onClick={() => setShowFilterWindow(true)}
                             />
                             <Button label="Filter zurücksetzen" type="link" />
                         </ButtonGroup>
@@ -81,21 +133,78 @@ export const CardsOverviewPage = ({
                     </PageSubHeader>
                     <Grid>
                         <Row>
-                            <Column xlSpan={12}>
+                            <Column xlSpan={showFilterWindow === true ? 8 : 12}>
                                 <Container scrollable={false}>
                                     <Table
+                                        initialFilters={filters}
                                         searchValue={searchValue}
-                                        isSelectable={true}
                                         columns={[
-                                            { id: 'title', size: '400px', title: 'Titel', sortable: true, type: "link" },
-                                            { id: 'version', size: '200px', title: 'Status', sortable: true, type: "version" },
-                                            { id: 'creator', size: '150px', title: 'Bearbeitet von', sortable: true, type: "user" },
-                                            { id: 'updated_at', size: '200px', title: 'Bearbeitet', sortable: true, type: "time" }
+                                            {
+                                                id: 'title',
+                                                size: '400px',
+                                                title: 'Titel',
+                                                sortable: true,
+                                                type: 'link',
+                                            },
+                                            {
+                                                id: 'version',
+                                                size: '200px',
+                                                title: 'Status',
+                                                sortable: true,
+                                                type: 'version',
+                                            },
+                                            {
+                                                id: 'creator',
+                                                size: '150px',
+                                                title: 'Bearbeitet von',
+                                                sortable: true,
+                                                type: 'user',
+                                            },
+                                            {
+                                                id: 'updated_at',
+                                                size: '200px',
+                                                title: 'Bearbeitet',
+                                                sortable: true,
+                                                type: 'time',
+                                            },
                                         ]}
                                         data={cardsData}
                                     />
                                 </Container>
                             </Column>
+                            {showFilterWindow && (
+                                <Column xlSpan={4}>
+                                    <Container
+                                        scrollable={false}
+                                        padding="vertical-both-horizontal-right"
+                                    >
+                                        <ContentCard
+                                            title="Filter"
+                                            icon={faFilter}
+                                            actionIcon={faClose}
+                                            onAction={() =>
+                                                setShowFilterWindow(false)
+                                            }
+                                        >
+                                            {filterOptions.map(
+                                                (option, index) => (
+                                                    <SelectFilter
+                                                        key={index}
+                                                        label={option.label}
+                                                        keyName={option.keyName}
+                                                        data={cardsData}
+                                                        onSelectedValue={(
+                                                            val
+                                                        ) =>
+                                                        handleFilterChange(val)
+                                                        }
+                                                    />
+                                                )
+                                            )}
+                                        </ContentCard>
+                                    </Container>
+                                </Column>
+                            )}
                         </Row>
                     </Grid>
                 </>

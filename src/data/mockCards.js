@@ -9,7 +9,7 @@ export default [
             "__v": 0
         },
         "owner": "6540afd8998864004a89acc7",
-        "version": 0,
+        "version": 1,
         "title": "Bambus",
         "description": "",
         "isReleased": false,
@@ -117,7 +117,7 @@ export default [
             "__v": 0
         },
         "owner": "6540afd8998864004a89acc7",
-        "version": 0,
+        "version": 1.2,
         "title": "Kirsche",
         "description": "",
         "isReleased": false,

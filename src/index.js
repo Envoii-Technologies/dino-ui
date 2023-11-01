@@ -39,13 +39,15 @@ export { ContentRow } from './components/ContentRow/index.js';
 export { TextArea } from './components/TextArea/index.js';
 export { StepContent } from './components/StepContent/index.js';
 export { FileUploader } from './components/FileUploader/index.js';
-
-export { CardEditorPage } from './pages/CardEditorPage/CardEditorPage.jsx';
-export { CardsOverviewPage } from './pages/CardsOverviewPage/CardsOverviewPage.jsx';
-export { DashboardPage } from './pages/DashboardPage/DashboardPage.jsx';
-export { UserLoginPage } from './pages/UserLoginPage/UserLoginPage.jsx';
-export { TenantLoginPage } from './pages/TenantLoginPage/TenantLoginPage.jsx';
 export { StepTitleInput } from './components/StepTitleInput/index.js';
 export { StepList } from './components/StepList/index.js';
 export { Table } from './components/Table/index.js';
 export { UserInfo } from './components/UserInfo/index.js';
+export { ContentCard } from './components/ContentCard/index.js';
+
+export { CardEditorPage } from './pages/CardEditorPage/';
+export { CardsOverviewPage } from './pages/CardsOverviewPage/';
+export { DashboardPage } from './pages/DashboardPage/';
+export { UserLoginPage  } from './pages/UserLoginPage/';
+export { TenantLoginPage, TenantLoginProvider } from './pages/TenantLoginPage/';
+export { FileViewer } from './components/FileViewer/index.js';

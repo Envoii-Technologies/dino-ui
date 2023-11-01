@@ -56,6 +56,17 @@
         }
     }
 
+    &.state-offline {
+        background: $color-gray-500;
+
+        &.outline-sm,
+        &.outline-md,
+        &.outline-lg
+        {
+            outline-color: $color-gray-100;
+        }
+    }
+
     &.size-sm {
         width: 0.375rem;
     }

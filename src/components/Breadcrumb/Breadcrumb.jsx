@@ -11,7 +11,8 @@ import './Breadcrumb.scss';
 import { Link } from 'react-router-dom';
 
 export const Breadcrumb = ({ className, location, ...props }) => {
-    const pathnames = location.split('/').filter((x) => x);
+    
+    const pathnames = `${location.home.path}/${location.prev.path}/${location.current.path}`.split('/').filter((x) => x);
 
     return (
         <div
@@ -39,7 +40,7 @@ export const Breadcrumb = ({ className, location, ...props }) => {
                                     icon={faChevronRight}
                                 />
 								<div className='Breadcrumb__item__wrapper__text last'>
-									{ path }
+									{ location.current.title }
 								</div>
 							</div>
                         )}
@@ -50,7 +51,7 @@ export const Breadcrumb = ({ className, location, ...props }) => {
                                     icon={faChevronRight}
                                 />
 								<Link className='Breadcrumb__item__wrapper__text__link' to={to}>
-									{ path }
+									{ location.prev.title }
 								</Link>
 							</div>
                         )}
@@ -70,5 +71,17 @@ Breadcrumb.propTypes = {
 
 Breadcrumb.defaultProps = {
     className: undefined,
-    location: '/acme/Karten/Hydraulikpresse',
+    location: {
+        home: {
+            path: "/acme"
+        },
+        prev: {
+            title: "Karten",
+            path: "/cards"
+        },
+        current: {
+            title: "Hydraulikpresse",
+            path: "/hydraulikpresse"
+        }
+    },
 };

@@ -44,9 +44,10 @@ const Template = (args) => {
                 isExpanded={false}
             >
                 <CardEditorPage
-                    {...args}
-                    cardData={mockCards[1]}
+                    uploadParameters={{ url: "localhost/api/tenant/acme/cards/media/"}}
+                    cardData={mockCards[0]}
                     currentTab={0}
+                    tenant="wkw"
                     isLoading={false}
                     tagData={tagList}
                     onSave={(data) => {console.log(data); alert("[NOT IMPLEMENTED]"); }}
@@ -85,9 +86,10 @@ const Template2 = (args) => {
                 isExpanded={false}
             >
                 <CardEditorPage
-                    {...args}
+                    uploadParameters={{ url: "https://httpbin.org/post"}}
                     cardData={mockCards[0]}
                     currentTab={1}
+                    tenant="wkw"
                     isLoading={false}
                     tagData={tagList}
                     onSave={(data) => {console.log(data); alert("[NOT IMPLEMENTED]"); }}
@@ -128,8 +130,9 @@ const Template3 = (args) => {
                 isExpanded={false}
             >
                 <CardEditorPage
-                    {...args}
+                    uploadParameters={{ url: "https://httpbin.org/post"}}
                     cardData={mockCards[1]}
+                    tenant="wkw"
                     currentTab={0}
                     isLoading={false}
                     tagData={tagList}

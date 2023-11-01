@@ -40,9 +40,21 @@ UserInfo.propTypes = {
      * Custom class name of Component
      */
     className: PropTypes.string,
+    /**
+     * Display mode of the Component. Can be 'dark' or 'light'.
+     */
     mode: PropTypes.oneOf(['dark', 'light']),
+    /**
+     * A boolean value indicating whether the user info is expanded or collapsed.
+     */
     isExpanded: PropTypes.bool,
+    /**
+     * The username of the user.
+     */
     username: PropTypes.string,
+    /**
+     * The email address of the user.
+     */
     email: PropTypes.string,
 };
 
@@ -50,6 +62,6 @@ UserInfo.defaultProps = {
     className: undefined,
     mode: 'dark',
     isExpanded: true,
-    username: "",
-    email: "",
+    username: '',
+    email: '',
 };

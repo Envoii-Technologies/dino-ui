@@ -1,13 +1,13 @@
 @use '../../global-styles/' as *;
 
-.StepContent
-{
-	display: flex;
+.StepContent {
+    display: flex;
     flex-direction: column;
     justify-content: stretch;
     align-items: stretch;
     flex-grow: 1;
     width: 100%;
+    padding-bottom: 48px;
 
     @media only screen and (min-width: $breakpoint-medium) {
         min-width: 40rem;
@@ -15,25 +15,35 @@
 
     gap: 1rem;
 
-    &__header
-    {
+    &__header {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start;
-        &__info
-        {
-            &__number
-            {
+        &__info {
+            &__number {
                 color: $color-gray_600;
                 @include Text-smSemibold;
             }
-    
-            &__title
-            {
+
+            &__title {
                 color: $color-gray-900;
                 @include Display-xsRegular;
             }
+        }
+
+        .ButtonGroup {
+            .delete {
+                .Button__icon--left {
+                    color: $color-error-500;
+                }
+                &:disabled {
+                    .Button__icon--left {
+                        color: $color-gray-400;
+                    }
+                }
+            }
+            
         }
     }
 }

@@ -1,0 +1,35 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { ContentCard } from './ContentCard';
+
+export const Template = (args) => (
+	<div style={{display: "flex", width: "500px", height: "300px" }}>
+		<ContentCard { ...args }>ok</ContentCard>
+	</div>
+);
+
+<Meta title='Components/ContentCard' component={ ContentCard } />
+
+# ContentCard
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			title: "ok"
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ ContentCard } />

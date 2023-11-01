@@ -1,0 +1,93 @@
+@use '../../global-styles/' as *;
+
+.FileViewer
+{
+	width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 16px;
+
+    &__preview
+    {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        border: solid 1px #d0d5dd;
+        border-radius: 0.5rem;
+        padding: 16px;
+        width: 100%;
+        min-height: calc(9.5rem + 2px);
+        box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+
+        &__empty
+        {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $color-gray-900;
+            @include Text-mdRegular;
+        }
+
+        &__file,
+        &__image
+        {
+            box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+            border-radius: 0.5rem;
+            background: $color-gray-100;
+            overflow: hidden;
+            height: 120px;
+            width: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+
+            .ProgressBar
+            {
+                bottom: 0;
+                padding: 0.5rem;
+                position: absolute;
+            }
+
+        .FileViewer__preview__delete
+        {
+            height: 22px;
+            width: 22px;
+            background: red;
+            position: absolute;
+            right: 6px;
+            top: 6px;
+            border-radius: 16px;
+            border: solid 1px $color-gray-200;
+            background-color: $color-gray-50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $color-gray-500;
+
+            &:hover
+            {
+                cursor: pointer;
+                color: $color-gray-700;
+            }
+        }
+        }
+        
+        &__file
+        {
+            color: $color-gray-900;
+            @include Text-mdSemibold;
+            border: solid 1px #d0d5dd;
+        }
+
+        &__image
+        {
+            img
+            {
+                width: 100%;
+            }
+        }
+    }
+}

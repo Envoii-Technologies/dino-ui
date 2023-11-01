@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './ProgressBar.scss'
 
-export const ProgressBar = ({ className, fluid, progress, showLabel, labelPosition, ...props }) =>
+export const ProgressBar = ({ className, fluid, progress, showLabel, labelPosition, error, success, ...props }) =>
 {
 	const [internalProgress, setInternalProgress] = React.useState(progress);
 
@@ -19,7 +19,7 @@ export const ProgressBar = ({ className, fluid, progress, showLabel, labelPositi
 		${ fluid ? 'fluid' : ''}
 		`}>
 			<div className="ProgressBar__wrapper">
-				<div className="ProgressBar__wrapper__indicator" style={{ width: `${internalProgress}%`}}></div>
+				<div className={`ProgressBar__wrapper__indicator ${error ? 'error' : ''} ${success ? 'success' : ''}`} style={{ width: `${internalProgress}%`}}></div>
 			</div>
 			{
 				showLabel && <div className={`

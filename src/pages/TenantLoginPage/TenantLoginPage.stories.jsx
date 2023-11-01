@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { TenantLoginPage } from './TenantLoginPage';
+import { TenantLoginProvider } from './TenantLoginContext';
 
 export default {
     title: 'Pages/TenantLogin',
@@ -10,12 +11,18 @@ export default {
     },
 };
 
-const Template = (args) => {
+const Template = ({args}) => {
     return (
         <>
-            <TenantLoginPage action={(data) => alert("[NOT IMPLEMENTED]")} isInFocus={true}/>
+            <TenantLoginProvider
+                isInFocus={true}
+                onAction={() => alert("Ok")}
+            >
+                <TenantLoginPage />
+            </TenantLoginProvider>
         </>
     );
 };
 
 export const Default = Template.bind({});
+

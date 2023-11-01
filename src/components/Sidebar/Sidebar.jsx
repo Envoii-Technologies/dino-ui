@@ -170,9 +170,9 @@ Sidebar.propTypes = {
     /**
      * Function to handle mobile open state.
      */
-    handleMobileOpen: PropTypes.func,
+    handleMobileOpen: PropTypes.bool,
     /**
-     * Function to handle mobile close action.
+     * Boolean to handle mobile close action.
      */
     mobileCloseAction: PropTypes.func,
 };

@@ -5,6 +5,7 @@ import { Button } from '../Button';
 import {
     faEllipsisV,
     faMinus,
+    faPaperclip,
     faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import { OverflowMenuButton } from './OverflowMenuButton';
@@ -13,11 +14,13 @@ export const OverflowMenu = ({
     className,
     content,
     header,
+    icon,
     small,
     shortcuts,
     ellipsis,
     anchor,
     label,
+    disabled,
     buttonType,
     ...props
 }) => {
@@ -54,19 +57,27 @@ export const OverflowMenu = ({
                     isVisible ? 'open' : 'closed'
                 }`}
             >
-                {ellipsis ? (
+                {(icon && !ellipsis) && (
                     <Button
-                    type="secondary"
-                    iconLeft={faEllipsisV}
-                    isDisabled={content.length < 1 ? true : false}
-                />
-                ) : (
+                        type="secondary"
+                        iconLeft={icon}
+                        isDisabled={content.length < 1 ? true : false}
+                    />
+                )}
+                {(ellipsis && !icon) && (
                     <Button
-                    label={label}
-                    type={buttonType}
-                    iconRight={isVisible ? faMinus : faPlus}
-                    isDisabled={content.length < 1 ? true : false}
-                />
+                        type="secondary"
+                        iconLeft={faEllipsisV}
+                        isDisabled={content.length < 1 ? true : false}
+                    />
+                )}
+                {!icon && !ellipsis && (
+                    <Button
+                        label={label}
+                        type={buttonType}
+                        iconRight={isVisible ? faMinus : faPlus}
+                        isDisabled={content.length < 1 ? true : false}
+                    />
                 )}
             </div>
             {isVisible && (
@@ -84,7 +95,10 @@ export const OverflowMenu = ({
                             </div>
                         )}
                         {content.map((menu, i) => (
-                            <nav key={i} className="OverflowMenu__content--inner__items">
+                            <nav
+                                key={i}
+                                className="OverflowMenu__content--inner__items"
+                            >
                                 {menu.map((item, j) => (
                                     <OverflowMenuButton
                                         key={j}
@@ -129,22 +143,32 @@ OverflowMenu.propTypes = {
     /**
      * The anchor position for the menu.
      */
-    anchor: PropTypes.oneOf(['above-left', 'above-right', 'below-left', 'below-right']),
+    anchor: PropTypes.oneOf([
+        'above-left',
+        'above-right',
+        'below-left',
+        'below-right',
+    ]),
     /**
      * An array of menu items to be displayed.
      */
-    content: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        icon: PropTypes.any.isRequired,
-        onClick: PropTypes.func.isRequired,
-        disabled: PropTypes.bool,
-        dangerous: PropTypes.bool,
-        shortcut: PropTypes.string,
-    }))),
+    content: PropTypes.arrayOf(
+        PropTypes.arrayOf(
+            PropTypes.shape({
+                title: PropTypes.string,
+                icon: PropTypes.any,
+                onClick: PropTypes.func,
+                disabled: PropTypes.bool,
+                dangerous: PropTypes.bool,
+                shortcut: PropTypes.string,
+            })
+        )
+    ),
     /**
      * The type of trigger button.
      */
     buttonType: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'link']),
+    icon: PropTypes.any,
 };
 
 OverflowMenu.defaultProps = {
@@ -153,6 +177,7 @@ OverflowMenu.defaultProps = {
     ellipsis: false,
     small: false,
     shortcuts: true,
+    icon: undefined,
     anchor: 'below-left',
     content: [],
     buttonType: 'tertiary',
