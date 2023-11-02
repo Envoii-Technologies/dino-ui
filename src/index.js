@@ -49,5 +49,5 @@ export { CardEditorPage } from './pages/CardEditorPage/';
 export { CardsOverviewPage } from './pages/CardsOverviewPage/';
 export { DashboardPage } from './pages/DashboardPage/';
 export { UserLoginPage  } from './pages/UserLoginPage/';
-export { TenantLoginPage, TenantLoginProvider } from './pages/TenantLoginPage/';
+export { TenantLoginPage } from './pages/TenantLoginPage/';
 export { FileViewer } from './components/FileViewer/index.js';
