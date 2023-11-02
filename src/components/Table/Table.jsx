@@ -240,7 +240,7 @@ Table.propTypes = {
             id: PropTypes.string.isRequired,
             size: PropTypes.string,
             title: PropTypes.string.isRequired,
-            type: PropTypes.oneOf(["string", "label", "user", "time", "link"])
+            type: PropTypes.oneOf(["string", "label", "user","version", "time", "link"])
         })
     ).isRequired,
     data: PropTypes.array,
