@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { TenantLoginPage } from './TenantLoginPage';
-import { TenantLoginProvider } from './TenantLoginContext';
 
 export default {
     title: 'Pages/TenantLogin',
@@ -14,12 +13,7 @@ export default {
 const Template = ({args}) => {
     return (
         <>
-            <TenantLoginProvider
-                isInFocus={true}
-                onAction={() => alert("Ok")}
-            >
-                <TenantLoginPage />
-            </TenantLoginProvider>
+            <TenantLoginPage />
         </>
     );
 };

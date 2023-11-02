@@ -1,8 +1,6 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-const TenantLoginContext = createContext();
-
-export const TenantLoginProvider = ({ children, error, onAction, isInFocus }) => {
+export const useTenantLoginPage = ({ error, eventLink, action, isInFocus }) => {
     const [tenant, setTenant] = useState('');
     const [errorMessage, setErrorMessage] = useState(!error ? '' : error);
 
@@ -24,7 +22,7 @@ export const TenantLoginProvider = ({ children, error, onAction, isInFocus }) =>
         if (tenant === '') {
             setErrorMessage('Bitte gültiges Unternehmen eingeben.');
         } else {
-            onAction(tenant);
+            action(tenant);
         }
     };
 
@@ -36,27 +34,16 @@ export const TenantLoginProvider = ({ children, error, onAction, isInFocus }) =>
 
     useEffect(() => {
         setErrorMessage(error);
-    }, [error]);
+    }, [error])
 
-    const state = {
-        errorMessage,
+    return {
         tenant,
-        resetErrorMessage,
-        handleTenantFocus,
+        errorMessage,
+        isInFocus,
         handleTenantChange,
+        handleTenantFocus,
         handleSendData,
         handleKeyDown,
-        error,
-        isInFocus,
+        eventLink,
     };
-
-    return (
-        <TenantLoginContext.Provider value={state}>
-            {children}
-        </TenantLoginContext.Provider>
-    );
-};
-
-export const useTenantLoginContext = () => {
-    return useContext(TenantLoginContext);
-};
+}
