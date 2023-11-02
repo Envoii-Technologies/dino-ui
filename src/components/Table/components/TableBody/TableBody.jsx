@@ -54,7 +54,7 @@ export const TableBody = ({
                             {column.type === 'link' && <Link to={`edit/${row.slug}`}>{row[column.id]}</Link>}
                             {column.type === 'version' && (
                                 <div style={{ display: 'flex' }}>
-                                    <Badge label={row[column.id] === 0 ? "Entwurf" : row[column.id].toFixed(1)} status={row[column.id] < 1 ? 'gray' : 'success'} />
+                                    <Badge label={row[column.id] === 0 ? "Entwurf" : Number(row[column.id]).toFixed(1)} status={row[column.id] < 1 ? 'gray' : 'success'} />
                                 </div>
                             )}
                             {column.type === 'user' && <UserInfo username={row[column.id].username}/>}
