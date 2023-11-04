@@ -12,7 +12,7 @@ export const TableView = ({ className, columns, rows, rowsPerPage, initialSearch
 	const [activeRowIndex, setActiveRowIndex] = useState(null);
 	const [currentPage, setCurrentPage] = useState(0);
 	const [selectAll, setSelectAll] = useState(false);
-	const [sortConfig, setSortConfig] = useState({ key: null, direction: 'descending' });
+	const [sortConfig, setSortConfig] = useState({ key: null, direction: 'ascending' });
 
 	useEffect(() => {
 		let sortedRows = [...rows];
