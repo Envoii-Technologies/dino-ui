@@ -1,0 +1,122 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import { TableView } from './TableView';
+import { Badge} from './../Badge/Badge';
+
+export const Template = (args) => (
+    <div style={{ width: '400px', height: '700px' }}>
+        <TableView {...args} />
+    </div>
+);
+
+<Meta title="Components/TableView" component={TableView} />
+
+# TableView
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+    <Story
+        name="Default"
+        args={{
+            initialSearchTerm: 'John',
+            onRowClick: (row) => alert(row),
+            columns: [
+                {
+                    id: 'name',
+                    title: 'Name',
+                    width: "170px",
+                    component: (row) => <button>{row.name}</button>,
+                },
+                { id: 'age', title: 'Age', width: '200px', sortable: true, component: (row) => <Badge label={row.age}/> },
+                { id: 'jobTitle', title: 'Job Title', width: '40px', sortable: true},
+                { id: 'city', title: 'City', width: '30px' },
+            ],
+            rows: [
+                {
+                    name: 'John Doe',
+                    age: 30,
+                    jobTitle: 'Developer',
+                    city: 'New York',
+                },
+                {
+                    name: 'Jane Smith',
+                    age: 25,
+                    jobTitle: 'Designer',
+                    city: 'San Francisco',
+                },
+                {
+                    name: 'Alex Johnson',
+                    age: 45,
+                    jobTitle: 'Manager',
+                    city: 'Los Angeles',
+                },
+                {
+                    name: 'Linda Williams',
+                    age: 22,
+                    jobTitle: 'Photographer',
+                    city: 'Chicago',
+                },
+                {
+                    name: 'David Brown',
+                    age: 31,
+                    jobTitle: 'Teacher',
+                    city: 'Houston',
+                },
+                {
+                    name: 'Jennifer Davis',
+                    age: 27,
+                    jobTitle: 'Nurse',
+                    city: 'Phoenix',
+                },
+                {
+                    name: 'Robert Miller',
+                    age: 35,
+                    jobTitle: 'Chef',
+                    city: 'Philadelphia',
+                },
+                {
+                    name: 'Marie Wilson',
+                    age: 29,
+                    jobTitle: 'Engineer',
+                    city: 'San Francisco',
+                },
+                {
+                    name: 'James Taylor',
+                    age: 41,
+                    jobTitle: 'Mechanic',
+                    city: 'San Diego',
+                },
+                {
+                    name: 'Jessica Anderson',
+                    age: 38,
+                    jobTitle: 'Architect',
+                    city: 'Dallas',
+                },
+                {
+                    name: 'William Thomas',
+                    age: 20,
+                    jobTitle: 'Student',
+                    city: 'Austin',
+                },
+                {
+                    name: 'Emma Jackson',
+                    age: 23,
+                    jobTitle: 'Researcher',
+                    city: 'Columbus',
+                },
+            ],
+        }}
+    >
+        {Template.bind({})}
+    </Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={TableView} />
