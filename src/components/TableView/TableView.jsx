@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import './TableView.scss';
-import { Button } from '../Button';
 import { faChevronLeft, faChevronRight, faArrowsUpDown, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-
-import { ButtonGroup } from '../ButtonGroup';
+import { Button, ButtonGroup, Checkbox } from './../../';
 
 export const TableView = ({ className, columns, rows, rowsPerPage, initialSearchTerm, initialFilters, onRowClick, multi, ...props }) => {
 	const [selectedRows, setSelectedRows] = useState(new Set());
@@ -124,7 +122,8 @@ export const TableView = ({ className, columns, rows, rowsPerPage, initialSearch
 		return row[column.id];
 	};
 
-	const handleRowClick = (row, index) => {
+	const handleRowClick = (e, row, index) => {
+		e.stopPropagation();
 		// Wenn multi true ist, ignoriere diese Funktion
 		if (multi) return;
 
@@ -143,10 +142,9 @@ export const TableView = ({ className, columns, rows, rowsPerPage, initialSearch
 						<tr>
 							{multi && (
 								<th>
-									<input
-										type="checkbox"
-										checked={selectAll}
+									<Checkbox
 										onChange={handleSelectAllClick}
+										checked={selectAll}
 									/>
 								</th>
 							)}
@@ -182,12 +180,11 @@ export const TableView = ({ className, columns, rows, rowsPerPage, initialSearch
 									<tr
 										key={rowIndex}
 										className={`TableView__row ${isRowSelected ? "active" : ""}`}
-										onClick={() => handleRowClick(row, rowIndex)}
+										onClick={(e) => handleRowClick(e, row, rowIndex)}
 									>
 										{multi && (
 											<td>
-												<input
-													type="checkbox"
+												<Checkbox
 													checked={isRowSelected}
 													onChange={() => handleSelectRow(row, !isRowSelected)}
 												/>
