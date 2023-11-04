@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { OverflowMenu, ProgressBar } from '../../';
-import { faClose, faPaperclip } from '@fortawesome/free-solid-svg-icons';
 
 import { useFileViewer } from './useFileViewer';
 
+import { faClose, faPaperclip } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './FileViewer.scss';

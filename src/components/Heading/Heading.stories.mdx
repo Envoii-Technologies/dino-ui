@@ -1,0 +1,33 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { Heading } from './Heading';
+
+export const Template = (args) => (
+	<Heading { ...args }>Hello World</Heading>
+);
+
+<Meta title='Components/Heading' component={ Heading } />
+
+# Heading
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ Heading } />

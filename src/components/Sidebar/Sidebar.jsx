@@ -13,8 +13,8 @@ import {
 import { SidebarButton, SidebarUserInfo, Button, Badge } from './../../';
 import { capitalizeFirstLetter } from './../../utils';
 
-import logoIconLight from './../../assets/logos/Logo_Icon-light.svg';
-import logoFullLight from './../../assets/logos/Logo_Full-light.svg';
+import logoIconLight from './../../assets/logos/Logo_Icon-light.png';
+import logoFullLight from './../../assets/logos/Logo_Full-light.png';
 
 import './Sidebar.scss';
 
