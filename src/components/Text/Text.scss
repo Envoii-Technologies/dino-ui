@@ -1,0 +1,181 @@
+@use '../../global-styles/' as *;
+
+.Text {
+    &.xs {
+        &-regular {
+            @include Text-xsRegular;
+        }
+
+        &-medium {
+            @include Text-xsMedium;
+        }
+
+        &-semiBold {
+            @include Text-xsSemibold;
+        }
+
+        &-bold {
+            @include Text-xs-Bold;
+        }
+    }
+
+    &.sm {
+        &-regular {
+            @include Text-smRegular;
+        }
+
+        &-regular-underlined {
+            @include Text-smRegular-underlined
+        }
+
+        &-medium {
+            @include Text-smMedium
+        }
+
+        &-medium-underlined {
+            @include Text-sm-Medium-underlined
+        }
+
+        &-semiBold {
+            @include Text-smSemibold
+        }
+
+        &-semiBold-underlined {
+            @include Text-smSemibold-underlined
+        }
+
+        &-bold {
+            @include Text-sm-Bold
+        }
+    }
+
+    &.md {
+        &-regular {
+            @include Text-mdRegular;
+        }
+
+        &-regular-underlined {
+            @include Text-mdRegular-underlined
+        }
+
+        &-regular-italic {
+            @include Text-mdRegular-italic
+        }
+
+        &-medium {
+            @include Text-mdMedium
+        }
+
+        &-medium-underlined {
+            @include Text-md-Medium-underlined
+        }
+
+        &-medium-italic {
+            @include Text-mdMedium-italic
+        }
+
+        &-semiBold {
+            @include Text-mdSemibold
+        }
+
+        &-semiBold-italic {
+            @include Text-mdSemibold-italic
+        }
+
+        &-semibold-underlined {
+            @include Text-mdSemibold-underlined
+        }
+
+        &-bold {
+            @include Text-mdBold
+        }
+
+        &-bold-italic {
+            @include Text-mdBold-italic
+        }
+    }
+
+    &.lg {
+        &-regular {
+            @include Text-lgRegular;
+        }
+
+        &-regular-underlined {
+            @include Text-lgRegular-underlined
+        }
+
+        &-regular-italic {
+            @include Text-lgRegular-italic
+        }
+
+        &-medium {
+            @include Text-lgMedium
+        }
+
+        &-medium-underlined {
+            @include Text-lg-Medium-underlined
+        }
+
+        &-medium-italic {
+            @include Text-lgMedium-italic
+        }
+
+        &-semiBold {
+            @include Text-lgSemibold
+        }
+
+        &-semiBold-underlined {
+            @include Text-lgSemibold-underlined
+        }
+
+        &-semiBold-italic {
+            @include Text-lgSemibold-italic
+        }
+
+        &-bold {
+            @include Text-lgBold
+        }
+
+        &-bold-italic {
+            @include Text-lgBold-italic
+        }
+    }
+
+    &.xl {
+        &-regular {
+            @include Text-xlRegular;
+        }
+
+        &-regular-underlined {
+            @include Text-xlRegular-underlined
+        }
+
+        &-regular-italic {
+            @include Text-xlRegular-italic
+        }
+
+        &-medium {
+            @include Text-xlMedium
+        }
+
+        &-medium-italic {
+            @include Text-xlMedium-italic
+        }
+
+        &-semiBold {
+            @include Text-xlSemibold
+        }
+
+        &-semiBold-italic {
+            @include Text-xlSemibold-italic
+        }
+
+        &-bold {
+            @include Text-xlBold
+        }
+
+        &-bold-italic {
+            @include Text-xlBold-italic
+        }
+    }
+}

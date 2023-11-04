@@ -1,0 +1,119 @@
+@use '../../global-styles/' as *;
+
+.Heading {
+    &.xs {
+        &-regular {
+            @include Display-xsRegular;
+        }
+
+        &-medium {
+            @include Display-xsMedium;
+        }
+
+        &-medium-italic {
+            @include Display-xsMedium-italic;
+        }
+
+        &-semiBold {
+            @include Display-xsSemibold;
+        }
+
+        &-bold {
+            @include Display-xsBold;
+        }
+    }
+
+    &.sm {
+        &-regular {
+            @include Display-smRegular;
+        }
+
+        &-medium {
+            @include Display-smMedium;
+        }
+
+        &-medium-italic {
+            @include Display-sm-Medium-italic;
+        }
+
+        &-semiBold {
+            @include Display-smSemibold;
+        }
+
+        &-bold {
+            @include Display-smBold;
+        }
+    }
+
+    &.md {
+        &-regular {
+            @include Display-mdRegular;
+        }
+
+        &-medium {
+            @include Display-mdMedium;
+        }
+
+        &-semiBold {
+            @include Display-mdSemibold;
+        }
+
+        &-bold {
+            @include Display-mdBold;
+        }
+    }
+
+    &.lg {
+        &-regular {
+            @include Display-lgRegular;
+        }
+
+        &-medium {
+            @include Display-lgMedium;
+        }
+
+        &-semiBold {
+            @include Display-lgSemibold;
+        }
+
+        &-bold {
+            @include Display-lgBold;
+        }
+    }
+
+    &.xl {
+        &-regular {
+            @include Display-xlRegular;
+        }
+
+        &-medium {
+            @include Display-xlMedium;
+        }
+
+        &-semiBold {
+            @include Display-xlSemibold;
+        }
+
+        &-bold {
+            @include Display-xlBold;
+        }
+    }
+
+    &.xxl {
+        &-regular {
+            @include Display-2xlRegular;
+        }
+
+        &-medium {
+            @include Display-2xlMedium;
+        }
+
+        &-semiBold {
+            @include Display-2xlSemibold;
+        }
+
+        &-bold {
+            @include Display-2xlBold;
+        }
+    }
+}
