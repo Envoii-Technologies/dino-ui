@@ -53,3 +53,4 @@ export { TenantLoginPage } from './pages/TenantLoginPage/';
 export { FileViewer } from './components/FileViewer/index.js';
 export { Text } from './components/Text/index.js';
 export { Heading } from './components/Heading/index.js';
+export { LockView } from './components/LockView/index.js';

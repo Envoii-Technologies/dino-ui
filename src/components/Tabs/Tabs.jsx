@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+
+import { LockView } from './../../index';
+
 import './Tabs.scss';
 
-export const Tabs = ({ className, children, currentSelected, ...props }) => {
+export const Tabs = ({ className, children, currentSelected, disabled, ...props }) => {
     const [tabs, setTabs] = useState(children);
 
     const [activeTab, setActiveTab] = useState(
@@ -11,6 +14,10 @@ export const Tabs = ({ className, children, currentSelected, ...props }) => {
 
     return (
         <div className={`Tabs ${className !== undefined ? className : ''}`}>
+            {
+                disabled && <LockView/>
+            }
+            
             <div className="Tabs__menu">
                 {tabs &&
                     tabs.map((item, i) => (
@@ -37,9 +44,11 @@ Tabs.propTypes = {
      */
     className: PropTypes.string,
     currentSelected: PropTypes.number,
+    disabled: PropTypes.bool,
 };
 
 Tabs.defaultProps = {
     className: undefined,
     currentSelected: 0,
+    disabled: false,
 };

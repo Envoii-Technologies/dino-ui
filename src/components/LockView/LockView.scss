@@ -1,0 +1,12 @@
+@use '../../global-styles/' as *;
+
+.LockView
+{
+	position: absolute;
+    z-index: 50000;
+    @include Background-blur-sm-light;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
