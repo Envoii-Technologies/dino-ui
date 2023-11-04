@@ -1,0 +1,96 @@
+@use '../../global-styles/' as *;
+
+.TableView {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    background: $color-base-white;
+    border: solid 1px $color-gray-200;
+    box-shadow: 0 1px 2px 0 #1018280d;
+    user-select: none;
+
+    &__header {
+        tr {
+            th {
+                height: 2.75rem;
+                text-align: left;
+                color: $color-gray-600;
+                @include Text-xsMedium;
+
+                &:first-child {
+                    padding-left: 1.5rem;
+                }
+
+                .sort-icon {
+                    font-size: 12px;
+                    margin-left: 0.25rem;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    &__content {
+        overflow-x: auto;
+        flex-grow: 1;
+
+        table {
+            min-width: 100%;
+            width: auto;
+            border-collapse: collapse;
+
+            th,
+            td {
+                padding: 8px;
+                text-align: left;
+                white-space: nowrap;
+            }
+        }
+    }
+
+    &__pagination {
+        border-top: 1px solid $color-gray-200;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 10px;
+        height: 4.25rem;
+        padding: 1rem;
+
+        &-button--active {
+            background: $color-gray-50 !important;
+        }
+    }
+
+    .TableView__row {
+        height: 4.5rem;
+        border-top: 1px solid $color-gray-200;
+        color: $color-gray-700;
+        @include Text-smMedium;
+
+        td {
+            &:first-child {
+                padding-left: 1.5rem;
+            }
+        }
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        &:hover {
+            background: $color-gray-100;
+        }
+
+        &.active {
+            background: $color-gray-200;
+        }
+    }
+}
