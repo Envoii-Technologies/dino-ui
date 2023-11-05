@@ -37,21 +37,31 @@
                     justify-content: center;
                     align-items: center;
                     font-size: 1.25rem;
-                    
-                    &.active
-                    {
+
+                    &.active {
                         color: $color-gray-500;
                     }
-
                 }
 
                 &__title {
+                    max-width: 25rem;
+
+                    @media (min-width: $md-breakpoint) {
+                        max-width: 9.375rem;
+                    }
+
+                    @media (min-width: $xl-breakpoint) {
+                        max-width: 18rem;
+                    }
+
                     padding-left: 1rem;
                     color: $color-gray-400;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
                     @include Text-mdRegular;
 
-                    &.active
-                    {
+                    &.active {
                         color: $color-gray-700;
                     }
                 }
