@@ -46,8 +46,10 @@ export const SidebarButton = ({
             <a
                 href={to}
                 className={`SidebarButton
-            ${className || ''}
-            ${isExpanded ? 'expanded' : 'collapsed'}`}
+                ${className || ''}
+                ${isExpanded ? 'expanded' : 'collapsed'}`}
+                target="_blank"
+                rel="noopener noreferrer"
             >
                 <div className="SidebarButton__content">
                     <FontAwesomeIcon
