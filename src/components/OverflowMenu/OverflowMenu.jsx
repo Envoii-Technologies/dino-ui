@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import './OverflowMenu.scss';
 import { Button } from '../Button';
@@ -26,13 +26,27 @@ export const OverflowMenu = ({
 }) => {
     const [isVisible, setIsVisible] = useState(false);
     const [fadeOut, setFadeOut] = useState(false);
+    const menuRef = useRef(null);
+
+    useEffect(() => {
+        // Step 1: Add event listener to handle outside clicks
+        const handleOutsideClick = (event) => {
+            if (isVisible && menuRef.current && !menuRef.current.contains(event.target)) {
+                // Step 3: Check if the click is outside the menu
+                handleShowDelay();
+            }
+        };
+
+        document.addEventListener('mousedown', handleOutsideClick);
+
+        return () => {
+            // Clean up the event listener
+            document.removeEventListener('mousedown', handleOutsideClick);
+        };
+    }, [isVisible]); // Only re-run if isVisible changes
 
     const handleClick = () => {
-        if (isVisible === true) {
-            handleShowDelay();
-        } else {
-            setIsVisible(true);
-        }
+        setIsVisible(!isVisible);
     };
 
     const handleShowDelay = () => {
@@ -50,7 +64,9 @@ export const OverflowMenu = ({
                 ${className || ''}
                 ${small ? 'small' : ''}
             `}
-            onClick={() => handleClick()}
+            ref={menuRef} // Step 2: Attach the ref to the outermost div
+            onClick={() => handleClick()
+            }
         >
             <div
                 className={`OverflowMenu__trigger ${

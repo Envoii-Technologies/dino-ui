@@ -8,7 +8,7 @@
     bottom: 0;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     z-index: 10000;
     @include Background-blur-md-dark;
     
@@ -38,7 +38,7 @@
     z-index: 20000;
     position: relative;
     box-shadow: $box-shadow-modal;
-    margin: 0 1rem 5rem 1rem;
+    margin: 0 1rem 0 1rem;
     
     &.fadeIn
     {

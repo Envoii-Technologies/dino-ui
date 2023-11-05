@@ -8,7 +8,7 @@ import { Button } from './../Button';
 
 import { useModalContentWindow } from './useModalContentWindow';
 
-import logoIconDark from './../../assets/logos/Logo_Icon-dark.svg';
+import logoIconDark from './../../assets/logos/Logo_Icon-dark.png';
 
 import './ModalContentWindow.scss';
 
