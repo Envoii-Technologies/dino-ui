@@ -25,7 +25,7 @@
 }
 
 @mixin Animation-SlideIn {
-    animation: slide-in-bottom 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 @keyframes slide-in-bottom {
@@ -40,7 +40,7 @@
 }
 
 @mixin Animation-SlideOut {
-    animation: slide-out-bottom 0.25s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+    animation: slide-out-bottom 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 
 @keyframes slide-out-bottom {
