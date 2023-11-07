@@ -15,8 +15,10 @@ Grid.propTypes = {
      * Custom class name of Component
      */
     className: PropTypes.string,
+    fluid: PropTypes.bool,
 };
 
 Grid.defaultProps = {
     className: undefined,
+    fluid: true,
 };
