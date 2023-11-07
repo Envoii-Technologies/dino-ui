@@ -4,7 +4,7 @@ import './TableView.scss';
 import { faChevronLeft, faChevronRight, faArrowsUpDown, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { Button, ButtonGroup, Checkbox } from './../../';
+import { Button, ButtonGroup, Checkbox, Text } from './../../';
 
 export const TableView = ({ className, columns, rows, rowsPerPage, initialSearchTerm, initialFilters, onRowClick, multi, ...props }) => {
 	const [selectedRows, setSelectedRows] = useState(new Set());
@@ -204,7 +204,7 @@ export const TableView = ({ className, columns, rows, rowsPerPage, initialSearch
 						) : (
 							<tr>
 								<td colSpan={columns.length + (multi ? 1 : 0)} style={{ textAlign: "center" }}>
-									Keine Daten vorhanden
+									<Text size="sm">Keine Daten vorhanden</Text>
 								</td>
 							</tr>
 						)}

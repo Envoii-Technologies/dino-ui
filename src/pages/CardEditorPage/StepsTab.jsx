@@ -75,9 +75,9 @@ export const StepsTab = ({ stepsData, onChangeData, uploadParameters }) => {
     const stepIds = stepsDataContent.map((step) => ({ _id: step._id, name: step.name }));
 
     return (
-        <Grid>
+        <Grid fluid={true}>
             <Row>
-                <Column xlSpan={4}>
+                <Column xlSpan={4} mdSpan={2}>
                     {stepIds.length > 0 && (
                         <Container>
                             <StepList
@@ -89,7 +89,7 @@ export const StepsTab = ({ stepsData, onChangeData, uploadParameters }) => {
                         </Container>
                     )}
                 </Column>
-                <Column xlSpan={8}>
+                <Column xlSpan={8} mdSpan={4}>
                     <Container>
                         <StepContent
                             stepData={activeStep}
