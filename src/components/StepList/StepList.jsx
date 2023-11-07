@@ -12,6 +12,7 @@ export const StepList = ({
     initialActiveStep,
     onAddStep,
     onChangeActiveStep,
+    position,
     ...props
 }) => {
     const { currentStep, stepList, handleAddStep, handleChangeActiveStep } =
@@ -44,7 +45,7 @@ export const StepList = ({
                                         currentStep === step._id ? 'active' : ''
                                     }`}
                                 >
-                                    {step.name}
+                                    {step.name.length === 0 ? `Schritt ${i + 1}` : step.name}
                                 </div>
                             </button>
                         </li>
