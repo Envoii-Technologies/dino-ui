@@ -1,25 +1,8 @@
 @use '../../global-styles/' as *;
 
-// .Grid {
-//     background: red;
-
-//     .Row {
-//         background: yellow;
-//         .Column {
-//             background: blue;
-//             padding: 1rem;
-
-//             .Column {
-//                 background: orange;
-//                 padding: 1rem;
-//             }
-//         }
-//     }
-// }
-
 .Grid {
     width: 100%;
-    max-width: 1280px;
+    // max-width: 1280px;
     margin: 0 auto;
 
     &.fluid {

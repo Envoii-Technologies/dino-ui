@@ -25,7 +25,7 @@
 }
 
 @mixin Animation-SlideIn {
-    animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: slide-in-bottom 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 @keyframes slide-in-bottom {
@@ -40,7 +40,7 @@
 }
 
 @mixin Animation-SlideOut {
-    animation: slide-out-bottom 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+    animation: slide-out-bottom 0.25s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 
 @keyframes slide-out-bottom {
@@ -55,7 +55,7 @@
 }
 
 @mixin Animation-FadeIn-FromAbove {
-    animation: fade-in-above 0.5s ease-in-out both;
+    animation: fade-in-above 0.25s ease-in-out both;
 }
 
 @keyframes fade-in-above {
@@ -70,7 +70,7 @@
 }
 
 @mixin Animation-FadeOut-FromAbove {
-    animation: fade-out-above 0.5s ease-in-out both;
+    animation: fade-out-above 0.25s ease-in-out both;
 }
 
 @keyframes fade-out-above {
@@ -85,7 +85,7 @@
 }
 
 @mixin Animation-FadeIn-FromAbove-small {
-    animation: fade-in-above-small 0.5s ease-in-out both;
+    animation: fade-in-above-small 0.25s ease-in-out both;
 }
 
 @keyframes fade-in-above-small {
@@ -100,7 +100,7 @@
 }
 
 @mixin Animation-FadeOut-FromAbove-small {
-    animation: fade-out-above-small 0.5s ease-in-out both;
+    animation: fade-out-above-small 0.25s ease-in-out both;
 }
 
 @keyframes fade-out-above-small {
@@ -115,7 +115,7 @@
 }
 
 @mixin Animation-FadeIn-FromBelow {
-    animation: fade-in-below 0.5s ease-in-out both;
+    animation: fade-in-below 0.25s ease-in-out both;
 }
 
 @keyframes fade-in-below {
@@ -130,7 +130,7 @@
 }
 
 @mixin Animation-FadeOut-FromBelow {
-    animation: fade-out-below 0.5s ease-in-out both;
+    animation: fade-out-below 0.25s ease-in-out both;
 }
 
 @keyframes fade-out-below {

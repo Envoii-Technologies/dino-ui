@@ -10,6 +10,7 @@ export const ContentCard = ({
     children,
     icon,
     title,
+    type,
     actionIcon,
     onAction,
     ...props
@@ -19,7 +20,10 @@ export const ContentCard = ({
     };
 
     return (
-        <div className={`ContentCard ${className || ''}`}>
+        <div className={`
+            ContentCard ${className || ''}
+            ${type}
+        `}>
             {title && (
                 <div className="ContentCard__header">
                     <div className="ContentCard__header__title">
@@ -49,6 +53,7 @@ ContentCard.propTypes = {
     className: PropTypes.string,
     onAction: PropTypes.func,
     title: PropTypes.string,
+    type: PropTypes.oneOf(["primary", "secondary"])
 };
 
 ContentCard.defaultProps = {
@@ -56,4 +61,5 @@ ContentCard.defaultProps = {
     actionIcon: faCancel,
     onAction: undefined,
     title: undefined,
+    type: "primary"
 };

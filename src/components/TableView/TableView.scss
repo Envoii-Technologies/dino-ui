@@ -13,6 +13,8 @@
     user-select: none;
 
     &__header {
+        border-bottom: 1px solid $color-gray-200;
+
         tr {
             th {
                 height: 2.75rem;
@@ -68,7 +70,12 @@
 
     .TableView__row {
         height: 4.5rem;
-        border-top: 1px solid $color-gray-200;
+
+        &:not(:first-of-type)
+        {
+            border-top: 1px solid $color-gray-200;
+        }
+
         color: $color-gray-700;
         @include Text-smMedium;
 
