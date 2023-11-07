@@ -5,7 +5,7 @@ import { Button, Input, Grid, Row, Column } from './../../';
 
 import { useTenantLoginPage } from './useTenantLoginPage';
 
-import LogoIcon from './../../assets/logos/Logo_Icon-dark.svg';
+import LogoIcon from './../../assets/logos/Logo_Icon-dark.png';
 
 import './TenantLoginPage.scss';
 

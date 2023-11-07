@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Button, Checkbox, Input, Grid, Row, Column } from './../../';
 
-import LogoIcon from './../../assets/logos/Logo_Icon-dark.svg';
+import LogoIcon from './../../assets/logos/Logo_Icon-dark.png';
 
 import './UserLoginPage.scss';
 
