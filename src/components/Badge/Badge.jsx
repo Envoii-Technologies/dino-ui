@@ -35,7 +35,7 @@ export const Badge = ({
       };
 
     return (
-        <div
+        <span
             className={`Badge ${className !== undefined ? className : ''}
 				${outline ? 'outline' : ''}
 				${pill ? 'pill' : ''}
@@ -55,7 +55,7 @@ export const Badge = ({
             {
                 closable && <FontAwesomeIcon className="Badge__close" icon={faClose} onClick={(e) => handleClose(e)}/>
             }
-        </div>
+        </span>
     );
 };
 

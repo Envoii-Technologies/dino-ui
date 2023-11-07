@@ -3,7 +3,9 @@ import { Badge } from './Badge';
 import { faClose, faHouse } from '@fortawesome/free-solid-svg-icons';
 
 export const Template = (args) => (
-  <Badge {...args} />
+  <div style={{width: "400px", display: "flex"}}>
+  <Badge {...args} /><Badge {...args} />
+  </div>
 );
 
 <Meta title='Components/Badge' component={Badge} />

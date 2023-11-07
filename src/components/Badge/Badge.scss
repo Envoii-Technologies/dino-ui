@@ -2,14 +2,14 @@
 
 .Badge {
     flex-grow: 0;
-    flex-shrink: 0;
+    flex-shrink: 1;
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     border-radius: 0.375rem;
     border: solid 1px #d9d6fe;
-    cursor: pointer;
 
     &__status
     {
