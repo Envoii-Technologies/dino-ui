@@ -5,11 +5,11 @@ import { Button, Input, Grid, Row, Column } from './../../';
 
 import { useTenantLoginPage } from './useTenantLoginPage';
 
-import LogoIcon from './../../assets/logos/Logo_Icon-dark.svg';
+import LogoIcon from './../../assets/logos/Logo_Icon-dark.png';
 
 import './TenantLoginPage.scss';
 
-export const TenantLoginPage = ({ error, eventLink, action, isInFocus }) => {
+export const TenantLoginPage = ({ error, eventLink, action, isInFocus, tenantLogo }) => {
     const {
         errorMessage,
         handleTenantChange,
@@ -27,11 +27,16 @@ export const TenantLoginPage = ({ error, eventLink, action, isInFocus }) => {
                     <Column mdSpan={2} mdStart={3} xlSpan={4} xlStart={5}>
                         <div className="TenantLoginPage__content">
                             <div className="TenantLoginPage__content__header">
-                                <img
-                                    src={LogoIcon}
-                                    alt=""
-                                    className="TenantLoginPage__content__header__icon"
-                                />
+                                {
+                                    tenantLogo && (
+                                        <img
+                                            src={tenantLogo}
+                                            alt=""
+                                            className="TenantLoginPage__content__header__icon"
+                                        />
+                                    )
+                                }
+
                                 <div className="TenantLoginPage__content__header__title">
                                     Mitarbeiter Login
                                 </div>
@@ -83,10 +88,12 @@ TenantLoginPage.propTypes = {
     eventLink: PropTypes.string,
     isInFocus: PropTypes.bool,
     action: PropTypes.func,
+    tenantLogo: PropTypes.any,
 };
 TenantLoginPage.defaultProps = {
     error: undefined,
     eventLink: '/',
     isInFocus: true,
     action: undefined,
+    tenantLogo: LogoIcon
 };

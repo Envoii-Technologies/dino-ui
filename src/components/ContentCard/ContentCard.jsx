@@ -27,9 +27,14 @@ export const ContentCard = ({
             {title && (
                 <div className="ContentCard__header">
                     <div className="ContentCard__header__title">
-                        <div className="ContentCard__header__title__icon">
-                            <FontAwesomeIcon icon={faFile} />
-                        </div>
+                        {
+                            icon && (
+                                <div className="ContentCard__header__title__icon">
+                                    <FontAwesomeIcon icon={icon} />
+                                </div>
+                            )
+                        }
+
                         <div className="ContentCard__header__title__text">
                             {title}
                         </div>
@@ -53,12 +58,15 @@ ContentCard.propTypes = {
     className: PropTypes.string,
     onAction: PropTypes.func,
     title: PropTypes.string,
-    type: PropTypes.oneOf(["primary", "secondary"])
+    type: PropTypes.oneOf(["primary", "secondary"]),
+    actionIcon: PropTypes.any,
+    icon: PropTypes.any
 };
 
 ContentCard.defaultProps = {
     className: undefined,
     actionIcon: faCancel,
+    icon: undefined,
     onAction: undefined,
     title: undefined,
     type: "primary"
