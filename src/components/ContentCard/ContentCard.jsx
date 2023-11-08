@@ -46,7 +46,11 @@ export const ContentCard = ({
                     />
                 </div>
             )}
-            <div className="ContentCard__body">{children}</div>
+            <div className="ContentCard__body">
+                <div className='ContentCard__body__content'>
+                    {children}
+                </div>
+            </div>
         </div>
     );
 };

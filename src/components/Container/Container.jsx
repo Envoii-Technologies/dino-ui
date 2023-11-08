@@ -14,6 +14,7 @@ export const Container = ({
             className={`Container ${className !== undefined ? className : ''} ${
                 scrollable ? 'scrollable' : 'static'
             }`}
+            { ...props }
         >
             <div className="Container__wrapper">
                 <div className="Container__wrapper__container">
