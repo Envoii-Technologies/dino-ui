@@ -13,13 +13,11 @@
     justify-content: flex-start;
     justify-content: flex-start;
 
-    &.primary
-    {
+    &.primary {
         background-color: $color-base-white;
     }
 
-    &.secondary
-    {
+    &.secondary {
         background: $color-gray-100;
     }
 
@@ -36,14 +34,12 @@
             flex-direction: row;
             align-items: center;
 
-            &__icon
-            {
+            &__icon {
                 font-size: 20px;
                 color: $color-gray-300;
             }
 
             &__text {
-
                 margin: 0 0 0 16px;
                 text-align: left;
                 color: $color-gray-700;
@@ -52,14 +48,17 @@
         }
     }
 
-    &__body
-    {
-        display: flex;
-        flex-direction: column;
+    &__body {
         // justify-content: flex-start;
         // align-items: stretch;
         height: 100%;
-        gap: 16px;
         padding: 0 16px;
+
+        &__content {
+            overflow: scroll; display: flex;
+            flex-direction: column;
+            gap: 16px;
+            height: 100%;
+        }
     }
 }
