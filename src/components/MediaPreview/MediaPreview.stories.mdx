@@ -1,0 +1,45 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { Button } from './../../';
+import { MediaPreview } from './MediaPreview';
+
+export const Template = (args) => {
+	const [showPreview, setShowPreviw] = React.useState(false);
+	const [activeIndex, setActiveIndex] = React.useState(0);
+	
+	return(
+		<div>
+			<Button label="Show Preview" onClick={() => setShowPreviw(true)} />
+			<MediaPreview { ...args } show={showPreview} onClose={() => setShowPreviw(false)} onChangeIndex={(i) => setActiveIndex(i)}/>
+			current index: { activeIndex }
+		</div>
+	)
+};
+
+<Meta title='Components/MediaPreview' component={ MediaPreview } />
+
+# MediaPreview
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			images: ["/images/test.png", "/images/testImage.jpeg"],
+			initialIndex: 0,
+			show: false
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ MediaPreview } />
