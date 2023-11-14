@@ -57,3 +57,4 @@ export { LockView } from './components/LockView/index.js';
 export { TableView } from './components/TableView/index.js';
 export { ImageEditor } from './components/ImageEditor/index.js';
 export { MediaPreview } from './components/MediaPreview/index.js';
+export { TextEditor } from './components/TextEditor/index.js';

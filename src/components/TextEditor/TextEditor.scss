@@ -1,0 +1,29 @@
+@use '../../global-styles/' as *;
+
+.TextEditor
+{
+	display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    gap: 1rem;
+
+    &__buttons
+    {
+        flex-grow: 0;
+        display: flex;
+        justify-content: flex-start;
+
+        &__group
+        {
+            flex-grow: 0;
+        }
+    }
+    
+    &__content
+    {
+        border: 1px solid #ddd;
+        border-radius: 0.5rem;
+        width: 100%;
+        padding-left: 1rem;
+    }
+}
