@@ -1,0 +1,72 @@
+@use '../../global-styles/' as *;
+
+.MediaPreview
+{
+	&__wrapper
+    {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        z-index: 50000;
+
+        &.single
+        {
+            justify-content: center;
+        }
+
+        &.multi
+        {
+            justify-content: space-between;
+        }
+
+        @include Background-blur-md-dark;
+
+        &__button--prev,
+        &__button--next
+        {
+            padding: 1rem;
+            color: $color-gray-300;
+            font-size: 1.25rem;
+            cursor: pointer;
+
+            &:hover
+            {
+                color: $color-gray-200;
+            }
+        }
+        
+        &__content
+        {
+            background: $color-base-white;
+            border-radius: $radius-2xl;
+            height: 80%;
+            width: auto;
+            overflow: hidden;
+
+            img
+            {
+                height: 100%;
+            }
+        }
+
+        &__close
+        {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 1rem;
+            color: $color-gray-300;
+            font-size: 1.25rem;
+            cursor: pointer;
+
+            &:hover
+            {
+                color: $color-gray-200;
+            }
+        }
+    }
+}
