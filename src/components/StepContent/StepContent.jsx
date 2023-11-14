@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 import {
     TextArea,
     Button,
-    FileUploader,
     StepTitleInput,
-    OverflowMenu,
     ButtonGroup,
     FileViewer,
 } from './../../';
@@ -14,7 +12,6 @@ import {
 import './StepContent.scss';
 import {
     faCopy,
-    faPaperclip,
     faPlus,
     faTrash,
 } from '@fortawesome/free-solid-svg-icons';
