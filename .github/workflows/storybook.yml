@@ -13,11 +13,13 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
+      with: 
+        submodules: recursive
+        token: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Build storybook
       run: |
         yarn install
-        git submodule update --init --recursive
         yarn build
         
     - name: Deploy storybook

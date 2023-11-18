@@ -13,6 +13,9 @@ jobs:
     if: ${{ github.ref == 'refs/heads/main' }}
     steps:
       - uses: actions/checkout@v3
+        with: 
+          submodules: recursive
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Node.js 🤖
         uses: actions/setup-node@v3
         with:
@@ -21,8 +24,6 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-      - name: initialize submodule
-        run: git submodule update --init --recursive
       - name: build package 📦
         run: yarn build:lib
       - name: semantic-release
