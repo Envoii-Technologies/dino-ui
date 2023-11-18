@@ -9,6 +9,7 @@ const config = {
     "storybook-addon-pseudo-states",
     '@storybook/addon-viewport',
     "storybook-zeplin/register",
+    'storybook-react-i18next',
     {
       name: '@storybook/addon-styling',
       options: {
