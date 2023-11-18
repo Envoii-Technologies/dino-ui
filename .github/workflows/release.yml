@@ -21,6 +21,8 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+      - name: initialize submodule
+        run: git submodule update --init --recursive
       - name: build package 📦
         run: yarn build:lib
       - name: semantic-release
