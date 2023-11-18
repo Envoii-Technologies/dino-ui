@@ -4,7 +4,9 @@ import '../src/global-styles/index.scss';
 import React from "react";
 import { MemoryRouter } from "react-router";
 import { allModes } from "../.storybook/modes";
-    
+import i18n from './i18n';
+
+
 export const decorators = [
   (Story) => (
     <MemoryRouter initialEntries={['/acme']}>
@@ -14,6 +16,13 @@ export const decorators = [
 ];
 
 const preview = {
+  globals: {
+    locale: 'de',
+    locales: {
+      en: 'English',
+      de: 'German',
+    },
+  },
   parameters: {
     zeplinLink: "https://app.zeplin.io/project/6526958e9e148922c330d7f3",
     actions: { argTypesRegex: "^on[A-Z].*" },
@@ -24,6 +33,7 @@ const preview = {
         lg: { name: "Desktop", styles: { width: "1280px", height: "900px" } },
       },
     },
+    i18n,
     layout: 'centered',
     controls: {
       matchers: {

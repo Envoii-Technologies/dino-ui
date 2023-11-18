@@ -1,0 +1,4 @@
+[submodule "translations"]
+	path = translations
+	url = https://github.com/Envoii-Technologies/translations.git
+	branch = develop
