@@ -17,6 +17,7 @@ jobs:
     - name: Build storybook
       run: |
         yarn install
+        git submodule update --init --recursive
         yarn build
         
     - name: Deploy storybook
