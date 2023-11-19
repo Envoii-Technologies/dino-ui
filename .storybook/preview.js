@@ -5,12 +5,17 @@ import React from "react";
 import { MemoryRouter } from "react-router";
 import { allModes } from "../.storybook/modes";
 import i18n from './i18n';
+import { NotificationProvider } from '../src/components/Notification/NotificationContext';
+import { Notification } from '../src/components/Notification/Notification';
 
 
 export const decorators = [
   (Story) => (
     <MemoryRouter initialEntries={['/acme']}>
-      <Story />
+      <NotificationProvider>
+        <Story />
+        <Notification />
+      </NotificationProvider>
     </MemoryRouter>
   ),
 ];
