@@ -5,6 +5,7 @@
     bottom: 0;
     left: $spacing-xl;
     right: $spacing-xl;
+    z-index: 1000000;
 
     @media (min-width: #{$md-breakpoint}) {
         top: inherit;
