@@ -58,5 +58,6 @@ export { ImageEditor } from './components/ImageEditor/index.js';
 export { MediaPreview } from './components/MediaPreview/index.js';
 export { MediaBox } from './components/MediaBox/index.js';
 export { Notification } from './components/Notification/index.js';
+export { TextNotification } from './components/Notification/Notifications/TextNotification.jsx';
 
 export { NotificationProvider, useNotifications } from './components/Notification/NotificationContext.jsx'

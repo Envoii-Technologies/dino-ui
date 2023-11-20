@@ -1,7 +1,7 @@
 import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
 import { useNotifications } from './NotificationContext';
 import { Notification } from './Notification';
-import { Button, Text } from './../../';
+import { Button, Text, TextNotification } from './../../';
 
 export const Template = (args) => {
 	const { addNotification } = useNotifications();
@@ -9,60 +9,58 @@ export const Template = (args) => {
 	const notificationList = [
 		{
 			message: (
-				<div style={{ display: "flex", flexDirection: "column"}}>
-					<Text size="sm" type="semiBold">Ihr Profil wurde aktualisiert</Text>
-					<Text size="sm" type="regular">
-						Ihr Team hat Änderungen an Ihrem Unternehmensprofil vorgenommen, seit Sie sich zuletzt angemeldet haben.
-					</Text>
-					<div style={{ marginTop: "0.5rem", display: "flex", flexDirection: "row", gap: "0.75rem"}}>
+				<TextNotification
+					title="Ihr Profil wurde aktualisiert"
+					body="Ihr Team hat Änderungen an Ihrem Unternehmensprofil vorgenommen, seit Sie sich zuletzt angemeldet haben."
+				>
+					<>
 						<Button type="link" label="Später"/>
 						<Button type="link" label="Änderungen ansehen"/>
-					</div>
-				</div>
+					</>
+				</TextNotification>
 			),
 			options: {}
 		},
 		{
 			message: (
-				<div style={{ display: "flex", flexDirection: "column"}}>
-					<Text size="sm" type="semiBold">Profil erfolgreich aktualisiert</Text>
-					<Text size="sm" type="regular">
-						Ihre Änderungen wurden gespeichert und Ihr Profil ist aktiv.
-					</Text>
-					<div style={{ marginTop: "0.5rem", display: "flex", flexDirection: "row", gap: "0.75rem"}}>
+
+				<TextNotification
+					title="Profil erfolgreich aktualisiert"
+					body="Ihre Änderungen wurden gespeichert und Ihr Profil ist aktiv."
+				>
+					<>
 						<Button type="link" label="Später"/>
 						<Button type="link" label="Alle Änderungen ansehen"/>
-					</div>
-				</div>
+					</>
+				</TextNotification>
 			),
 			options: { type: "success" }
 		},
 		{
 			message: (
-				<div style={{ display: "flex", flexDirection: "column"}}>
-					<Text size="sm" type="semiBold">Es gibt ein neues Update!</Text>
-					<Text size="sm" type="regular">
-						Sehen Sie sich die neue Dashboard-Ansicht an. Seiten werden jetzt schneller geladen.
-					</Text>
-					<div style={{ marginTop: "0.5rem", display: "flex", flexDirection: "row", gap: "0.75rem"}}>
+
+				<TextNotification
+					title="Es gibt ein neues Update!"
+					body="Sehen Sie sich die neue Dashboard-Ansicht an. Seiten werden jetzt schneller geladen."
+				>
+					<>
 						<Button type="link" label="Später"/>
 						<Button type="link" label="Alle Änderungen ansehen"/>
-					</div>
-				</div>
+					</>
+				</TextNotification>
 			),
 			options: { type: "warning" }
 		},
 		{
 			message: (
-				<div style={{ display: "flex", flexDirection: "column"}}>
-					<Text size="sm" type="semiBold">Die Karte wurde nicht veröffentlicht</Text>
-					<Text size="sm" type="regular">
-						Durch das Entfernen aller Benutzer wurde dieses Projekt nicht veröffentlicht. Fügen Sie Benutzer hinzu, um es erneut zu veröffentlichen.
-					</Text>
-					<div style={{ marginTop: "0.5rem", display: "flex", flexDirection: "row", gap: "0.75rem"}}>
+				<TextNotification
+					title="Die Karte wurde nicht veröffentlicht"
+					body="Durch das Entfernen aller Benutzer wurde dieses Projekt nicht veröffentlicht. Fügen Sie Benutzer hinzu, um es erneut zu veröffentlichen."
+				>
+					<>
 						<Button type="link" label="Rückgängig machen"/>
-					</div>
-				</div>
+					</>
+				</TextNotification>
 			),
 			options: { type: "error" }
 		}
