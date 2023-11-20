@@ -59,4 +59,4 @@ export { MediaPreview } from './components/MediaPreview/index.js';
 export { MediaBox } from './components/MediaBox/index.js';
 export { Notification } from './components/Notification/index.js';
 
-export { NotificationProvider } from './components/Notification/NotificationContext.jsx'
+export { NotificationProvider, useNotifications } from './components/Notification/NotificationContext.jsx'
