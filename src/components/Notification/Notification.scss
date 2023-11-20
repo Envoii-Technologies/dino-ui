@@ -1,0 +1,158 @@
+@use '../../global-styles/' as *;
+
+.Notification {
+    position: absolute;
+    bottom: 0;
+    left: $spacing-xl;
+    right: $spacing-xl;
+
+    @media (min-width: #{$md-breakpoint}) {
+        top: inherit;
+        right: $spacing-3xl;
+        left: inherit;
+        bottom: $spacing-3xl;
+    }
+}
+
+.NotificationBox {
+    background: $color-base-white;
+    border: 1px solid $color-gray-300;
+    padding: $spacing-xl;
+    gap: $spacing-xl;
+    border-radius: $radius-xl;
+    @include Shadow-lg;
+    position: relative;
+    margin-bottom: $spacing-xl;
+    min-height: 3.5rem;
+
+    @media (min-width: #{$md-breakpoint}) {
+        width: 400px;
+        margin-bottom: inherit;
+        margin-top: $spacing-xl;
+    }
+
+    &.type--success,
+    &.type--warning,
+    &.type--error
+    {
+        .NotificationBox__content {
+            padding-left: 0;
+            padding-top: 2.25rem;
+    
+            @media (min-width: #{$md-breakpoint}) {
+                padding-left: 2.25rem;
+                padding-right: 2rem;
+                padding-top: 0;
+            }
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        top: 7px;
+        left: 7px;
+        font-size: 0.75rem;
+        
+        font-weight: bold;
+
+        &.type {
+            &--success {
+                color: $color-success-600;
+
+                .NotificationBox__icon__outer
+                {
+                    border: 2px solid $color-success-50;
+                    &__center
+                    {
+
+                        border: 2px solid $color-success-200;
+                        &__inner
+                        {
+                            border: 2px solid $color-success-600;
+                        }
+                    }
+                }
+            }
+
+            &--warning {
+                color: $color-brand-600;
+
+                .NotificationBox__icon__outer
+                {
+                    border: 2px solid $color-brand-50;
+                    &__center
+                    {
+
+                        border: 2px solid $color-brand-200;
+                        &__inner
+                        {
+                            border: 2px solid $color-brand-400;
+                        }
+                    }
+                }
+            }
+
+            &--error {
+                color: $color-error-600;
+
+                .NotificationBox__icon__outer
+                {
+                    border: 2px solid $color-error-50;
+                    &__center
+                    {
+
+                        border: 2px solid $color-error-200;
+                        &__inner
+                        {
+                            border: 2px solid $color-error-600;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__outer {
+            width: 2.375rem;
+            height: 2.375rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+
+            border: 2px solid $color-success-50;
+
+            &__center {
+                width: 1.825rem;
+                height: 1.825rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                border-radius: 50%;
+
+                border: 2px solid $color-success-200;
+
+                &__inner {
+                    width: 1.25rem;
+                    height: 1.25rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    border: 2px solid $color-success-600;
+                }
+            }
+        }
+    }
+
+    &__button {
+        position: absolute;
+        top: $spacing-md;
+        right: $spacing-md;
+    }
+
+    &__content
+    {
+        padding-right: 2rem;
+    }
+}
