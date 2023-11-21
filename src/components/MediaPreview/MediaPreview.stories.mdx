@@ -3,12 +3,12 @@ import { Button } from './../../';
 import { MediaPreview } from './MediaPreview';
 
 export const Template = (args) => {
-	const [showPreview, setShowPreviw] = React.useState(false);
+	const [showPreview, setShowPreview] = React.useState(false);
 	const [activeIndex, setActiveIndex] = React.useState(0);
 	
 	return(
 		<div>
-			<Button label="Show Preview" onClick={() => setShowPreviw(true)} />
+			<Button label="Show Preview" onClick={() => setShowPreview(true)} />
 			<MediaPreview { ...args } show={showPreview} onClose={() => setShowPreviw(false)} onChangeIndex={(i) => setActiveIndex(i)}/>
 			current index: { activeIndex }
 		</div>

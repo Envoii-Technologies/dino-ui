@@ -61,3 +61,4 @@ export { Notification } from './components/Notification/index.js';
 export { TextNotification } from './components/Notification/Notifications/TextNotification.jsx';
 
 export { NotificationProvider, useNotifications } from './components/Notification/NotificationContext.jsx'
+export { MediaGallery } from './components/MediaGallery/index.js';

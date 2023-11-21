@@ -1,0 +1,40 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs'
+import { MediaGallery } from './MediaGallery';
+
+export const Template = (args) => (
+	<div style={{ width: "500px", height: "90vh"}}>
+	<MediaGallery { ...args } />
+	</div>
+);
+
+<Meta title='Components/MediaGallery' component={ MediaGallery } />
+
+# MediaGallery
+
+...
+
+## Examples
+
+### Default
+
+...
+
+<Canvas>
+	<Story
+		name="Default"
+		args={{
+			images: [
+				"https://fastly.picsum.photos/id/64/4326/2884.jpg?hmac=9_SzX666YRpR_fOyYStXpfSiJ_edO3ghlSRnH2w09Kg", 
+				"https://fastly.picsum.photos/id/65/4912/3264.jpg?hmac=uq0IxYtPIqRKinGruj45KcPPzxDjQvErcxyS1tn7bG0", 
+				"https://fastly.picsum.photos/id/22/4434/3729.jpg?hmac=fjZdkSMZJNFgsoDh8Qo5zdA_nSGUAWvKLyyqmEt2xs0",
+				"https://fastly.picsum.photos/id/27/3264/1836.jpg?hmac=p3BVIgKKQpHhfGRRCbsi2MCAzw8mWBCayBsKxxtWO8g"
+			]
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+## API
+
+<ArgsTable of={ MediaGallery } />

@@ -21,7 +21,9 @@ export const MediaBox = ({ className, id, image, size, progress, onEdit, onDelet
 			MediaBox 
 			${className || ""}
 			${size ? `MediaBox__size--${size}` : ''}
-			`}>
+			`}
+			{...props}
+		>
 			<div className="MediaBox__wrapper">
 				{
 					progress > 0 && (

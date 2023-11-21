@@ -5,7 +5,8 @@
     display: flex;
     height: 120px;
     width: 120px;
-    border: solid 1px $color-gray-300;
+    // border: solid 1px $color-gray-300;
+    background: $color-gray-200;
     overflow: hidden;
 
     &__size--sm {
