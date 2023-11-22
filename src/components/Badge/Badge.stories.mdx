@@ -3,9 +3,9 @@ import { Badge } from './Badge';
 import { faClose, faHouse } from '@fortawesome/free-solid-svg-icons';
 
 export const Template = (args) => (
-  <div style={{width: "400px", display: "flex"}}>
-  <Badge {...args} /><Badge {...args} />
-  </div>
+    <div style={{width: "400px", display: "flex"}}>
+        <Badge {...args} />
+    </div>
 );
 
 <Meta title='Components/Badge' component={Badge} />
@@ -14,6 +14,17 @@ export const Template = (args) => (
 
 The `Badge` component is a versatile element used for displaying labels, statuses, and other information in your application. It can be customized with different colors, sizes, and styles.
 
+<Story
+    name="Example"
+    args={{
+        label: 'Example',
+    }}
+>
+    {Template.bind({})}
+</Story>
+
+<br/>
+
 ## Examples
 
 ### Default
@@ -21,14 +32,14 @@ The `Badge` component is a versatile element used for displaying labels, statuse
 The "Default" example showcases a basic badge with default settings. It displays a small, gray badge with the label "Default Badge." This is a straightforward way to use the `Badge` component when no specific customizations are needed.
 
 <Canvas>
-  <Story
-    name="Default"
-    args={{
-      label: 'Default Badge',
-    }}
-  >
-    {Template.bind({})}
-  </Story>
+    <Story
+        name="Default"
+        args={{
+            label: 'Default Badge',
+        }}
+    >
+        {Template.bind({})}
+    </Story>
 </Canvas>
 
 ### Custom Badge

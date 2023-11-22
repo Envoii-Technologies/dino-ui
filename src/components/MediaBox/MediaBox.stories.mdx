@@ -9,22 +9,81 @@ export const Template = (args) => (
 
 # MediaBox
 
-...
+The MediaBox component is a versatile React component designed to display images along with optional features like progress bars, menus for edit and delete actions, and custom styling. It's ideal for applications that involve media management or display.
 
 ## Examples
 
 ### Default
 
-...
+This example shows the MediaBox in its default state with a medium size, using an example image. It includes basic edit and delete functionality without any progress indication or menu options.
 
 <Canvas>
 	<Story
 		name="Default"
 		args={{
-			image: '/images/test.png',
+			image: 'https://fastly.picsum.photos/id/64/4326/2884.jpg?hmac=9_SzX666YRpR_fOyYStXpfSiJ_edO3ghlSRnH2w09Kg',
 			size: 'md',
 			onEdit: (data) => alert(data),
 			onDelete: (data) => alert(data)
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Progress 
+
+Demonstrates the MediaBox with a progress bar. Useful for scenarios where the media is being uploaded or processed. Here, the progress is set to 50%.
+
+<Canvas>
+	<Story
+		name="Progress"
+		args={{
+			image: 'https://fastly.picsum.photos/id/64/4326/2884.jpg?hmac=9_SzX666YRpR_fOyYStXpfSiJ_edO3ghlSRnH2w09Kg',
+			size: 'md',
+			onEdit: (data) => alert(data),
+			onDelete: (data) => alert(data),
+			progress: 50
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### ShowMenu
+
+This example showcases the MediaBox with an interactive menu. The menu becomes visible offering additional actions like edit or delete.
+
+<Canvas>
+	<Story
+		name="menu"
+		args={{
+			image: 'https://fastly.picsum.photos/id/64/4326/2884.jpg?hmac=9_SzX666YRpR_fOyYStXpfSiJ_edO3ghlSRnH2w09Kg',
+			size: 'md',
+			showMenu: true,
+			onEdit: (data) => alert(data),
+			onDelete: (data) => alert(data),
+		}}
+	>
+		{ Template.bind({}) }
+	</Story>
+</Canvas>
+
+### Error state
+Illustrates the MediaBox in an error state, typically used to indicate a problem with the media or its upload. This example shows a near-complete progress bar with an error state.
+
+<Canvas>
+	<Story
+		name="error state"
+		args={{
+			image: 'https://fastly.picsum.photos/id/64/4326/2884.jpg?hmac=9_SzX666YRpR_fOyYStXpfSiJ_edO3ghlSRnH2w09Kg',
+			size: 'md',
+			showMenu: true,
+			onEdit: (data) => alert(data),
+			onDelete: (data) => alert(data),
+			progress: 95,
+			error: true,
+			success: false
 		}}
 	>
 		{ Template.bind({}) }
