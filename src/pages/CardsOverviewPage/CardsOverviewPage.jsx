@@ -1,118 +1,111 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
+
+import Moment from "react-moment";
+import 'moment/locale/de';
 
 import {
+    LoadingIndicator,
     PageHeader,
     ButtonGroup,
     Button,
     PageSubHeader,
     Input,
-    LoadingIndicator,
-    Container,
     Grid,
     Row,
     Column,
-    Table,
+    Container,
+    ModalInfoWindow,
+    TableView,
     ContentCard,
-    SelectBox,
-} from './../../';
+    Text,
+    Badge,
+    UserInfo,
+    Divider,
+} from './../../'
 
-import { NewCardWindow } from './NewCardWindow';
+import { NewCardWindow } from "./NewCardWindow";
 
 import {
-    faChevronDown,
-    faClose,
-    faEllipsisV,
-    faFilter,
     faPlus,
+    faPen,
+    faClose,
     faSearch,
-} from '@fortawesome/free-solid-svg-icons';
+} from "@fortawesome/free-solid-svg-icons";
+import { faEye, faTrashCan } from "@fortawesome/free-regular-svg-icons";
 
 import './CardsOverviewPage.scss';
-import { Link } from 'react-router-dom';
 
 export const CardsOverviewPage = ({
-    isLoading,
-    tagData,
     tenant,
-    cardsData,
-    onSaveNewCard,
+    isLoading,
+    onCreateCard,
+    onDeleteCard,
+    userRole,
+    cardList
 }) => {
     const [showCreateCardWindow, setShowCreateCardWindow] = useState(false);
-    const [searchValue, setSearchValue] = useState('');
-    const [showFilterWindow, setShowFilterWindow] = useState(false);
-    const [filters, setFilters] = useState({});
+    const [showDeleteCardWindow, setShowDeleteCardWindow] = useState(false);
+    const [selectedCard, setSelectedCard] = useState(null);
+    const [searchValue, setSearchValue] = useState("");
+    const [activeCard, setActiveCard] = useState(null);
 
-    const filterOptions = [{ keyName: 'version', label: 'Version' }];
+    const navigate = useNavigate();
 
-    const handleFilterChange = (content) => {
-        console.log(content);
-        // setFilters((prevFilters) => ({
-        //     ...prevFilters,
-        //     ...content,
-        // }));
-        console.log(filters)
-    };
-
-    function SelectFilter({
-        label,
-        data,
-        keyName,
-        onSelectedValue,
-        selectedValue,
-    }) {
-        const uniqueSet = [...new Set(data.map((item) => item[keyName]))];
-
-        const uniqueValues = uniqueSet.map(item => {
-            return { value: item, label: item };
-        })
-
-        const handleSelectChange = (event) => {
-            const selectedFilter = { [keyName]: event };
-            console.log(event);
-            onSelectedValue(selectedFilter);
-        };
-
-        return (
-            <>
-                {uniqueValues && (
-                    <SelectBox
-                        multi={true}
-                        label={label}
-                        searchable={true}
-                        defaultValue={''}
-                        defaultOptions={uniqueValues}
-                        onSelect={handleSelectChange}
-                    ></SelectBox>
-                )}
-            </>
-        );
+    const handleShowDeleteWindow = (data) => {
+        setSelectedCard(data);
+        setShowDeleteCardWindow(true);
     }
 
-    return (
-        <>
-            {isLoading ? (
-                <LoadingIndicator showLabel={true} />
-            ) : (
-                <>
-                    <NewCardWindow
-                        showWindow={showCreateCardWindow}
-                        onCancel={() => setShowCreateCardWindow(false)}
-                        onSave={(data) => onSaveNewCard(data)}
-                        tagData={tagData}
-                    />
-                    <PageHeader title={`Karten`}>
-                        <ButtonGroup>
-                            <Button
-                                label="Neue Karte"
-                                iconLeft={faPlus}
-                                onClick={() => setShowCreateCardWindow(true)}
-                            />
-                            <Button iconLeft={faEllipsisV} type="secondary" />
-                        </ButtonGroup>
-                    </PageHeader>
-                    <PageSubHeader>
-                        <ButtonGroup smFluid={true}>
-                            <Button
+    const handleOnDelete = (data) => {
+        onDeleteCard(selectedCard);
+        setSelectedCard(null);
+        setShowDeleteCardWindow(false);
+    }
+
+    const handleSelectRow = (row) => {
+        console.log(row);
+        setActiveCard(row);
+    }
+
+    if (isLoading) {
+        return <LoadingIndicator showLabel={true} />;
+    } else {
+        return (
+            <>
+                <ModalInfoWindow
+                    show={showDeleteCardWindow}
+                    title="Karte löschen"
+                    body="Sind Sie sicher, dass Sie diese Karte löschen wollen?"
+                    icon={faTrashCan}
+                    cancelText="Abbrechen"
+                    type="error"
+                    actionText="Löschen"
+                    onCancel={() => setShowDeleteCardWindow(false)}
+                    onAction={() => handleOnDelete()}
+                />
+                <NewCardWindow
+                    showWindow={showCreateCardWindow}
+                    onCancel={() => setShowCreateCardWindow(false)}
+                    onSave={(data) => onCreateCard(data)}
+                />
+                <PageHeader title="Karten">
+                    <ButtonGroup>
+                        {
+                            userRole === "app_admin" &&
+                            (
+                                <Button
+                                    label="Neue Karte"
+                                    iconLeft={faPlus}
+                                    onClick={() => setShowCreateCardWindow(true)}
+                                />
+                            )
+                        }
+                    </ButtonGroup>
+                </PageHeader>
+                <PageSubHeader>
+                    <ButtonGroup smFluid={true}>
+                        {/* <Button
                                 label="Status"
                                 iconRight={faChevronDown}
                                 type="secondary"
@@ -121,94 +114,188 @@ export const CardsOverviewPage = ({
                                 label="Filter"
                                 iconLeft={faFilter}
                                 type="secondary"
-                                onClick={() => setShowFilterWindow(true)}
+                                // onClick={() => setShowFilterWindow(true)}
                             />
-                            <Button label="Filter zurücksetzen" type="link" />
-                        </ButtonGroup>
-                        <Input
-                            icon={faSearch}
-                            placeholder="Karte suchen"
-                            onChange={(e) => setSearchValue(e.target.value)}
-                        />
-                    </PageSubHeader>
-                    <Grid>
-                        <Row>
-                            <Column xlSpan={showFilterWindow === true ? 8 : 12}>
-                                <Container scrollable={false}>
-                                    <Table
-                                        initialFilters={filters}
-                                        searchValue={searchValue}
-                                        columns={[
-                                            {
-                                                id: 'title',
-                                                size: '400px',
-                                                title: 'Titel',
-                                                sortable: true,
-                                                type: 'link',
-                                            },
-                                            {
-                                                id: 'version',
-                                                size: '200px',
-                                                title: 'Status',
-                                                sortable: true,
-                                                type: 'version',
-                                            },
-                                            {
-                                                id: 'creator',
-                                                size: '150px',
-                                                title: 'Bearbeitet von',
-                                                sortable: true,
-                                                type: 'user',
-                                            },
-                                            {
-                                                id: 'updated_at',
-                                                size: '200px',
-                                                title: 'Bearbeitet',
-                                                sortable: true,
-                                                type: 'time',
-                                            },
-                                        ]}
-                                        data={cardsData}
-                                    />
-                                </Container>
-                            </Column>
-                            {showFilterWindow && (
-                                <Column xlSpan={4}>
-                                    <Container
-                                        scrollable={false}
-                                        padding="vertical-both-horizontal-right"
-                                    >
-                                        <ContentCard
-                                            title="Filter"
-                                            icon={faFilter}
-                                            actionIcon={faClose}
-                                            onAction={() =>
-                                                setShowFilterWindow(false)
-                                            }
-                                        >
-                                            {filterOptions.map(
-                                                (option, index) => (
-                                                    <SelectFilter
-                                                        key={index}
-                                                        label={option.label}
-                                                        keyName={option.keyName}
-                                                        data={cardsData}
-                                                        onSelectedValue={(
-                                                            val
-                                                        ) =>
-                                                        handleFilterChange(val)
+                            <Button label="Filter zurücksetzen" type="link" /> */}
+                    </ButtonGroup>
+                    <Input
+                        icon={faSearch}
+                        placeholder="Karte suchen"
+                        onChange={(e) => setSearchValue(e.target.value)}
+                    />
+                </PageSubHeader>
+                <Grid>
+                    <Row>
+                        {
+                            userRole === "app_admin" ?
+                                (
+                                    <Column xlSpan={12}>
+                                        <Container scrollable={false}>
+                                            <TableView
+                                                initialSearchTerm={searchValue}
+                                                rowsPerPage={15}
+                                                columns={[
+                                                    {
+                                                        id: 'title',
+                                                        title: 'Titel',
+                                                        component: (row) => <Link to={`/${tenant}/cards/edit/${row.deck}`}><Text size="sm" type="regular">{row.title}</Text></Link>,
+                                                        sortable: true
+                                                    },
+                                                    {
+                                                        id: 'version',
+                                                        title: 'Status',
+                                                        width: "120px",
+                                                        component: (row) => {
+                                                            if (row.version === "0.0") {
+                                                                return <>
+                                                                    {
+                                                                        row.isInReview ? <Badge pill={false} status="gray" label={`Review`} />
+                                                                            :
+                                                                            row.isDraft ? <Badge pill={false} status="gray" label={`Entwurf`} /> :
+                                                                                ''
+                                                                    }
+                                                                </>
+                                                            }
+                                                            else {
+                                                                return <>
+                                                                    {
+                                                                        row.isInReview ? <Badge pill={false} status="gray" label={`${row.version} Review`} />
+                                                                            :
+                                                                            row.isReleased ? <Badge pill={false} status="success" label={row.version} />
+                                                                                :
+                                                                                row.isDraft ? <Badge pill={false} status="gray" label={`${row.version} Entwurf`} /> :
+                                                                                    ''
+                                                                    }
+                                                                </>
+                                                            }
+                                                        },
+                                                        sortable: true
+                                                    },
+                                                    {
+                                                        id: 'title',
+                                                        title: 'Erstellt von',
+                                                        width: "200px",
+                                                        component: (row) => <UserInfo username={`${row.editor.firstName} ${row.editor.lastName}`} />,
+                                                        sortable: true
+                                                    },
+                                                    {
+                                                        id: 'updated_at',
+                                                        title: 'Bearbeitet',
+                                                        width: "150px",
+                                                        component: (row) => <Moment fromNow locale="de">{row.updated_at}</Moment>,
+                                                        sortable: true
+                                                    },
+                                                    {
+                                                        id: 'title',
+                                                        title: '',
+                                                        width: "170px",
+                                                        component: (row) => {
+                                                            return (
+                                                                <>
+                                                                    <ButtonGroup>
+                                                                        <Button type="secondary" iconLeft={faEye} onClick={() => navigate(`/${tenant}/cards/view/${row.deck}`)} />
+                                                                        <Button type="secondary" iconLeft={faTrashCan} onClick={() => handleShowDeleteWindow(row.deck)} />
+                                                                        <Button type="secondary" iconLeft={faPen} onClick={() => navigate(`/${tenant}/cards/edit/${row.deck}`)} />
+                                                                    </ButtonGroup>
+                                                                </>
+                                                            )
+                                                        },
+                                                        sortable: false
+                                                    },
+                                                ]}
+                                                rows={cardList.sort((a, b) => a.updated_at < b.updated_at ? 1 : -1)}
+                                            />
+                                        </Container>
+                                    </Column>
+                                )
+                                :
+                                (
+                                    <>
+                                        <Column xlSpan={activeCard === null ? 12 : 8}>
+                                            <Container scrollable={false}>
+                                                <TableView
+                                                    initialSearchTerm={searchValue}
+                                                    onRowClick={(data) => handleSelectRow(data)}
+                                                    rowsPerPage={15}
+                                                    columns={[
+                                                        {
+                                                            id: 'title',
+                                                            title: 'Titel',
+                                                            component: (row) => <div style={{ cursor: "pointer" }}><Text size="sm" type="regular">{row.title}</Text></div>,
+                                                            sortable: true
+                                                        },
+                                                        {
+                                                            id: 'version',
+                                                            title: 'Status',
+                                                            width: "100px",
+                                                            component: (row) => <Badge pill={false} status="success" label={row.version} />,
+                                                            sortable: true
+                                                        },
+                                                        {
+                                                            id: 'title',
+                                                            title: 'Erstellt von',
+                                                            width: "200px",
+                                                            component: (row) => <UserInfo username={`${row.editor.firstName} ${row.editor.lastName}`} />,
+                                                            sortable: true
+                                                        },
+                                                        {
+                                                            id: 'updated_at',
+                                                            title: 'Bearbeitet',
+                                                            width: "200px",
+                                                            component: (row) => <Moment fromNow locale="de">{row.updated_at}</Moment>,
+                                                            sortable: true
                                                         }
-                                                    />
-                                                )
-                                            )}
-                                        </ContentCard>
-                                    </Container>
-                                </Column>
-                            )}
-                        </Row>
-                    </Grid>
-                </>
-            )}
-        </>
-    );
+                                                    ]}
+                                                    rows={cardList.sort((a, b) => a.updated_at < b.updated_at ? 1 : -1)}
+                                                />
+                                            </Container>
+                                        </Column>
+                                        {
+                                            activeCard && (
+                                                <Column xlSpan={4}>
+                                                    <Container scrollable={false} padding="vertical-both-horizontal-right">
+                                                        <ContentCard
+                                                            onAction={() => setActiveCard(null)}
+                                                            actionIcon={faClose}
+                                                            type="secondary"
+                                                            title={activeCard.title}
+                                                        >
+                                                            <div>
+                                                                <Text size="sm" type="semiBold">Erstellt von </Text><Text size="sm" type="regular">{activeCard.editor.firstName} {activeCard.editor.lastName}</Text>
+                                                            </div>
+                                                            <Divider />
+                                                            <div>
+                                                                <Text size="sm" type="semiBold">Aktualisiert </Text>
+                                                                <Text size="sm" type="regular">
+                                                                    <Moment format="DD.MM.YYYY, HH:MM">{activeCard.updated_at}</Moment> Uhr
+                                                                </Text>
+                                                            </div>
+                                                            <Divider />
+                                                            <div>
+                                                                <Text size="sm" type="semiBold">Version </Text>
+                                                                <div style={{ display: "inline-block" }}>
+                                                                    <Badge status="success" label={activeCard.version} pill={false} />
+                                                                </div>
+                                                            </div>
+                                                            <Divider />
+                                                            <div style={{ display: "flex", height: "100%", justifyContent: "flex-end", alignItems: "flex-end" }}>
+                                                                <Button
+                                                                    label="Öffnen"
+                                                                    onClick={() => navigate(`/${tenant}/cards/view/${activeCard.deck}`)}
+                                                                />
+                                                            </div>
+
+                                                        </ContentCard>
+                                                    </Container>
+                                                </Column>
+                                            )
+                                        }
+                                    </>
+                                )
+                        }
+                    </Row>
+                </Grid>
+            </>
+        );
+    }
 };

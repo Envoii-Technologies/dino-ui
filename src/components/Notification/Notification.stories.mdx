@@ -86,30 +86,28 @@ export const Template = (args) => {
 
 ## Examples
 
-		{/* 
-				   options:
+{/* 
+	options:
 
-				   type:
-				   success,
-				   warning,
-				   error
-				*/}
+	type:
+	success,
+	warning,
+	error
+*/}
 
 ### Default
 
 ...
 
-		<Canvas>
-					<Story
-							name="Default"
-							args={{
+<Story
+	name="Default"
+	args={{
 
-							}}
-						>
-							{Template.bind({})}
-							</Story>
-					</Canvas>
+}}
+>
+	{Template.bind({})}
+</Story>
 
 ## API
 
-		<ArgsTable of={Notification} />
+<ArgsTable of={Notification} />

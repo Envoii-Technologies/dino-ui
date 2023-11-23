@@ -3,13 +3,13 @@ import { Button } from './../../';
 import { MediaPreview } from './MediaPreview';
 
 export const Template = (args) => {
-	const [showPreview, setShowPreviw] = React.useState(false);
+	const [showPreview, setShowPreview] = React.useState(false);
 	const [activeIndex, setActiveIndex] = React.useState(0);
 	
 	return(
 		<div>
-			<Button label="Show Preview" onClick={() => setShowPreviw(true)} />
-			<MediaPreview { ...args } show={showPreview} onClose={() => setShowPreviw(false)} onChangeIndex={(i) => setActiveIndex(i)}/>
+			<Button label="Show Preview" onClick={() => setShowPreview(true)} />
+			<MediaPreview { ...args } show={showPreview} onClose={() => setShowPreview(false)} onChangeIndex={(i) => setActiveIndex(i)}/>
 			current index: { activeIndex }
 		</div>
 	)
@@ -31,7 +31,11 @@ export const Template = (args) => {
 	<Story
 		name="Default"
 		args={{
-			images: ["/images/test.png", "/images/testImage.jpeg"],
+			images: [
+				"https://fastly.picsum.photos/id/64/4326/2884.jpg?hmac=9_SzX666YRpR_fOyYStXpfSiJ_edO3ghlSRnH2w09Kg", 
+				"https://fastly.picsum.photos/id/65/4912/3264.jpg?hmac=uq0IxYtPIqRKinGruj45KcPPzxDjQvErcxyS1tn7bG0", 
+				"https://fastly.picsum.photos/id/27/3264/1836.jpg?hmac=p3BVIgKKQpHhfGRRCbsi2MCAzw8mWBCayBsKxxtWO8g"
+			],
 			initialIndex: 0,
 			show: false
 		}}

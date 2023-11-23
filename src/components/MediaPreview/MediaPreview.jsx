@@ -49,9 +49,9 @@ export const MediaPreview = ({ className, show, images, initialIndex, onChangeIn
 		<>
 			<div className={`MediaPreview__wrapper ${images.length === 1 ? 'single' : 'multi'}`}>
 			{
-						images.length > 1 && <div className='MediaPreview__wrapper__button--prev' onClick={() => handlePrevButton()}>
+						images.length > 1 && imageIndex > 0 ? <div className='MediaPreview__wrapper__button--prev' onClick={() => handlePrevButton()}>
 							<FontAwesomeIcon icon={faChevronLeft} />
-						</div>
+						</div> : <div className="MediaPreview__wrapper__button--placeholder"></div>
 					}
 				<div className="MediaPreview__wrapper__content">
 					<div className="MediaPreview__wrapper__close" onClick={() => handleOnClose()}>
@@ -65,9 +65,9 @@ export const MediaPreview = ({ className, show, images, initialIndex, onChangeIn
 				</div>
 
 				{
-						images.length > 1 && <div className='MediaPreview__wrapper__button--next' onClick={() => handleNextButton()}>
-							<FontAwesomeIcon icon={faChevronRight} />
-						</div>
+						images.length > 1 && imageIndex < images.length - 1 ? <div className='MediaPreview__wrapper__button--next' onClick={() => handleNextButton()}>
+							<FontAwesomeIcon icon={faChevronRight} /> 
+						</div>: <div className="MediaPreview__wrapper__button--placeholder"></div>
 					}
 			</div>
 		</>
@@ -81,7 +81,7 @@ MediaPreview.propTypes =
 	 */
 	className: PropTypes.string,
 	show: PropTypes.bool,
-	images: PropTypes.string,
+	images: PropTypes.arrayOf(PropTypes.string),
 	initialIndex: PropTypes.number,
 	onClose: PropTypes.func,
 	onChangeIndex: PropTypes.func,

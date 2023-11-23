@@ -4,6 +4,7 @@
 {
 	&__wrapper
     {
+        user-select: none;
         position: fixed;
         top: 0;
         left: 0;
@@ -29,6 +30,10 @@
         &__button--next
         {
             padding: 1rem;
+            width: 3rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
             color: $color-gray-300;
             font-size: 1.25rem;
             cursor: pointer;
@@ -38,11 +43,22 @@
                 color: $color-gray-200;
             }
         }
+
+        &__button--prev {
+            justify-content: flex-start;
+        }
+        &__button--next {
+            justify-content: flex-end;
+        }
+
+        &__button--placeholder
+        {
+            width: 3rem;
+        }
         
         &__content
         {
             background: $color-base-white;
-            border-radius: $radius-2xl;
             height: 80%;
             width: auto;
             overflow: hidden;
