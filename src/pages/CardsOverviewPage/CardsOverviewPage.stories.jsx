@@ -18,7 +18,7 @@ export default {
     },
 };
 
-const Template = (args) => {
+const Template1 = (args) => {
     const [showWindow, setShowWindow] = React.useState(false);
 
     return (
@@ -43,16 +43,54 @@ const Template = (args) => {
             >
                 <CardsOverviewPage
                     {...args}
-                    userData={mockUser}
-                    tagData={tagList}
+                    tenant="acme"
+                    cardList={mockCards}
+                    userRole={"app_admin"}
                     isLoading={false}
-                    cardsData={mockCards}
-                    tenant={"acme"}
-                    onSaveNewCard={(data) => console.log(data)}
+                    onCreateCard={() => alert('[NOT IMPLEMENTED]')}
+                    onDeleteCard={() => alert('[NOT IMPLEMENTED]')}
                 />
             </Layout>
         </>
     );
 };
 
-export const Default = Template.bind({});
+const Template2 = (args) => {
+    const [showWindow, setShowWindow] = React.useState(false);
+
+    return (
+        <>
+            <ModalInfoWindow
+                {...args}
+                icon={faInfo}
+                show={showWindow}
+                type="error"
+                onCancel={() => setShowWindow(false)}
+                onAction={() => alert('[NOT IMPLEMENTED]')}
+                title="Wollen sie sich wirklich ausloggen?"
+                body=""
+                cancelText={'Abbrechen'}
+                actionText={'Ausloggen'}
+            />
+            <Layout
+                userData={mockUser}
+                menuData={mockMenu}
+                onLogoutAction={() => setShowWindow(true)}
+                type="secondary"
+            >
+                <CardsOverviewPage
+                    {...args}
+                    tenant="acme"
+                    cardList={mockCards}
+                    isLoading={false}
+                    userRole={"app_user"}
+                    onCreateCard={() => alert('[NOT IMPLEMENTED]')}
+                    onDeleteCard={() => alert('[NOT IMPLEMENTED]')}
+                />
+            </Layout>
+        </>
+    );
+};
+
+export const AsEditor = Template1.bind({});
+export const AsUser = Template2.bind({});

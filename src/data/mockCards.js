@@ -1,14 +1,15 @@
 export default [
     {
         "_id": "654107ea763a853446c8c157",
-        "creator": {
-            "favorites": [],
-            "_id": "652eaf0cd8c9feab844fa289",
+        "editor": {
+            "_id": "6551f64a7105d1d821440ab8",
             "username": "admin",
-            "authId": "9f436102-78bc-44be-8c53-71ec2febdfca",
+            "firstName": "Admin",
+            "lastName": "User",
+            "authId": "43236acb-d6bd-43ea-89b1-43023d37dbe6",
+            "favorites": [],
             "__v": 0
         },
-        "owner": "6540afd8998864004a89acc7",
         "version": 1,
         "title": "Bambus",
         "description": "",
@@ -37,14 +38,15 @@ export default [
     },
     {
         "_id": "654107f4763a853446c8c164",
-        "creator": {
-            "favorites": [],
-            "_id": "652eaf0cd8c9feab844fa289",
+        "editor": {
+            "_id": "6551f64a7105d1d821440ab8",
             "username": "admin",
-            "authId": "9f436102-78bc-44be-8c53-71ec2febdfca",
+            "firstName": "Admin",
+            "lastName": "User",
+            "authId": "43236acb-d6bd-43ea-89b1-43023d37dbe6",
+            "favorites": [],
             "__v": 0
         },
-        "owner": "6540afd8998864004a89acc7",
         "version": 0,
         "title": "Banane",
         "description": "",
@@ -73,14 +75,15 @@ export default [
     },
     {
         "_id": "65410808763a853446c8c172",
-        "creator": {
-            "favorites": [],
-            "_id": "652eaf0cd8c9feab844fa289",
+        "editor": {
+            "_id": "6551f64a7105d1d821440ab8",
             "username": "admin",
-            "authId": "9f436102-78bc-44be-8c53-71ec2febdfca",
+            "firstName": "Admin",
+            "lastName": "User",
+            "authId": "43236acb-d6bd-43ea-89b1-43023d37dbe6",
+            "favorites": [],
             "__v": 0
         },
-        "owner": "6540afd8998864004a89acc7",
         "version": 0,
         "title": "Kiwi",
         "description": "",
@@ -109,14 +112,15 @@ export default [
     },
     {
         "_id": "6541081f763a853446c8c181",
-        "creator": {
-            "favorites": [],
-            "_id": "652eaf0cd8c9feab844fa289",
+        "editor": {
+            "_id": "6551f64a7105d1d821440ab8",
             "username": "admin",
-            "authId": "9f436102-78bc-44be-8c53-71ec2febdfca",
+            "firstName": "Admin",
+            "lastName": "User",
+            "authId": "43236acb-d6bd-43ea-89b1-43023d37dbe6",
+            "favorites": [],
             "__v": 0
         },
-        "owner": "6540afd8998864004a89acc7",
         "version": 1.2,
         "title": "Kirsche",
         "description": "",

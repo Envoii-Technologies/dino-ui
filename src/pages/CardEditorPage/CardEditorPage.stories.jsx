@@ -47,7 +47,7 @@ const Template = (args) => {
                     uploadParameters={{ url: "localhost/api/tenant/acme/cards/media/"}}
                     cardData={mockCards[0]}
                     currentTab={0}
-                    tenant="wkw"
+                    tenant="acme"
                     isLoading={false}
                     tagData={tagList}
                     onSave={(data) => {console.log(data); alert("[NOT IMPLEMENTED]"); }}
