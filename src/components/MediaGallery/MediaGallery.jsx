@@ -4,8 +4,8 @@ import {MediaBox, MediaPreview } from './../../index';
 
 import './MediaGallery.scss';
 
-export const MediaGallery = ({ className, images, ...props }) => {
-	const [selectedImage, setSelectedImage] = useState(0);
+export const MediaGallery = ({ className, images, initialIndex, ...props }) => {
+	const [selectedImage, setSelectedImage] = useState(initialIndex);
 	const [showPreview, setShowPreview] = React.useState(false);
 	const [imageOrientation, setImageOrientation] = useState('landscape');
 
@@ -42,7 +42,7 @@ export const MediaGallery = ({ className, images, ...props }) => {
 				{images.map((image, i) => (
 					<MediaBox
 						key={i}
-						size="sm"
+						size="md"
 						className={`MediaGallery__thumbnail ${images[selectedImage] === image ? 'active' : ''}`}
 						image={image}
 						onClick={() => handleImageSelect(i)}
