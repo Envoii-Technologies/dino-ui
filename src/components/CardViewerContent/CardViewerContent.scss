@@ -1,0 +1,39 @@
+@use '../../global-styles/' as *;
+
+.CardViewerContent {
+    height: 100%;
+
+    &__wrapper {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        @media only screen and (min-width: $breakpoint-medium) {
+            flex-direction: row;
+        }
+
+        &--left,
+        &--right {
+            height: 100%;
+        }
+
+        &--left {
+            background: yellow;
+            overflow-y: auto;
+            flex-basis: 50%;
+
+            @media only screen and (min-width: $breakpoint-medium) {
+                flex: 0 0 40%;
+            }
+        }
+
+        &--right {
+            background: green;
+            flex-basis: 50%;
+
+            @media only screen and (min-width: $breakpoint-medium) {
+                flex: 0 0 60%;
+            }
+        }
+    }
+}

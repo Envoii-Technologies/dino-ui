@@ -62,3 +62,4 @@ export { TextNotification } from './components/Notification/Notifications/TextNo
 
 export { NotificationProvider, useNotifications } from './components/Notification/NotificationContext.jsx'
 export { MediaGallery } from './components/MediaGallery/index.js';
+export { CardViewerContent } from './components/CardViewerContent/index.js';
