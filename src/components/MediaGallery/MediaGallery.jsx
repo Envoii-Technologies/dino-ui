@@ -38,7 +38,9 @@ export const MediaGallery = ({ className, images, initialIndex, ...props }) => {
 					onClick={() => setShowPreview(true)}
 				/>
 			</div>
-			<div className="MediaGallery__thumbnails">
+			{
+				images.length > 1 && 
+				(<div className="MediaGallery__thumbnails">
 				{images.map((image, i) => (
 					<MediaBox
 						key={i}
@@ -48,7 +50,10 @@ export const MediaGallery = ({ className, images, initialIndex, ...props }) => {
 						onClick={() => handleImageSelect(i)}
 					/>
 				))}
-			</div>
+				</div>)
+			}
+
+			
 		</div>
 		</>
 	);

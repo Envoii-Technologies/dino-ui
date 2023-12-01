@@ -1,38 +1,97 @@
 @use '../../global-styles/' as *;
 
 .CardViewerContent {
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 99.8%;
+    padding: 0 1rem;
 
-    &__wrapper {
-        height: 100%;
+    &__header {
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2.25rem;
+        min-height: 3.75rem;
+        margin-bottom: 3rem;
+        box-sizing: border-box;
+    }
 
-        @media only screen and (min-width: $breakpoint-medium) {
-            flex-direction: row;
-        }
+    &__footer {
+        max-height: 5rem;
+        box-sizing: border-box;
 
-        &--left,
-        &--right {
+        &__menu--mobile,
+        &__menu--desktop
+        {
             height: 100%;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 1rem 0;
+
+            &__progress
+            {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+
+                &__bar
+                {
+                    display: none;
+                }
+            }
         }
+        
+        &__menu--mobile
+        {
+            display: flex;
 
-        &--left {
-            background: yellow;
-            overflow-y: auto;
-            flex-basis: 50%;
-
-            @media only screen and (min-width: $breakpoint-medium) {
-                flex: 0 0 40%;
+            @media (min-width: $breakpoint-medium) {
+                display: none;
             }
         }
 
-        &--right {
-            background: green;
-            flex-basis: 50%;
+        &__menu--desktop
+        {
+            display: none;
 
-            @media only screen and (min-width: $breakpoint-medium) {
-                flex: 0 0 60%;
+            @media (min-width: $breakpoint-medium) {
+                display: flex;
+            }
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-grow: 1;
+        overflow: hidden;
+        flex-direction: column;
+
+        &--left,
+        &--right {
+            flex-basis: 50%;
+            height: calc(50% - 3rem);
+            overflow-y: auto;
+        }
+
+        &--right {
+            overflow-y: hidden;
+            padding-bottom: 1rem;
+        }
+
+        @media  (min-width: $breakpoint-medium) {
+            flex-direction: row;
+
+            &--left {
+                flex-basis: 40%;
+                overflow-y: auto;
+                height: 100%;
+            }
+
+            &--right {
+                flex-basis: 60%;
+                overflow-y: hidden;
+                height: 100%;
             }
         }
     }
