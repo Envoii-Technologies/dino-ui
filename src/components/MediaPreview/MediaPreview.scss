@@ -1,9 +1,7 @@
 @use '../../global-styles/' as *;
 
-.MediaPreview
-{
-	&__wrapper
-    {
+.MediaPreview {
+    &__wrapper {
         user-select: none;
         position: fixed;
         top: 0;
@@ -14,21 +12,19 @@
         align-items: center;
         z-index: 50000;
 
-        &.single
-        {
+        &.single {
             justify-content: center;
         }
 
-        &.multi
-        {
+        &.multi {
             justify-content: space-between;
         }
 
         @include Background-blur-md-dark;
 
         &__button--prev,
-        &__button--next
-        {
+        &__button--next,
+        &__button--placeholder {
             padding: 1rem;
             width: 3rem;
             height: 100%;
@@ -36,10 +32,8 @@
             align-items: center;
             color: $color-gray-300;
             font-size: 1.25rem;
-            cursor: pointer;
 
-            &:hover
-            {
+            &:hover {
                 color: $color-gray-200;
             }
         }
@@ -47,30 +41,42 @@
         &__button--prev {
             justify-content: flex-start;
         }
+        
         &__button--next {
             justify-content: flex-end;
-        }
+            width: 9.5rem;
 
-        &__button--placeholder
-        {
-            width: 3rem;
-        }
-        
-        &__content
-        {
-            background: $color-base-white;
-            height: 80%;
-            width: auto;
-            overflow: hidden;
-
-            img
-            {
-                height: 100%;
+            @media (min-width: $breakpoint-medium) {
+                width: 4rem;
             }
         }
 
-        &__close
-        {
+        &__button--placeholder {
+            width: 5rem;
+
+            cursor: default;
+        }
+
+        &__content {
+            background: transparent;
+            height: 80%;
+            width: auto;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 100%;
+
+                @media (min-width: $breakpoint-medium) {
+                    height: 100%;
+                    width: auto;
+                }
+            }
+        }
+
+        &__close {
             position: absolute;
             top: 0;
             right: 0;
@@ -79,8 +85,7 @@
             font-size: 1.25rem;
             cursor: pointer;
 
-            &:hover
-            {
+            &:hover {
                 color: $color-gray-200;
             }
         }

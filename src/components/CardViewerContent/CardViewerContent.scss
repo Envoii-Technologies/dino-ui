@@ -1,0 +1,128 @@
+@use '../../global-styles/' as *;
+
+.CardViewerContent {
+    display: flex;
+    flex-direction: column;
+    height: 99.8%;
+    padding: 0 1rem;
+
+    &__header--desktop {
+        display: none;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2.25rem;
+        min-height: 3.75rem;
+        margin-bottom: 3rem;
+        box-sizing: border-box;
+
+        @media (min-width: $breakpoint-medium) {
+            display: flex;
+        }
+    }
+
+    &__header--mobile {
+        height: 4.75rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        // display: flex;
+        // justify-content: space-between;
+        // align-items: center;
+        // margin-top: 2.25rem;
+        // min-height: 3.75rem;
+        // margin-bottom: 3rem;
+        // box-sizing: border-box;
+
+        &__backlink
+        {
+            cursor: pointer;
+        }
+
+        @media (min-width: $breakpoint-medium) {
+            display: none;
+        }
+    }
+
+    &__footer {
+        max-height: 5rem;
+        box-sizing: border-box;
+
+        &__menu--mobile,
+        &__menu--desktop
+        {
+            height: 100%;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 1rem 0;
+
+            &__progress
+            {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+
+                &__bar
+                {
+                    display: none;
+                }
+            }
+        }
+        
+        &__menu--mobile
+        {
+            display: flex;
+
+            @media (min-width: $breakpoint-medium) {
+                display: none;
+            }
+        }
+
+        &__menu--desktop
+        {
+            display: none;
+
+            @media (min-width: $breakpoint-medium) {
+                display: flex;
+            }
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-grow: 1;
+        overflow: hidden;
+        flex-direction: column;
+
+        &--left,
+        &--right {
+            flex-basis: 50%;
+            height: calc(50% - 3rem);
+            overflow-y: auto;
+        }
+
+        &--right {
+            overflow-y: hidden;
+            padding-bottom: 1rem;
+        }
+
+        @media  (min-width: $breakpoint-medium) {
+            flex-direction: row;
+
+            &--left {
+                flex-basis: 40%;
+                overflow-y: auto;
+                height: 100%;
+            }
+
+            &--right {
+                flex-basis: 60%;
+                overflow-y: hidden;
+                height: 100%;
+            }
+        }
+    }
+}
