@@ -65,11 +65,13 @@ MediaGallery.propTypes =
 	 * Custom class name of Component
 	 */
 	className: PropTypes.string,
+	initialIndex: PropTypes.number,
 	images: PropTypes.arrayOf(PropTypes.string),
 };
 
 MediaGallery.defaultProps =
 {
 	className: undefined,
+	initialIndex: 0,
 	images: []
 };

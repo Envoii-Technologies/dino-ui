@@ -6,6 +6,7 @@ import { LoadingIndicator, Divider, Button, ProgressBar, Text, Heading, MediaGal
 import './CardViewerContent.scss';
 import { useTranslation } from 'react-i18next';
 import { faChevronLeft, faChevronRight, faClose } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const CardViewerContent = ({ className, ...props }) => {
 	const [isLoading, setIsLoading] = useState(false);
@@ -17,7 +18,7 @@ export const CardViewerContent = ({ className, ...props }) => {
 	} else {
 		return (
 			<div className="CardViewerContent">
-				<div className="CardViewerContent__header">
+				<div className="CardViewerContent__header--desktop">
 					<Heading size="lg" type="semiBold">Beispielkarte</Heading>
 					<Button
 						size="md"
@@ -25,30 +26,39 @@ export const CardViewerContent = ({ className, ...props }) => {
 						iconLeft={faClose}
 					/>
 				</div>
+				<div className="CardViewerContent__header--mobile">
+					<span 
+						className='CardViewerContent__header--mobile__backlink'
+						onClick={() => alert("[NOT IMPLEMENTED]")}
+					>
+						<FontAwesomeIcon icon={faChevronLeft} />&nbsp;<Text size="sm" type="semiBold">Zurück</Text>
+					</span>
+					<Heading size="xs" type="semiBold">Beispielkarte</Heading>
+				</div>
 				<div className="CardViewerContent__content">
 					<div className="CardViewerContent__content--left">
-					<div style={{ paddingBottom: "4px" }}>
-                                        <Text size="sm" type="semiBold">{t('CardViewer.step')} 1</Text>
-                                    </div>
-                                    <div style={{ paddingBottom: "8px" }}>
-                                        {/* <Heading size="xs" type="regular">{currentStep.name}</Heading> */}
-										<Heading size="xs" type="regular">Dingsda dingensen</Heading>
-                                    </div>
-                                    <div>
-                                        <Text size="md" type="regular">
-                                            {/* <div dangerouslySetInnerHTML={{ __html: currentStep.description }} /> */}
-											Hello World!
-                                        </Text>
-                                    </div>
+						<div style={{ paddingBottom: "4px" }}>
+							<Text size="sm" type="semiBold">{t('CardViewer.step')} 1</Text>
+						</div>
+						<div style={{ paddingBottom: "8px" }}>
+							{/* <Heading size="xs" type="regular">{currentStep.name}</Heading> */}
+							<Heading size="xs" type="regular">Dingsda dingensen</Heading>
+						</div>
+						<div>
+							<Text size="md" type="regular">
+								{/* <div dangerouslySetInnerHTML={{ __html: currentStep.description }} /> */}
+								Hello World!
+							</Text>
+						</div>
 					</div>
 					<div className="CardViewerContent__content--right">
 						<MediaGallery
 							initialIndex={0}
 							images={[
 								"https://fastly.picsum.photos/id/64/4326/2884.jpg?hmac=9_SzX666YRpR_fOyYStXpfSiJ_edO3ghlSRnH2w09Kg",
-								"https://fastly.picsum.photos/id/65/4912/3264.jpg?hmac=uq0IxYtPIqRKinGruj45KcPPzxDjQvErcxyS1tn7bG0",
-								"https://fastly.picsum.photos/id/22/4434/3729.jpg?hmac=fjZdkSMZJNFgsoDh8Qo5zdA_nSGUAWvKLyyqmEt2xs0",
-								"https://fastly.picsum.photos/id/27/3264/1836.jpg?hmac=p3BVIgKKQpHhfGRRCbsi2MCAzw8mWBCayBsKxxtWO8g"
+								// "https://fastly.picsum.photos/id/65/4912/3264.jpg?hmac=uq0IxYtPIqRKinGruj45KcPPzxDjQvErcxyS1tn7bG0",
+								// "https://fastly.picsum.photos/id/22/4434/3729.jpg?hmac=fjZdkSMZJNFgsoDh8Qo5zdA_nSGUAWvKLyyqmEt2xs0",
+								// "https://fastly.picsum.photos/id/27/3264/1836.jpg?hmac=p3BVIgKKQpHhfGRRCbsi2MCAzw8mWBCayBsKxxtWO8g"
 							]}
 						/>
 					</div>
