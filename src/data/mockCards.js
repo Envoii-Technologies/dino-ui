@@ -19,8 +19,21 @@ export default [
         "tags": [],
         "steps": [
             {
-                "name": "Neuer Schritt",
+                "name": "Neuer Schritt 1",
                 "pos": 0,
+                "type": "instruction",
+                "description": '<p>ABC DEF G</p>',
+                "media": [
+
+                ],
+                "_id": "654107ea763a853446c8c158",
+                "created_at": "2023-10-31T13:58:02.777Z",
+                "updated_at": "2023-10-31T13:58:02.777Z"
+            },
+            {
+                "name": "Neuer Schritt 2",
+                "description": '<p>Hello World!</p>',
+                "pos": 2,
                 "type": "instruction",
                 "media": [],
                 "_id": "654107ea763a853446c8c158",
