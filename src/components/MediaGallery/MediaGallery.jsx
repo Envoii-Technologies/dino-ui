@@ -1,20 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { Document, Page } from 'react-pdf';
 import {MediaBox, MediaPreview } from './../../index';
 
 import './MediaGallery.scss';
 
-export const MediaGallery = ({ className, images, initialIndex, ...props }) => {
+export const MediaGallery = ({ className, media, initialIndex, ...props }) => {
 	const [selectedImage, setSelectedImage] = useState(initialIndex);
 	const [showPreview, setShowPreview] = React.useState(false);
 	const [imageOrientation, setImageOrientation] = useState('landscape');
+
+	useEffect(() => {
+		setSelectedImage(0);
+	}, [media]);
 
 	useEffect(() => {
 		const img = new Image();
 		img.onload = () => {
 			setImageOrientation(img.width > img.height ? 'landscape' : 'portrait');
 		};
-		img.src = images[selectedImage];
+		img.src = media[selectedImage];
 	}, [selectedImage]);
 
 	const handleImageSelect = (i) => {
@@ -27,26 +32,35 @@ export const MediaGallery = ({ className, images, initialIndex, ...props }) => {
 			show={showPreview}
 			onChangeIndex={(i) => handleImageSelect(i)}
 			initialIndex={selectedImage}
-			images={images}
+			media={media}
 			onClose={() => setShowPreview(false)}
 		/>
 		<div className="MediaGallery">
 			<div className="MediaGallery__main">
-				<img
-					src={images[selectedImage]}
-					className={imageOrientation}
-					onClick={() => setShowPreview(true)}
-				/>
+				{
+					media[selectedImage]?.contentType.includes("image") &&
+					<img
+						src={media[selectedImage]?.filePath}
+						className={imageOrientation}
+						onClick={() => setShowPreview(true)}
+					/>
+				}
+				{/* {
+					media[selectedImage]?.contentType.includes("pdf") &&
+					
+				} */}
+				
 			</div>
 			{
-				images.length > 1 && 
+				media.length > 1 && 
 				(<div className="MediaGallery__thumbnails">
-				{images.map((image, i) => (
+				{media.map((image, i) => (
 					<MediaBox
 						key={i}
 						size="md"
-						className={`MediaGallery__thumbnail ${images[selectedImage] === image ? 'active' : ''}`}
-						image={image}
+						className={`MediaGallery__thumbnail ${media[selectedImage] === image ? 'active' : ''}`}
+						image={image?.filePath}
+						type={image?.contentType}
 						onClick={() => handleImageSelect(i)}
 					/>
 				))}
@@ -66,12 +80,12 @@ MediaGallery.propTypes =
 	 */
 	className: PropTypes.string,
 	initialIndex: PropTypes.number,
-	images: PropTypes.arrayOf(PropTypes.string),
+	media: PropTypes.arrayOf(PropTypes.string),
 };
 
 MediaGallery.defaultProps =
 {
 	className: undefined,
 	initialIndex: 0,
-	images: []
+	media: []
 };

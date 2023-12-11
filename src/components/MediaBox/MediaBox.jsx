@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { faPenFancy, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faFile, faFilePdf, faFileText, faFileVideo, faPenFancy, faTrash, faVideo } from '@fortawesome/free-solid-svg-icons';
 import { OverflowMenu, ProgressBar } from './../../';
 
 import './MediaBox.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export const MediaBox = ({ className, id, image, size, progress, onEdit, onDelete, showMenu, error, success, ...props }) => {
+export const MediaBox = ({ className, id, image, size, progress, onEdit, onDelete, showMenu, error, success, type, ...props }) => {
 
 	const handleOnEdit = () => {
 		onEdit(id)
@@ -14,6 +15,34 @@ export const MediaBox = ({ className, id, image, size, progress, onEdit, onDelet
 
 	const handleOnDelete = () => {
 		onDelete(id)
+	}
+
+	const handleFileType = (type) => {
+		let output = "";
+		switch (type) {
+			case "application/pdf":
+				output = "pdf"
+				break;
+			case "image/bmp":
+			case "image/gif":
+			case "image/jpeg":
+			case "image/png":
+			case "image/svg+xml":
+				output = "image";
+				break;
+			case "text/csv":
+			case "text/markdown":
+				output = "text";
+				break;
+			case "video/mpeg":
+			case "video/mp4":
+			case "video/ogg":
+			case "video/quicktime":
+				output = "video";
+				break;
+		}
+
+		return output;
 	}
 
 	return (
@@ -68,7 +97,17 @@ export const MediaBox = ({ className, id, image, size, progress, onEdit, onDelet
 				<div
 					className='MediaBox__wrapper__file'
 					style={{ backgroundImage: `url(${image})` }}
-				/>
+				>
+					{
+						handleFileType(type) === "video" && <FontAwesomeIcon className='MediaBox__wrapper__file__icon' icon={faFileVideo}/>
+					}
+					{
+						handleFileType(type) === "pdf" && <FontAwesomeIcon className='MediaBox__wrapper__file__icon' icon={faFilePdf}/>
+					}
+					{
+						handleFileType(type) === "text" && <FontAwesomeIcon className='MediaBox__wrapper__file__icon' icon={faFileText}/>
+					}
+				</div>
 			</div>
 		</div>
 	)
@@ -95,6 +134,20 @@ MediaBox.propTypes = {
 	 * Size of the MediaBox component. Accepts "sm" (small), "md" (medium), or "lg" (large).
 	 */
 	size: PropTypes.oneOf(["sm", "md", "lg"]),
+	type: PropTypes.oneOf([
+		"application/pdf",
+		"image/bmp",
+		"image/gif",
+		"image/jpeg",
+		"image/png",
+		"image/svg+xml",
+		"text/csv",
+		"text/markdown",
+		"video/mpeg",
+		"video/mp4",
+		"video/ogg",
+		"video/quicktime",
+	]),
 
 	/**
 	 * Progress value (0-100) indicating the progress status of a task or upload associated 
@@ -140,5 +193,6 @@ MediaBox.defaultProps =
 	progress: 0,
 	error: false,
 	success: true,
-	id: undefined
+	id: undefined,
+	type: "image/png",
 };
