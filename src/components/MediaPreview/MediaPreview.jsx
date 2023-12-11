@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from './../../';
 import { faChevronLeft, faChevronRight, faClose } from '@fortawesome/free-solid-svg-icons';
 
-export const MediaPreview = ({ className, show, media, initialIndex, onChangeIndex, onClose, ...props }) => {
+export const MediaPreview = ({ className, show, media, initialIndex, onChangeIndex, onClose, mediaUrl, ...props }) => {
 	const [isVisible, setIsVisible] = useState(false);
 	const [imageIndex, setImageIndex ] = useState(initialIndex);
 
@@ -59,7 +59,7 @@ export const MediaPreview = ({ className, show, media, initialIndex, onChangeInd
 					</div>
 					
 					{
-						media && <img src={media[imageIndex]?.filePath} alt="" className="MediaPreview__image" />
+						media && <img src={`${mediaUrl}/${media[imageIndex]?.filename}`} alt="" className="MediaPreview__image" />
 					}
 					
 				</div>

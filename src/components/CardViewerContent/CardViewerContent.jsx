@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { CardViewerHeader } from './CardViewerHeader';
 import { CardViewerFooter} from './CardViewerFooter';
 
-export const CardViewerContent = ({ className, cardData, onClose, ...props }) => {
+export const CardViewerContent = ({ className, cardData, onClose, mediaUrl, ...props }) => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [currentStep, setCurrentStep] = useState(0);
 	const [stepData, setStepData] = useState(undefined);
@@ -59,6 +59,7 @@ export const CardViewerContent = ({ className, cardData, onClose, ...props }) =>
 						{
 							stepData.media.length > 0 && (
 								<MediaGallery
+									mediaUrl={mediaUrl}
 									media={stepData.media}
 								/>
 							)
@@ -84,10 +85,12 @@ CardViewerContent.propTypes =
 	 */
 	className: PropTypes.string,
 	onClose: PropTypes.func,
+	mediaUrl: PropTypes.string,
 };
 
 CardViewerContent.defaultProps =
 {
 	className: undefined,
 	onClose: undefined,
+	mediaUrl: undefined,
 };
