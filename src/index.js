@@ -58,8 +58,8 @@ export { ImageEditor } from './components/ImageEditor/index.js';
 export { MediaPreview } from './components/MediaPreview/index.js';
 export { MediaBox } from './components/MediaBox/index.js';
 export { Notification } from './components/Notification/index.js';
+export { MediaGallery } from './components/MediaGallery/index.js';
+export { CardViewerContent } from './components/CardViewerContent/index.js';
 export { TextNotification } from './components/Notification/Notifications/TextNotification.jsx';
 
 export { NotificationProvider, useNotifications } from './components/Notification/NotificationContext.jsx'
-export { MediaGallery } from './components/MediaGallery/index.js';
-export { CardViewerContent } from './components/CardViewerContent/index.js';
