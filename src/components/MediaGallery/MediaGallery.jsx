@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Document, Page } from 'react-pdf';
 import {MediaBox, MediaPreview } from './../../index';
 
 import './MediaGallery.scss';
