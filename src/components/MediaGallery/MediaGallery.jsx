@@ -4,7 +4,7 @@ import {MediaBox, MediaPreview } from './../../index';
 
 import './MediaGallery.scss';
 
-export const MediaGallery = ({ className, media, initialIndex, ...props }) => {
+export const MediaGallery = ({ className, media, initialIndex, mediaUrl, ...props }) => {
 	const [selectedImage, setSelectedImage] = useState(initialIndex);
 	const [showPreview, setShowPreview] = React.useState(false);
 	const [imageOrientation, setImageOrientation] = useState('landscape');
@@ -31,6 +31,7 @@ export const MediaGallery = ({ className, media, initialIndex, ...props }) => {
 			show={showPreview}
 			onChangeIndex={(i) => handleImageSelect(i)}
 			initialIndex={selectedImage}
+			mediaUrl={mediaUrl}
 			media={media}
 			onClose={() => setShowPreview(false)}
 		/>
@@ -39,16 +40,12 @@ export const MediaGallery = ({ className, media, initialIndex, ...props }) => {
 				{
 					media[selectedImage]?.contentType.includes("image") &&
 					<img
-						src={media[selectedImage]?.filePath}
+						src={`${mediaUrl}/${media[selectedImage]?.filename}`}
+						
 						className={imageOrientation}
 						onClick={() => setShowPreview(true)}
 					/>
-				}
-				{/* {
-					media[selectedImage]?.contentType.includes("pdf") &&
-					
-				} */}
-				
+				}				
 			</div>
 			{
 				media.length > 1 && 
@@ -58,7 +55,7 @@ export const MediaGallery = ({ className, media, initialIndex, ...props }) => {
 						key={i}
 						size="md"
 						className={`MediaGallery__thumbnail ${media[selectedImage] === image ? 'active' : ''}`}
-						image={image?.filePath}
+						image={`${mediaUrl}/${image.filename}`}
 						type={image?.contentType}
 						onClick={() => handleImageSelect(i)}
 					/>
