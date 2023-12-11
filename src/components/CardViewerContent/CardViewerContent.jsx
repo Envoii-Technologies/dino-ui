@@ -39,6 +39,7 @@ export const CardViewerContent = ({ className, cardData, onClose, ...props }) =>
 			<div className={`CardViewerContent ${className || ""}`}>
 				<CardViewerHeader
 					onClose={handleOnClose}
+					title={cardData.title}
 				/>
 				<div className="CardViewerContent__content">
 					<div className="CardViewerContent__content--left">
