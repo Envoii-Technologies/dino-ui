@@ -23,6 +23,7 @@ export const CardViewerContent = ({ className, cardData, onClose, ...props }) =>
 	
 	useEffect(() => {
 		setStepData(cardData?.steps[currentStep]);
+
 	}, [currentStep])
 
 	const { t } = useTranslation();
@@ -57,8 +58,7 @@ export const CardViewerContent = ({ className, cardData, onClose, ...props }) =>
 						{
 							stepData.media.length > 0 && (
 								<MediaGallery
-									initialIndex={0}
-									images={stepData.media}
+									media={stepData.media}
 								/>
 							)
 						}
@@ -82,9 +82,11 @@ CardViewerContent.propTypes =
 	 * Custom class name of Component
 	 */
 	className: PropTypes.string,
+	onClose: PropTypes.func,
 };
 
 CardViewerContent.defaultProps =
 {
 	className: undefined,
+	onClose: undefined,
 };

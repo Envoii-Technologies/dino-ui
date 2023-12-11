@@ -73,6 +73,15 @@
             background-size: cover;     // Ensures the image covers the area
             background-position: center; // Centers the image
             background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &__icon
+            {
+                font-size: 2.5em;
+                color: $color-gray-500;
+            }
         }
     }
 }

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from './../../';
 import { faChevronLeft, faChevronRight, faClose } from '@fortawesome/free-solid-svg-icons';
 
-export const MediaPreview = ({ className, show, images, initialIndex, onChangeIndex, onClose, ...props }) => {
+export const MediaPreview = ({ className, show, media, initialIndex, onChangeIndex, onClose, ...props }) => {
 	const [isVisible, setIsVisible] = useState(false);
 	const [imageIndex, setImageIndex ] = useState(initialIndex);
 
@@ -32,7 +32,7 @@ export const MediaPreview = ({ className, show, images, initialIndex, onChangeIn
 	}
 
 	const handleNextButton = () => {
-		if(imageIndex < images.length - 1)
+		if(imageIndex < media.length - 1)
 		{
 			const newIndex = imageIndex + 1
 			setImageIndex(newIndex);
@@ -47,9 +47,9 @@ export const MediaPreview = ({ className, show, images, initialIndex, onChangeIn
 
 	return (
 		<>
-			<div className={`MediaPreview__wrapper ${images.length === 1 ? 'single' : 'multi'}`}>
+			<div className={`MediaPreview__wrapper ${media.length === 1 ? 'single' : 'multi'}`}>
 			{
-						images.length > 1 && imageIndex > 0 ? <div className='MediaPreview__wrapper__button--prev' onClick={() => handlePrevButton()}>
+						media.length > 1 && imageIndex > 0 ? <div className='MediaPreview__wrapper__button--prev' onClick={() => handlePrevButton()}>
 							<FontAwesomeIcon icon={faChevronLeft} />
 						</div> : <div className="MediaPreview__wrapper__button--placeholder"></div>
 					}
@@ -59,13 +59,13 @@ export const MediaPreview = ({ className, show, images, initialIndex, onChangeIn
 					</div>
 					
 					{
-						images && <img src={images[imageIndex]} alt="" className="MediaPreview__image" />
+						media && <img src={media[imageIndex]?.filePath} alt="" className="MediaPreview__image" />
 					}
 					
 				</div>
 
 				{
-						images.length > 1 && imageIndex < images.length - 1 ? <div className='MediaPreview__wrapper__button--next' onClick={() => handleNextButton()}>
+						media.length > 1 && imageIndex < media.length - 1 ? <div className='MediaPreview__wrapper__button--next' onClick={() => handleNextButton()}>
 							<FontAwesomeIcon icon={faChevronRight} /> 
 						</div>: <div className="MediaPreview__wrapper__button--placeholder"></div>
 					}
@@ -81,7 +81,7 @@ MediaPreview.propTypes =
 	 */
 	className: PropTypes.string,
 	show: PropTypes.bool,
-	images: PropTypes.arrayOf(PropTypes.string),
+	media: PropTypes.arrayOf(PropTypes.string),
 	initialIndex: PropTypes.number,
 	onClose: PropTypes.func,
 	onChangeIndex: PropTypes.func,
@@ -91,7 +91,7 @@ MediaPreview.defaultProps =
 {
 	className: undefined,
 	show: false,
-	images: undefined,
+	media: undefined,
 	initialIndex: 0,
 	onClose: undefined,
 	onChangeIndex: undefined

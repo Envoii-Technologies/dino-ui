@@ -24,7 +24,27 @@ export default [
                 "type": "instruction",
                 "description": '<p>ABC DEF G</p>',
                 "media": [
-
+                    {
+                        "contentType": "image/jpeg",
+                        "createdAt": "2023-12-08T09:20:08.857Z",
+                        "updatedAt": "2023-12-08T09:20:08.857Z",
+                        "filePath": "https://fastly.picsum.photos/id/64/4326/2884.jpg?hmac=9_SzX666YRpR_fOyYStXpfSiJ_edO3ghlSRnH2w09Kg",
+                        "filename": "test-1.png"
+                    },
+                    {
+                        "contentType": "image/jpeg",
+                        "createdAt": "2023-12-08T09:20:08.857Z",
+                        "updatedAt": "2023-12-08T09:20:08.857Z",
+                        "filePath": "https://fastly.picsum.photos/id/65/4912/3264.jpg?hmac=uq0IxYtPIqRKinGruj45KcPPzxDjQvErcxyS1tn7bG0",
+                        "filename": "test-2.png"
+                    },
+                    {
+                        "contentType": "image/jpeg",
+                        "createdAt": "2023-12-08T09:20:08.857Z",
+                        "updatedAt": "2023-12-08T09:20:08.857Z",
+                        "filePath": "https://fastly.picsum.photos/id/22/4434/3729.jpg?hmac=fjZdkSMZJNFgsoDh8Qo5zdA_nSGUAWvKLyyqmEt2xs0",
+                        "filename": "test-3.png"
+                    }
                 ],
                 "_id": "654107ea763a853446c8c158",
                 "created_at": "2023-10-31T13:58:02.777Z",
@@ -35,7 +55,22 @@ export default [
                 "description": '<p>Hello World!</p>',
                 "pos": 2,
                 "type": "instruction",
-                "media": [],
+                "media": [
+                    {
+                        "contentType": "image/jpeg",
+                        "createdAt": "2023-12-08T09:20:08.857Z",
+                        "updatedAt": "2023-12-08T09:20:08.857Z",
+                        "filePath": "https://fastly.picsum.photos/id/27/3264/1836.jpg?hmac=p3BVIgKKQpHhfGRRCbsi2MCAzw8mWBCayBsKxxtWO8g",
+                        "filename": "test-2-1.png"
+                    },
+                    {
+                        "contentType": "application/pdf",
+                        "createdAt": "2023-12-08T09:20:08.857Z",
+                        "updatedAt": "2023-12-08T09:20:08.857Z",
+                        "filePath": "https://www.orimi.com/pdf-test.pdf",
+                        "filename": "test-2.pdf"
+                    }
+                ],
                 "_id": "654107ea763a853446c8c158",
                 "created_at": "2023-10-31T13:58:02.777Z",
                 "updated_at": "2023-10-31T13:58:02.777Z"
