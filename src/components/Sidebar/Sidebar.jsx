@@ -2,10 +2,6 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import {
-    faHouse,
-    faLayerGroup,
-    faLifeRing,
-    faGear,
     faArrowRight,
     faClose,
 } from '@fortawesome/free-solid-svg-icons';
@@ -104,6 +100,7 @@ export const Sidebar = ({
                                         isExpanded={isExpanded}
                                         label={item.label}
                                         icon={item.icon}
+                                        handleOnClick={() => handleMobileClose()}
                                         to={item.target}
                                         end={item.end}
                                     />
@@ -125,6 +122,7 @@ export const Sidebar = ({
                                         isExpanded={isExpanded}
                                         label={item.label}
                                         icon={item.icon}
+                                        handleOnClick={() => handleMobileClose()}
                                         to={item.target}
                                         end={item.end}
                                         external={item.external}

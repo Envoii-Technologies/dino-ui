@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import logoFullLight from './../../assets/logos/Logo_Full-light.svg';
+import logoIconLight from './../../assets/logos/Logo_Icon-light.png';
+
 import { Button } from './../../';
 
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -18,7 +19,7 @@ export const MobilePageHeader = ({ className, onOpenMenu, ...props }) =>
 	return (
 		<div className={`MobilePageHeader ${ className !== undefined ? className : "" }`}>
 			<img
-                src={logoFullLight}
+                src={logoIconLight}
                 className="MobilePageHeader__brand"
             />
 			<Button size="sm" iconLeft={faBars} onClick={openMenuHandler}/>
