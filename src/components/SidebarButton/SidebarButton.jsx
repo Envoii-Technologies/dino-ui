@@ -14,6 +14,7 @@ export const SidebarButton = ({
     isActive,
     end,
     to,
+    handleOnClick,
     external,
     ...props
 }) => {
@@ -25,6 +26,7 @@ export const SidebarButton = ({
                 ${isExpanded ? 'expanded' : 'collapsed'}`}
                 to={to}
                 end={end}
+                onClick={handleOnClick}
             >
                 <div className="SidebarButton__content">
                     <FontAwesomeIcon
