@@ -96,7 +96,7 @@ export const MediaBox = ({ className, id, image, size, progress, onEdit, onDelet
 				}
 				<div
 					className='MediaBox__wrapper__file'
-					style={{ backgroundImage: `url(${image})` }}
+					style={{ backgroundImage: `url(${image.replace(/\s+/g, '%20')})` }}
 				>
 					{
 						handleFileType(type) === "video" && <FontAwesomeIcon className='MediaBox__wrapper__file__icon' icon={faFileVideo}/>
