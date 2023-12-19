@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Icon.scss';
 
-  export const Icon = ({ name, width, height, color, outline, ...props }) => {
+  export const Icon = ({ className, name, width, height, color, outline, ...props }) => {
   let IconComponent = null;
 
   try {
@@ -18,7 +18,7 @@ import './Icon.scss';
 
   return (
     <div>
-        <IconComponent width={width} height={height} color={color} outline={outline} {...props} />
+        <IconComponent className={`Icon ${className || ''}`} width={width} height={height} color={color} outline={outline} {...props} />
     </div>
   );
 };

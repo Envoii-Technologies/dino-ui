@@ -5,7 +5,7 @@ import './LockView.scss';
 export const LockView = ({ className, ...props }) =>
 {
 	return (
-		<div className={`LockView ${ className || "" }`}></div>
+		<div className={`LockView ${ className || "" }`} {...props}></div>
 	)
 }
 

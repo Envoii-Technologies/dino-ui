@@ -22,6 +22,7 @@ export const SidebarUserInfo = ({
     return (
         <div
             className={`SidebarUserInfo  ${className || ''} ${isExpanded ? 'expanded' : 'collapsed'}`}
+            {...props}
         >
             <Avatar name={`${userData.firstname} ${userData.lastname}`} />
             <div className="SidebarUserInfo__wrapper">

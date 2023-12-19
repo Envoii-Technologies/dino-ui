@@ -5,7 +5,7 @@ import './Heading.scss';
 export const Heading = ({ className, children, size, type, ...props }) =>
 {
 	return (
-		<div className={`Heading ${ className || "" } ${size}-${type}`} { ...props }>
+		<div className={`Heading ${className || ''} ${size}-${type}`} { ...props }>
 			{children}
 		</div>
 	)

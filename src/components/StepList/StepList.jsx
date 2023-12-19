@@ -24,7 +24,7 @@ export const StepList = ({
         );
 
     return (
-        <div className={`StepList ${className !== undefined ? className : ''}`}>
+        <div className={`StepList ${className || ''}`} {...props}>
             <ul className="StepList__items">
                 {stepList.map((step, i) => (
                     <React.Fragment key={step._id}>

@@ -3,7 +3,7 @@ import { Tabs } from './Tabs';
 import { TabItem } from './TabItem';
 
 export const Template = (args) => (
-	<div style={{maxWidth: "100%"}}>
+	<div style={{maxWidth: "100%", height: "200px"}}>
 	<Tabs { ...args }>
 		<TabItem title="First Tab">First Tab</TabItem>
 		<TabItem title="Second Tab">Second Tab</TabItem>
@@ -28,7 +28,7 @@ export const Template = (args) => (
 	<Story
 		name="Default"
 		args={{
-			
+			currentSelected: 2
 		}}
 	>
 		{ Template.bind({}) }

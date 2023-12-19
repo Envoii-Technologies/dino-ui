@@ -5,7 +5,7 @@ import './Divider.scss'
 export const Divider = ({ className, children, ...props }) =>
 {
 	return (
-		<div className={`Divider ${ className !== undefined ? className : "" }`}>
+		<div className={`Divider ${className || ''}`} {...props}>
 			<div className="Divider__left"></div>
 			{
 				children && (

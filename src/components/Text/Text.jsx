@@ -5,7 +5,7 @@ import './Text.scss';
 export const Text = ({ className, children, size, type, italic, ...props }) =>
 {
 	return (
-		<span className={`Text ${ className || "" } ${size}-${type}${italic ? '-italic': ''}`} {...props}>
+		<span className={`Text ${ className || '' } ${size}-${type}${italic ? '-italic': ''}`} {...props}>
 			{children}
 		</span>
 	)

@@ -34,7 +34,8 @@ export const ModalContentWindow = ({
     return (
         <>
             <div
-                className={`modalContentWrapper ${
+                className={`modalContentWrapper ${className || ''}
+                ${
                     fadeOut ? 'fadeOut' : 'fadeIn'
                 }`}
                 {...props}

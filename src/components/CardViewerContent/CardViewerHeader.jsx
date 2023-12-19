@@ -13,7 +13,7 @@ export const CardViewerHeader = ({ className, title, onClose, ...props }) => {
     };
     return (
         <>
-            <div className={`CardViewerHeader ${className || ''}`}>
+            <div className={`CardViewerHeader ${className || ''}`} {...props}>
                 <div className="CardViewerHeader--mobile">
                     <span
                         className="CardViewerContent__header--mobile__backlink"

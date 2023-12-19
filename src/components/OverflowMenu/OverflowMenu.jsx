@@ -5,7 +5,6 @@ import { Button } from '../Button';
 import {
     faEllipsisV,
     faMinus,
-    faPaperclip,
     faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import { OverflowMenuButton } from './OverflowMenuButton';
@@ -64,9 +63,9 @@ export const OverflowMenu = ({
                 ${className || ''}
                 ${small ? 'small' : ''}
             `}
-            ref={menuRef} // Step 2: Attach the ref to the outermost div
-            onClick={() => handleClick()
-            }
+            ref={menuRef}
+            onClick={() => handleClick()}
+            {...props}
         >
             <div
                 className={`OverflowMenu__trigger ${

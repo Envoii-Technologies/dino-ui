@@ -34,7 +34,7 @@ export const ModalInfoWindow = ({
 
     return (
         <>
-            <div className={`modalInfoWrapper ${fadeOut ? 'fadeOut' : 'fadeIn'}`} {...props}>
+            <div className={`modalInfoWrapper ${className || ''} ${fadeOut ? 'fadeOut' : 'fadeIn'}`} {...props}>
                 <div className={`ModalInfoWindow ${fadeOut ? 'fadeOut' : 'fadeIn'}`}>
                     <div className="ModalInfoWindow__header">
                         <Button

@@ -6,7 +6,7 @@ export const Row = ({ className, align, children, ...props }) => {
     return (
       <div className={`
         Row
-        ${className !== undefined ? className : ''}
+        ${className || ''}
         ${align}
       `} {...props}>
         {children}

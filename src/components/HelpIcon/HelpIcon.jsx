@@ -11,10 +11,11 @@ import './HelpIcon.scss';
 export const HelpIcon = ({ className, helpText, position, ...props }) => {
     return (
             <PopOver
-                className="HelpIcon"
+                className={`HelpIcon ${className || ''}`}
                 content={helpText}
                 position="bottom-center"
 				openOnHover={true}
+                {...props}
             >
                 <FontAwesomeIcon className="HelpIcon__icon" icon={faCircleQuestion} />
             </PopOver>

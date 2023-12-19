@@ -20,6 +20,7 @@ export const StepTitleInput = ({ className, title, placeholder, onChangeTitle, .
     return (
         <div
             className={`StepTitleInput ${className || ''}`}
+            {...props}
         >
             <input
                 type="text"

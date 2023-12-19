@@ -25,18 +25,9 @@ export const Badge = ({
         onClose();
     };
 
-    const renderIcon = () => {
-        if (icon && iconPosition === 'left') {
-          return <FontAwesomeIcon className="Badge__icon--left" icon={icon} />;
-        } else if (icon && iconPosition === 'right') {
-          return <FontAwesomeIcon className="Badge__icon--right" icon={icon} />;
-        }
-        return null;
-      };
-
     return (
         <span
-            className={`Badge ${className !== undefined ? className : ''}
+            className={`Badge ${className || ''}
 				${outline ? 'outline' : ''}
 				${pill ? 'pill' : ''}
 				${size}
@@ -44,7 +35,9 @@ export const Badge = ({
 			`}
             {...props}
         >
-            {renderIcon()}
+            {
+                icon && iconPosition === "left" && <FontAwesomeIcon className={`Badge__icon--left`} icon={icon}/>
+            }
             {status !== 'none' && (
                 <div className={`Badge__status ${status}`}></div>
             )}

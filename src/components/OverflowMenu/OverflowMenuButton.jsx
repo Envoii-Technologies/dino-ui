@@ -9,9 +9,10 @@ export const OverflowMenuButton = ({ isDisabled, isDangerous, shortcut, label,ic
 
     return(
     <button 
-        className={`OverflowMenuButton ${className !== undefined ? className : '' }`}
+        className={`OverflowMenuButton ${className || ''}`}
         disabled={isDisabled ? 'disabled' : false}
         onClick={onClick}
+        {...props}
     >
         {
             icon && <FontAwesomeIcon className={`OverflowMenuButton__icon ${isDangerous ? 'dangerous' : ''}`} icon={icon}/>

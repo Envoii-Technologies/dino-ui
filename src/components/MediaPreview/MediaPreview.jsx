@@ -47,7 +47,7 @@ export const MediaPreview = ({ className, show, media, initialIndex, onChangeInd
 
 	return (
 		<>
-			<div className={`MediaPreview__wrapper ${media.length === 1 ? 'single' : 'multi'}`}>
+			<div className={`MediaPreview__wrapper ${className || ''} ${media.length === 1 ? 'single' : 'multi'}`} {...props}>
 			{
 						media.length > 1 && imageIndex > 0 ? <div className='MediaPreview__wrapper__button--prev' onClick={() => handlePrevButton()}>
 							<FontAwesomeIcon icon={faChevronLeft} />

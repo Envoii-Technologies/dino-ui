@@ -37,7 +37,7 @@ export const TextArea = ({
     };
 
     return (
-        <div className={`TextArea ${className !== undefined ? className : ''}`}>
+        <div className={`TextArea ${ className || '' }`}>
             {label && (
                 <label className="TextArea__label" htmlFor={props.name}>
                     {label}

@@ -47,6 +47,7 @@ export const Sidebar = ({
             className={`Sidebar ${className || ''} ${
                 handleMobileOpen ? 'mobileOpen' : 'mobileClosed'
             }`}
+            {...props}
         >
             <div
                 className={`Sidebar__wrapper ${

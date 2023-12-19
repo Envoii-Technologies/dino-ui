@@ -37,7 +37,8 @@ export const DatePicker = ({ className, onAction, onCancel, startDate, ...props 
 
     return (
         <div
-            className={`DatePicker ${className !== undefined ? className : ''}`}
+            className={`DatePicker ${className || ''}`}
+			{...props}
         >
             <Calendar
                 className="DatePicker__calendar"

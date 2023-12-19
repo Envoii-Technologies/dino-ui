@@ -2,7 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export const TabItem = ({ className, title, children, ...props }) => {
-    return (<>children</>)
+    return (
+    <>
+        <div className={`TabItem ${className || ''}`} {...props}>
+            {children}
+        </div>
+    </>)
 }
 
 TabItem.propTypes = {

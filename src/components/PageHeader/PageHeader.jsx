@@ -15,7 +15,7 @@ export const PageHeader = ({
 }) => {
     return (
         <div
-            className={`PageHeader ${className || ''}`}
+            className={`PageHeader ${className || ''}`} {...props}
         >
             <div className="PageHeader__wrapper">
                 {location && (

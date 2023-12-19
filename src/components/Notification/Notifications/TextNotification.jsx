@@ -2,9 +2,13 @@ import React from 'react';
 
 import { Text } from './../../Text';
 
-export const TextNotification = ({ body, title, children }) => {
+export const TextNotification = ({ className, body, title, children, ...props }) => {
     return (
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div 
+            className={`TextNotification ${className || ''}`} 
+            style={{ display: "flex", flexDirection: "column" }}
+            {...props}
+        >
             {
                 title && (<Text size="sm" type="semiBold">{title}</Text>)
             }

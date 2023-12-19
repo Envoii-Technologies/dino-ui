@@ -7,7 +7,7 @@ import { faClose, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 export const SidebarInfoBox = ({ className, isExpanded, onClose, ...props }) =>
 {
 	return (
-		<div className={`SidebarInfoBox ${isExpanded ? 'expanded' : 'collapsed'} ${className || ''}`}>
+		<div className={`SidebarInfoBox ${isExpanded ? 'expanded' : 'collapsed'} ${className || ''}`} {...props}>
 			<button className='SidebarInfoBox__close' onClick={onClose}>
                 <FontAwesomeIcon icon={faClose} />
             </button>

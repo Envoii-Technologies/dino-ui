@@ -40,7 +40,8 @@ export const SelectBox = ({
 
     return (
         <div
-            className={`SelectBox ${className !== undefined ? className : ''}`}
+            className={`SelectBox ${className || ''}`}
+            {...props}
         >
             <>
                 <label className="SelectBox__label">{label}</label>

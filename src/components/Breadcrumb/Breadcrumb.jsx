@@ -16,7 +16,8 @@ export const Breadcrumb = ({ className, location, ...props }) => {
 
     return (
         <div
-            className={`Breadcrumb ${className !== undefined ? className : ''}`}
+            className={`Breadcrumb ${className || ''}`}
+            {...props}
         >
             {pathnames.map((path, i) => {
                 const isFirst = i === 0;

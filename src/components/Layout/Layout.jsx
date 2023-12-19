@@ -27,6 +27,7 @@ export const Layout = ({
         <>
             <div
                 className={`Layout ${className || ''}`}
+                {...props}
             >
                 <MobilePageHeader onOpenMenu={toggleMobileMenu} />
                 <Sidebar

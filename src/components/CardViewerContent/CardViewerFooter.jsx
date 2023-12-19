@@ -63,7 +63,7 @@ export const CardViewerFooter = ({
     const isSingleStep = stepsAmount === 1;
 
     return (
-        <div className={`CardViewerFooter ${className || ''}`}>
+        <div className={`CardViewerFooter ${className || ''}`} {...props}>
             <Divider />
             <div className={`CardViewerFooter__menu--mobile ${isSingleStep ? 'single' : ''}`}>
                 {

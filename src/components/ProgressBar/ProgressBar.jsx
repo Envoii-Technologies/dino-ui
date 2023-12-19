@@ -14,10 +14,12 @@ export const ProgressBar = ({ className, fluid, progress, showLabel, labelPositi
 
 	return (
 		<div className={`ProgressBar
-		${className || ''} 
-		label-${labelPosition}
-		${ fluid ? 'fluid' : ''}
-		`}>
+			${className || ''} 
+			label-${labelPosition}
+			${ fluid ? 'fluid' : ''}
+			`}
+			{...props}
+		>
 			<div className="ProgressBar__wrapper">
 				<div className={`ProgressBar__wrapper__indicator ${error ? 'error' : ''} ${success ? 'success' : ''}`} style={{ width: `${internalProgress}%`}}></div>
 			</div>
