@@ -17,6 +17,7 @@ export const Tabs = ({ className, children, currentSelected, disabled, onChangeT
     }, [currentSelected])
 
     const handleOnChangeTab = (i) => {
+        setActiveTab(i);
         onChangeTab(i);
     }
 
@@ -53,10 +54,12 @@ Tabs.propTypes = {
     className: PropTypes.string,
     currentSelected: PropTypes.number,
     disabled: PropTypes.bool,
+    onChangeTab: PropTypes.func,
 };
 
 Tabs.defaultProps = {
     className: undefined,
     currentSelected: 0,
     disabled: false,
+    onChangeTab: undefined,
 };
