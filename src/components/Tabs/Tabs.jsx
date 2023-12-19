@@ -5,7 +5,7 @@ import { LockView } from './../../index';
 
 import './Tabs.scss';
 
-export const Tabs = ({ className, children, currentSelected, disabled, ...props }) => {
+export const Tabs = ({ className, children, currentSelected, disabled, onChangeTab, ...props }) => {
     const [tabs, setTabs] = useState(children);
 
     const [activeTab, setActiveTab] = useState(
@@ -15,6 +15,10 @@ export const Tabs = ({ className, children, currentSelected, disabled, ...props 
     useEffect(() => {
         setActiveTab(currentSelected < tabs?.length ? currentSelected : 0);
     }, [currentSelected])
+
+    const handleOnChangeTab = (i) => {
+        onChangeTab(i);
+    }
 
     return (
         <div className={`Tabs ${className !== undefined ? className : ''}`} {...props}>
@@ -28,7 +32,7 @@ export const Tabs = ({ className, children, currentSelected, disabled, ...props 
                         <div
                             key={i}
                             className={`Tabs__menu__item ${activeTab === i ? 'active' : ''}`}
-                            onClick={() => setActiveTab(i)}
+                            onClick={() => handleOnChangeTab(i)}
                         >
                             {item.props.title}
                         </div>
