@@ -90,8 +90,9 @@ export const PopOver = ({
         <div
             className={`PopOver ${adjustedPosition} ${
                 openOnHover ? 'hoverable' : ''
-            } ${className !== undefined ? className : ''}`}
+            } ${className || ''}`}
             ref={popoverRef} // Ref to the popover div
+            {...props}
         >
             <div className="PopOver__trigger">
                 <div

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { LockView } from './../../index';
@@ -12,8 +12,12 @@ export const Tabs = ({ className, children, currentSelected, disabled, ...props 
         currentSelected < tabs?.length ? currentSelected : 0
     );
 
+    useEffect(() => {
+        setActiveTab(currentSelected < tabs?.length ? currentSelected : 0);
+    }, [currentSelected])
+
     return (
-        <div className={`Tabs ${className !== undefined ? className : ''}`}>
+        <div className={`Tabs ${className !== undefined ? className : ''}`} {...props}>
             {
                 disabled && <LockView/>
             }

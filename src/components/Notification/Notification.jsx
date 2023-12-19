@@ -10,7 +10,7 @@ export const Notification = ({ className, ...props }) => {
 	const { notifications } = useNotifications();
 
 	return (
-		<div className={`Notification ${className || ""}`}>
+		<div className={`Notification ${className || ""}`} {...props}>
 			{notifications.map(({ id, message, options }) => (
 				<NotificationBox key={id} id={id} options={options}>
 					{message}

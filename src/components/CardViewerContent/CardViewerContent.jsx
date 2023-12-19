@@ -36,7 +36,7 @@ export const CardViewerContent = ({ className, cardData, onClose, mediaUrl, ...p
 		return <LoadingIndicator />;
 	} else {
 		return (
-			<div className={`CardViewerContent ${className || ""}`}>
+			<div className={`CardViewerContent ${className || ""}`} {...props}>
 				<CardViewerHeader
 					onClose={handleOnClose}
 					title={cardData.title}

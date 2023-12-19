@@ -32,7 +32,7 @@ export const OverflowContent = ({ className, children, show, ...props }) =>
     }
 
 	return (
-		<div className={`OverflowContent ${ className !== undefined ? className : "" } ${fadeOut ? 'fadeOut' : 'fadeIn'}`}>
+		<div className={`OverflowContent ${className || ''} ${fadeOut ? 'fadeOut' : 'fadeIn'}`} {...props}>
 			{children}
 		</div>
 	)

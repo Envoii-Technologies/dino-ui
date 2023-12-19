@@ -58,9 +58,8 @@ export const StepContent = ({
     return (
         <>
             <div
-                className={`StepContent ${
-                    className !== undefined ? className : ''
-                }`}
+                className={`StepContent ${className || ''}`}
+                {...props}
             >
                 <div className="StepContent__header">
                     <div className="StepContent__header__info">

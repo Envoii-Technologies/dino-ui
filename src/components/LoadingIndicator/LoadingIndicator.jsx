@@ -10,7 +10,7 @@ export const LoadingIndicator = ({ className, size, showLabel, ...props }) =>
 	const { t } = useTranslation();
 	
 	return (
-		<div className={`LoadingIndicator ${className || ''}`}>
+		<div className={`LoadingIndicator ${className || ''}`} {...props}>
 			<div className="LoadingIndicator__wrapper">
 			<div className={`LoadingIndicator__wrapper__spinner ${size}`}></div>
 			{

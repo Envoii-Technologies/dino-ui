@@ -19,7 +19,7 @@ export const Toggle = ({ className, checked: controlledChecked, ...props }) => {
   } = useToggle({ ...props, controlledChecked });
 
   return (
-    <div className="Toggle">
+    <div className={`Toggle ${ className || '' }`}>
       <input
         ref={checkboxRef}
         name={name}

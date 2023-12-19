@@ -25,7 +25,7 @@ export const Input = ({
     return (
         <>
             <div
-                className={`Input ${className !== undefined ? className : ''}`}
+                className={`Input ${className || ''}`}
             >
                 {label && (
                     <label className="Input__label" htmlFor={name}>

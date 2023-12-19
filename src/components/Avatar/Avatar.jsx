@@ -35,7 +35,7 @@ export const Avatar = ({ className, name, size, type, status, ...props }) => {
   return (
     <div
       className={`
-        Avatar ${className ? className : ''}
+        Avatar ${className || ''}
         size-${size}
       `}
       {...props}

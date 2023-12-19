@@ -7,7 +7,7 @@ import { Column,Row, Grid, Input, Divider } from './../../';
 export const ContentRow = ({ className, children, divider, ...props }) =>
 {
 	return (
-		<div className={`ContentRow ${ className !== undefined ? className : "" }`} {...props}>
+		<div className={`ContentRow ${className || ''}`} {...props}>
 			<Grid className="ContentRow__wrapper">
 				<Row>
 					<Column xlSpan={4} mdStart={2} mdSpan={4} xlStart={5}>

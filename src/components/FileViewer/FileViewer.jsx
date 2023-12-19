@@ -31,7 +31,7 @@ export const FileViewer = ({
 
     return (
         <>
-            <div className="FileViewer">
+            <div className={`FileViewer9 ${className || ''}`} {...props}>
                 <div className="FileViewer__preview">
                     {previewURLs.length === 0 && (
                         <div className="FileViewer__preview__empty">

@@ -23,7 +23,8 @@ export const ContentCard = ({
         <div className={`
             ContentCard ${className || ''}
             ${type}
-        `}>
+        `}
+        {...props}>
             {title && (
                 <div className="ContentCard__header">
                     <div className="ContentCard__header__title">

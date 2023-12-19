@@ -11,7 +11,8 @@ export const Container = ({
 }) => {
     return (
         <div
-            className={`Container ${className !== undefined ? className : ''} ${
+            className={`Container ${className || ''}
+            ${
                 scrollable ? 'scrollable' : 'static'
             }`}
             { ...props }

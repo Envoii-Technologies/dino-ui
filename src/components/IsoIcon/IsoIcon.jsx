@@ -20,7 +20,7 @@ export const IsoIcon = ({ className, name, ...props }) =>
 	}
 
 	return (
-		<div className={`IsoIcon ${ className !== undefined ? className : "" }`}>
+		<div className={`IsoIcon ${className || ''}`} {...props}>
 			{
 				currentSign && <img src={currentSign.filename} alt={currentSign.description.de} />
 			}

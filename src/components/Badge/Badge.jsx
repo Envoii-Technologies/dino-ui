@@ -27,7 +27,7 @@ export const Badge = ({
 
     return (
         <span
-            className={`Badge ${className !== undefined ? className : ''}
+            className={`Badge ${className || ''}
 				${outline ? 'outline' : ''}
 				${pill ? 'pill' : ''}
 				${size}

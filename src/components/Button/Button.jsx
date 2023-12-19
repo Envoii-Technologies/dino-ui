@@ -21,7 +21,7 @@ export const Button = ({
     return (
         <button
             className={`Button 
-			${className !== undefined ? className : ''}
+			${className || ''}
 			${size}
 			${type === "primary" ? 'primary' : ''}
 			${type === "secondary" ? 'secondary' : ''}

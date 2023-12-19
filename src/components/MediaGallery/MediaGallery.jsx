@@ -35,7 +35,7 @@ export const MediaGallery = ({ className, media, initialIndex, mediaUrl, ...prop
 			media={media}
 			onClose={() => setShowPreview(false)}
 		/>
-		<div className="MediaGallery">
+		<div className={`MediaGallery ${className || ''}`} {...props}>
 			<div className="MediaGallery__main">
 				{
 					media[selectedImage]?.contentType.includes("image") &&

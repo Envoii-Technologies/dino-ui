@@ -19,7 +19,7 @@ export const Tag = ({
 	const renderCheckbox = typeof onCheck === 'function';
 
     return (
-        <div className={`Tag ${className || ''} size-${size}`}>
+        <div className={`Tag ${className || ''} size-${size}`} {...props}>
            {renderCheckbox && <Checkbox onChange={(checked) => onCheck(checked)} />}
             {status !== 'none' && <Dot state={status} size={size} />}
             <div className="Tag__label">{label}</div>

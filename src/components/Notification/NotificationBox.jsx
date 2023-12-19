@@ -20,6 +20,7 @@ export const NotificationBox = ({ className, children, id, options, ...props }) 
             `}
             onMouseEnter={() => stopTimer(id)} 
             onMouseLeave={() => startTimer(id)}
+            {...props}
         >
             {
                 options?.type && (

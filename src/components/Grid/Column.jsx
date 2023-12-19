@@ -16,7 +16,7 @@ export const Column = ({
     return (
         <div
             className={`Column 
-            ${className !== undefined ? className : ''}
+            ${className || ''}
                 ${smSpan ? `Column__span--sm--${smSpan}` : ''} 
                 ${mdSpan ? `Column__span--md--${mdSpan}` : ''} 
                 ${xlSpan ? `Column__span--xl--${xlSpan}` : ''} 

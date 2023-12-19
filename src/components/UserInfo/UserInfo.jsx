@@ -17,6 +17,7 @@ export const UserInfo = ({
             className={`UserInfo ${className || ''} ${
                 isExpanded ? 'expanded' : 'collapsed'
             }`}
+            {...props}
         >
             <Avatar name={`${username}`} />
             <div className={`UserInfo__wrapper ${mode}`}>

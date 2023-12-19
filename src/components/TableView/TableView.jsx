@@ -135,7 +135,7 @@ export const TableView = ({ className, columns, rows, rowsPerPage, initialSearch
 	};
 
 	return (
-		<div className={`TableView ${className || ""}`}>
+		<div className={`TableView ${className || ''}`} {...props}>
 			<div className="TableView__content">
 				<table>
 					<thead className='TableView__header'>

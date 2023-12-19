@@ -5,7 +5,7 @@ import './PageWrapper.scss'
 export const PageWrapper = ({ className, children, type, ...props }) =>
 {
 	return (
-		<div className={`PageWrapper ${className || ''}`}>
+		<div className={`PageWrapper ${className || ''}`} {...props}>
 			<div className={`PageWrapper__content ${type}`}>
 				{ children }
 			</div>

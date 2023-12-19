@@ -4,8 +4,9 @@ import { Cropper, CropperRef } from 'react-advanced-cropper';
 import 'react-advanced-cropper/dist/style.css';
 import 'react-advanced-cropper/dist/themes/classic.css';
 
+import './ImageEditor.scss';
 
-export const ImageEditor = ({ imageSrc }) => {
+export const ImageEditor = ({ className, imageSrc, ...props }) => {
 	const cropperRef = useRef(null);
 	const inputRef = useRef(null);
 
@@ -63,9 +64,9 @@ export const ImageEditor = ({ imageSrc }) => {
 	}
 
     return (
-		<div style={{ width: "25rem"}}>
+		<div className={`ImageEditor ${className || ''}`} {...props}>
         <Cropper
-			className={'cropper'}
+			className={`cropper`}
             ref={cropperRef}
 			defaultSize={defaultSize}
 			// onChange={onChange}

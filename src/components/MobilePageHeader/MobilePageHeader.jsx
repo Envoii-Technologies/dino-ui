@@ -17,7 +17,7 @@ export const MobilePageHeader = ({ className, onOpenMenu, ...props }) =>
 	}
 
 	return (
-		<div className={`MobilePageHeader ${ className !== undefined ? className : "" }`}>
+		<div className={`MobilePageHeader ${ className !== undefined ? className : "" }`} {...props}>
 			<img
                 src={logoIconLight}
                 className="MobilePageHeader__brand"

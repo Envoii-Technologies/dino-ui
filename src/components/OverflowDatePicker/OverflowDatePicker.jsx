@@ -28,7 +28,7 @@ export const OverflowDatePicker = ({ className, show, selectedDate, onSelectDate
 
 	return (
 		<>
-			<OverflowContent show={showWindow}>
+			<OverflowContent className={`OverflowDatePicker ${className || ''}`} show={showWindow} {...props}>
 				<DatePicker onCancel={() => handleCancelSelection()} onAction={(date) => handleSelectDate(date)} startDate={selectedDate}/>
 			</OverflowContent>
 		</>
