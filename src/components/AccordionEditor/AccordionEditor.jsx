@@ -40,14 +40,14 @@ export const AccordionEditor = ({ className, initialList, ...props }) => {
 	
 	useEffect(() => {
 		if (focusedListIndex !== null) {
-			setTimeout(() => {
-				const inputElement = document.getElementById(`listEntryNameInput${focusedListIndex.listIndex}-${focusedListIndex.itemIndex}`);
-				if (inputElement) {
-					inputElement.focus();
-				}
-			}, 0);
+			const { listIndex } = focusedListIndex;
+			const inputElement = document.getElementById(`listNameInput${listIndex}`);
+			
+			if (inputElement) {
+				inputElement.focus();
+			}
 		}
-	}, [lists, focusedListIndex]);
+	}, [focusedListIndex, lists]);
 
 	return (
 		<DragDropContext onDragEnd={onDragEnd}>
@@ -113,6 +113,7 @@ export const AccordionEditor = ({ className, initialList, ...props }) => {
 																type="text"
 																value={item.content}
 																onChange={(e) => handleItemNameChange(listIndex, itemIndex, e.target.value)}
+																id={`listEntryNameInput${listIndex}-${itemIndex}`}
 															/>
 															<div className="AccordionEditor__list__sublist__item__wrapper__drag"
 

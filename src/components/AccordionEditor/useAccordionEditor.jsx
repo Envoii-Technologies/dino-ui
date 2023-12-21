@@ -92,11 +92,18 @@ export const useAccordionEditor = (initialList) => {
             name: 'New List',
             items: [],
         };
+    
         setLists((prevLists) => [...prevLists, newList]);
         setOpenMenus((prevOpenMenus) => [...prevOpenMenus, true]);
         setNewItemContents((prevContents) => [...prevContents, '']);
-        setFocusedListIndex(lists.length); // Setzen Sie den Fokus auf die neu erstellte Liste
-
+    
+        // Setzen Sie den Fokus auf das neu erstellte Listenelement nach dem Rendern
+        setTimeout(() => {
+            const inputElement = document.getElementById(`listNameInput${lists.length}`);
+            if (inputElement) {
+                inputElement.focus();
+            }
+        }, 0);
     };
 
     const deleteList = (listIndex) => {
