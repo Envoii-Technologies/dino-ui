@@ -1,0 +1,147 @@
+@use '../../global-styles/' as *;
+
+.AccordionEditor {
+    .Item {
+        border-radius: 0.5rem;
+        outline: none;
+        height: 2.75rem;
+        border: 2px solid $color-gray-300;
+        color: $color-gray-300;
+    }
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5rem;
+
+    &__list {
+        &__name {
+            text-decoration: underline;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            &:hover {
+                .AccordionEditor__list__name__wrapper {
+                    margin-right: 0rem;
+                }
+                .AccordionEditor__list__name__delete {
+                    display: block;
+                }
+            }
+
+            &__wrapper {
+                width: 100%;
+                margin-right: 3rem;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            &__delete {
+                width: 3.225rem;
+                color: $color-gray-500;
+                display: none;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+
+            &__toggle {
+                background: none;
+                padding-right: 1rem;
+                color: $color-gray-700;
+                border: none;
+                cursor: pointer;
+                font-size: 0.75rem;
+            }
+        }
+
+        &__sublist {
+            min-height: 2rem;
+            margin-left: 2rem;
+
+            &__item {
+                margin-top: 0.5rem;
+                margin-bottom: 0.5rem;
+                user-select: none;
+                background: white;
+                display: flex;
+
+                &:hover {
+                    .AccordionEditor__list__sublist__item__wrapper {
+                        margin-right: 0rem;
+                    }
+                    .AccordionEditor__list__sublist__item__wrapper__delete {
+                        display: flex;
+                    }
+                }
+
+                &__wrapper {
+                    width: 100%;
+                    margin-right: 3rem;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding-right: 1rem;
+                    
+                    .AccordionEditor__list__sublist__item__wrapper__drag
+                    {
+                        color: $color-gray-300;
+
+                        &:hover
+                        {
+                            color: $color-gray-500;
+                        }
+                    }
+
+                    input
+                    {
+                        height: 100%;
+                    }
+
+                    &__delete {
+                        width: 3.32rem;
+                        color: $color-gray-500;
+                        display: none;
+                        background: none;
+                        border: none;
+                        cursor: pointer;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+            }
+
+            &__newItem {
+
+            }
+        }
+    }
+
+    &__newList {
+        margin-right: 3rem;
+
+        &.Item {
+            background: $color-base-white;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+
+            border: 2px dashed $color-gray-300;
+            color: $color-gray-300;
+            width: 100%;
+
+            &:hover {
+                border: 2px dashed $color-gray-400;
+                color: $color-gray-400;
+            }
+
+            &__icon {
+                font-size: 1.25rem;
+            }
+        }
+    }
+}
