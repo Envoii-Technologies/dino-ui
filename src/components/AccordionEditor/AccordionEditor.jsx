@@ -52,6 +52,14 @@ export const AccordionEditor = ({ className, initialList, ...props }) => {
 	return (
 		<DragDropContext onDragEnd={onDragEnd}>
 			<div className={`AccordionEditor ${className || ''}`}>
+
+				<div className='AccordionEditor__newList'>
+					<button className='AccordionEditor__newList Item' onClick={addList}>
+						<FontAwesomeIcon className='AccordionEditor__newList__icon' icon={faPlus} />
+						<Text>Klasse hinzufügen</Text>
+					</button>
+				</div>
+
 				{
 					lists.map((list, listIndex) => (
 						<div
@@ -62,10 +70,10 @@ export const AccordionEditor = ({ className, initialList, ...props }) => {
 								<div className="AccordionEditor__list__name__wrapper Item">
 									<input
 										type="text"
-										placeholder="List Name"
 										value={list.name}
 										onChange={(e) => handleListNameChange(listIndex, e.target.value)}
 										id={`listNameInput${listIndex}`}
+										placeholder="Neue Liste"
 									/>
 
 									<button className='AccordionEditor__list__name__toggle' onClick={() => toggleMenu(listIndex)}>
@@ -97,6 +105,13 @@ export const AccordionEditor = ({ className, initialList, ...props }) => {
 											display: openMenus[listIndex] ? 'block' : 'none',
 										}}
 									>
+										<div className='AccordionEditor__list__sublist__newItem'>
+											<button className='AccordionEditor__list__sublist__newItem Item' onClick={() => addItemToList(listIndex)}>
+												<FontAwesomeIcon className='AccordionEditor__newList__icon' icon={faPlus} />
+												<Text>Klassenmerkmal definieren</Text>
+											</button>
+										</div>
+										
 										{list.items.map((item, itemIndex) => (
 											<Draggable key={item.id} draggableId={item.id} index={itemIndex}>
 												{(provided) => (
@@ -114,6 +129,7 @@ export const AccordionEditor = ({ className, initialList, ...props }) => {
 																value={item.content}
 																onChange={(e) => handleItemNameChange(listIndex, itemIndex, e.target.value)}
 																id={`listEntryNameInput${listIndex}-${itemIndex}`}
+																placeholder='Neues Merkmal'
 															/>
 															<div className="AccordionEditor__list__sublist__item__wrapper__drag"
 
@@ -133,24 +149,12 @@ export const AccordionEditor = ({ className, initialList, ...props }) => {
 											</Draggable>
 										))}
 										{provided.placeholder}
-										<div className='AccordionEditor__list__sublist__newItem'>
-											{/* <button onClick={() => addItemToList(listIndex)}>Add Item</button> */}
-											<button className='AccordionEditor__list__sublist__newItem Item' onClick={() => addItemToList(listIndex)}>
-												<FontAwesomeIcon className='AccordionEditor__newList__icon' icon={faPlus} />
-												<Text>Klassenmerkmal definieren</Text>
-											</button>
-										</div>
+										
 									</div>
 								)}
 							</Droppable>
 						</div>
 					))}
-				<div className='AccordionEditor__newList'>
-					<button className='AccordionEditor__newList Item' onClick={addList}>
-						<FontAwesomeIcon className='AccordionEditor__newList__icon' icon={faPlus} />
-						<Text>Klasse hinzufügen</Text>
-					</button>
-				</div>
 			</div>
 		</DragDropContext>
 	);

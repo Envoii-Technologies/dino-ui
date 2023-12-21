@@ -52,9 +52,9 @@ export const useAccordionEditor = (initialList) => {
     const addItemToList = (listIndex) => {
         const updatedLists = [...lists];
         const content = newItemContents[listIndex].trim();
-        const newItem = { id: Date.now().toString(), content };
+        const newItem = { id: Date.now().toString(), content: "" };
     
-        updatedLists[listIndex].items.push(newItem);
+        updatedLists[listIndex].items.unshift(newItem);
         setLists(updatedLists);
         setNewItemContents((prevContents) => {
             const newContents = [...prevContents];
@@ -68,7 +68,7 @@ export const useAccordionEditor = (initialList) => {
     
         // Setzen Sie den Fokus auf das neu erstellte Element
         setTimeout(() => {
-            const inputElement = document.getElementById(`listEntryNameInput${listIndex}-${updatedLists[listIndex].items.length - 1}`);
+            const inputElement = document.getElementById(`listEntryNameInput${listIndex}-${0}`);
             console.log('Input element:', inputElement);
             if (inputElement) {
                 inputElement.focus();
@@ -89,17 +89,17 @@ export const useAccordionEditor = (initialList) => {
 
     const addList = () => {
         const newList = {
-            name: 'New List',
+            name: '',
             items: [],
         };
     
-        setLists((prevLists) => [...prevLists, newList]);
+        setLists((prevLists) => [newList, ...prevLists]);
         setOpenMenus((prevOpenMenus) => [...prevOpenMenus, true]);
         setNewItemContents((prevContents) => [...prevContents, '']);
     
         // Setzen Sie den Fokus auf das neu erstellte Listenelement nach dem Rendern
         setTimeout(() => {
-            const inputElement = document.getElementById(`listNameInput${lists.length}`);
+            const inputElement = document.getElementById(`listNameInput${0}`);
             if (inputElement) {
                 inputElement.focus();
             }
