@@ -61,6 +61,25 @@
             min-height: 2rem;
             margin-left: 2rem;
 
+            &__newItem {
+                &.Item {
+                    background: $color-base-white;
+                    width: calc(100% - 3rem);
+                    border: 2px dashed $color-gray-300;
+                    color: $color-gray-300;
+
+                    &:hover {
+                        border: 2px dashed $color-gray-400;
+                        color: $color-gray-400;
+                        cursor: pointer;
+                    }
+
+                    &__icon {
+                        font-size: 1.25rem;
+                    }
+                }
+            }
+
             &__item {
                 margin-top: 0.5rem;
                 margin-bottom: 0.5rem;
@@ -85,19 +104,16 @@
                     align-items: center;
                     justify-content: space-between;
                     padding-right: 1rem;
-                    
-                    .AccordionEditor__list__sublist__item__wrapper__drag
-                    {
+
+                    .AccordionEditor__list__sublist__item__wrapper__drag {
                         color: $color-gray-300;
 
-                        &:hover
-                        {
+                        &:hover {
                             color: $color-gray-500;
                         }
                     }
 
-                    input
-                    {
+                    input {
                         height: 100%;
                     }
 
@@ -112,10 +128,6 @@
                         align-items: center;
                     }
                 }
-            }
-
-            &__newItem {
-
             }
         }
     }

@@ -37,12 +37,12 @@ export const AccordionEditor = ({ className, initialList, ...props }) => {
 			}
 		}
 	}, [focusedListIndex]);
-	
+
 	useEffect(() => {
 		if (focusedListIndex !== null) {
 			const { listIndex } = focusedListIndex;
 			const inputElement = document.getElementById(`listNameInput${listIndex}`);
-			
+
 			if (inputElement) {
 				inputElement.focus();
 			}
@@ -134,15 +134,11 @@ export const AccordionEditor = ({ className, initialList, ...props }) => {
 										))}
 										{provided.placeholder}
 										<div className='AccordionEditor__list__sublist__newItem'>
-											{/* <input
-												type="text"
-												placeholder="New item content"
-												value={newItemContents[listIndex]}
-												onChange={(e) => handleNewItemChange(listIndex, e.target.value)}
-												style={{ marginRight: '10px' }}
-											/> */}
-
-											<button onClick={() => addItemToList(listIndex)}>Add Item</button>
+											{/* <button onClick={() => addItemToList(listIndex)}>Add Item</button> */}
+											<button className='AccordionEditor__list__sublist__newItem Item' onClick={() => addItemToList(listIndex)}>
+												<FontAwesomeIcon className='AccordionEditor__newList__icon' icon={faPlus} />
+												<Text>Klassenmerkmal definieren</Text>
+											</button>
 										</div>
 									</div>
 								)}
