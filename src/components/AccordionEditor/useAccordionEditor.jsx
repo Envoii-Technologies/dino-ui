@@ -94,7 +94,7 @@ export const useAccordionEditor = (initialList) => {
         };
     
         setLists((prevLists) => [newList, ...prevLists]);
-        setOpenMenus((prevOpenMenus) => [...prevOpenMenus, true]);
+        setOpenMenus((prevOpenMenus) => [true, ...prevOpenMenus]);
         setNewItemContents((prevContents) => [...prevContents, '']);
     
         // Setzen Sie den Fokus auf das neu erstellte Listenelement nach dem Rendern
