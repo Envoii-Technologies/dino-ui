@@ -1,6 +1,15 @@
 @use '../../global-styles/' as *;
 
 .AccordionEditor {
+    input {
+        background: transparent;
+        outline: none;
+        border: none;
+        padding: 1rem;
+        @include Text-mdMedium;
+        width: 100%;
+    }
+
     .Item {
         border-radius: 0.5rem;
         outline: none;
@@ -16,7 +25,6 @@
 
     &__list {
         &__name {
-            text-decoration: underline;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -52,22 +60,27 @@
             margin-left: 2rem;
 
             &__newItem {
-                &.Item {
-                    margin-top: 0.5rem;
-                    background: $color-base-white;
-                    width: calc(100% - 3rem);
-                    border: 2px dashed $color-gray-300;
-                    color: $color-gray-300;
+                &__item {
+                    &.Item {
+                        margin-top: 0.5rem;
+                        background: $color-base-white;
+                        width: calc(100% - 3rem);
+                        @include Text-mdMedium;
+                        border: 2px dashed $color-gray-300;
+                        color: $color-gray-300;
+                        text-align: left;
 
-                    &:hover {
-                        border: 2px dashed $color-gray-400;
-                        color: $color-gray-400;
-                        cursor: pointer;
+                        &:hover {
+                            border: 2px dashed $color-gray-400;
+                            color: $color-gray-400;
+                            cursor: pointer;
+                        }
                     }
+                }
 
-                    &__icon {
-                        font-size: 1.25rem;
-                    }
+                &__icon {
+                    margin-left: 0.5rem;
+                    margin-right: 0.5rem;
                 }
             }
 
@@ -115,10 +128,16 @@
     &__newList {
         margin-right: 3rem;
 
+        &__icon
+        {
+           margin-left: 0.5rem;
+        }
+
         &.Item {
             background: $color-base-white;
             display: flex;
             align-items: center;
+            @include Text-mdMedium;
             gap: 0.5rem;
             cursor: pointer;
 
@@ -126,13 +145,10 @@
             color: $color-gray-300;
             width: 100%;
 
+
             &:hover {
                 border: 2px dashed $color-gray-400;
                 color: $color-gray-400;
-            }
-
-            &__icon {
-                font-size: 1.25rem;
             }
         }
     }

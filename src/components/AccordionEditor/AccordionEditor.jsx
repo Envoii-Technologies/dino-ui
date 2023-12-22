@@ -106,8 +106,8 @@ export const AccordionEditor = ({ className, initialList, ...props }) => {
 										}}
 									>
 										<div className='AccordionEditor__list__sublist__newItem'>
-											<button className='AccordionEditor__list__sublist__newItem Item' onClick={() => addItemToList(listIndex)}>
-												<FontAwesomeIcon className='AccordionEditor__newList__icon' icon={faPlus} />
+											<button className='AccordionEditor__list__sublist__newItem__item Item' onClick={() => addItemToList(listIndex)}>
+												<FontAwesomeIcon className='AccordionEditor__list__sublist__newItem__icon' icon={faPlus} />
 												<Text>Klassenmerkmal definieren</Text>
 											</button>
 										</div>
