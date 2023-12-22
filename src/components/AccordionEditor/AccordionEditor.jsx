@@ -51,7 +51,7 @@ export const AccordionEditor = ({ className, initialList, ...props }) => {
 
 	return (
 		<DragDropContext onDragEnd={onDragEnd}>
-			<div className={`AccordionEditor ${className || ''}`}>
+			<div className={`AccordionEditor ${className || ''}`} {...props}>
 
 				<div className='AccordionEditor__newList'>
 					<button className='AccordionEditor__newList Item' onClick={addList}>
