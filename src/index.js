@@ -63,3 +63,4 @@ export { CardViewerContent } from './components/CardViewerContent/index.js';
 export { TextNotification } from './components/Notification/Notifications/TextNotification.jsx';
 
 export { NotificationProvider, useNotifications } from './components/Notification/NotificationContext.jsx'
+export { AccordionEditor } from './components/AccordionEditor/index.js';
