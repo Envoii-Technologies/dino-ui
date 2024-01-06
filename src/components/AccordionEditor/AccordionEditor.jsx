@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
-import { Text } from './../../index';
+import { ModalInfoWindow, Text } from './../../index';
 
 import { useAccordionEditor } from './useAccordionEditor';
 
@@ -23,6 +23,10 @@ export const AccordionEditor = ({ className, initialList, initialOpenMenus, onCh
 		handleListNameChange,
 		handleItemNameChange,
 		focusedListIndex,
+		showDeleteListWindow,
+		setShowDeleteWindow,
+		showDeleteItemWindow,
+		setShowDeleteItemWindow,
 	} = useAccordionEditor(initialList, initialOpenMenus);
 
 	useEffect(() => {
@@ -55,6 +59,14 @@ export const AccordionEditor = ({ className, initialList, initialOpenMenus, onCh
 
 	return (
 		<>
+			<ModalInfoWindow
+				show={showDeleteListWindow}
+				type="error"
+			></ModalInfoWindow>
+			<ModalInfoWindow
+				show={showDeleteItemWindow}
+				type="error"
+			></ModalInfoWindow>
 			<DragDropContext onDragEnd={onDragEnd}>
 				<div className={`AccordionEditor ${className || ''}`} {...props}>
 					{
