@@ -9,6 +9,10 @@ export const useAccordionEditor = (initialList, initialOpenMenus) => {
     const [showDeleteItemWindow, setShowDeleteItemWindow] = useState(false);
 
     useEffect(() => {
+        setLists(initialList)
+    }, [initialList])
+
+    useEffect(() => {
         handleListChange()
     }, [lists]);
 
