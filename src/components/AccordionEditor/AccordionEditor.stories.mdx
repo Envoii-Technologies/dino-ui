@@ -23,6 +23,8 @@ export const Template = (args) => (
 	<Story
 		name="Default"
 		args={{
+			onChangeList: (data) => console.log(data),
+			initialOpenMenus: [true, false],
 			initialList: [
 				{
 					name: 'List 1',
