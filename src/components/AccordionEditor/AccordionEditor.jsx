@@ -54,132 +54,145 @@ export const AccordionEditor = ({ className, initialList, initialOpenMenus, onCh
 	}, [focusedListIndex, lists]);
 
 	return (
-		<DragDropContext onDragEnd={onDragEnd}>
-			<div className={`AccordionEditor ${className || ''}`} {...props}>
+		<>
+			<DragDropContext onDragEnd={onDragEnd}>
+				<div className={`AccordionEditor ${className || ''}`} {...props}>
+					{
+						isEditable &&
+						(
+							<div className='AccordionEditor__newList'>
+								<button className='AccordionEditor__newList Item' onClick={addList}>
+									<FontAwesomeIcon className='AccordionEditor__newList__icon' icon={faPlus} />
+									<Text>Klasse hinzufügen</Text>
+								</button>
+							</div>
+						)
+					}
 
-				{
-					isEditable &&
-					(
-						<div className='AccordionEditor__newList'>
-							<button className='AccordionEditor__newList Item' onClick={addList}>
-								<FontAwesomeIcon className='AccordionEditor__newList__icon' icon={faPlus} />
-								<Text>Klasse hinzufügen</Text>
-							</button>
-						</div>
-					)
-				}
-
-				{
-					lists.map((list, listIndex) => (
-						<div
-							className='AccordionEditor__list'
-							key={listIndex}
-						>
-							<div className='AccordionEditor__list__name'>
-								<div className="AccordionEditor__list__name__wrapper Item">
-									<input
-										disabled={!isEditable}
-										type="text"
-										value={list.name}
-										onChange={(e) => handleListNameChange(listIndex, e.target.value)}
-										id={`listNameInput${listIndex}`}
-										placeholder="Neue Liste"
-									/>
-
-									<button className='AccordionEditor__list__name__toggle' onClick={() => toggleMenu(listIndex)}>
-										<FontAwesomeIcon
-
-											icon={openMenus[listIndex] ? faChevronUp : faChevronDown}
+					{
+						lists.map((list, listIndex) => (
+							<div
+								className='AccordionEditor__list'
+								key={listIndex}
+							>
+								<div className='AccordionEditor__list__name'>
+									<div className="AccordionEditor__list__name__wrapper Item">
+										<input
+											disabled={!isEditable}
+											type="text"
+											value={list.name}
+											onChange={(e) => handleListNameChange(listIndex, e.target.value)}
+											id={`listNameInput${listIndex}`}
+											placeholder="Neue Liste"
 										/>
-									</button>
-								</div>
 
-								<button className='AccordionEditor__list__name__delete'>
+										<button className='AccordionEditor__list__name__toggle' onClick={() => toggleMenu(listIndex)}>
+											<FontAwesomeIcon
+
+												icon={openMenus[listIndex] ? faChevronUp : faChevronDown}
+											/>
+										</button>
+									</div>
+
 									{
-										list.items.length === 0 &&
+										isEditable &&
 										(
-											<FontAwesomeIcon icon={faTrash} onClick={() => deleteList(listIndex)} />
+											<button className='AccordionEditor__list__name__delete'>
+												{
+													list.items.length === 0 &&
+													(
+														<FontAwesomeIcon icon={faTrash} onClick={() => deleteList(listIndex)} />
+													)
+												}
+											</button>
 										)
 									}
-								</button>
-
-							</div>
-
-							<Droppable droppableId={`list${listIndex}`}>
-								{(provided) => (
-									<div
-										className='AccordionEditor__list__sublist'
-										ref={provided.innerRef}
-										{...provided.droppableProps}
-										style={{
-											display: openMenus[listIndex] ? 'block' : 'none',
-										}}
-									>
-										{
-											isEditable &&
-											(
-												<div className='AccordionEditor__list__sublist__newItem'>
-													<button className='AccordionEditor__list__sublist__newItem__item Item' onClick={() => addItemToList(listIndex)}>
-														<FontAwesomeIcon className='AccordionEditor__list__sublist__newItem__icon' icon={faPlus} />
-														<Text>Klassenmerkmal definieren</Text>
-													</button>
-												</div>
-											)
-										}
 
 
-										{list.items.map((item, itemIndex) => (
-											<Draggable key={item.id} draggableId={item.id} index={itemIndex}>
-												{(provided) => (
-													<div
-														className='AccordionEditor__list__sublist__item'
-														ref={provided.innerRef}
-														{...provided.draggableProps}
-														style={{
-															...provided.draggableProps.style,
-														}}
-													>
-														<div className="AccordionEditor__list__sublist__item__wrapper Item">
-															<input
-																disabled={!isEditable}
-																type="text"
-																value={item.content}
-																onChange={(e) => handleItemNameChange(listIndex, itemIndex, e.target.value)}
-																id={`listEntryNameInput${listIndex}-${itemIndex}`}
-																placeholder='Neues Merkmal'
-															/>
+								</div>
+
+								<Droppable droppableId={`list${listIndex}`}>
+									{(provided) => (
+										<div
+											className='AccordionEditor__list__sublist'
+											ref={provided.innerRef}
+											{...provided.droppableProps}
+											style={{
+												display: openMenus[listIndex] ? 'block' : 'none',
+											}}
+										>
+											{
+												isEditable &&
+												(
+													<div className='AccordionEditor__list__sublist__newItem'>
+														<button className='AccordionEditor__list__sublist__newItem__item Item' onClick={() => addItemToList(listIndex)}>
+															<FontAwesomeIcon className='AccordionEditor__list__sublist__newItem__icon' icon={faPlus} />
+															<Text>Klassenmerkmal definieren</Text>
+														</button>
+													</div>
+												)
+											}
+
+
+											{list.items.map((item, itemIndex) => (
+												<Draggable key={item.id} draggableId={item.id} index={itemIndex}>
+													{(provided) => (
+														<div
+															className='AccordionEditor__list__sublist__item'
+															ref={provided.innerRef}
+															{...provided.draggableProps}
+															style={{
+																...provided.draggableProps.style,
+															}}
+														>
+															<div className="AccordionEditor__list__sublist__item__wrapper Item">
+																<input
+																	disabled={!isEditable}
+																	type="text"
+																	value={item.content}
+																	onChange={(e) => handleItemNameChange(listIndex, itemIndex, e.target.value)}
+																	id={`listEntryNameInput${listIndex}-${itemIndex}`}
+																	placeholder='Neues Merkmal'
+																/>
+																{
+																	isEditable &&
+																	(
+																		<div className="AccordionEditor__list__sublist__item__wrapper__drag"
+
+																			{...provided.dragHandleProps}
+																		>
+																			<FontAwesomeIcon icon={faGripVertical} />
+																		</div>
+																	)
+																}
+
+															</div>
 															{
 																isEditable &&
 																(
-																	<div className="AccordionEditor__list__sublist__item__wrapper__drag"
-
-																		{...provided.dragHandleProps}
+																	<span
+																		className='AccordionEditor__list__sublist__item__wrapper__delete'
+																		onClick={() => deleteItem(listIndex, itemIndex)}
 																	>
-																		<FontAwesomeIcon icon={faGripVertical} />
-																	</div>
+																		<FontAwesomeIcon icon={faTrash} onClick={() => deleteList(listIndex)} />
+																	</span>
 																)
 															}
 
 														</div>
-														<span
-															className='AccordionEditor__list__sublist__item__wrapper__delete'
-															onClick={() => deleteItem(listIndex, itemIndex)}
-														>
-															<FontAwesomeIcon icon={faTrash} onClick={() => deleteList(listIndex)} />
-														</span>
-													</div>
-												)}
-											</Draggable>
-										))}
-										{provided.placeholder}
+													)}
+												</Draggable>
+											))}
+											{provided.placeholder}
 
-									</div>
-								)}
-							</Droppable>
-						</div>
-					))}
-			</div>
-		</DragDropContext>
+										</div>
+									)}
+								</Droppable>
+							</div>
+						))}
+				</div>
+			</DragDropContext>
+		</>
 	);
 };
 
