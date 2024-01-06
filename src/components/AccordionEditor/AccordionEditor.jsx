@@ -10,7 +10,7 @@ import './AccordionEditor.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp, faGripVertical, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 
-export const AccordionEditor = ({ className, initialList, initialOpenMenus, onChangeList, ...props }) => {
+export const AccordionEditor = ({ className, initialList, initialOpenMenus, onChangeList, isEditable, ...props }) => {
 	const {
 		lists,
 		onDragEnd,
@@ -26,11 +26,11 @@ export const AccordionEditor = ({ className, initialList, initialOpenMenus, onCh
 	} = useAccordionEditor(initialList, initialOpenMenus);
 
 	useEffect(() => {
-        onChangeList({
+		onChangeList({
 			lists: lists,
 			open: openMenus
 		})
-    }, [lists, openMenus]);
+	}, [lists, openMenus]);
 
 	useEffect(() => {
 		if (focusedListIndex !== null) {
@@ -57,12 +57,17 @@ export const AccordionEditor = ({ className, initialList, initialOpenMenus, onCh
 		<DragDropContext onDragEnd={onDragEnd}>
 			<div className={`AccordionEditor ${className || ''}`} {...props}>
 
-				<div className='AccordionEditor__newList'>
-					<button className='AccordionEditor__newList Item' onClick={addList}>
-						<FontAwesomeIcon className='AccordionEditor__newList__icon' icon={faPlus} />
-						<Text>Klasse hinzufügen</Text>
-					</button>
-				</div>
+				{
+					isEditable &&
+					(
+						<div className='AccordionEditor__newList'>
+							<button className='AccordionEditor__newList Item' onClick={addList}>
+								<FontAwesomeIcon className='AccordionEditor__newList__icon' icon={faPlus} />
+								<Text>Klasse hinzufügen</Text>
+							</button>
+						</div>
+					)
+				}
 
 				{
 					lists.map((list, listIndex) => (
@@ -73,6 +78,7 @@ export const AccordionEditor = ({ className, initialList, initialOpenMenus, onCh
 							<div className='AccordionEditor__list__name'>
 								<div className="AccordionEditor__list__name__wrapper Item">
 									<input
+										disabled={!isEditable}
 										type="text"
 										value={list.name}
 										onChange={(e) => handleListNameChange(listIndex, e.target.value)}
@@ -109,13 +115,19 @@ export const AccordionEditor = ({ className, initialList, initialOpenMenus, onCh
 											display: openMenus[listIndex] ? 'block' : 'none',
 										}}
 									>
-										<div className='AccordionEditor__list__sublist__newItem'>
-											<button className='AccordionEditor__list__sublist__newItem__item Item' onClick={() => addItemToList(listIndex)}>
-												<FontAwesomeIcon className='AccordionEditor__list__sublist__newItem__icon' icon={faPlus} />
-												<Text>Klassenmerkmal definieren</Text>
-											</button>
-										</div>
-										
+										{
+											isEditable &&
+											(
+												<div className='AccordionEditor__list__sublist__newItem'>
+													<button className='AccordionEditor__list__sublist__newItem__item Item' onClick={() => addItemToList(listIndex)}>
+														<FontAwesomeIcon className='AccordionEditor__list__sublist__newItem__icon' icon={faPlus} />
+														<Text>Klassenmerkmal definieren</Text>
+													</button>
+												</div>
+											)
+										}
+
+
 										{list.items.map((item, itemIndex) => (
 											<Draggable key={item.id} draggableId={item.id} index={itemIndex}>
 												{(provided) => (
@@ -129,18 +141,25 @@ export const AccordionEditor = ({ className, initialList, initialOpenMenus, onCh
 													>
 														<div className="AccordionEditor__list__sublist__item__wrapper Item">
 															<input
+																disabled={!isEditable}
 																type="text"
 																value={item.content}
 																onChange={(e) => handleItemNameChange(listIndex, itemIndex, e.target.value)}
 																id={`listEntryNameInput${listIndex}-${itemIndex}`}
 																placeholder='Neues Merkmal'
 															/>
-															<div className="AccordionEditor__list__sublist__item__wrapper__drag"
+															{
+																isEditable &&
+																(
+																	<div className="AccordionEditor__list__sublist__item__wrapper__drag"
 
-																{...provided.dragHandleProps}
-															>
-																<FontAwesomeIcon icon={faGripVertical} />
-															</div>
+																		{...provided.dragHandleProps}
+																	>
+																		<FontAwesomeIcon icon={faGripVertical} />
+																	</div>
+																)
+															}
+
 														</div>
 														<span
 															className='AccordionEditor__list__sublist__item__wrapper__delete'
@@ -153,7 +172,7 @@ export const AccordionEditor = ({ className, initialList, initialOpenMenus, onCh
 											</Draggable>
 										))}
 										{provided.placeholder}
-										
+
 									</div>
 								)}
 							</Droppable>
@@ -185,11 +204,13 @@ AccordionEditor.propTypes = {
 	).isRequired,
 	initialOpenMenus: PropTypes.array,
 	onChangeList: PropTypes.func,
+	isEditable: PropTypes.bool,
 };
 
 AccordionEditor.defaultProps = {
 	className: undefined,
 	initialList: [],
 	initialOpenMenus: undefined,
-	onChangeList: (data) => console.log(data)
+	onChangeList: (data) => console.log(data),
+	isEditable: false,
 };
