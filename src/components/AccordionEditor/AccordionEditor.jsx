@@ -10,7 +10,7 @@ import './AccordionEditor.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp, faGripVertical, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 
-export const AccordionEditor = ({ className, initialList, ...props }) => {
+export const AccordionEditor = ({ className, initialList, initialOpenMenus, onChangeList, ...props }) => {
 	const {
 		lists,
 		onDragEnd,
@@ -19,14 +19,18 @@ export const AccordionEditor = ({ className, initialList, ...props }) => {
 		deleteItem,
 		addItemToList,
 		addList,
-		newItemContents,
-		handleNewItemChange,
 		deleteList,
 		handleListNameChange,
 		handleItemNameChange,
-
 		focusedListIndex,
-	} = useAccordionEditor(initialList);
+	} = useAccordionEditor(initialList, initialOpenMenus);
+
+	useEffect(() => {
+        onChangeList({
+			lists: lists,
+			open: openMenus
+		})
+    }, [lists, openMenus]);
 
 	useEffect(() => {
 		if (focusedListIndex !== null) {
@@ -179,9 +183,13 @@ AccordionEditor.propTypes = {
 			).isRequired,
 		})
 	).isRequired,
+	initialOpenMenus: PropTypes.array,
+	onChangeList: PropTypes.func,
 };
 
 AccordionEditor.defaultProps = {
 	className: undefined,
 	initialList: [],
+	initialOpenMenus: undefined,
+	onChangeList: (data) => console.log(data)
 };

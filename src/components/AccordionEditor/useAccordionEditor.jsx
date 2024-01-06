@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef, createRef } from 'react';
 
-export const useAccordionEditor = (initialList) => {
+export const useAccordionEditor = (initialList, initialOpenMenus) => {
     const [lists, setLists] = useState(initialList);
-    const [openMenus, setOpenMenus] = useState(Array(initialList.length).fill(false));
+    const [openMenus, setOpenMenus] = useState(initialOpenMenus || Array(initialList.length).fill(false));
     const [newItemContents, setNewItemContents] = useState(Array(initialList.length).fill(''));
     const [focusedListIndex, setFocusedListIndex] = useState(null);
 
     useEffect(() => {
-        console.log(lists);
+        handleListChange()
     }, [lists]);
 
     const onDragEnd = (result) => {
@@ -63,16 +63,16 @@ export const useAccordionEditor = (initialList) => {
         });
     
         // Debugging-Logs
-        console.log('Adding item to list:', listIndex);
-        console.log('New item:', newItem);
+        // console.log('Adding item to list:', listIndex);
+        // console.log('New item:', newItem);
     
         // Setzen Sie den Fokus auf das neu erstellte Element
         setTimeout(() => {
             const inputElement = document.getElementById(`listEntryNameInput${listIndex}-${0}`);
-            console.log('Input element:', inputElement);
+            // console.log('Input element:', inputElement);
             if (inputElement) {
                 inputElement.focus();
-                console.log('Focusing on input element.');
+                // console.log('Focusing on input element.');
             } else {
                 console.log('Input element not found.');
             }
@@ -127,6 +127,10 @@ export const useAccordionEditor = (initialList) => {
             return updatedLists;
         });
     };
+
+    const handleListChange = () => {
+        return lists;
+    }
 
     return {
         lists,
