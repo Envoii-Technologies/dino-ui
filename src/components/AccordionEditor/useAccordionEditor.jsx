@@ -5,6 +5,8 @@ export const useAccordionEditor = (initialList, initialOpenMenus) => {
     const [openMenus, setOpenMenus] = useState(initialOpenMenus || Array(initialList.length).fill(false));
     const [newItemContents, setNewItemContents] = useState(Array(initialList.length).fill(''));
     const [focusedListIndex, setFocusedListIndex] = useState(null);
+    const [showDeleteListWindow, setShowDeleteWindow] = useState(false);
+    const [showDeleteItemWindow, setShowDeleteItemWindow] = useState(false);
 
     useEffect(() => {
         handleListChange()
@@ -48,12 +50,12 @@ export const useAccordionEditor = (initialList, initialOpenMenus) => {
         updatedLists[listIndex].items.splice(itemIndex, 1);
         setLists(updatedLists);
     };
-    
+
     const addItemToList = (listIndex) => {
         const updatedLists = [...lists];
         const content = newItemContents[listIndex].trim();
         const newItem = { id: Date.now().toString(), content: "" };
-    
+
         updatedLists[listIndex].items.unshift(newItem);
         setLists(updatedLists);
         setNewItemContents((prevContents) => {
@@ -61,11 +63,11 @@ export const useAccordionEditor = (initialList, initialOpenMenus) => {
             newContents[listIndex] = '';
             return newContents;
         });
-    
+
         // Debugging-Logs
         // console.log('Adding item to list:', listIndex);
         // console.log('New item:', newItem);
-    
+
         // Setzen Sie den Fokus auf das neu erstellte Element
         setTimeout(() => {
             const inputElement = document.getElementById(`listEntryNameInput${listIndex}-${0}`);
@@ -92,11 +94,11 @@ export const useAccordionEditor = (initialList, initialOpenMenus) => {
             name: '',
             items: [],
         };
-    
+
         setLists((prevLists) => [newList, ...prevLists]);
         setOpenMenus((prevOpenMenus) => [true, ...prevOpenMenus]);
         setNewItemContents((prevContents) => [...prevContents, '']);
-    
+
         // Setzen Sie den Fokus auf das neu erstellte Listenelement nach dem Rendern
         setTimeout(() => {
             const inputElement = document.getElementById(`listNameInput${0}`);
@@ -146,5 +148,9 @@ export const useAccordionEditor = (initialList, initialOpenMenus) => {
         handleListNameChange,
         handleItemNameChange,
         focusedListIndex,
+        showDeleteListWindow,
+        setShowDeleteWindow,
+        showDeleteItemWindow,
+        setShowDeleteItemWindow,
     };
 };
